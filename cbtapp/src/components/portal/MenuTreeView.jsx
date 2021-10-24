@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import { alpha, styled } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem, { treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
@@ -94,38 +96,48 @@ const StyledTreeItem = styled((props) => (
 }));
 
 const data = [
-    { "nodeId": "1", label: "컴퓨터" }
+    { "parentId": "-1", "nodeId": "1", label: "컴퓨터/프로그래밍" },
+    { "parentId": "1", "nodeId": "2", label: "정보처리" },
+    { "parentId": "1", "nodeId": "3", label: "컴퓨터활용능력" },
+    { "parentId": "1", "nodeId": "4", label: "워드프로세서" },
+    { "parentId": "1", "nodeId": "5", label: "디자인" },
+    { "parentId": "2", "nodeId": "6", label: "정보처리기사" },
+    { "parentId": "2", "nodeId": "7", label: "정보처리산업기사" },
+    { "parentId": "2", "nodeId": "8", label: "정보처리기능사" },
+    { "parentId": "3", "nodeId": "9", label: "컴퓨터활용능력1급" },
+    { "parentId": "3", "nodeId": "10", label: "컴퓨터활용능력2급" },
+    { "parentId": "4", "nodeId": "11", label: "워드프로세서1급" },
+    { "parentId": "4", "nodeId": "12", label: "워드프로세서2급" },
+    { "parentId": "5", "nodeId": "13", label: "컴퓨터그래픽스운용기능사" },
 ];
+
+function getNodes(parentId) {
+    var source = data.filter(x => x.parentId == parentId).map(item => {
+        return (
+            <Link style={{ textDecoration: 'none', color: '#000000' }}
+                  to={"/" + item.nodeId}>
+                <StyledTreeItem 
+                    nodeId={item.nodeId} 
+                    label={item.label}>
+                    {getNodes(item.nodeId)}
+                </StyledTreeItem>
+            </Link>);
+    });
+    return source;
+} 
 
 export default function CustomizedTreeView() {
   return (
     <TreeView
       aria-label="customized"
-      defaultExpanded={['1']}
+      defaultExpanded={['1', '2', '3', '4', '5']}
       defaultCollapseIcon={<MinusSquare />}
       defaultExpandIcon={<PlusSquare />}
       defaultEndIcon={<CloseSquare />}
       sx={{ height: 264, flexGrow: 1, maxWidth: 400, margin: '0px', overflowY: 'auto' }}
     >
-      <StyledTreeItem nodeId="1" label="컴퓨터">
-        <StyledTreeItem nodeId="2" label="정보처리">
-          <StyledTreeItem nodeId="3" label="정보처리기사"/>
-          <StyledTreeItem nodeId="4" label="정보처리산업기사"/>
-          <StyledTreeItem nodeId="5" label="정보처리기능사"/>
-        </StyledTreeItem>
-        <StyledTreeItem nodeId="6" label="컴퓨터활용능력">
-          <StyledTreeItem nodeId="7" label="컴퓨터활용능력 1급"/>
-          <StyledTreeItem nodeId="8" label="컴퓨터활용능력 2급"/>
-          <StyledTreeItem nodeId="9" label="컴퓨터활용능력 3급"/>
-        </StyledTreeItem>
-        <StyledTreeItem nodeId="10" label="워드프로세서">
-          <StyledTreeItem nodeId="11" label="워드프로세서 1급"/>
-          <StyledTreeItem nodeId="12" label="워드프로세서 2급"/>
-        </StyledTreeItem>
-        <StyledTreeItem nodeId="13" label="디자인">
-          <StyledTreeItem nodeId="14" label="그래픽스운용기능사"/>
-        </StyledTreeItem>
-      </StyledTreeItem>
+        {getNodes("-1")}
+      
     </TreeView>
   );
 }
