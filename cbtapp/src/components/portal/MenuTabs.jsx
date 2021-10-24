@@ -51,7 +51,7 @@ export default function CustomizedTabs() {
             value={value}
             onChange={handleChange}
             aria-label="styled tabs example">
-            <StyledTab label="국가 시험" />
+            <StyledTab label="자격 시험" />
             <StyledTab label="개발자 테스트" />
         </StyledTabs>
     </Box>
