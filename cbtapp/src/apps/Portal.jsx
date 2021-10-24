@@ -6,7 +6,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import TopLayer from '../components/portal/TopLayer';
 import LeftLayer from '../components/portal/LeftLayer';
+
 import '../design/default.css';
+
+import Cbt from '../pages/Cbt';
+
 const drawerWidth = 240;
 
 const theme = createTheme({
@@ -43,7 +47,7 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer isOpen={isOpen}/>
                         <main className={classes.content}>
-                            <Route path='/pages1' component={<h1>qqq</h1>}/>
+                            <Route path='/cbt' component={Cbt}/>
                         </main>
                     </div>
                 </div>

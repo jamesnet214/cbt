@@ -96,32 +96,41 @@ const StyledTreeItem = styled((props) => (
 }));
 
 const data = [
-    { "parentId": "-1", "nodeId": "1", label: "컴퓨터/프로그래밍" },
-    { "parentId": "1", "nodeId": "2", label: "정보처리" },
-    { "parentId": "1", "nodeId": "3", label: "컴퓨터활용능력" },
-    { "parentId": "1", "nodeId": "4", label: "워드프로세서" },
-    { "parentId": "1", "nodeId": "5", label: "디자인" },
-    { "parentId": "2", "nodeId": "6", label: "정보처리기사" },
-    { "parentId": "2", "nodeId": "7", label: "정보처리산업기사" },
-    { "parentId": "2", "nodeId": "8", label: "정보처리기능사" },
-    { "parentId": "3", "nodeId": "9", label: "컴퓨터활용능력1급" },
-    { "parentId": "3", "nodeId": "10", label: "컴퓨터활용능력2급" },
-    { "parentId": "4", "nodeId": "11", label: "워드프로세서1급" },
-    { "parentId": "4", "nodeId": "12", label: "워드프로세서2급" },
-    { "parentId": "5", "nodeId": "13", label: "컴퓨터그래픽스운용기능사" },
+    { "type": 'D', "parentId": "-1", "nodeId": "1", label: "컴퓨터/프로그래밍" },
+    { "type": 'D',"parentId": "1", "nodeId": "2", label: "정보처리" },
+    { "type": 'D',"parentId": "1", "nodeId": "3", label: "컴퓨터활용능력" },
+    { "type": 'D',"parentId": "1", "nodeId": "4", label: "워드프로세서" },
+    { "type": 'D',"parentId": "1", "nodeId": "5", label: "디자인" },
+    { "type": 'W',"parentId": "2", "nodeId": "6", label: "정보처리기사" },
+    { "type": 'W',"parentId": "2", "nodeId": "7", label: "정보처리산업기사" },
+    { "type": 'W',"parentId": "2", "nodeId": "8", label: "정보처리기능사" },
+    { "type": 'W',"parentId": "3", "nodeId": "9", label: "컴퓨터활용능력1급" },
+    { "type": 'W',"parentId": "3", "nodeId": "10", label: "컴퓨터활용능력2급" },
+    { "type": 'W',"parentId": "4", "nodeId": "11", label: "워드프로세서1급" },
+    { "type": 'W',"parentId": "4", "nodeId": "12", label: "워드프로세서2급" },
+    { "type": 'W',"parentId": "5", "nodeId": "13", label: "컴퓨터그래픽스운용기능사" },
 ];
 
 function getNodes(parentId) {
     var source = data.filter(x => x.parentId == parentId).map(item => {
         return (
+            item.type == 'W' ?
             <Link style={{ textDecoration: 'none', color: '#000000' }}
-                  to={"/" + item.nodeId}>
+                  to={"/cbt?id=" + item.nodeId}>
                 <StyledTreeItem 
                     nodeId={item.nodeId} 
                     label={item.label}>
                     {getNodes(item.nodeId)}
                 </StyledTreeItem>
-            </Link>);
+            </Link>
+            : 
+            
+            <StyledTreeItem 
+                nodeId={item.nodeId} 
+                label={item.label}>
+                {getNodes(item.nodeId)}
+            </StyledTreeItem>
+        );
     });
     return source;
 } 
