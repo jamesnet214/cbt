@@ -20,13 +20,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { purple } from '@mui/material/colors';
+
+import TopLayer from '../components/portal/TopLayer';
 
 const theme = createTheme({
     palette: {
       primary: {
         // Purple and green play nicely together.
-        main: '#4c1b63',
+        main: '#5e4473',
       },
       secondary: {
         // This is green.A700 as hex.
@@ -34,13 +35,6 @@ const theme = createTheme({
       },
     },
   });
-
-const useStyles = makeStyles((theme) => ({
-  
-    toolbar: {
-        height: '20px'
-      }
-}));
 
 
 const drawerWidth = 240;
@@ -92,11 +86,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function Portal(props) {
-    const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
+    const openChanged = (isOpen) => {
+        setOpen(isOpen);
     };
 
     const handleDrawerClose = () => {
@@ -107,25 +100,9 @@ export default function Portal(props) {
         <ThemeProvider theme={theme}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar aria-setsize=""
-                    position="fixed" 
-                    open={open}>
-                    <Toolbar 
-                        className={classes.toolbar}
-                        variant="dense">
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            sx={{ mr: 2, ...(open && { display: 'none' }) }}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" noWrap component="div">
-                            CBT 테스트
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                <TopLayer 
+                    isOpen={open}
+                    openChanged={openChanged}/>
                 <Drawer
                     sx={{
                         width: drawerWidth,

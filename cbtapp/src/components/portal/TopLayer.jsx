@@ -1,11 +1,15 @@
 import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
+
+import MenuTabs from './MenuTabs.jsx';
 
 const drawerWidth = 240;
 
@@ -26,27 +30,38 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-export default function MenuBar(props) {
-    const [open, setOpen] = React.useState(false);
+const useStyles = makeStyles((theme) => ({
+  
+    toolbar: {
+        height: '20px'
+      }
+}));
+
+export default function TopLayer(props) {
+    const classes = useStyles();
+    const { isOpen, openChanged } = props;
     
     const handleDrawerOpen = () => {
-        setOpen(true);
+        openChanged(!isOpen);
     };
 
     return (
-        <AppBar position="fixed" open={open}>
-            <Toolbar>   
+        <AppBar 
+            aria-setsize=""
+            position="fixed" 
+            open={isOpen}>
+            <Toolbar
+                className={classes.toolbar}
+                variant="dense">   
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    sx={{ mr: 2, ...(open && { display: 'none' }) }}>
+                    sx={{ mr: 2, ...(isOpen && { display: 'none' }) }}>
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">      
-                    Persistent drawer
-                </Typography>
+                <MenuTabs/>
             </Toolbar>
       </AppBar>
     );
