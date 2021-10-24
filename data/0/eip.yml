@@ -1,0 +1,169 @@
+﻿- seq: 0
+  year: 2021
+  number: 1
+  subject: 1
+  question: 운영체제 분석을 위해 리눅스에서 버전을 확인하고자 할 때 사용되는 명령어는?
+  answers:
+    - isAnswer: n
+      example: ls
+    - isAnswer: y
+      example: cat
+    - isAnswer: n
+      example: pwd
+    - isAnswer: y
+      example: uname
+- seq: 1
+  year: 2021
+  number: 1
+  subject: 1
+  question: 통신을 위한 프로그램을 생성하여 포트를 할당하고, 클라이언트의 통신 요청 시 클라이언트와 연결하는 내·외부 송·수신 연계기술은?
+  answers:
+    - isAnswer: n
+      example: DB링크 기술
+    - isAnswer: y
+      example: 소켓 기술
+    - isAnswer: n
+      example: 스크럼 기술
+    - isAnswer: n
+      example: 프로토타입 기술
+- seq: 2
+  year: 2021
+  number: 1
+  subject: 1
+  question: 객체지향 개념에서 연관된 데이터와 함수를 함께 묶어 외부와 경계를 만들고 필요한 인터페이스만을 밖으로 드러내는 과정은?
+  answers:
+    - isAnswer: n
+      example: 메시지(Message)
+    - isAnswer: y
+      example: 캡슐화(Encapsulation)
+    - isAnswer: n
+      example: 다형성(Polymorphism)
+    - isAnswer: n
+      example: 상속(Inheritance)
+- seq: 3
+  year: 2021
+  number: 1
+  subject: 1
+  question: GoF(Gangs of Four) 디자인 패턴의 생성패턴에 속하지 않는 것은?
+  answers:
+    - isAnswer: n
+      example: 추상 팩토리(Abstract Factory)
+    - isAnswer: n
+      example: 빌더(Builder)
+    - isAnswer: y
+      example: 어댑터(Adapter)
+    - isAnswer: n
+      example: 싱글턴(Singleton)
+- seq: 4
+  year: 2021
+  number: 1
+  subject: 1
+  question: 응용프로그램의 프로시저를 사용하여 원격 프로시저를 로컬 프로시저처럼 호출하는 방식의 미들웨어는?
+  answers:
+    - isAnswer: n
+      example: WAS(Web Application Server)
+    - isAnswer: n
+      example: MOM(Message Oriented Middleware)
+    - isAnswer: y
+      example: RPC(Remote Procedure Call)
+    - isAnswer: n
+      example: ORB(Object Request Broker)
+- seq: 5
+  year: 2021
+  number: 1
+  subject: 1
+  question: 바람직한 소프트웨어 설계 지침이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 모듈의 기능을 예측할 수 있도록 정의한다.
+    - isAnswer: n
+      example: 이식성을 고려한다.
+    - isAnswer: n
+      example: 적당한 모듈의 크기를 유지한다.
+    - isAnswer: y
+      example: 가능한 모듈을 독립적으로 생성하고 결합도를 최대화한다.
+- seq: 6
+  year: 2021
+  number: 1
+  subject: 1
+  question: 객체지향 분석 방법론 중 Coad-Yourdon 방법에 해당하는 것은?
+  answers:
+    - isAnswer: y
+      example: E-R 다이어그램을 사용하여 객체의 행위를 데이터 모델링하는데 초점을 둔 방법이다.
+    - isAnswer: n
+      example: 객체, 동적, 기능 모델로 나누어 수행하는 방법이다.
+    - isAnswer: n
+      example: 미시적 개발 프로세스와 거시적 개발 프로세스를 모두 사용하는 방법이다.
+    - isAnswer: n
+      example: Use-Case를 강조하여 사용하는 방법이다.
+- seq: 7
+  year: 2021
+  number: 1
+  subject: 1
+  question: 현행 시스템 분석에서 고려하지 않아도 되는 항목은?
+  answers:
+    - isAnswer: n
+      example: DBMS 분석
+    - isAnswer: n
+      example: 네트워크 분석
+    - isAnswer: n
+      example: 운영체제 분석
+    - isAnswer: y
+      example: 인적 자원 분석
+- seq: 8
+  year: 2021
+  number: 1
+  subject: 1
+  question: 분산 컴퓨팅 환경에서 서로 다른 기종 간의 하드웨어나 프로토콜, 통신환경 등을 연결하여 응용프로그램과 운영환경 간에 원만한 통신이 이루어질 수 있게 서비스를 제공하는 소프트웨어는?
+  answers:
+    - isAnswer: y
+      example: 미들웨어
+    - isAnswer: n
+      example: 하드웨어
+    - isAnswer: n
+      example: 오픈허브웨어
+    - isAnswer: n
+      example: 그레이웨어
+- seq: 9
+  year: 2021
+  number: 2
+  subject: 1
+  question: 시스템의 구성요소로 볼 수 없는 것은?
+  answers:
+    - isAnswer: n
+      example: Process
+    - isAnswer: n
+      example: Feedback
+    - isAnswer: y
+      example: Maintenance
+    - isAnswer: n
+      example: Control
+- seq: 10
+  year: 2021
+  number: 2
+  subject: 1
+  question: 유스케이스(Usecase)에 대한 설명 중 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: 유스케이스 다이어그램은 개발자의 요구를 추출하고 분석하기 위해 주로 사용한다.
+    - isAnswer: y
+      example: 액터는 대상 시스템과 상호 작용하는 사람이나 다른 시스템에 의한 역할이다.
+    - isAnswer: n
+      example: 사용자 액터는 본 시스템과 데이터를 주고받는 연동 시스템을 의미한다.
+    - isAnswer: n
+      example: 연동의 개념은 일방적으로 데이터를 파일이나 정해진 형식으로 넘겨주는 것을 의미한다.
+- seq: 11
+  year: 2021
+  number: 2
+  subject: 1
+  question: 객체지향 기법에서 같은 클래스에 속한 각각의 객체를 의미하는 것은?
+  answers:
+    - isAnswer: y
+      example: instance
+    - isAnswer: n
+      example: message
+    - isAnswer: n
+      example: method
+    - isAnswer: n
+      example: module
+
