@@ -18,7 +18,7 @@ export default function(props) {
     }
 
     return (
-        <AppBar position={'relative'} {...props}>
+        <AppBar position={'relative'} {...props} elevation="1">
             <Toolbar variant="dense">
                 <MenuButton menuClick={menuClick}/>
                 <MenuTabs/>

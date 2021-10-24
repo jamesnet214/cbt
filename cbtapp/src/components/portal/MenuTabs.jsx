@@ -17,7 +17,7 @@ const StyledTabs = styled((props) => (
   },
   '& .MuiTabs-indicatorSpan': {
     width: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
   },
 });
 
@@ -51,7 +51,7 @@ export default function CustomizedTabs() {
             value={value}
             onChange={handleChange}
             aria-label="styled tabs example">
-            <StyledTab label="자격 시험" />
+            <StyledTab label="자격시험 테스트" />
             <StyledTab label="개발자 테스트" />
         </StyledTabs>
     </Box>
