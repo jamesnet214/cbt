@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Portal from './apps/Portal';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Portal />
-  </React.StrictMode>,
+  <BrowserRouter>
+      <Portal/>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
