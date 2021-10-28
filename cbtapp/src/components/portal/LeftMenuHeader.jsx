@@ -10,14 +10,14 @@ const FireNav = styled(List)({
   '& .MuiListItemButton-root': {
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: '#f1f1f1'
+    backgroundColor: '#fcfcfc'
   },
   '& .MuiListItemIcon-root': {
     minWidth: 0,
     marginRight: 5,
   },
   '& .MuiSvgIcon-root': {
-    fontSize: 20,
+    fontSize: 0,
   },
 });
 
@@ -30,7 +30,7 @@ export default function LeftMenuHeader(props) {
                 sx={{ my: 0 }}
                 primary="필기시험 기출문제 목록"
                 primaryTypographyProps={{
-                  fontSize: 12,
+                  fontSize: 14,
                   fontWeight: 'medium',
                   letterSpacing: 0,
                 }}

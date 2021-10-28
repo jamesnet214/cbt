@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {useLocation} from "react-router-dom";
 import Box from '@mui/material/Box';
-import { Divider, Paper, Typography } from '@mui/material';
+import { Card, Divider, Paper, Typography } from '@mui/material';
 
 function getName(id) {
     var name = "이름없음";
@@ -31,8 +31,6 @@ export default function Cbt(props) {
     const search = useLocation().search;
     const id = new URLSearchParams(search).get('id');
 
-    console.log('dd');
-
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.json')
         .then(res => res.json())
@@ -42,22 +40,30 @@ export default function Cbt(props) {
       }, []);
 
     return (
-        <Box style={{ width: '600px' }}>
-            {/* <Typography children={getName(id)}/> */}
-
+        <Box style={{ maxWidth: '600px' }}>
+            <Typography children={getName(id)}/>
+            <br />
             {text == null ? null
             :
                 text.map((item, i) => {
                     return (
-                      <Paper variant="outlined"
-                             style={{ padding: '0px', margin: '0px 0px 20px 0px' }}>
-                      <Typography children={`${i + 1}. ${item.question}`}
-                                  style={{margin: '15px' }}/>
-                      <Divider/>
-                        <Box style={{ margin: '15px' }}>
-                            {initItemsTemplate(item.answers)}
+                        <Box>
+                            <Box style={{ margin: '0px 0px 5px 0px' }}>
+                            <Typography children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
+                                        variant="caption"/>
+                            </Box>
+                            <Card className="paper-question"
+                                style={{borderRadius: 10}}
+                                variant="outlined">
+                                <Box className="papar-question-content">
+                                    <Typography children={item.question}/>
+                                </Box>
+                                <Divider className="paper-question-divider"/>
+                                <Box className="papar-question-content">
+                                    {initItemsTemplate(item.answers)}
+                                </Box>
+                            </Card>
                         </Box>
-                      </Paper>
                     );
                  })
             }

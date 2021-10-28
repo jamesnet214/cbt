@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Route } from 'react-router';
 import { makeStyles, useTheme } from "@mui/styles";
+import { styled } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import TopLayer from '../components/portal/TopLayer';
@@ -28,29 +29,44 @@ const theme = createTheme({
   });
 
 export default function Portal(props) {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
     const isOpenChanged = (changedValue) => {
-        setIsOpen(changedValue);
+        setOpen(changedValue);
     }
-    const useStyles = makeStyles((theme) => ({ 
-        content: {
-            flexGrow: 1,
-            padding: "20px",
-        }
-    }));
-    const classes = useStyles();
+
+    const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+        ({ theme, open }) => ({
+          flexGrow: 1,
+          padding: theme.spacing(3),
+          transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+          marginLeft: `-${drawerWidth}px`,
+          ...(open && {
+            transition: theme.transitions.create('margin', {
+              easing: theme.transitions.easing.easeOut,
+              duration: theme.transitions.duration.enteringScreen,
+            }),
+            marginLeft: 0,
+          }),
+        }),
+      );
+
     return (
         <ThemeProvider theme={theme}>
             <div className={'root'}>
                 <div className={'drawerDiv'}>
-                    <TopLayer isOpen={isOpen} isOpenChanged={isOpenChanged} style={{ zIndex: 1 }}/>    
+                    <TopLayer isOpen={open} 
+                              isOpenChanged={isOpenChanged} 
+                              style={{ zIndex: 9999 }}/>    
                     <div className={'frame'}>
-                        <LeftLayer isOpen={isOpen}/>
-                        <main className={classes.content}>
+                        <LeftLayer isOpen={open}/>
+                        <Main open={open}>
                             <Route path='/cbt' component={Cbt}/>
                             <Route path='/dashboard' component={Dashboard}/>
-                        </main>
+                        </Main>
                     </div>
                 </div>
             </div>

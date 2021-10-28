@@ -11,15 +11,15 @@ import { useSpring, animated } from 'react-spring';
 
 function MinusSquare(props) {
   return (
-    <SvgIcon fontSize="inherit" style={{ width: 14, height: 14, color: '#bbbbbb' }} {...props}>
-      <path d="M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8H21L4,8V18L6.14,10H23.21L20.93,18.5C20.7,19.37 19.92,20 19,20Z" />
+    <SvgIcon fontSize="inherit" style={{ width: 14, height: 14, color: '#333333' }} {...props}>
+      <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
     </SvgIcon>
   );
 }
 
 function PlusSquare(props) {
   return (
-    <SvgIcon fontSize="inherit" style={{ width: 14, height: 14, color: '#bbbbbb' }} {...props}>
+    <SvgIcon fontSize="inherit" style={{ width: 14, height: 14, color: '#333333' }} {...props}>
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
     </SvgIcon>
   );
@@ -71,12 +71,15 @@ const StyledTreeItem = styled((props) => (
             },
         },
         [`& .${treeItemClasses.group}`]: {
-            marginLeft: 0,
-            paddingLeft: 10,
+            marginLeft: 15,
+            paddingLeft: 0,
             borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.2)}`,
         },
         [`& .${treeItemClasses.content}`]: {
             '& .MuiTreeItem-label': {
+                paddingTop: '4px',
+                paddingBottom: '4px',
+                paddingLeft: '0px',
                 fontSize: '12px',
                 marginLeft: 0,
                 fontFamily: [

@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import MenuTreeView from './MenuTreeView.jsx';
 import LeftMenuHeader from './LeftMenuHeader.jsx';
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 export default function LeftLayer(props) {
     const { isOpen } = props;
@@ -20,7 +20,6 @@ export default function LeftLayer(props) {
               width: drawerWidth,
               boxSizing: 'border-box',
               position: 'absolute',
-              zIndex: 0
                 },
             }}
             variant="persistent"
