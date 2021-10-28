@@ -18,7 +18,7 @@ const theme = createTheme({
     palette: {
       primary: {
         // Purple and green play nicely together.
-        main: '#34568B',
+        main: '#375373',
       },
       secondary: {
         // This is green.A700 as hex.

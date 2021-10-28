@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import {useLocation} from "react-router-dom";
+import Box from '@mui/material/Box';
+import { Divider, Paper, Typography } from '@mui/material';
 
 function getName(id) {
     var name = "이름없음";
@@ -14,57 +16,18 @@ function getName(id) {
     return name;
 }
 
-var json1 = [
-    { 
-      "seq": 0,
-      "subject": 1,
-      "question": "운영체제 분석을 위해 리눅스에서 버전을 확인하고자 할 때 사용되는 명령어는?",
-      "answers": [
-        { 
-          "isAnswer": "n",
-          "example": "ls" 
-        },
-        { 
-          "isAnswer": "n",
-          "example": "npm" 
-        },
-        { 
-          "isAnswer": "n",
-          "example": "pwd" 
-        },
-        { 
-          "isAnswer": "y",
-          "example": "uname" 
-        }
-      ]
-    },
-    { 
-      "seq": 1,
-      "subject": 1,
-      "question": "통신을 위한 프로그램을 생성하여 포트를 할당하고, 클라이언트의 통신 요청 시 클라이언트와 연결하는 내·외부 송·수신 연계기술은?",
-      "answers": [
-        { 
-          "isAnswer": "n",
-          "example": "DB링크 기술" 
-        },
-        { 
-          "isAnswer": "y",
-          "example": "소켓 기술" 
-        },
-        { 
-          "isAnswer": "n",
-          "example": "스크럼 기술" 
-        },
-        { 
-          "isAnswer": "n",
-          "example": "프로토타입 기술" 
-        }
-      ]
-    }
-  ]
+function initItemsTemplate(items) {
+    return items.map((answer, i) => {
+        return (
+            <Typography 
+                style={{ margin: '5px 0px 0px 0px' }}
+                children={`${i + 1}. ${answer.example}`}/>
+        );
+    })
+}
 
 export default function Cbt(props) {
-    const [text, setText] = React.useState('');
+    const [text, setText] = React.useState(null)
     const search = useLocation().search;
     const id = new URLSearchParams(search).get('id');
 
@@ -74,29 +37,30 @@ export default function Cbt(props) {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.json')
         .then(res => res.json())
         .then(res => {
-            console.log('log: ', res[0].question);
             setText(res);
         });
       }, []);
 
     return (
-        <div style={{ width: '600px',  }}>
-            <div>{getName(id)}</div>
-            {text != '' ?
-                text.map((item) => {
+        <Box style={{ width: '600px' }}>
+            {/* <Typography children={getName(id)}/> */}
+
+            {text == null ? null
+            :
+                text.map((item, i) => {
                     return (
-                        <div style={{ margin: '20px 0px 20px 0px' }}>
-                            {item.question}
-                            {item.answers.map((answer, i) => {
-                                return (
-                                    <div style={{ margin: '5px 0px 0px 0px' }}>{i + 1}. {answer.example}</div>
-                                );
-                            })}
-                        </div>
+                      <Paper variant="outlined"
+                             style={{ padding: '0px', margin: '0px 0px 20px 0px' }}>
+                      <Typography children={`${i + 1}. ${item.question}`}
+                                  style={{margin: '15px' }}/>
+                      <Divider/>
+                        <Box style={{ margin: '15px' }}>
+                            {initItemsTemplate(item.answers)}
+                        </Box>
+                      </Paper>
                     );
                  })
-            : <div>Waiting</div>
             }
-        </div>
+        </Box>
     );
 }

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 
 const StyledTabs = styled((props) => (
   <Tabs
@@ -47,13 +48,19 @@ export default function CustomizedTabs() {
 
   return (
     <Box sx={{ width: '100%' }}>
-        <StyledTabs
-            value={value}
-            onChange={handleChange}
-            aria-label="styled tabs example">
-            <StyledTab label="자격시험 테스트" />
-            <StyledTab label="전문가 테스트" />
-        </StyledTabs>
+        <Button 
+            variant="raised"
+            size="small" 
+            color="link" 
+            children="자격증"
+            style={{ backgroundColor: 'transparent' }}/>
+            
+        <Button 
+            variant="raised"
+            size="small" 
+            color="link" 
+            children="프로그래밍"
+            style={{ backgroundColor: 'transparent' }}/>
     </Box>
   );
 }
