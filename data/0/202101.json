@@ -1,6 +1,6 @@
 [
     { 
-      "seq": 0,
+      "seq": 1,
       "subject": 1,
       "subjectName": "소프트웨어 설계",
       "question": "운영체제 분석을 위해 리눅스에서 버전을 확인하고자 할 때 사용되는 명령어는?",
@@ -24,7 +24,7 @@
       ]
     },
     { 
-      "seq": 1,
+      "seq": 2,
       "subject": 1,
       "subjectName": "소프트웨어 설계",
       "question": "통신을 위한 프로그램을 생성하여 포트를 할당하고, 클라이언트의 통신 요청 시 클라이언트와 연결하는 내·외부 송·수신 연계기술은?",
@@ -44,6 +44,30 @@
         { 
           "isAnswer": "n",
           "example": "프로토타입 기술" 
+        }
+      ]
+    },
+    { 
+      "seq": 3,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "객체지향 개념에서 연관된 데이터와 함수를 함께 묶어 외부와 경계를 만들고 필요한 인터페이스만을 밖으로 드러내는 과정은?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "메시지(Message)" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "캡슐화(Encapsulation)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "다형성(Polymorphism)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "상속(Inheritance)" 
         }
       ]
     }
