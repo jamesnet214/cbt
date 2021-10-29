@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
@@ -113,13 +114,25 @@ const data = [
     { "type": 'W',"parentId": "5", "nodeId": "13", label: "컴퓨터그래픽스운용기능사" },
 ];
 
-function getNodes(parentId) {
+
+
+
+export default function MenuTreeView(props) {
+  
+  const history = useHistory();
+
+  function menuClick(e, item) {
+    history.push("/home");
+  }
+
+  function getNodes(parentId) {
     var source = data.filter(x => x.parentId === parentId).map(item => {
         return (
             item.type === 'W' ?
             <Link style={{ textDecoration: 'none', color: '#000000' }}
                   to={"/cbt?id=" + item.nodeId}>
                 <StyledTreeItem 
+                    onClick={(e) => menuClick(e, item)}
                     nodeId={item.nodeId} 
                     label={item.label}>
                     {getNodes(item.nodeId)}
@@ -137,10 +150,8 @@ function getNodes(parentId) {
     return source;
 } 
 
-export default function CustomizedTreeView() {
   return (
     <TreeView
-      aria-label="customized"
       defaultExpanded={['1', '2', '3', '4', '5']}
       defaultCollapseIcon={<MinusSquare />}
       defaultExpandIcon={<PlusSquare />}

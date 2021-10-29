@@ -8,17 +8,17 @@ import MenuButton from './MenuButton';
 import MenuTabs from './MenuTabs.jsx';
 
 export default function TopLayer(props) {
-    const { open } = props;
+    const { open, openChanged } = props;
     // const theme = useTheme();
     // const useStyles = makeStyles((theme) => ({ }));
     // const classes = useStyles();
 
     function menuClick() {
-        props.openChanged(!open);
+        openChanged(!open);
     }
 
     return (
-        <AppBar position={'relative'} {...props} elevation={1}>
+        <AppBar position={'relative'} elevation={1}>
             <Toolbar variant="dense">
                 <MenuButton menuClick={menuClick}/>
                 <MenuTabs/>
