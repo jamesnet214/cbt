@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { Route } from 'react-router';
-import { makeStyles, useTheme } from "@mui/styles";
+// import { makeStyles, useTheme } from "@mui/styles";
 import { styled } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -31,7 +31,7 @@ const theme = createTheme({
 export default function Portal(props) {
     const [open, setOpen] = React.useState(false);
 
-    const isOpenChanged = (changedValue) => {
+    const openChanged = (changedValue) => {
         setOpen(changedValue);
     }
 
@@ -58,11 +58,11 @@ export default function Portal(props) {
         <ThemeProvider theme={theme}>
             <div className={'root'}>
                 <div className={'drawerDiv'}>
-                    <TopLayer isOpen={open} 
-                              isOpenChanged={isOpenChanged} 
+                    <TopLayer open={open} 
+                              openChanged={openChanged} 
                               style={{ zIndex: 9999 }}/>    
                     <div className={'frame'}>
-                        <LeftLayer isOpen={open}/>
+                        <LeftLayer open={open}/>
                         <Main open={open}>
                             <Route path='/cbt' component={Cbt}/>
                             <Route path='/dashboard' component={Dashboard}/>

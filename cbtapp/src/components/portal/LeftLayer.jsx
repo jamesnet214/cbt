@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from "@mui/styles";
+// import { makeStyles, useTheme } from "@mui/styles";
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 
@@ -9,7 +9,7 @@ import LeftMenuHeader from './LeftMenuHeader.jsx';
 const drawerWidth = 240;
 
 export default function LeftLayer(props) {
-    const { isOpen } = props;
+    const { open } = props;
 
 
     return (
@@ -24,7 +24,7 @@ export default function LeftLayer(props) {
             }}
             variant="persistent"
             anchor="left"
-            open={isOpen}>
+            open={open}>
                 <LeftMenuHeader/>
                 <Divider />
                 <MenuTreeView/>

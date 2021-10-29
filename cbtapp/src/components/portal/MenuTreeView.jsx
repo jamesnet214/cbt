@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import { alpha, styled } from '@mui/material/styles';
-import ListItem from '@mui/material/ListItem';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem, { treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
@@ -115,9 +114,9 @@ const data = [
 ];
 
 function getNodes(parentId) {
-    var source = data.filter(x => x.parentId == parentId).map(item => {
+    var source = data.filter(x => x.parentId === parentId).map(item => {
         return (
-            item.type == 'W' ?
+            item.type === 'W' ?
             <Link style={{ textDecoration: 'none', color: '#000000' }}
                   to={"/cbt?id=" + item.nodeId}>
                 <StyledTreeItem 

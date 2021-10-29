@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {useLocation} from "react-router-dom";
 import Box from '@mui/material/Box';
-import { Card, Divider, Paper, Typography } from '@mui/material';
+import Card  from '@mui/material/Card';
+import Divider  from '@mui/material/Divider';
+import Typography  from '@mui/material/Typography';
 
 function getName(id) {
-    var name = "이름없음";
+    let name = "";
 
     switch (id) {
         case "6": name = "정보처리기사"; break;
@@ -12,6 +14,7 @@ function getName(id) {
         case "8": name = "정보처리기능사"; break;
         case "9": name = "컴퓨터활용능력1급"; break;
         case "10": name = "컴퓨터활용능력2급"; break;
+        default: name = "name"; break;
     }
     return name;
 }
@@ -31,7 +34,7 @@ export default function Cbt(props) {
     const search = useLocation().search;
     const id = new URLSearchParams(search).get('id');
 
-    useEffect(() => {
+    React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.json')
         .then(res => res.json())
         .then(res => {
@@ -40,7 +43,7 @@ export default function Cbt(props) {
       }, []);
 
     return (
-        <Box style={{ maxWidth: '600px' }}>
+        <Box style={{ maxWidth: '600px', minWidth: '100px' }}>
             <Typography children={getName(id)}/>
             <br />
             {text == null ? null
