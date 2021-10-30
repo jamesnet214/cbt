@@ -196,6 +196,30 @@
           "example": "fan-in：2, fan-out：1" 
         }
       ]
+    },
+    { 
+      "seq": 9,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "현행 시스템 분석에서 고려하지 않아도 되는 항목은?"
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "DBMS 분석" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "네트워크 분석" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "운영체제 분석" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "인적 자원 분석" 
+        }
+      ]
     }
   ]
 
