@@ -62,7 +62,7 @@ export default function Cbt(props) {
                                 <Box className="papar-question-content">
                                     <Typography children={item.question}/>
                                 </Box>
-                                <Box>
+                                <Box className="papar-question-content">
                                     {item.infos != null ? 
                                         item.infos.map(info => {
                                             return <img src={info.src}/>
