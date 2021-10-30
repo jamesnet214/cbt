@@ -18,7 +18,7 @@ export default function TopLayer(props) {
     }
 
     return (
-        <AppBar position={'relative'} elevation={1}>
+        <AppBar position={'relative'} elevation={1} sx={{ zIndex: 10000 }}>
             <Toolbar variant="dense">
                 <MenuButton menuClick={menuClick}/>
                 <MenuTabs/>
