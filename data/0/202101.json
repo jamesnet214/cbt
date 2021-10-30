@@ -1,4 +1,4 @@
-[
+5  7   [
     { 
       "seq": 1,
       "subject": 1,
@@ -116,6 +116,30 @@
         { 
           "isAnswer": "n",
           "example": "ORB(Object Request Broker)" 
+        }
+      ]
+    },
+    { 
+      "seq": 6,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "바람직한 소프트웨어 설계 지침이 아닌 것은?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "모듈의 기능을 예측할 수 있도록 정의한다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": " 이식성을 고려한다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "적당한 모듈의 크기를 유지한다" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "가능한 모듈을 독립적으로 생성하고 결합도를 최대화한다." 
         }
       ]
     }
