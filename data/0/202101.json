@@ -70,5 +70,29 @@
           "example": "상속(Inheritance)" 
         }
       ]
+    },
+    { 
+      "seq": 4,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "GoF(Gangs of Four) 디자인 패턴의 생성패턴에 속하지 않는 것은?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "추상 팩토리(Abstract Factory)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "빌더(Builder)" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "어댑터(Adapter)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "싱글턴(Singleton)" 
+        }
+      ]
     }
   ]
