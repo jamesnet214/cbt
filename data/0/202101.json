@@ -94,5 +94,29 @@
           "example": "싱글턴(Singleton)" 
         }
       ]
+    },
+    { 
+      "seq": 5,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "응용프로그램의 프로시저를 사용하여 원격 프로시저를 로컬 프로시저처럼 호출하는 방식의 미들웨어는?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "WAS(Web Application Server)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": " MOM(Message Oriented Middleware)" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "RPC(Remote Procedure Call)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "ORB(Object Request Broker)" 
+        }
+      ]
     }
   ]
