@@ -244,6 +244,30 @@
           "example": "그레이웨어" 
         }
       ]
+    },
+    { 
+      "seq": 11,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "CASE(Computer Aided Software Engineering)에 대한 설명으로 틀린 것은?"
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": " 소프트웨어 모듈의 재사용성이 향상된다. " 
+        },
+        { 
+          "isAnswer": "n",
+          "example": " 자동화된 기법을 통해 소프트웨어 품질이 향상된다." 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "소프트웨어 사용자들에게 사용 방법을 신속히 숙지시키기 위해 사용된다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "소프트웨어 유지보수를 간편하게 수행할 수 있다. " 
+        }
+      ]
     }
 ]
 
