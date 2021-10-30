@@ -201,7 +201,7 @@
       "seq": 9,
       "subject": 1,
       "subjectName": "소프트웨어 설계",
-      "question": "현행 시스템 분석에서 고려하지 않아도 되는 항목은?"
+      "question": "현행 시스템 분석에서 고려하지 않아도 되는 항목은?",
       "answers": [
         { 
           "isAnswer": "n",
