@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import { alpha, styled } from '@mui/material/styles';
@@ -118,48 +117,36 @@ const data = [
 
 
 export default function MenuTreeView(props) {
-  
-  const history = useHistory();
+    const history = useHistory();
 
-  function menuClick(e, item) {
-    history.push("/home");
-  }
+    function menuClick(e, item) {
+        if(item.type === 'W') {
+            history.push(`cbt?id=${item.nodeId}`);
+        }
+    }
 
-  function getNodes(parentId) {
-    var source = data.filter(x => x.parentId === parentId).map(item => {
-        return (
-            item.type === 'W' ?
-            <Link style={{ textDecoration: 'none', color: '#000000' }}
-                  to={"/cbt?id=" + item.nodeId}>
+    function getNodes(parentId) {
+        var source = data.filter(x => x.parentId === parentId).map(item => {
+            return (
                 <StyledTreeItem 
                     onClick={(e) => menuClick(e, item)}
                     nodeId={item.nodeId} 
                     label={item.label}>
                     {getNodes(item.nodeId)}
                 </StyledTreeItem>
-            </Link>
-            : 
-            
-            <StyledTreeItem 
-                nodeId={item.nodeId} 
-                label={item.label}>
-                {getNodes(item.nodeId)}
-            </StyledTreeItem>
-        );
-    });
-    return source;
-} 
+             );
+        });
+        return source;
+    } 
 
-  return (
-    <TreeView
-      defaultExpanded={['1', '2', '3', '4', '5']}
-      defaultCollapseIcon={<MinusSquare />}
-      defaultExpandIcon={<PlusSquare />}
-      defaultEndIcon={<CloseSquare />}
-      sx={{ height: 264, flexGrow: 1, maxWidth: 400, margin: '0px', overflowY: 'auto' }}
-    >
-        {getNodes("-1")}
-      
-    </TreeView>
-  );
+    return (
+        <TreeView
+            defaultExpanded={[1, 2, 3, 4, 5]}
+            defaultCollapseIcon={<MinusSquare />}
+            defaultExpandIcon={<PlusSquare />}
+            defaultEndIcon={<CloseSquare />}
+            sx={{ height: 264, flexGrow: 1, maxWidth: 400, margin: '0px', overflowY: 'auto' }}>
+            {getNodes("-1")}
+        </TreeView>
+    );
 }
