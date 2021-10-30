@@ -22,7 +22,7 @@ function getName(id) {
 function initItemsTemplate(items) {
     return items.map((answer, i) => {
         return (
-            <Typography 
+            <Typography key={i.toString()}
                 style={{ margin: '5px 0px 0px 0px' }}
                 children={`${i + 1}. ${answer.example}`}/>
         );
@@ -50,10 +50,11 @@ export default function Cbt(props) {
             :
                 text.map((item, i) => {
                     return (
-                        <Box>
+                        <Box key={item.seq}>
                             <Box style={{ margin: '0px 0px 5px 0px' }}>
-                            <Typography children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
-                                        variant="caption"/>
+                                <Typography 
+                                    children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
+                                    variant="caption"/>
                             </Box>
                             <Card className="paper-question"
                                 style={{borderRadius: 10}}

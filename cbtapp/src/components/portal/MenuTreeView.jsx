@@ -121,7 +121,7 @@ export default function MenuTreeView(props) {
 
     function menuClick(e, item) {
         if(item.type === 'W') {
-            history.push(`cbt?id=${item.nodeId}`);
+            history.push(`cbt?id=${item.nodeId.toString()}`);
         }
     }
 
@@ -129,10 +129,11 @@ export default function MenuTreeView(props) {
         var source = data.filter(x => x.parentId === parentId).map(item => {
             return (
                 <StyledTreeItem 
+                    key={item.nodeId.toString()}
                     onClick={(e) => menuClick(e, item)}
-                    nodeId={item.nodeId} 
+                    nodeId={item.nodeId.toString()} 
                     label={item.label}>
-                    {getNodes(item.nodeId)}
+                    {getNodes(item.nodeId.toString())}
                 </StyledTreeItem>
              );
         });
@@ -141,7 +142,7 @@ export default function MenuTreeView(props) {
 
     return (
         <TreeView
-            defaultExpanded={[1, 2, 3, 4, 5]}
+            defaultExpanded={['1', '2', '3', '4', '5']}
             defaultCollapseIcon={<MinusSquare />}
             defaultExpandIcon={<PlusSquare />}
             defaultEndIcon={<CloseSquare />}
