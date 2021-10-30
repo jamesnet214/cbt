@@ -147,7 +147,10 @@
       "seq": 7,
       "subject": 1,
       "subjectName": "소프트웨어 설계",
-      "question": "객체지향 분석 방법론 중 Coad-Yourdon 방법에 해당하는 것은?",
+      "question": "다음은 어떤 프로그램 구조를 나타낸다. 모듈 F에서의 fan-in과 fan-out의 수는 얼마인가?",
+      "infos": [
+          { "img": "" }
+      ],
       "answers": [
         { 
           "isAnswer": "y",
@@ -168,3 +171,4 @@
       ]
     }
   ]
+
