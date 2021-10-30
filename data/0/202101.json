@@ -220,6 +220,29 @@
           "example": "인적 자원 분석" 
         }
       ]
-    }
+    },
+    { 
+      "seq": 10,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "분산 컴퓨팅 환경에서 서로 다른 기종 간의 하드웨어나 프로토콜, 통신환경 등을 연결하여 응용프로그램과 운영환경 간에 원만한 통신이 이루어질 수 있게 서비스를 제공하는 소프트웨어는?"
+      "answers": [
+        { 
+          "isAnswer": "y",
+          "example": "미들웨어" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "미들웨어" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "오픈허브웨어" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "그레이웨어" 
+        }
+      ]
   ]
 
