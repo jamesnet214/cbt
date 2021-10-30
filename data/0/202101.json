@@ -142,5 +142,29 @@
           "example": "가능한 모듈을 독립적으로 생성하고 결합도를 최대화한다." 
         }
       ]
+    },
+    { 
+      "seq": 7,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "객체지향 분석 방법론 중 Coad-Yourdon 방법에 해당하는 것은?",
+      "answers": [
+        { 
+          "isAnswer": "y",
+          "example": "E-R 다이어그램을 사용하여 객체의 행위를 데이터 모델링 하는데 초점을 둔 방법이다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "객체, 동적, 기능 모델로 나누어 수행하는 방법이다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "미시적 개발 프로세스와 거시적 개발 프로세스를 모두 사용하는 방법이다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "Use-Case를 강조하여 사용하는 방법이다." 
+        }
+      ]
     }
   ]
