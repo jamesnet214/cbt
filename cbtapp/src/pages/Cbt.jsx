@@ -43,7 +43,7 @@ export default function Cbt(props) {
       }, []);
 
     return (
-        <Box style={{ maxWidth: '600px', minWidth: '100px' }}>
+        <Box style={{ maxWidth: '600px', minWidth: '200px' }}>
             <Typography children={getName(id)}/>
             <br />
             {text == null ? null
