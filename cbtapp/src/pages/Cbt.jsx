@@ -22,9 +22,14 @@ function getName(id) {
 function initItemsTemplate(items) {
     return items.map((answer, i) => {
         return (
-            <Typography key={i.toString()}
-                style={{ margin: '5px 0px 0px 0px' }}
-                children={`${i + 1}. ${answer.example}`}/>
+            <Box>
+                <Box className="papar-question-content">
+                <Typography key={i.toString()}
+                    style={{ margin: '5px 0px 0px 0px' }}
+                    children={`${i + 1}. ${answer.example}`}/>
+                </Box>
+                <Divider className="paper-question-divider"/>
+            </Box>
         );
     })
 }
@@ -63,16 +68,28 @@ export default function Cbt(props) {
                                     <Typography children={item.question}/>
                                 </Box>
                                 <Divider className="paper-question-divider"/>
-                                <Box className="papar-question-content">
+                                <Box>
                                     {item.infos != null ? 
                                         item.infos.map(info => {
-                                            return <img src={info.src}/>
+                                            return (
+                                                <Box>
+                                                    <Box className="papar-question-content">
+                                                        <img src={info.src}/>
+                                                    </Box>
+                                                    <Divider className="paper-question-divider"/>
+                                                </Box>
+                                            );
                                         })
                                         : null
                                     }
                                 </Box>
-                                <Box className="papar-question-content">
+                                <Box>
                                     {initItemsTemplate(item.answers)}
+                                </Box>
+                                <Box className="papar-question-content">
+                                    <Typography>
+                                        정답
+                                    </Typography>
                                 </Box>
                             </Card>
                         </Box>
