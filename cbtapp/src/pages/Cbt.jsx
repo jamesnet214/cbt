@@ -62,6 +62,7 @@ export default function Cbt(props) {
                                 <Box className="papar-question-content">
                                     <Typography children={item.question}/>
                                 </Box>
+                                <Divider className="paper-question-divider"/>
                                 <Box className="papar-question-content">
                                     {item.infos != null ? 
                                         item.infos.map(info => {
@@ -70,7 +71,6 @@ export default function Cbt(props) {
                                         : null
                                     }
                                 </Box>
-                                <Divider className="paper-question-divider"/>
                                 <Box className="papar-question-content">
                                     {initItemsTemplate(item.answers)}
                                 </Box>
