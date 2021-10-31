@@ -340,5 +340,29 @@
           "example": "단계 다이어그램(Phase Diagram)" 
         }
       ]
+    },
+    { 
+      "seq": 15,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "디자인 패턴을 이용한 소프트웨어 재사용으로 얻어지는 장점이 아닌 것은?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "소프트웨어 코드의 품질을 향상시킬 수 있다." 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "개발 프로세스를 무시할 수 있다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "개발자들 사이의 의사소통을 원활하게 할 수 있다." 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "소프트웨어의 품질과 생산성을 향상시킬 수 있다." 
+        }
+      ]
     }
 ]
