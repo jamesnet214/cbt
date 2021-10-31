@@ -292,5 +292,29 @@
           "example": "State Diagram은 객체들 사이의 메시지 교환을 나타내며, Sequence Diagram은 하나의 객체가 가진 상태와 그 상태의 변화에 의한 동작순서를 나타낸다." 
         }
       ]
+    },
+    { 
+      "seq": 13,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "기본 유스케이스 수행 시 특별한 조건을 만족할 때 수행하는 유스케이스는?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "연관" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "확장" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "선택" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "특화" 
+        }
+      ]
     }
 ]
