@@ -316,5 +316,29 @@
           "example": "특화" 
         }
       ]
+    },
+    { 
+      "seq": 14,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "다음 중 요구사항 모델링에 활용되지 않는 것은?",
+      "answers": [
+        { 
+          "isAnswer": "n",
+          "example": "애자일(Agile) 방법" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "유스케이스 다이어그램(Use Case Diagram)" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "시퀀스 다이어그램(Sequence Diagram)" 
+        },
+        { 
+          "isAnswer": "y",
+          "example": "단계 다이어그램(Phase Diagram)" 
+        }
+      ]
     }
 ]
