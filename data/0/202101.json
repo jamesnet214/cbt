@@ -388,5 +388,29 @@
           "example": "Static" 
         }
       ]
+    },
+    { 
+      "seq": 17,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "소프트웨어를 개발하기 위한 비즈니스(업무)를 객체와 속성, 클래스와 멤버, 전체와 부분 등으로 나누어서 분석해 내는 기법은?",
+      "answers": [
+        { 
+          "isAnswer": "y",
+          "example": "객체지향 분석" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "구조적 분석" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "기능적 분석" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "실시간 분석" 
+        }
+      ]
     }
 ]
