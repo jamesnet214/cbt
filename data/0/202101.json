@@ -364,5 +364,29 @@
           "example": "소프트웨어의 품질과 생산성을 향상시킬 수 있다." 
         }
       ]
+    },
+    { 
+      "seq": 16,
+      "subject": 1,
+      "subjectName": "소프트웨어 설계",
+      "question": "럼바우(Rumbaugh) 분석기법에서 정보모델링이라고도 하며, 시스템에서 요구되는 객체를 찾아내어 속성과 연산 식별 및 객체들 간의 관계를 규정하여 다이어그램을 표시하는 모델링은?",
+      "answers": [
+        { 
+          "isAnswer": "y",
+          "example": "Object" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "Dynamic" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "Function" 
+        },
+        { 
+          "isAnswer": "n",
+          "example": "Static" 
+        }
+      ]
     }
 ]
