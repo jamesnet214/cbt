@@ -266,6 +266,9 @@
   subject: 1
   subjectName: 소프트웨어 개발
   question: 구현 단계에서의 작업 절차를 순서에 맞게 나열한 것은?
+  infos:
+    - type: img
+    - src: https://user-images.githubusercontent.com/52397976/139845599-e0c8f351-ec7c-419b-86c8-7d985dff1dc9.png
   answers:
     - isAnswer: n
       example: ㉠ ㉡ ㉢ ㉣
