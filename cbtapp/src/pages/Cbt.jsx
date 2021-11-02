@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Card  from '@mui/material/Card';
 import Divider  from '@mui/material/Divider';
 import Typography  from '@mui/material/Typography';
+import { load } from 'js-yaml';
 
 function getName(id) {
     let name = "";
@@ -40,10 +41,11 @@ export default function Cbt(props) {
     const id = new URLSearchParams(search).get('id');
 
     React.useEffect(() => {
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.json')
-        .then(res => res.json())
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
+        .then(res => res.blob())
+        .then(blob => blob.text())
         .then(res => {
-            setText(res);
+            setText(load(res));
         });
       }, []);
 
