@@ -1,0 +1,13 @@
+- seq: 1
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 시스템의 구성요소로 볼 수 없는 것은?
+  answers:
+    - isAnswer: n
+      example: Process
+    - isAnswer: n
+      example: Feedback
+    - isAnswer: y
+      example: Maintenance
+    - isAnswer: n
+      example: Control
