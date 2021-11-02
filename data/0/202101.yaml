@@ -249,3 +249,16 @@
     - example: State Diagram
     - isAnswer: y
     - example: Class Diagram
+- seq: 20
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 소프트웨어 설계 시 제일 상위에 있는 main user function에서 시작하여 기능을 하위 기능들로 분할해 가면서 설계하는 방식은?
+  answers:
+    - isAnswer: n
+    - example: 객체 지향 설계
+    - isAnswer: n
+    - example: 데이터 흐름 설계
+    - isAnswer: n
+    - example: 상향식 설계
+    - isAnswer: y
+    - example: 하향식 설계
