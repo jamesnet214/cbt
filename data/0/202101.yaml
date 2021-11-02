@@ -236,3 +236,16 @@
       example: '실제 작동하는 소프트웨어보다는 이해하기 좋은 문서에 더 가치를 둔다. '
     - isAnswer: 'n'
       example: 계획을 따르기보다는 변화에 대응하는 것에 더 가치를 둔다.
+- seq: 19
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: UML 다이어그램 중 시스템 내 클래스의 정적 구조를 표현하고 클래스와 클래스, 클래스의 속성 사이의 관계를 나타내는 것은?
+  answers:
+    - isAnswer: n
+    - example: Activity Diagram
+    - isAnswer: n
+    - example: Model Diagram
+    - isAnswer: n
+    - example: State Diagram
+    - isAnswer: y
+    - example: Class Diagram
