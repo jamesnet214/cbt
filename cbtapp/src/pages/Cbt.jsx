@@ -20,23 +20,9 @@ function getName(id) {
     return name;
 }
 
-function initItemsTemplate(items) {
-    return items.map((answer, i) => {
-        return (
-            <Box>
-                <Box className="papar-question-content">
-                <Typography key={i.toString()}
-                    style={{ margin: '5px 0px 0px 0px' }}
-                    children={`${i + 1}. ${answer.example}`}/>
-                </Box>
-                <Divider className="paper-question-divider"/>
-            </Box>
-        );
-    })
-}
-
 export default function Cbt(props) {
-    const [text, setText] = React.useState(null)
+    const [text, setText] = React.useState(null);
+    const [answer, setAnswer] = React.useState(-1);
     const search = useLocation().search;
     const id = new URLSearchParams(search).get('id');
 
@@ -48,6 +34,32 @@ export default function Cbt(props) {
             setText(load(res));
         });
       }, []);
+      
+    function initItemsTemplate(items) {
+        return items.map((answer, i) => {
+            return (
+                <Box>
+                    <Box className="papar-question-content">
+                    <Typography key={i.toString()}
+                        style={{ margin: '5px 0px 0px 0px' }}
+                        children={`${i + 1}. ${answer.example}`}/>
+                    </Box>
+                    <Divider className="paper-question-divider"/>
+                </Box>
+            );
+        })
+    }
+
+    function getAnswer(answers) {
+
+        let answer = -1;
+        answers.map((x, i) => {
+            if(x.isAnswer === 'y') {
+                answer = i + 1;
+            }
+        });
+        return answer;
+    }
 
     return (
         <Box style={{ maxWidth: '600px', minWidth: '200px' }}>
@@ -90,7 +102,7 @@ export default function Cbt(props) {
                                 </Box>
                                 <Box className="papar-question-content">
                                     <Typography>
-                                        정답
+                                        정답 {getAnswer(item.answers)}
                                     </Typography>
                                 </Box>
                             </Card>
