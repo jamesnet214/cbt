@@ -10,7 +10,7 @@
     - isAnswer: 'n'
       example: pwd
     - isAnswer: 'y'
-      example: uname
+      example: uname, cat
 - seq: 2
   subject: 1
   subjectName: 소프트웨어 설계
