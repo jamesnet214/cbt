@@ -86,10 +86,7 @@ export default function Cbt(props) {
                     >
                     <Button>2020 1회</Button>
                     <Button>2020 2회</Button>
-                    <Button>2020 3회</Button>
-                    <Button>2021 1회</Button>
-                    <Button>2021 2회</Button>
-                    <Button>2021 3회</Button>
+                   
                 </Stack>
             </Box>
             <Box margin={3} style={{maxWidth: '600px'}}>
