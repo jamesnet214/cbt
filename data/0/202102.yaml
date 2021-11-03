@@ -24,3 +24,29 @@
       example: 사용자 액터는 본 시스템과 데이터를 주고받는 연동 시스템을 의미한다.
     - isAnswer: n
       example: 연동의 개념은 일방적으로 데이터를 파일이나 정해진 형식으로 넘겨주는 것을 의미한다.
+- seq: 3
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 요구사항 개발 프로세스의 순서로 옳은 것은?
+  answers:
+    - isAnswer: y
+      example:  ㉠ ㉡ ㉢ ㉣
+    - isAnswer: n
+      example: ㉠ ㉢ ㉡ ㉣
+    - isAnswer: n
+      example: ㉠ ㉣ ㉡ ㉢
+    - isAnswer: n
+      example: ㉠ ㉡ ㉣ ㉢
+- seq: 4
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question:  객체지향 기법에서 같은 클래스에 속한 각각의 객체를 의미하는 것은?
+  answers:
+    - isAnswer: y
+      example:  instance
+    - isAnswer: n
+      example: message
+    - isAnswer: n
+      example: method
+    - isAnswer: n
+      example: module
