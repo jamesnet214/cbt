@@ -50,3 +50,16 @@
       example: method
     - isAnswer: n
       example: module
+- seq: 5
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question:  객체지향 설계에서 객체가 가지고 있는 속성과 오퍼레이션의 일부를 감추어서 객체의 외부에서는 접근이 불가능하게 하는 개념은?
+  answers:
+    - isAnswer: n
+      example:  조직화(Organizing)
+    - isAnswer: n
+      example: 캡슐화(Encapsulation)
+    - isAnswer: y
+      example: 정보은닉(Infomation Hiding)
+    - isAnswer: n
+      example: 구조화(Structuralization)
