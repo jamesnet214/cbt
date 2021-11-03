@@ -76,10 +76,10 @@ export default function Cbt(props) {
     return (
         <Box style={{ minWidth: '200px' }}>
 
-            <Box style={{backgroundColor: '#ffffff'}} padding={3}>
-                <Typography variant="h5" children={getName(id)}/>
+            <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
+                <Typography variant="h6" children={getName(id)}/>
                 <Stack 
-                    style={{margin: '10px 0px 0px -7px'}}
+                    style={{margin: '0px 0px 0px -7px'}}
                     direction="row"
                     divider={<Divider style={{marginTop: '10px', marginBottom: '10px'}} orientation="vertical" flexItem />}
                     spacing={1}
