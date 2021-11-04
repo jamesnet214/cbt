@@ -65,7 +65,7 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/cbt' component={Cbt}/>
+                            <Route path='/test' component={Cbt}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>
