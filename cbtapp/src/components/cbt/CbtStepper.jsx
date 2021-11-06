@@ -11,6 +11,8 @@ import BackButton from './BackButton';
 import InningCheckbox from './InningCheckbox';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
 
 const steps = [
   {
@@ -52,7 +54,8 @@ export default function CbtStepper() {
             <Step key="1">
                 <StepLabel children="회차 선택"/>
                 <StepContent>
-                    <Typography children="회차를 선택해주세요. 여러 회차를 선택할 수도 있습니다."/>
+                    <Typography children="회차를 선택해주세요." variant="body2"/>
+                    <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     <InningCheckbox/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
@@ -65,7 +68,7 @@ export default function CbtStepper() {
                 <StepLabel children="과목 선택"/>
                 <StepContent>
                     <Typography children="과목을 선택해주세요. 원하는 과목만 선택할 수도 있습니다."/>
-                    <Box sx={{ mb: 2 }}>
+                    <Stack sx={{ mb: 2 }}>
                         <FormControlLabel
                             label="소프트웨어 설계"
                             control={<Checkbox checked={true}/>}/>
@@ -81,6 +84,10 @@ export default function CbtStepper() {
                         <FormControlLabel
                             label="네트워크"
                             control={<Checkbox checked={true}/>}/>
+                    </Stack>
+                    <Box sx={{ mb: 2 }}>
+                        <NextButton onClick={handleNext}/>
+                        <BackButton onClick={handleBack}/>
                     </Box>
                 </StepContent>
             </Step>

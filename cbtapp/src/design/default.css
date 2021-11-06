@@ -41,3 +41,11 @@
     border: 0px; 
     border-top: 1px solid #fafafa;
 }
+
+.inning-div {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin: 15px 0px 15px 0px;
+    padding: 10px 20px 10px 20px;
+}
