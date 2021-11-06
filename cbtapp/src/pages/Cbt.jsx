@@ -9,6 +9,7 @@ import Stack from '@mui/material/Stack';
 import Typography  from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
+import CbtStepper from '../components/cbt/CbtStepper';
 
 
 function getName(id) {
@@ -89,6 +90,11 @@ export default function Cbt(props) {
                    
                 </Stack>
             </Box>
+
+            <Box margin={3}>
+                <CbtStepper/>
+            </Box>
+
             <Box margin={3} style={{maxWidth: '600px'}}>
                 {text == null ? null
                 :
