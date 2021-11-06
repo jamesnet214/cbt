@@ -278,3 +278,19 @@
       example:  ㉢ ㉠ ㉡ ㉣
     - isAnswer: y
       example:  ㉣ ㉡ ㉠ ㉢
+- seq: 22
+  subject: 1
+  subjectName: 소프트웨어 개발
+  question: 다음 자료에 대하여 “Selection Sort”를 사용하여 오름차순으 로 정렬한 경우 PASS 3의 결과는?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/52397976/140606470-b4955c9b-5cb5-4481-9fd4-71f3cc668a0f.png
+  answers:
+    - isAnswer: y
+      example: 3, 4, 7, 9, 8
+    - isAnswer: n
+      example: 3, 4, 8, 9, 7
+    - isAnswer: n
+      example:  3, 8, 4, 9, 7
+    - isAnswer: n
+      example:  3, 4, 7, 8, 9
