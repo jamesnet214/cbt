@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import { load } from 'js-yaml';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography } from '@mui/material';
@@ -22,6 +23,16 @@ const items = [{
 
 export default function InningCheckbox() {
   const [checked, setChecked] = React.useState([true, false]);
+  const [text, setInnings] = React.useState([]);
+  
+  React.useEffect(() => {
+      fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/inning.yaml')
+      .then(res => res.blob())
+      .then(blob => blob.text())
+      .then(res => {
+          setInnings(load(res));
+      });
+  }, []);
 
   const handleChange1 = (event) => {
     setChecked([event.target.checked, event.target.checked]);
