@@ -12,22 +12,6 @@ import { load } from 'js-yaml';
 import CbtStepper from '../components/cbt/CbtStepper';
 
 
-function getName(id) {
-    let name = "";
-
-    switch (id) {
-        case "0": name = "정보처리기사"; break;
-        case "1": name = "정보처리산업기사"; break;
-        case "2": name = "정보처리기능사"; break;
-        case "3": name = "컴퓨터활용능력1급"; break;
-        case "4": name = "컴퓨터활용능력2급"; break;
-        case "5": name = "워드프로세서1급"; break;
-        case "6": name = "워드프로세서2급"; break;
-        case "7": name = "그래픽스운용기능사"; break;
-        default: name = "name"; break;
-    }
-    return name;
-}
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -37,19 +21,36 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 export default function Cbt(props) {
+    const [titles, setTitles] = React.useState(null);
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
     const search = useLocation().search;
     const id = new URLSearchParams(search).get('id');
 
     React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
+        .then(res => res.blob())
+        .then(blob => blob.text())
+        .then(res => {
+            setTitles(load(res));
+        });
+
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
         .then(blob => blob.text())
         .then(res => {
             setText(load(res));
         });
-      }, []);
+    }, []);
+
+        
+    function getName(id) {
+        if(titles != null)
+        {
+            return titles.filter(x=>x.id.toString() == id.toString())[0].title;
+        }
+        return "...";
+    }
       
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
