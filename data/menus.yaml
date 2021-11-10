@@ -2,7 +2,7 @@
   parentId: "-1"
   nodeId: "1"
   pageId: null
-  label: "컴퓨터/프로그래밍"
+  label: 컴퓨터/"프로그래밍
 - type: D
   parentId: "1"
   nodeId: "2"
