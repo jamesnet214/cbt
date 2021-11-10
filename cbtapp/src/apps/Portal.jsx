@@ -19,7 +19,7 @@ const theme = createTheme({
     palette: {
       primary: {
         // Purple and green play nicely together.
-        main: '#375373',
+        main: '#56dbc5',
       },
       secondary: {
         // This is green.A700 as hex.
@@ -65,7 +65,7 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/test' component={Cbt}/>
+                            <Route path='/cbt' component={Cbt}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>

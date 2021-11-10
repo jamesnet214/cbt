@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useHistory } from "react-router-dom";
+import { load } from 'js-yaml';
 import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import { alpha, styled } from '@mui/material/styles';
@@ -7,6 +8,7 @@ import TreeView from '@mui/lab/TreeView';
 import TreeItem, { treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
 import { useSpring, animated } from 'react-spring';
+
 
 function MinusSquare(props) {
   return (
@@ -97,36 +99,28 @@ const StyledTreeItem = styled((props) => (
         },
 }));
 
-const data = [
-    { "type": 'D', "parentId": "-1", "nodeId": "1", label: "컴퓨터/프로그래밍" },
-    { "type": 'D',"parentId": "1", "nodeId": "2", label: "정보처리" },
-    { "type": 'D',"parentId": "1", "nodeId": "3", label: "컴퓨터활용능력" },
-    { "type": 'D',"parentId": "1", "nodeId": "4", label: "워드프로세서" },
-    { "type": 'D',"parentId": "1", "nodeId": "5", label: "디자인" },
-    { "type": 'W',"parentId": "2", "nodeId": "6", label: "정보처리기사" },
-    { "type": 'W',"parentId": "2", "nodeId": "7", label: "정보처리산업기사" },
-    { "type": 'W',"parentId": "2", "nodeId": "8", label: "정보처리기능사" },
-    { "type": 'W',"parentId": "3", "nodeId": "9", label: "컴퓨터활용능력1급" },
-    { "type": 'W',"parentId": "3", "nodeId": "10", label: "컴퓨터활용능력2급" },
-    { "type": 'W',"parentId": "4", "nodeId": "11", label: "워드프로세서1급" },
-    { "type": 'W',"parentId": "4", "nodeId": "12", label: "워드프로세서2급" },
-    { "type": 'W',"parentId": "5", "nodeId": "13", label: "컴퓨터그래픽스운용기능사" },
-];
-
-
-
-
 export default function MenuTreeView(props) {
+  const [text, setText] = React.useState([]);
+    
+    React.useEffect(() => {
+      fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/menus.yaml')
+      .then(res => res.blob())
+      .then(blob => blob.text())
+      .then(res => {
+          setText(load(res));
+      });
+    }, []);
+    
     const history = useHistory();
 
     function menuClick(e, item) {
         if(item.type === 'W') {
-            history.push(`/test?id=${item.nodeId.toString()}`);
+            history.push(`/cbt?id=${item.pageId}`);
         }
     }
 
     function getNodes(parentId) {
-        var source = data.filter(x => x.parentId === parentId).map(item => {
+        var source = text.filter(x => x.parentId === parentId).map(item => {
             return (
                 <StyledTreeItem 
                     key={item.nodeId.toString()}

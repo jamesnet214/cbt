@@ -16,11 +16,14 @@ function getName(id) {
     let name = "";
 
     switch (id) {
-        case "6": name = "정보처리기사"; break;
-        case "7": name = "정보처리산업기사"; break;
-        case "8": name = "정보처리기능사"; break;
-        case "9": name = "컴퓨터활용능력1급"; break;
-        case "10": name = "컴퓨터활용능력2급"; break;
+        case "0": name = "정보처리기사"; break;
+        case "1": name = "정보처리산업기사"; break;
+        case "2": name = "정보처리기능사"; break;
+        case "3": name = "컴퓨터활용능력1급"; break;
+        case "4": name = "컴퓨터활용능력2급"; break;
+        case "5": name = "워드프로세서1급"; break;
+        case "6": name = "워드프로세서2급"; break;
+        case "7": name = "그래픽스운용기능사"; break;
         default: name = "name"; break;
     }
     return name;
@@ -79,16 +82,6 @@ export default function Cbt(props) {
 
             <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
                 <Typography variant="h6" children={getName(id)}/>
-                <Stack 
-                    style={{margin: '0px 0px 0px -7px'}}
-                    direction="row"
-                    divider={<Divider style={{marginTop: '10px', marginBottom: '10px'}} orientation="vertical" flexItem />}
-                    spacing={1}
-                    >
-                    <Button>2020 1회</Button>
-                    <Button>2020 2회</Button>
-                   
-                </Stack>
             </Box>
 
             <Box margin={3}>
