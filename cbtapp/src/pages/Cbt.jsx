@@ -24,7 +24,7 @@ export default function Cbt(props) {
     const [answer, setAnswer] = React.useState(-1);
 
     const search = useLocation().search;
-    const [cbtId, setCbtId] = React.useState(new URLSearchParams(search).get('id'));
+    const cbtId = new URLSearchParams(search).get('id');
 
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
@@ -85,7 +85,7 @@ export default function Cbt(props) {
             </Box>
 
             <Box margin={3}>
-                <CbtStepper cbtId={cbtId}/>
+                <CbtStepper/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px'}}>
