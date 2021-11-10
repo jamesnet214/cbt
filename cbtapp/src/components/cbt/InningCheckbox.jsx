@@ -21,18 +21,20 @@ const items = [{
     ]}
 ]
 
-export default function InningCheckbox() {
-  const [checked, setChecked] = React.useState([true, false]);
-  const [text, setInnings] = React.useState([]);
-  
-  React.useEffect(() => {
-      fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/inning.yaml')
-      .then(res => res.blob())
-      .then(blob => blob.text())
-      .then(res => {
-          setInnings(load(res));
-      });
-  }, []);
+export default function InningCheckbox(props) {
+    const [checked, setChecked] = React.useState([true, false]);
+    const [innings, setInnings] = React.useState([]);
+    
+    alert(props.cbtId);
+    
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/innings.yaml')
+        .then(res => res.blob())
+        .then(blob => blob.text())
+        .then(res => {
+            setInnings(load(res));
+        });
+    }, []);
 
   const handleChange1 = (event) => {
     setChecked([event.target.checked, event.target.checked]);
@@ -61,7 +63,7 @@ export default function InningCheckbox() {
 
   return (
     <div>
-        {items.map((x, i) => {
+        {innings.filter(x=>x.id == props.cbtId).map((x, i) => {
             return (
               <div>
                   <FormControlLabel 

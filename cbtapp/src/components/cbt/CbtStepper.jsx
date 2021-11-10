@@ -33,7 +33,7 @@ const steps = [
   },
 ];
 
-export default function CbtStepper() {
+export default function CbtStepper(props) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -56,7 +56,7 @@ export default function CbtStepper() {
                 <StepContent>
                     <Typography children="회차를 선택해주세요." variant="body2"/>
                     <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
-                    <InningCheckbox/>
+                    <InningCheckbox cbtId={props.cbtId}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
                         <BackButton disabled={true}

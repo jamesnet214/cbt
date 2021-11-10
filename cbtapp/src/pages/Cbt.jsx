@@ -22,8 +22,9 @@ export default function Cbt(props) {
     const [titles, setTitles] = React.useState(null);
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
+
     const search = useLocation().search;
-    const id = new URLSearchParams(search).get('id');
+    const [cbtId, setCbtId] = React.useState(new URLSearchParams(search).get('id'));
 
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
@@ -80,11 +81,11 @@ export default function Cbt(props) {
         <Box style={{ minWidth: '200px' }}>
 
             <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
-                <Typography variant="h6" children={getName(id)}/>
+                <Typography variant="h6" children={getName(cbtId)}/>
             </Box>
 
             <Box margin={3}>
-                <CbtStepper/>
+                <CbtStepper cbtId={cbtId}/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px'}}>
