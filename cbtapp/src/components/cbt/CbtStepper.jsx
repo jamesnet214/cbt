@@ -79,10 +79,10 @@ export default function CbtStepper(props) {
                             label="소프트웨어 개발"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
-                            label="데이터베이스 구축축"
+                            label="데이터베이스 구축"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
-                            label="프로그래밍 언어활용용"
+                            label="프로그래밍 언어활용"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
                             label="정보시스템 구축관리"
