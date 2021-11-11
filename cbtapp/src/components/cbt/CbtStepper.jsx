@@ -70,7 +70,7 @@ export default function CbtStepper(props) {
             <Step key="2">
                 <StepLabel children="과목 선택"/>
                 <StepContent>
-                    <Typography children="과목을 선택해주세요. 원하는 과목만 선택할 수도 있습니다."/>
+                    <Typography children="과목을 선택해주세요. 원하는 과목만 선택할 수도 있습니다." variant="body2"/>
                     <Stack sx={{ mb: 2 }}>
                         <FormControlLabel
                             label="소프트웨어 설계"
@@ -79,13 +79,13 @@ export default function CbtStepper(props) {
                             label="소프트웨어 개발"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
-                            label="데이터베이스"
+                            label="데이터베이스 구축축"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
-                            label="프로그래밍"
+                            label="프로그래밍 언어활용용"
                             control={<Checkbox checked={true}/>}/>
                         <FormControlLabel
-                            label="네트워크"
+                            label="정보시스템 구축관리"
                             control={<Checkbox checked={true}/>}/>
                     </Stack>
                     <Box sx={{ mb: 2 }}>
