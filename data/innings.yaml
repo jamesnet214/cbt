@@ -13,12 +13,12 @@
 - id: "3" 
   testId: "0"
   year: 2020
-  inning: "1"
+  inning: "1·2"
 - id: "4" 
   testId: "0"
   year: 2020
-  inning: "2"
+  inning: "3"
 - id: "5" 
   testId: "0"
   year: 2020
-  inning: "3"
+  inning: "4"
