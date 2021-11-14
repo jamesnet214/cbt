@@ -54,10 +54,7 @@ export default function InningCheckbox(props) {
                   <FormControlLabel 
                       label={<Typography children={x.year + '년 - ' + x.inning + '회'} variant="subtitle2"/>}
                       control={<Checkbox size="small" 
-                               style={{padding: 4}}
-                               checked={checked[0] && checked[1]}
-                               indeterminate={checked[0] !== checked[1]}
-                               onChange={handleChange1}/>}/>
+                               style={{padding: 4}}/>}/>
                       {()=> children(x.children)}
               </div>
             );

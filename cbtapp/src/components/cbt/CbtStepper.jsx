@@ -59,6 +59,8 @@ export default function CbtStepper(props) {
                 <StepContent>
                     <Typography children="회차를 선택해주세요." variant="body2"/>
                     <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
+                    <br />
+                    <br />
                     <InningCheckbox/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
@@ -70,23 +72,26 @@ export default function CbtStepper(props) {
             <Step key="2">
                 <StepLabel children="과목 선택"/>
                 <StepContent>
-                    <Typography children="과목을 선택해주세요. 원하는 과목만 선택할 수도 있습니다." variant="body2"/>
+                    <Typography children="과목을 선택해주세요." variant="body2"/>
+                    <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>
+                    <br />
+                    <br />
                     <Stack sx={{ mb: 2 }}>
                         <FormControlLabel
-                            label="소프트웨어 설계"
-                            control={<Checkbox checked={true}/>}/>
+                            label={<Typography children="소프트웨어 설계" variant="subtitle2"/>}
+                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
                         <FormControlLabel
-                            label="소프트웨어 개발"
-                            control={<Checkbox checked={true}/>}/>
+                            label={<Typography children="소프트웨어 개발" variant="subtitle2"/>}
+                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
                         <FormControlLabel
-                            label="데이터베이스 구축"
-                            control={<Checkbox checked={true}/>}/>
+                            label={<Typography children="데이터베이스 구축" variant="subtitle2"/>}
+                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
                         <FormControlLabel
-                            label="프로그래밍 언어활용"
-                            control={<Checkbox checked={true}/>}/>
+                            label={<Typography children="프로그래밍 언어활용" variant="subtitle2"/>}
+                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
                         <FormControlLabel
-                            label="정보시스템 구축관리"
-                            control={<Checkbox checked={true}/>}/>
+                            label={<Typography children="정보시스템 구축관리" variant="subtitle2"/>}
+                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
                     </Stack>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
