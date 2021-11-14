@@ -6,21 +6,6 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography } from '@mui/material';
 
-const items = [{
-    'name': '2020년',
-    'children': [
-        { 'name': '1·2회차' },
-        { 'name': '2회차' },
-        { 'name': '3회차' }
-    ]},
-    {
-      'name': '2021년',
-      'children': [
-          { 'name': '1회차' },
-          { 'name': '2회차' },
-          { 'name': '3회차' }
-    ]}
-]
 
 export default function InningCheckbox(props) {
     const search = useLocation().search;

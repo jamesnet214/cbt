@@ -115,7 +115,7 @@ export default function MenuTreeView(props) {
 
     function menuClick(e, item) {
         if(item.type === 'W') {
-            history.push(`/cbt?id=${item.pageId}`);
+            history.push(`/test?id=${item.pageId}`);
         }
     }
 
