@@ -307,3 +307,97 @@
       example: Procedure
     - isAnswer: n
       example: Function
+- seq: 24
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 전위식(prefix)을 후위식(postfix)으로 옳게 표현한 것은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/141726578-cecbd058-8fa2-4fd8-828a-609f47e9c6cd.png
+  answers:
+    - isAnswer: n
+      example: A B C＋D / * E -
+    - isAnswer: n
+      example: A B * C D /＋E - 
+    - isAnswer: n
+      example:  A B * C＋D / E -
+    - isAnswer: y
+      example:  A B C＋* D / E -
+- seq: 25
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 그래프의 특수한 형태로 노드(Node)와 선분(Branch)으로 되어 있고, 정점 사이에 사이클(Cycle)이 형성되어 있지 않으며, 자료 사이의 관계성이 계층 형식으로 나타나는 비선형 구조는?
+  answers:
+    - isAnswer: y
+      example: tree
+    - isAnswer: n
+      example: network
+    - isAnswer: n
+      example: stack
+    - isAnswer: n
+      example: distributed
+- seq: 26
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 스택에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 입출력이 한쪽 끝으로만 제한된 리스트이다.
+    - isAnswer: y
+      example:  Head(front)와 Tail(rear)의 2개 포인터를 갖고 있다. 
+    - isAnswer: n
+      example: LIFO 구조이다.
+    - isAnswer: n
+      example: 더 이상 삭제할 데이터가 없는 상태에서 데이터를 삭제하면 언더플로(Underflow)가 발생한다.
+- seq: 27
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 디지털 저작권 관리(DRM)에 사용되는 기술요소가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example:  키관리
+    - isAnswer: y
+      example:  방화벽
+    - isAnswer: n
+      example: 암호화
+    - isAnswer: n
+      example: 크랙방지
+- seq: 28
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question:  여러 개의 선택 항목 중 하나의 선택만 가능한 경우 사용하는 사용자 인터페이스(UI) 요소는?
+  answers:
+    - isAnswer: n
+      example:  토글 버튼
+    - isAnswer: n
+      example:  텍스트 박스
+    - isAnswer: y
+      example: 라디오 버튼
+    - isAnswer: n
+      example: 체크 박스
+- seq: 29
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question:  소프트웨어의 일부분을 다른 시스템에서 사용할 수 있는 정도를 의미하는 것은?
+  answers:
+    - isAnswer: n
+      example:  신뢰성(Reliability)
+    - isAnswer: n
+      example:  유지보수성(Maintainability)
+    - isAnswer: n
+      example: 가시성(Visibility)
+    - isAnswer: y
+      example: 재사용성(Reusability)
+- seq: 30
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question:  자료구조에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example:  큐는 비선형구조에 해당한다.
+    - isAnswer: n
+      example:  큐는 First In – First Out 처리를 수행한다.
+    - isAnswer: n
+      example: 스택은 Lasrt In – First out 처리를 수행한다.
+    - isAnswer: n
+      example: 스택은 서브루틴 호출, 인터럽트 처리, 수식 계산 및 수식 표기법에 응용된다.
