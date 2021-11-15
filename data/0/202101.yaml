@@ -344,7 +344,7 @@
     - isAnswer: n
       example: 입출력이 한쪽 끝으로만 제한된 리스트이다.
     - isAnswer: y
-      example:  Head(front)와 Tail(rear)의 2개 포인터를 갖고 있다. 
+      example: Head(front)와 Tail(rear)의 2개 포인터를 갖고 있다. 
     - isAnswer: n
       example: LIFO 구조이다.
     - isAnswer: n
@@ -355,9 +355,9 @@
   question: 디지털 저작권 관리(DRM)에 사용되는 기술요소가 아닌 것은?
   answers:
     - isAnswer: n
-      example:  키관리
+      example: 키관리
     - isAnswer: y
-      example:  방화벽
+      example: 방화벽
     - isAnswer: n
       example: 암호화
     - isAnswer: n
@@ -365,12 +365,12 @@
 - seq: 28
   subject: 2
   subjectName: 소프트웨어 개발
-  question:  여러 개의 선택 항목 중 하나의 선택만 가능한 경우 사용하는 사용자 인터페이스(UI) 요소는?
+  question: 여러 개의 선택 항목 중 하나의 선택만 가능한 경우 사용하는 사용자 인터페이스(UI) 요소는?
   answers:
     - isAnswer: n
-      example:  토글 버튼
+      example: 토글 버튼
     - isAnswer: n
-      example:  텍스트 박스
+      example: 텍스트 박스
     - isAnswer: y
       example: 라디오 버튼
     - isAnswer: n
@@ -378,12 +378,12 @@
 - seq: 29
   subject: 2
   subjectName: 소프트웨어 개발
-  question:  소프트웨어의 일부분을 다른 시스템에서 사용할 수 있는 정도를 의미하는 것은?
+  question: 소프트웨어의 일부분을 다른 시스템에서 사용할 수 있는 정도를 의미하는 것은?
   answers:
     - isAnswer: n
-      example:  신뢰성(Reliability)
+      example: 신뢰성(Reliability)
     - isAnswer: n
-      example:  유지보수성(Maintainability)
+      example: 유지보수성(Maintainability)
     - isAnswer: n
       example: 가시성(Visibility)
     - isAnswer: y
@@ -391,13 +391,146 @@
 - seq: 30
   subject: 2
   subjectName: 소프트웨어 개발
-  question:  자료구조에 대한 설명으로 틀린 것은?
+  question: 다음 중 블랙박스 검사 기법은?
   answers:
     - isAnswer: y
-      example:  큐는 비선형구조에 해당한다.
+      example: 경계값 분석
     - isAnswer: n
-      example:  큐는 First In – First Out 처리를 수행한다.
+      example: 조건 검사
+    - isAnswer: n
+      example: 기초 경로 검사
+    - isAnswer: n
+      example: 루프 검사
+- seq: 31
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 자료구조에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example: 큐는 비선형구조에 해당한다.
+    - isAnswer: n
+      example: 큐는 First In – First Out 처리를 수행한다.
     - isAnswer: n
       example: 스택은 Lasrt In – First out 처리를 수행한다.
     - isAnswer: n
       example: 스택은 서브루틴 호출, 인터럽트 처리, 수식 계산 및 수식 표기법에 응용된다.
+- seq: 32
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 이진 검색 알고리즘에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 탐색 효율이 좋고 탐색 시간이 적게 소요된다.
+    - isAnswer: n
+      example: 검색할 데이터가 정렬되어 있어야 한다.
+    - isAnswer: y
+      example: 피보나치수열에 따라 다음에 비교할 대상을 선정하여 검색한다.
+    - isAnswer: n
+      example: 비교 횟수를 거듭할 때마다 검색 대상이 되는 데이터의 수가 절반으로 줄어든다.
+- seq: 33
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 품질목표 중 쉽게 배우고 사용할 수 있는 정도를 나타내는 것은?
+  answers:
+    - isAnswer: n
+      example: Correctness
+    - isAnswer: n
+      example: Reliability
+    - isAnswer: y
+      example: Usability
+    - isAnswer: n
+      example: Integrity
+- seq: 34
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 테스트 케이스에 일반적으로 포함되는 항목이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 테스트 조건
+    - isAnswer: n
+      example: 테스트 데이터
+    - isAnswer: y
+      example: 테스트 비용
+    - isAnswer: n
+      example: 예상 결과
+- seq: 35
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 설치 매뉴얼에 포함될 항목이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 제품 소프트웨어 개요
+    - isAnswer: n
+      example: 설치 관련 파일
+    - isAnswer: n
+      example: 프로그램 삭제
+    - isAnswer: y
+      example: 소프트웨어 개발 기간
+- seq: 36
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 형상관리(Configyration management)에 관한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 소프트웨어에서 일어나는 수정이나 변경을 알아내고 제어하는 것을 의미한다.
+    - isAnswer: n
+      example: 소프트웨어 개발의 전체 비용을 줄이고, 개발 과정의 여러 방해 요인이 최소화되도록 보증하는 것을 목적으로 한다. 
+    - isAnswer: y
+      example: 형상관리를 위하여 구성된 팀을 “chief programmer team”이라고 한다.
+    - isAnswer: n
+      example: 형상관리의 기능 중 하나는 버전 제어 기술이다.
+- seq: 37
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 퀵 정렬에 관한 설명으로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: 레코드의 키값을 분석하여 같은 값끼리 그 순서에 맞는 버킷에 분배하였다가 버킷의 순서대로 레코드를 꺼내어 정렬한다.
+    - isAnswer: n
+      example: 주어진 파일에서 인접한 두 개의 레코드 키 값을 비교하여 그 크기에 따라 레코드 위치를 서로 교환한다.
+    - isAnswer: y
+      example: 레코드의 많은 자료 이동을 없애고 하나의 파일을 부분적으로 나누어 가면서 정렬한다. 
+    - isAnswer: n
+      example: 임의의 레코드 키와 매개변수(h)값만큼 떨어진 곳의 레코드 키를 비교하여 서로 교환해 가면서 정렬한다.
+- seq: 38
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 해싱 함수(Hashing Function)의 종류가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 제곱법(mid-square)
+    - isAnswer: n
+      example: 숫자분석법(digit analysis)
+    - isAnswer: y
+      example: 개방주소법(open addressing)
+    - isAnswer: n
+      example: 제산법(division)
+- seq: 39
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 필드 테스팅(field testing)이라고도 불리며 개발자 없이 고객의 사용 환경에 소프트웨어를 설치하여 검사를 수행하는 인수검사 기법은?
+  answers:
+    - isAnswer: y
+      example: 베타 검사
+    - isAnswer: n
+      example: 알파 검사
+    - isAnswer: n
+      example: 형상 검사
+    - isAnswer: n
+      example: 복구 검사
+- seq: 40
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 트리를 Perorder 운행법으로 운행할 경우 다섯 번째로 탐색되는 것은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/141727863-fef3fed9-65c6-4fde-ab43-065e630f150e.png
+  answers:
+    - isAnswer: n
+      example: C
+    - isAnswer: y
+      example: E
+    - isAnswer: n
+      example:  G
+    - isAnswer: n
+      example:  H
