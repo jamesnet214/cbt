@@ -14,25 +14,8 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
-
-const steps = [
-  {
-    label: '회차 선택',
-    description: `회차를 선택해주세요. 여러 회차를 선택할 수도 있습니다.`,
-  },
-  {
-    label: '과목 선택',
-    description:
-      'An ad group contains one or more ads which target a shared set of keywords.',
-  },
-  {
-    label: '문제 선택',
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
-  },
-];
+import RadioGroup from '@mui/material/RadioGroup';
+import Radio from '@mui/material/Radio';
 
 export default function CbtStepper(props) {
   const search = useLocation().search;
@@ -52,46 +35,47 @@ export default function CbtStepper(props) {
   };
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
+    <Box sx={{ maxWidth: 538, }}>
         <Stepper activeStep={activeStep} orientation="vertical">
             <Step key="1">
                 <StepLabel children="회차 선택"/>
                 <StepContent>
-                    <Typography children="회차를 선택해주세요." variant="body2"/>
-                    <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
-                    <br />
-                    <br />
+                    <Box style={{marginTop: '4px', marginBottom: '14px'}}>
+                        <Typography children="회차를 선택해주세요." variant="h6"/>
+                        <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
+                    </Box>
                     <InningCheckbox/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
-                        <BackButton disabled={true}
-                                    onClick={handleBack}/>
+                        <BackButton 
+                            disabled={true}
+                            onClick={handleBack}/>
                     </Box>
                 </StepContent>
             </Step>
             <Step key="2">
                 <StepLabel children="과목 선택"/>
                 <StepContent>
-                    <Typography children="과목을 선택해주세요." variant="body2"/>
-                    <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>
-                    <br />
-                    <br />
+                    <Box style={{marginTop: '4px', marginBottom: '14px'}}>
+                        <Typography children="과목을 선택해주세요." variant="h6"/>
+                        <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>  
+                    </Box>
                     <Stack sx={{ mb: 2 }}>
                         <FormControlLabel
                             label={<Typography children="소프트웨어 설계" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
+                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
                         <FormControlLabel
                             label={<Typography children="소프트웨어 개발" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
+                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
                         <FormControlLabel
                             label={<Typography children="데이터베이스 구축" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
+                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
                         <FormControlLabel
                             label={<Typography children="프로그래밍 언어활용" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
+                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
                         <FormControlLabel
                             label={<Typography children="정보시스템 구축관리" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}/>}/>
+                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
                     </Stack>
                     <Box sx={{ mb: 2 }}>
                         <NextButton onClick={handleNext}/>
@@ -99,42 +83,33 @@ export default function CbtStepper(props) {
                     </Box>
                 </StepContent>
             </Step>
+            <Step key="3">
+                <StepLabel children="문제 출제"/>
+                <StepContent>
+                    <Box style={{marginTop: '4px', marginBottom: '14px'}}>
+                        <Typography children="출제 문제 갯수를 선택해주세요." variant="h6"/>
+                        <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
+                    </Box>
+                    <Stack sx={{ mb: 2 }}>
 
-        {steps.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel
-              optional={
-                index === 2 ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
-            </StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-              <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
-                  </Button>
-                  <Button
-                    disabled={index === 0}
-                    onClick={handleBack}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    Back
-                  </Button>
-                </div>
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-
+                        <RadioGroup
+                            aria-label="gender"
+                            defaultValue="female"
+                            name="radio-buttons-group"
+                          >
+                            <FormControlLabel value="5" control={<Radio  size="small" style={{padding: 6}}/>} label="5 (가볍게)" />
+                            <FormControlLabel value="10"  control={<Radio size="small" style={{padding: 6}}/>} label="20 (적당히)" />
+                            <FormControlLabel value="100"  control={<Radio size="small" style={{padding: 6}}/>} label="100 (진지하게)" />
+                          </RadioGroup>
+                    </Stack>
+                    <Box sx={{ mb: 2 }}>
+                        <NextButton 
+                            onClick={handleNext}
+                            children="Finish"/>
+                        <BackButton onClick={handleBack}/>
+                    </Box>
+                </StepContent>
+            </Step>
 
       </Stepper>
     </Box>

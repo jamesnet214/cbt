@@ -47,14 +47,20 @@ export default function InningCheckbox(props) {
   );
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#ffffff', 
+                  borderTop: '1px solid #dddddd', 
+                  borderLeft: '1px solid #dddddd', 
+                  borderRight: '1px solid #dddddd', 
+                  borderRadius: 0, 
+                  marginTop: 20,
+                  marginBottom: 20,
+                  padding: '0px 0px 0px 0px',}}>
         {innings.filter(x=>x.testId == cbtId).map((x, i) => {
             return (
-              <div>
-                  <FormControlLabel 
+              <div style={{ borderBottom: '1px solid #eeeeee'}}>
+                  <FormControlLabel
                       label={<Typography children={x.year + '년 - ' + x.inning + '회'} variant="subtitle2"/>}
-                      control={<Checkbox size="small" 
-                               style={{padding: 4}}/>}/>
+                      control={<Checkbox style={{ marginLeft: '20px'}} />}/>
                       {()=> children(x.children)}
               </div>
             );
