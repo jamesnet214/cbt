@@ -39,7 +39,7 @@
   pageId: "2"
   label: 정보처리기능사
 - type: W
-  parentId: "2"
+  parentId: "3"
   nodeId: "9"
   pageId: "3"
   label: 컴퓨터활용능력1급
