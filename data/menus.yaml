@@ -44,7 +44,7 @@
   pageId: "3"
   label: 컴퓨터활용능력1급
 - type: W
-  parentId: "3"
+  parentId: "4"
   nodeId: "10"
   pageId: "4"
   label: 컴퓨터활용능력2급
