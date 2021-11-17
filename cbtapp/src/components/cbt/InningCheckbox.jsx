@@ -10,7 +10,6 @@ import { Typography } from '@mui/material';
 export default function InningCheckbox(props) {
     const search = useLocation().search;
     const cbtId = new URLSearchParams(search).get('id');
-    const [checked, setChecked] = React.useState([true, false]);
     const [innings, setInnings] = React.useState([]);
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/innings.yaml')
@@ -21,30 +20,13 @@ export default function InningCheckbox(props) {
         });
     }, []);
 
-  const handleChange1 = (event) => {
-    setChecked([event.target.checked, event.target.checked]);
-  };
+  const handleChange1 = (event, id) => {
+      console.log('id: ', id);
+      innings.filter(x=>x.id == id)[0].isChecked = event.target.checked;
+      console.log('checked:', innings.filter(x=>x.id == id)[0].isChecked);
 
-  const handleChange2 = (event) => {
-    setChecked([event.target.checked, checked[1]]);
+      props.required(innings.filter(x=>x.isChecked).length > 0);
   };
-
-  const handleChange3 = (event) => {
-    setChecked([checked[0], event.target.checked]);
-  };
-
-  const children = (item) => (
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }} >
-          <FormControlLabel label={<Typography children="1회차" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}
-                                               checked={checked[0]} 
-                                               onChange={handleChange2}/>}/>
-          <FormControlLabel label={<Typography children="2회차" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 4}}
-                                               checked={checked[1]} 
-                                               onChange={handleChange3}/>}/>
-      </Box>
-  );
 
   return (
     <div style={{ backgroundColor: '#ffffff', 
@@ -60,8 +42,7 @@ export default function InningCheckbox(props) {
               <div style={{ borderBottom: '1px solid #eeeeee'}}>
                   <FormControlLabel
                       label={<Typography children={x.year + '년 - ' + x.inning + '회'} variant="subtitle2"/>}
-                      control={<Checkbox style={{ marginLeft: '20px'}} />}/>
-                      {()=> children(x.children)}
+                      control={<Checkbox style={{ marginLeft: '20px'}} onChange={(event) => handleChange1(event, x.id)}/>}/>
               </div>
             );
         })}

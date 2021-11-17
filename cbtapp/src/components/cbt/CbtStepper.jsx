@@ -18,21 +18,31 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 
 export default function CbtStepper(props) {
-  const search = useLocation().search;
-  const cbtId = new URLSearchParams(search).get('id');
-  const [activeStep, setActiveStep] = React.useState(0);
+    const search = useLocation().search;
+    const cbtId = new URLSearchParams(search).get('id');
+    const [activeStep, setActiveStep] = React.useState(0);
+    const [firstChecked, setFirstChecked] = React.useState(false);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+    const firstRequired = (required) => {
+        setFirstChecked(required)
+        console.log('firstRequired', required);
+    }
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+    const firstStepClick = () => {
+        handleNext();          
+    }
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const handleReset = () => {
+        setActiveStep(0);
+    };
 
   return (
     <Box sx={{ maxWidth: 538, }}>
@@ -44,9 +54,11 @@ export default function CbtStepper(props) {
                         <Typography children="회차를 선택해주세요." variant="h6"/>
                         <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     </Box>
-                    <InningCheckbox/>
+                    <InningCheckbox required={firstRequired}/>
                     <Box sx={{ mb: 2 }}>
-                        <NextButton onClick={handleNext}/>
+                        <NextButton 
+                            disabled={!firstChecked}
+                            onClick={firstStepClick}/>
                         <BackButton 
                             disabled={true}
                             onClick={handleBack}/>
