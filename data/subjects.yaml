@@ -10,10 +10,6 @@
   testId: "0"
   subjectName: "데이터베이스 구축"
   sort: 3
-- id: "3"
-  testId: "0"
-  subjectName: "소프트웨어 개발"
-  sort: 3
 - id: "4"
   testId: "0"
   subjectName: "프로그래밍 언어활용"
