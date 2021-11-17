@@ -88,7 +88,7 @@ export default function Cbt(props) {
                 <CbtStepper/>
             </Box>
 
-            <Box margin={3} style={{maxWidth: '600px'}}>
+            <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>
                 {text == null ? null
                 :
                     text.map((item, i) => {
