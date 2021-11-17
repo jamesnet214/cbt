@@ -54,7 +54,7 @@ export default function Cbt(props) {
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
             return (
-                <Box>
+                <Box key={i}>
                     <Box className="papar-question-content">
                     <Typography key={i.toString()}
                         style={{ margin: '5px 0px 0px 0px' }}
@@ -108,9 +108,9 @@ export default function Cbt(props) {
                                     <Divider className="paper-question-divider"/>
                                     <Box>
                                         {item.infos != null ? 
-                                            item.infos.map(info => {
+                                            item.infos.map((info, i) => {
                                                 return (
-                                                    <Box>
+                                                    <Box key={i}>
                                                         <Box className="papar-question-content">
                                                             <img src={info.src}/>
                                                         </Box>

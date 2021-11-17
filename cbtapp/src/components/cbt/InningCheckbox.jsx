@@ -39,7 +39,7 @@ export default function InningCheckbox(props) {
                   padding: '0px 0px 0px 0px',}}>
         {innings.filter(x=>x.testId == cbtId).map((x, i) => {
             return (
-              <div style={{ borderBottom: '1px solid #eeeeee'}}>
+              <div key={x.id} style={{ borderBottom: '1px solid #eeeeee'}}>
                   <FormControlLabel
                       label={<Typography children={x.year + '년 - ' + x.inning + '회'} variant="subtitle2"/>}
                       control={<Checkbox style={{ marginLeft: '20px'}} onChange={(event) => handleChange1(event, x.id)}/>}/>
