@@ -6,27 +6,29 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography } from '@mui/material';
 
+let _subjects = [];
 
 export default function InningCheckbox(props) {
     const search = useLocation().search;
     const cbtId = new URLSearchParams(search).get('id');
-    const [innings, setInnings] = React.useState([]);
+    const [subjects, setSubjects] = React.useState(_subjects);
     React.useEffect(() => {
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/subjects.yaml')
-        .then(res => res.blob())
-        .then(blob => blob.text())
-        .then(res => {
-            const data = load(res);
-            setInnings(data);
-        });
+        if(_subjects.length == 0)
+        {
+            fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/subjects.yaml')
+                .then(res => res.blob())
+                .then(blob => blob.text())
+                .then(res => {
+                    _subjects = load(res).filter(x => x.testId == cbtId);
+                    // _subjects.filter((s) => { s['isChecked'] = true });
+                    setSubjects(_subjects);
+                });
+        }
     }, []);
 
   const handleChange1 = (event, id) => {
-      console.log('id: ', id);
-      innings.filter(x=>x.id == id)[0].isChecked = event.target.checked;
-      console.log('checked:', innings.filter(x=>x.id == id)[0].isChecked);
-
-      props.required(innings.filter(x=>x.isChecked).length > 0);
+      subjects.find(x=>x.id == id).isChecked = event.target.checked;
+      props.required(subjects.filter(x=>x.isChecked).length > 0);
   };
 
   return (
@@ -38,12 +40,15 @@ export default function InningCheckbox(props) {
                   marginTop: 20,
                   marginBottom: 20,
                   padding: '0px 0px 0px 0px',}}>
-        {innings.filter(x=>x.testId == cbtId).map((x, i) => {
+        {subjects.filter(x=>x.testId == cbtId).map((x, i) => {
             return (
               <div key={x.id} style={{ borderBottom: '1px solid #eeeeee'}}>
                   <FormControlLabel
                       label={<Typography children={x.subjectName} variant="subtitle2"/>}
-                      control={<Checkbox style={{ marginLeft: '20px'}} onChange={(event) => handleChange1(event, x.id)}/>}/>
+                      control={<Checkbox 
+                                  style={{ marginLeft: '20px'}} 
+                                  // checked={x.isChecked}
+                                  onChange={(event) => handleChange1(event, x.id)}/>}/>
               </div>
             );
         })}
