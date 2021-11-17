@@ -1,31 +1,35 @@
-import * as React from 'react';
-import {useLocation} from "react-router-dom";
+import React from 'react';
+import { useLocation } from "react-router-dom";
 import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import NextButton from './NextButton';
-import BackButton from './BackButton';
-import InningCheckbox from './InningCheckbox';
-import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Stack from '@mui/material/Stack';
-import Alert from '@mui/material/Alert';
-import RadioGroup from '@mui/material/RadioGroup';
+import NextButton from './NextButton';
 import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import Stack from '@mui/material/Stack';
+import Step from '@mui/material/Step';
+import StepContent from '@mui/material/StepContent';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import Typography from '@mui/material/Typography';
+import BackButton from './BackButton';
+import InningCheckboxs from './InningCheckboxs';
+import SubjectCheckboxs from './SubjectCheckboxs';
 
 export default function CbtStepper(props) {
     const search = useLocation().search;
     const cbtId = new URLSearchParams(search).get('id');
     const [activeStep, setActiveStep] = React.useState(0);
     const [firstChecked, setFirstChecked] = React.useState(false);
+    const [secondChecked, setSecondChecked] = React.useState(false);
 
     const firstRequired = (required) => {
         setFirstChecked(required)
         console.log('firstRequired', required);
+    }
+
+    const secondRequired = (required) => {
+        setSecondChecked(required)
+        console.log('secondRequired', required);
     }
 
     const handleNext = () => {
@@ -54,7 +58,7 @@ export default function CbtStepper(props) {
                         <Typography children="회차를 선택해주세요." variant="h6"/>
                         <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     </Box>
-                    <InningCheckbox required={firstRequired}/>
+                    <InningCheckboxs required={firstRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!firstChecked}
@@ -72,25 +76,11 @@ export default function CbtStepper(props) {
                         <Typography children="과목을 선택해주세요." variant="h6"/>
                         <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>  
                     </Box>
-                    <Stack sx={{ mb: 2 }}>
-                        <FormControlLabel
-                            label={<Typography children="소프트웨어 설계" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
-                        <FormControlLabel
-                            label={<Typography children="소프트웨어 개발" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
-                        <FormControlLabel
-                            label={<Typography children="데이터베이스 구축" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
-                        <FormControlLabel
-                            label={<Typography children="프로그래밍 언어활용" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
-                        <FormControlLabel
-                            label={<Typography children="정보시스템 구축관리" variant="subtitle2"/>}
-                            control={<Checkbox size="small" style={{padding: 6}}/>}/>
-                    </Stack>
+                    <SubjectCheckboxs required={secondRequired}/>
                     <Box sx={{ mb: 2 }}>
-                        <NextButton onClick={handleNext}/>
+                        <NextButton 
+                            disabled={!secondChecked}
+                            onClick={handleNext}/>
                         <BackButton onClick={handleBack}/>
                     </Box>
                 </StepContent>

@@ -67,7 +67,6 @@ export default function Cbt(props) {
     }
 
     function getAnswer(answers) {
-
         let answer = -1;
         answers.map((x, i) => {
             if(x.isAnswer === 'y') {
