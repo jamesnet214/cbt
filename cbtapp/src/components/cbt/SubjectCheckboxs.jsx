@@ -13,7 +13,7 @@ export default function InningCheckboxs(props) {
     const cbtId = new URLSearchParams(search).get('id');
     const [subjects, setSubjects] = React.useState(_subjects);
     React.useEffect(() => {
-        if(_subjects.length == 0)
+        // if(_subjects.length == 0)
         {
             fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/subjects.yaml')
                 .then(res => res.blob())

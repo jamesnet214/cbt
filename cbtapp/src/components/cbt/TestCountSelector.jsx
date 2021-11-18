@@ -15,7 +15,7 @@ export default function TestCountSelector(props) {
     const [testTypes, setTestTypes] = React.useState(_testTypes);
 
     React.useEffect(() => {
-        if(_testTypes.length == 0)
+        // if(_testTypes.length == 0)
         {
             fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/testTypes.yaml')
                 .then(res => res.blob())
