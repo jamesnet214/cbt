@@ -8,7 +8,7 @@ import { Typography } from '@mui/material';
 
 let _subjects = [];
 
-export default function InningCheckbox(props) {
+export default function InningCheckboxs(props) {
     const search = useLocation().search;
     const cbtId = new URLSearchParams(search).get('id');
     const [subjects, setSubjects] = React.useState(_subjects);

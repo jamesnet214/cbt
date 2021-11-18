@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import BackButton from './BackButton';
 import InningCheckboxs from './InningCheckboxs';
 import SubjectCheckboxs from './SubjectCheckboxs';
+import TestCountSelector from './TestCountSelector';
 
 export default function CbtStepper(props) {
     const search = useLocation().search;
@@ -92,18 +93,7 @@ export default function CbtStepper(props) {
                         <Typography children="출제 문제 갯수를 선택해주세요." variant="h6"/>
                         <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
                     </Box>
-                    <Stack sx={{ mb: 2 }}>
-
-                        <RadioGroup
-                            aria-label="gender"
-                            defaultValue="female"
-                            name="radio-buttons-group"
-                          >
-                            <FormControlLabel value="5" control={<Radio  size="small" style={{padding: 6}}/>} label="5 (가볍게)" />
-                            <FormControlLabel value="10"  control={<Radio size="small" style={{padding: 6}}/>} label="20 (적당히)" />
-                            <FormControlLabel value="100"  control={<Radio size="small" style={{padding: 6}}/>} label="100 (진지하게)" />
-                          </RadioGroup>
-                    </Stack>
+                    <TestCountSelector/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             onClick={handleNext}
