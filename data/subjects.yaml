@@ -22,3 +22,7 @@
   testId: "1"
   subjectName: "전자계산기구조"
   sort: 1
+- id: "7"
+  testId: "1"
+  subjectName: "시스템분석 설계"
+  sort: 2
