@@ -10,15 +10,15 @@
   testId: "0"
   count: 100  
   comment: 진지하게
-- id: "0"
-  testId: "0"
+- id: "3"
+  testId: "1"
   count: 5
   comment: "가볍게"
-- id: "1"
-  testId: "0"
+- id: "4"
+  testId: "1"
   count: 20  
   comment: "적당히"
-- id: "2"
-  testId: "0"
+- id: "5"
+  testId: "1"
   count: 80  
   comment: 진지하게
