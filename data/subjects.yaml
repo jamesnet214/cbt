@@ -18,3 +18,20 @@
   testId: "0"
   subjectName: "정보시스템 구축관리"
   sort: 5
+- id: "6"
+  testId: "1"
+  subjectName: "전자계산기구조"
+  sort: 1
+- id: "7"
+  testId: "1"
+  subjectName: "시스템분석 설계"
+  sort: 2
+- id: "8"
+  testId: "1"
+  subjectName: "운영체제"
+  sort: 3
+- id: "9"
+  testId: "1"
+  subjectName: "정보통신개론"
+  sort: 4
+
