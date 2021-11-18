@@ -90,7 +90,7 @@ export default function CbtStepper(props) {
                 <StepLabel children="문제 출제"/>
                 <StepContent>
                     <Box style={{marginTop: '4px', marginBottom: '14px'}}>
-                        <Typography children="출제 문제 갯수를 선택해주세요." variant="h6"/>
+                        <Typography children="출제 문제 유형을 선택해주세요." variant="h6"/>
                         <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
                     </Box>
                     <TestCountSelector/>
