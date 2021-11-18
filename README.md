@@ -1,5 +1,5 @@
 # CBT 
 tbd...
 
-## weansite
+## website
 https://devncore.github.io/cbt/
