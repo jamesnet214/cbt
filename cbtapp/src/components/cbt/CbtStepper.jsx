@@ -18,7 +18,7 @@ import TestCountSelector from './TestCountSelector';
 
 export default function CbtStepper(props) {
     const search = useLocation().search;
-    const cbtId = new URLSearchParams(search).get('id');
+    const cbtId = props.cbtId;
     const [activeStep, setActiveStep] = React.useState(0);
     const [firstChecked, setFirstChecked] = React.useState(false);
     const [secondChecked, setSecondChecked] = React.useState(false);
@@ -59,7 +59,7 @@ export default function CbtStepper(props) {
                         <Typography children="회차를 선택해주세요." variant="h6"/>
                         <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     </Box>
-                    <InningCheckboxs required={firstRequired}/>
+                    <InningCheckboxs cbtId={cbtId} required={firstRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!firstChecked}
@@ -77,7 +77,7 @@ export default function CbtStepper(props) {
                         <Typography children="과목을 선택해주세요." variant="h6"/>
                         <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>  
                     </Box>
-                    <SubjectCheckboxs required={secondRequired}/>
+                    <SubjectCheckboxs cbtId={cbtId} required={secondRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!secondChecked}
@@ -93,7 +93,7 @@ export default function CbtStepper(props) {
                         <Typography children="출제 문제 유형을 선택해주세요." variant="h6"/>
                         <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
                     </Box>
-                    <TestCountSelector/>
+                    <TestCountSelector cbtId={cbtId}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             onClick={handleNext}

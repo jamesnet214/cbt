@@ -11,7 +11,7 @@ let _testTypes = [];
 
 export default function TestCountSelector(props) {
     const search = useLocation().search;
-    const cbtId = new URLSearchParams(search).get('id');
+    const cbtId = props.cbtId;
     const [testTypes, setTestTypes] = React.useState(_testTypes);
 
     React.useEffect(() => {
@@ -29,7 +29,7 @@ export default function TestCountSelector(props) {
 
   const handleChange1 = (event, id) => {
     // testTypes.find(x=>x.id == id).isChecked = event.target.checked;
-    //   props.required(testTypes.filter(x=>x.isChecked).length > 0);
+    // props.required(testTypes.filter(x=>x.isChecked).length > 0);
   };
 
   return (

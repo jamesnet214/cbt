@@ -22,9 +22,8 @@ export default function Cbt(props) {
     const [titles, setTitles] = React.useState(null);
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
-
     const search = useLocation().search;
-    const cbtId = new URLSearchParams(search).get('id');
+    const cbtId = props.cbtId;
 
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
@@ -46,6 +45,7 @@ export default function Cbt(props) {
     function getName(id) {
         if(titles != null)
         {
+            console.log('getName: ', id);
             return titles.filter(x=>x.id.toString() == id.toString())[0].title;
         }
         return "...";
@@ -84,7 +84,7 @@ export default function Cbt(props) {
             </Box>
 
             <Box margin={3}>
-                <CbtStepper/>
+                <CbtStepper cbtId={cbtId}/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>

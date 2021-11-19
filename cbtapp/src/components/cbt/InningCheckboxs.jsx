@@ -9,8 +9,7 @@ import { Typography } from '@mui/material';
 let _innings = [];
 
 export default function InningCheckboxs(props) {
-    const search = useLocation().search;
-    const cbtId = new URLSearchParams(search).get('id');
+    const cbtId = props.cbtId;
     const [innings, setInnings] = React.useState(_innings);
     React.useEffect(() => {
         // if (_innings.length == 0) 
@@ -19,6 +18,7 @@ export default function InningCheckboxs(props) {
                 .then(res => res.blob())
                 .then(blob => blob.text())
                 .then(res => {
+                    console.log('inning cbtId>>', cbtId);
                     _innings = load(res).filter(x => x.testId == cbtId);
                     setInnings(_innings);
                 });

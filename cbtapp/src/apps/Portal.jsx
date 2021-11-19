@@ -10,8 +10,10 @@ import LeftLayer from '../components/portal/LeftLayer';
 
 import '../design/default.css';
 
-import Cbt from '../pages/Cbt';
+// import Cbt from '../pages/Cbt';
 import Dashboard from '../pages/Dashboard';
+import test0 from '../pages/test0';
+import test1 from '../pages/test1';
 
 const drawerWidth = 240;
 
@@ -65,7 +67,8 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/test' component={Cbt}/>
+                            <Route path='/test0' component={test0}/>
+                            <Route path='/test1' component={test1}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>
