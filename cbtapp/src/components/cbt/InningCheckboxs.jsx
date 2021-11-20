@@ -6,24 +6,9 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography } from '@mui/material';
 
-let _innings = [];
-
 export default function InningCheckboxs(props) {
     const cbtId = props.cbtId;
-    const [innings, setInnings] = React.useState(_innings);
-    React.useEffect(() => {
-        // if (_innings.length == 0) 
-        {
-            fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/innings.yaml')
-                .then(res => res.blob())
-                .then(blob => blob.text())
-                .then(res => {
-                    console.log('inning cbtId>>', cbtId);
-                    _innings = load(res).filter(x => x.testId == cbtId);
-                    setInnings(_innings);
-                });
-        }
-    }, []);
+    const innings = props.innings;
 
   const handleChange1 = (event, id) => {
       console.log('id: ', event.target.checked);
@@ -32,6 +17,7 @@ export default function InningCheckboxs(props) {
 
       props.required(innings.filter(x=>x.isChecked).length > 0);
   };
+  props.required(innings.filter(x=>x.isChecked).length > 0);
 
   return (
     <div style={{ backgroundColor: '#ffffff', 
@@ -47,7 +33,10 @@ export default function InningCheckboxs(props) {
               <div key={x.id} style={{ borderBottom: '1px solid #eeeeee'}}>
                   <FormControlLabel
                       label={<Typography children={x.year + '년 - ' + x.inning + '회'} variant="subtitle2"/>}
-                      control={<Checkbox style={{ marginLeft: '20px'}} onChange={(event) => handleChange1(event, x.id)}/>}/>
+                      control={<Checkbox 
+                                    defaultChecked={x.isChecked}
+                                    style={{ marginLeft: '20px'}} 
+                                    onChange={(event) => handleChange1(event, x.id)}/>}/>
               </div>
             );
         })}

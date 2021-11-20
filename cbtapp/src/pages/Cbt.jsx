@@ -21,17 +21,27 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Cbt(props) {
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
+    const [innings, setInnings] = React.useState([]);
     const search = useLocation().search;
     const cbtId = props.cbtId;
 
     React.useEffect(() => {
-
+        console.log('cbt useEffect loaded');
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
         .then(blob => blob.text())
         .then(res => {
             setText(load(res));
         });
+
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/innings.yaml')
+            .then(res => res.blob())
+            .then(blob => blob.text())
+            .then(res => {
+                console.log('inning loaded', cbtId);
+                let _innings = load(res).filter(x => x.testId == cbtId);
+                setInnings(_innings);
+            });
     }, []);
       
     function initItemsTemplate(items) {
@@ -67,7 +77,7 @@ export default function Cbt(props) {
             </Box>
 
             <Box margin={3}>
-                <CbtStepper cbtId={cbtId}/>
+                <CbtStepper cbtId={cbtId} innings={innings}/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>

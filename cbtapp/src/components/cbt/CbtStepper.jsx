@@ -23,6 +23,10 @@ export default function CbtStepper(props) {
     const [firstChecked, setFirstChecked] = React.useState(false);
     const [secondChecked, setSecondChecked] = React.useState(false);
 
+    React.useEffect(() => {
+        console.log('cbtstepper useEffect loaded');
+    });
+
     const firstRequired = (required) => {
         setFirstChecked(required)
         console.log('firstRequired', required);
@@ -59,7 +63,7 @@ export default function CbtStepper(props) {
                         <Typography children="회차를 선택해주세요." variant="h6"/>
                         <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     </Box>
-                    <InningCheckboxs cbtId={cbtId} required={firstRequired}/>
+                    <InningCheckboxs cbtId={cbtId} innings={props.innings} required={firstRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!firstChecked}
