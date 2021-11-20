@@ -19,19 +19,12 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 export default function Cbt(props) {
-    const [titles, setTitles] = React.useState(null);
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
     const search = useLocation().search;
     const cbtId = props.cbtId;
 
     React.useEffect(() => {
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
-        .then(res => res.blob())
-        .then(blob => blob.text())
-        .then(res => {
-            setTitles(load(res));
-        });
 
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
@@ -40,16 +33,6 @@ export default function Cbt(props) {
             setText(load(res));
         });
     }, []);
-
-        
-    function getName(id) {
-        if(titles != null)
-        {
-            console.log('getName: ', id);
-            return titles.filter(x=>x.id.toString() == id.toString())[0].title;
-        }
-        return "...";
-    }
       
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
@@ -80,7 +63,7 @@ export default function Cbt(props) {
         <Box style={{ minWidth: '200px' }}>
 
             <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
-                <Typography variant="h6" children={getName(cbtId)}/>
+                <Typography variant="h6" children={props.title}/>
             </Box>
 
             <Box margin={3}>

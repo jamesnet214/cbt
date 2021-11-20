@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Route } from 'react-router';
 // import { makeStyles, useTheme } from "@mui/styles";
+import { load } from 'js-yaml';
 import { styled } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -10,10 +11,8 @@ import LeftLayer from '../components/portal/LeftLayer';
 
 import '../design/default.css';
 
-// import Cbt from '../pages/Cbt';
+import Cbt from '../pages/Cbt';
 import Dashboard from '../pages/Dashboard';
-import test0 from '../pages/test0';
-import test1 from '../pages/test1';
 
 const drawerWidth = 240;
 
@@ -32,9 +31,32 @@ const theme = createTheme({
 
 export default function Portal(props) {
     const [open, setOpen] = React.useState(false);
+    const [titles, setTitles] = React.useState(null);
+    
+    React.useEffect(() => {
+        if (titles == null) {
+            fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
+                .then(res => res.blob())
+                .then(blob => blob.text())
+                .then(res => {
+                    setTitles(load(res));
+                    console.log('load titles');
+                    });
+        }
+    });
 
     const openChanged = (changedValue) => {
         setOpen(changedValue);
+    }
+
+        
+    function getName(id) {
+        if(titles != null)
+        {
+            console.log('getName: ', id);
+            return titles.filter(x=>x.id.toString() == id.toString())[0].title;
+        }
+        return "...";
     }
 
     const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -57,6 +79,10 @@ export default function Portal(props) {
         }),
       );
 
+    const getCbt = (cbtId) => {
+        return <Cbt cbtId={cbtId} title={getName(cbtId)}/>;
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <div className={'root'}>
@@ -67,8 +93,8 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/test0' component={test0}/>
-                            <Route path='/test1' component={test1}/>
+                            <Route path='/test0' component={() => getCbt('0')}/>
+                            <Route path='/test1' component={() => getCbt('1')}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>
