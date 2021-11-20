@@ -22,3 +22,15 @@
   testId: "1"
   count: 80  
   comment: 진지하게
+- id: "6"
+  testId: "2"
+  count: 5
+  comment: "가볍게"
+- id: "7"
+  testId: "2"
+  count: 20  
+  comment: "적당히"
+- id: "8"
+  testId: "2"
+  count: 80  
+  comment: 진지하게
