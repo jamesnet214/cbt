@@ -95,6 +95,12 @@ export default function Portal(props) {
                         <Main open={open}>
                             <Route path='/test0' component={() => getCbt('0')}/>
                             <Route path='/test1' component={() => getCbt('1')}/>
+                            <Route path='/test2' component={() => getCbt('2')}/>
+                            <Route path='/test3' component={() => getCbt('3')}/>
+                            <Route path='/test4' component={() => getCbt('4')}/>
+                            <Route path='/test5' component={() => getCbt('5')}/>
+                            <Route path='/test6' component={() => getCbt('6')}/>
+                            <Route path='/test7' component={() => getCbt('7')}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>

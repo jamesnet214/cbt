@@ -22,6 +22,7 @@ export default function Cbt(props) {
     const [answer, setAnswer] = React.useState(-1);
     const [innings, setInnings] = React.useState([]);
     const [subjects, setSubjects] = React.useState([]);
+    const [testTypes, setTestTypes] = React.useState([]);
     const cbtId = props.cbtId;
 
     React.useEffect(() => {
@@ -49,6 +50,14 @@ export default function Cbt(props) {
             .then(res => {
                 let _subjects = load(res).filter(x => x.testId == cbtId);
                 setSubjects(_subjects);
+            });
+
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/testTypes.yaml')
+            .then(res => res.blob())
+            .then(blob => blob.text())
+            .then(res => {
+                let _testTypes = load(res).filter(x => x.testId == cbtId);
+                setTestTypes(_testTypes);
             });
     }, []);
       
@@ -88,7 +97,8 @@ export default function Cbt(props) {
                 <CbtStepper 
                     cbtId={cbtId}
                     innings={innings}
-                    subjects={subjects}/>
+                    subjects={subjects}
+                    testTypes={testTypes}/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>

@@ -14,6 +14,8 @@ export default function SubjectCheckboxs(props) {
       subjects.find(x=>x.id == id).isChecked = event.target.checked;
       props.required(subjects.filter(x=>x.isChecked).length > 0);
   };
+  
+  props.required(subjects.filter(x=>x.isChecked).length > 0);
 
   return (
     <div style={{ backgroundColor: '#ffffff', 

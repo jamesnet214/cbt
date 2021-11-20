@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import BackButton from './BackButton';
 import InningCheckboxs from './InningCheckboxs';
 import SubjectCheckboxs from './SubjectCheckboxs';
-import TestCountSelector from './TestCountSelector';
+import TestTypeSelector from './TestTypeSelector';
 
 export default function CbtStepper(props) {
     const search = useLocation().search;
@@ -63,7 +63,10 @@ export default function CbtStepper(props) {
                         <Typography children="회차를 선택해주세요." variant="h6"/>
                         <Typography children="여러 회차를 선택할 수도 있습니다." variant="caption"/>
                     </Box>
-                    <InningCheckboxs cbtId={cbtId} innings={props.innings} required={firstRequired}/>
+                    <InningCheckboxs 
+                        cbtId={cbtId} 
+                        innings={props.innings} 
+                        required={firstRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!firstChecked}
@@ -100,7 +103,9 @@ export default function CbtStepper(props) {
                         <Typography children="출제 문제 유형을 선택해주세요." variant="h6"/>
                         <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
                     </Box>
-                    <TestCountSelector cbtId={cbtId}/>
+                    <TestTypeSelector 
+                        cbtId={cbtId}
+                        testTypes={props.testTypes}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             onClick={handleNext}
