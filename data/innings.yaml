@@ -12,7 +12,7 @@
   testId: "0"
   year: 2021
   inning: "3"
-  isChecked: false
+  isChecked: true
 - id: "3" 
   testId: "0"
   year: 2020
