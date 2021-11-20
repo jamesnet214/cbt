@@ -1,5 +1,4 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
 import Box from '@mui/material/Box';
 import Card  from '@mui/material/Card';
 import Divider  from '@mui/material/Divider';
@@ -22,11 +21,12 @@ export default function Cbt(props) {
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
     const [innings, setInnings] = React.useState([]);
-    const search = useLocation().search;
+    const [subjects, setSubjects] = React.useState([]);
     const cbtId = props.cbtId;
 
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
+
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
         .then(blob => blob.text())
@@ -41,6 +41,14 @@ export default function Cbt(props) {
                 console.log('inning loaded', cbtId);
                 let _innings = load(res).filter(x => x.testId == cbtId);
                 setInnings(_innings);
+            });
+
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/subjects.yaml')
+            .then(res => res.blob())
+            .then(blob => blob.text())
+            .then(res => {
+                let _subjects = load(res).filter(x => x.testId == cbtId);
+                setSubjects(_subjects);
             });
     }, []);
       
@@ -77,7 +85,10 @@ export default function Cbt(props) {
             </Box>
 
             <Box margin={3}>
-                <CbtStepper cbtId={cbtId} innings={innings}/>
+                <CbtStepper 
+                    cbtId={cbtId}
+                    innings={innings}
+                    subjects={subjects}/>
             </Box>
 
             <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>

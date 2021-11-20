@@ -81,7 +81,10 @@ export default function CbtStepper(props) {
                         <Typography children="과목을 선택해주세요." variant="h6"/>
                         <Typography children="원하는 과목만 선택할 수도 있습니다." variant="caption"/>  
                     </Box>
-                    <SubjectCheckboxs cbtId={cbtId} required={secondRequired}/>
+                    <SubjectCheckboxs 
+                        cbtId={cbtId} 
+                        subjects={props.subjects} 
+                        required={secondRequired}/>
                     <Box sx={{ mb: 2 }}>
                         <NextButton 
                             disabled={!secondChecked}
