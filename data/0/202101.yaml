@@ -81,13 +81,13 @@
   subjectName: 소프트웨어 설계
   question: 객체지향 분석 방법론 중 Coad-Yourdon 방법에 해당하는 것은?
   answers:
-    - isAnswer: 'n'
+    - isAnswer: 'y'
       example: E-R 다이어그램을 사용하여 객체의 행위를 데이터 모델링하는데 초점을 둔 방법이다
     - isAnswer: 'n'
       example: '객체, 동적, 기능 모델로 나누어 수행하는 방법이다. '
     - isAnswer: 'n'
       example: 미시적 개발 프로세스와 거시적 개발 프로세스를 모두 사용하는 방법이다.
-    - isAnswer: 'y'
+    - isAnswer: 'n'
       example: Use-Case를 강조하여 사용하는 방법이다.
 - seq: 8
   subject: 1
@@ -97,9 +97,9 @@
     - type: img
       src: https://user-images.githubusercontent.com/52397976/139526744-f97dd650-402a-4429-99fc-65ea78b771f9.png
   answers:
-    - isAnswer: 'y'
-      example: 'fan-in：2, fan-out：3'
     - isAnswer: 'n'
+      example: 'fan-in：2, fan-out：3'
+    - isAnswer: 'y'
       example: 'fan-in：3, fan-out：2'
     - isAnswer: 'n'
       example: 'fan-in：1, fan-out：2'
@@ -152,7 +152,7 @@
     - isAnswer: 'n'
       example: '기능적 모델은 사용자 측면에서 본 시스템 기능이며, UML에서는 Use case Diagram을 사용한다.'
     - isAnswer: 'n'
-      example: '정적 모델은 객체, 속성, 연관관계, 오퍼레이션의 시스템의 구조를 나타내며, UML에서는 Class Diagram을 사용한다'
+      example: '정적 모델은 객체, 속성, 연관관계, 오퍼레이션의 시스템의 구조를 나타내며, UML에서는 Class Diagram을 사용한다.'
     - isAnswer: 'n'
       example: 동적 모델은 시스템의 내부 동작을 말하며, UML에서는 Sequence Diagram, State Diagram, Activity
         Diagram을 사용한다.
@@ -272,11 +272,11 @@
   answers:
     - isAnswer: n
       example: ㉠ ㉡ ㉢ ㉣
-    - isAnswer: n
+    - isAnswer: y
       example: ㉡ ㉠ ㉣ ㉢
     - isAnswer: n
       example:  ㉢ ㉠ ㉡ ㉣
-    - isAnswer: y
+    - isAnswer: n
       example:  ㉣ ㉡ ㉠ ㉢
 - seq: 22
   subject: 2
@@ -531,6 +531,420 @@
     - isAnswer: y
       example: E
     - isAnswer: n
-      example:  G
+      example: G
     - isAnswer: n
-      example:  H
+      example: H
+- seq: 41
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 결과값이 아래와 같을 때 SQL 질의로 옳은 것은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714142-ac62a448-9236-4f74-bda4-0f6ebc7035c2.png
+  answers:
+    - isAnswer: y
+      example: SELECT * FROM 공급자 WHERE 공급자명 LIKE '%신%';
+    - isAnswer: n
+      example: SELECT * FROM 공급자 WHERE 공급자명 LIKE '%대%';
+    - isAnswer: n
+      example: SELECT * FROM 공급자 WHERE 공급자명 LIKE '%사%';
+    - isAnswer: n
+      example: SELECT * FROM 공급자 WHERE 공급자명 IS NOT NULL;
+- seq: 42
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음에서 설명하는 스키마(Schema)는?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714208-173adaba-ec76-4c67-99cb-bbf90c7589d8.png
+  answers:
+    - isAnswer: y
+      example: 개념 스키마
+    - isAnswer: n
+      example: 내부 스키마
+    - isAnswer: n
+      example: 외부 스키마
+    - isAnswer: n
+      example: 내용 스키마
+- seq: 43
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터베이스 설계 단계 중 저장 레코드 양식설계, 레코드 집중의 분석 및 설계, 접근 경로 설계와 관계되는 것은?
+  answers:
+    - isAnswer: n
+      example: 논리적 설계
+    - isAnswer: n
+      example: 요구 조건 분석
+    - isAnswer: n
+      example: 개념적 설계
+    - isAnswer: y
+      example: 물리적 설계
+- seq: 44
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음 릴레이션의 카디널리티와 차수가 옳게 나타낸 것은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714284-13af9692-730c-4f6e-8c0d-c1301cddbecd.png
+  answers:
+    - isAnswer: n
+      example: '카디널리티 : 4, 차수 : 4'
+    - isAnswer: y
+      example: '카디널리티 : 4, 차수 : 6'
+    - isAnswer: n
+      example: '카디널리티 : 6, 차수 : 4'
+    - isAnswer: n
+      example: '카디널리티 : 6, 차수 : 6'
+- seq: 45
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음과 같은 트랙잭션의 특성은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714318-3f851858-1bbf-47aa-8c70-1c98fcb6fce9.png
+  answers:
+    - isAnswer: n
+      example: 원자성(atomicity)
+    - isAnswer: y
+      example: 일관성(consistency)
+    - isAnswer: n
+      example: 격리성(isolation)
+    - isAnswer: n
+      example: 영속성(durability)
+- seq: 46
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question:  병행제어의 로킹(Locking) 단위에 대한 설명으로 옳지 않은 것은?
+  answers:
+    - isAnswer: n
+      example: 데이터베이스, 파일, 레코드 등은 로킹 단위가 될 수 있다. 
+    - isAnswer: n
+      example: 로킹 단위가 작아지면 로킹 오버헤드가 증가한다. 
+    - isAnswer: n
+      example: 한꺼번에 로킹할 수 있는 단위를 로킹단위라고 한다. 
+    - isAnswer: y
+      example: 로킹 단위가 작아지면 병행성 수준이 낮아진다.
+- seq: 47
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 뷰(VIEW)에 대한 설명으로 옳지 않은 것은?
+  answers:
+    - isAnswer: n
+      example: DBA는 보안 측면에서 뷰를 활용할 수 있다.
+    - isAnswer: n
+      example: 뷰 위에 또 다른 뷰를 정의할 수 있다. 
+    - isAnswer: y
+      example: 뷰에 대한 삽입, 갱신, 삭제 연산 시 제약사항이 따르지 않는다.
+    - isAnswer: n
+      example: 독립적인 인덱스를 가질 수 없다. 
+- seq: 48
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음 정의에서 말하는 기본 정규형은?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714433-e0de2424-c940-4d82-8fb7-1b5c81d42741.png
+  answers:
+    - isAnswer: y
+      example: 제1 정규형(1NF)
+    - isAnswer: n
+      example: 제2 정규형(2NF)
+    - isAnswer: n
+      example: 제3 정규형(3NF)
+    - isAnswer: n
+      example: 보이스/코드 정규형(BCNF)
+- seq: 49
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 릴레이션 R1에 속한 애튜리뷰트의 조합인 외래키를 변경하려면 이를 참조하고 있는 릴레이션 R2의 기본키도 변경해야 하는데 이를 무엇이라 하는가?
+  answers:
+    - isAnswer: n
+      example: 정보 무결성
+    - isAnswer: n
+      example: 고유 무결성
+    - isAnswer: n
+      example: 널 제약성
+    - isAnswer: y
+      example: 참조 무결성
+- seq: 50
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 시스템 카탈로그에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example: 시스템 카탈로그의 갱신은 무결성 유지를 위하여 SQL을 이용하여 사용자가 직접 갱신하여야 한다.
+    - isAnswer: n
+      example: 데이터베이스에 포함되는 데이터 객체에 대한 정의나 명세에 대한 정보를 유지관리한다. 
+    - isAnswer: n
+      example: DBMS가 스스로 생성하고 유지하는 데이터베이스 내의 특별한 테이블의 집합체이다. 
+    - isAnswer: n
+      example: 카탈로그에 저장된 정보를 메타 데이터라고도 한다.
+- seq: 51
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 조건을 만족하는 릴레이션의 수평적 부분집합으로 구성하며, 연산자의 기호는 그리스 문자 시그마(σ)를 사용하는 관계대수 연산은?
+  answers:
+    - isAnswer: y
+      example: Select
+    - isAnswer: n
+      example: Project
+    - isAnswer: n
+      example: Join
+    - isAnswer: n
+      example: Division
+- seq: 52
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: SQL에서 스키마(schema), 도메인(domain), 테이블(table), 뷰(view), 인덱스(index)를 정의하거나 변경 또는 삭제할 때 사용하는 언어는?
+  answers:
+    - isAnswer: n
+      example: DML(Data Manipulation Language)
+    - isAnswer: y
+      example: DDL(Data Definition Language)
+    - isAnswer: n
+      example: DCL(Data Control Language)
+    - isAnswer: n
+      example: IDL(Interactive Data Language)
+- seq: 53
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 정규화를 거치지 않아 발생하게 되는 이상(anomaly) 현상의 종류에 대한 설명으로 옳지 않은 것은?
+  answers:
+    - isAnswer: n
+      example: 삭제 이상이란 릴레이션에서 한 튜플을 삭제할 때 의도와는 상관없는 값들로 함께 삭제되는 연쇄 삭제 현상이다.
+    - isAnswer: n
+      example: 삽입 이상이란 릴레이션에서 데이터를 삽입할 때 의도와는 상관없이 원하지 않는 값들로 함께 삽입되는 현상이다.
+    - isAnswer: n
+      example: 갱신 이상이란 릴레이션에서 튜플에 있는 속성값을 갱신할 때 일부 튜플의 정보만 갱신되어 정보에 모순이 생기는 현상이다. 
+    - isAnswer: y
+      example: 종속 이상이란 하나의 릴레이션에 하나 이상의 함수적 종속성이 존재하는 현상이다. 
+- seq: 54
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 관계 데이터 모델에서 릴레이션(relation)에 관한 설명으로 옳은 것은?
+  answers:
+    - isAnswer: ㅜ
+      example: 릴레이션의 각 행을 스키마(schema)라 하며, 예로 도서 릴레이션을 구성하는 스키마에서는 도서번호, 도서명, 저자, 가격 등이 있다.
+    - isAnswer: n
+      example: 릴레이션의 각 열을 튜플(tuple)이라 하며, 하나의 튜플은 각 속성에서 정의된 값을 이용하여 구성된다. 
+    - isAnswer: y
+      example: 도메인(domain)은 하나의 속성이 가질 수 있는 같은 타입의 모든 값의 집합으로 각 속성의 도메인은 원자값을 갖는다. 
+    - isAnswer: n
+      example: 속성(attribute)은 한 개의 릴레이션의 논리적인 구조를 정의한 것으로 릴레이션의 이름과 릴레이션에 포함된 속성들의 집합을 의미한다.
+- seq: 55
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 3NF에서 BCNF가 되기 위한 조건은?
+  answers:
+    - isAnswer: n
+      example: 이행적 함수 종속 제거
+    - isAnswer: n
+      example: 부분적 함수 종속 제거
+    - isAnswer: n
+      example: 다치 종속 제거
+    - isAnswer: y
+      example: 결정자이면서 후보 키가 아닌 것 제거
+- seq: 56
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터베이스 성능에 많은 영향을 주는 DBMS의 구성 요소로 테이블과 클러스터에 연관되어 독립적인 저장 공간을 보유하며, 데이터베이스에 저장된 자료를 더욱 빠르게 조회하기 위하여 사용되는 것은?
+  answers:
+    - isAnswer: y
+      example: 인덱스(Index)
+    - isAnswer: n
+      example: 트랙잭션(Transaction)
+    - isAnswer: n
+      example: 역정규화(Denormalization)
+    - isAnswer: n
+      example: 트리거(Trigger)
+- seq: 57
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 아래의 SQL문을 실행한 결과는?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142714802-7a099829-34a8-4d0b-97f8-3cc3bae89d7b.png
+  answers:
+    - isAnswer: n
+      example: ①
+    - isAnswer: y
+      example: ②
+    - isAnswer: n
+      example: ③
+    - isAnswer: n
+      example: ④
+- seq: 58
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 『회원』 테이블 생성 후 『주소』 필드(컬럼)가 누락되어 이를 추가하려고 한다. 이에 적합한 SQL 명령어는?
+  answers:
+    - isAnswer: n
+      example: DELETE
+    - isAnswer: n
+      example: RESTORE
+    - isAnswer: y
+      example: ALTER
+    - isAnswer: n
+      example: ACCESS
+- seq: 59
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 트랙잭션을 수행하는 도중 장애로 인해 손상된 데이터베이스를 손상되기 이전에 정상적인 상태로 복구시키는 작업은?
+  answers:
+    - isAnswer: y
+      example: Recovery
+    - isAnswer: n
+      example: Commit
+    - isAnswer: n
+      example: Abort
+    - isAnswer: n
+      example: Restart
+- seq: 60
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: E-R 다이어그램의 표기법으로 옳지 않은 것은?
+  answers:
+    - isAnswer: n
+      example: '개체타입 - 사각형'
+    - isAnswer: n
+      example: '속성 - 타원'
+    - isAnswer: y
+      example: '관계집합 - 삼각형'
+    - isAnswer: n
+      example: '개체타입과 속성을 연결 - 선'
+- seq: 61
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 중 응집도가 가장 높은 것은?
+  answers:
+    - isAnswer: n
+      example: 절차적 응집도
+    - isAnswer: y
+      example: 순차적 응집도
+    - isAnswer: n
+      example: 우연적 응집도
+    - isAnswer: n
+      example: 논리적 응집도
+- seq: 62
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: OSI 7계층에서 물리적 연결을 이용해 신뢰성 있는 정보를 전송하려고 동기화, 오류제어, 흐름제어 등의 전송 에러를 제어하는 계층은?
+  answers:
+    - isAnswer: y
+      example: 데이터 링크 계층
+    - isAnswer: n
+      example: 물리 계층
+    - isAnswer: n
+      example: 응용 계층
+    - isAnswer: n
+      example: 표현 계층
+- seq: 63
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 운영체제를 기능에 따라 분류할 경우 제어 프로그램이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 데이터 관리 프로그램
+    - isAnswer: y
+      example: 서비스 프로그램
+    - isAnswer: n
+      example: 작업 제어 프로그램
+    - isAnswer: n
+      example: 감시 프로그램
+- seq: 64
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: IEEE 802.3 LAN에서 사용되는 전송매체 접속제어(MAC) 방식은?
+  answers:
+    - isAnswer: y
+      example: CSMA/CD
+    - isAnswer: n
+      example: Token Bus
+    - isAnswer: n
+      example: Token Ring
+    - isAnswer: n
+      example: Slotted Ring
+- seq: 65
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 기억공간이 15K, 23K, 22K, 21K 순으로 빈 공간이 있을 때 기억장치 배치 전력으로 “First Fit”을 사용하여 17K의 프로그램을 적재할 경우 내부단편화의 크기는 얼마인가?
+  answers:
+    - isAnswer: n
+      example: 5K
+    - isAnswer: y
+      example: 6K
+    - isAnswer: n
+      example: 7K
+    - isAnswer: n
+      example: 8K
+- seq: 66
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 교착상태가 발생할 수 있는 조건이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: Mutual exclusion
+    - isAnswer: n
+      example: Hold and Wait
+    - isAnswer: n
+      example: Non-preemption
+    - isAnswer: y
+      example: Linear wait
+- seq: 67
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: IPv6에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example: 멀티캐스팅(Multicast) 대신 브로드캐스트(Broadcast)를 사용한다. 
+    - isAnswer: n
+      example: 보안과 인증 확장 헤더를 사용함으로써 인터넷 계층의 보안기능을 강화하였다. 
+    - isAnswer: n
+      example: 애니캐스트(Anycast)는 하나의 호스트에서 그룹 내의 가장 가까운 곳에 있는 수신자에게 전달하는 방식이다.
+    - isAnswer: n
+      example: 128비트 주소체계를 사용한다. 
+- seq: 68
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: TCP/IP 프로토콜에서 TCP가 해당하는 계층은?
+  answers:
+    - isAnswer: n
+      example: 데이터 링크 계층
+    - isAnswer: n
+      example: 네트워크 계층
+    - isAnswer: y
+      example: 트랜스포트 계층
+    - isAnswer: n
+      example: 세션 계층
+- seq: 69
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: C언어에서 변수로 사용할 수 없는 것은?
+  answers:
+    - isAnswer: n
+      example: data
+    - isAnswer: n
+      example: int01
+    - isAnswer: n
+      example: _sub
+    - isAnswer: y
+      example: short
+- seq: 70
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 JAVA 코드 출력문의 결과는?
+  infos:
+    - type: img
+      src: https://user-images.githubusercontent.com/74305823/142715199-fd73e665-c595-4d62-9990-25a2fe00e7ef.png
+  answers:
+    - isAnswer: n
+      example: ①
+    - isAnswer: n
+      example: ②
+    - isAnswer: n
+      example: ③
+    - isAnswer: y
+      example: ④
+      
+      
+      
