@@ -2,67 +2,84 @@
   testId: "0"
   year: 2021
   inning: "1"
+  isChecked: false
 - id: "1" 
   testId: "0"
   year: 2021
   inning: "2"
+  isChecked: false
 - id: "2" 
   testId: "0"
   year: 2021
   inning: "3"
+  isChecked: true
 - id: "3" 
   testId: "0"
   year: 2020
   inning: "1·2"
+  isChecked: false
 - id: "4" 
   testId: "0"
   year: 2020
   inning: "3"
+  isChecked: false
 - id: "5" 
   testId: "0"
   year: 2020
   inning: "4"
+  isChecked: false
 - id: "6"
   testId: "1"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "7"
   testId: "1"
   year: 2021
   inning: "3"
+  isChecked: false
 - id: "8"
   testId: "2"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "9"
   testId: "2"
   year: 2021
   inning: "3"
+  isChecked: false
 - id: "10"
   testId: "3"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "11"
   testId: "4"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "12"
   testId: "4"
   year: 2021
   inning: "3"
+  isChecked: false
 - id: "13"
   testId: "5"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "14"
   testId: "5"
   year: 2021
   inning: "3"
+  isChecked: false
 - id: "15"
   testId: "6"
   year: 2021
   inning: "4"
+  isChecked: false
 - id: "16"
   testId: "7"
   year: 2021
   inning: "4"
+  isChecked: false
