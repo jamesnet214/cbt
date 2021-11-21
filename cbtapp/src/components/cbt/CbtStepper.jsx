@@ -1,12 +1,10 @@
 import React from 'react';
 import { useLocation } from "react-router-dom";
 import Box from '@mui/material/Box';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import NextButton from './NextButton';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import Stack from '@mui/material/Stack';
 import Step from '@mui/material/Step';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import StepContent from '@mui/material/StepContent';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
@@ -114,8 +112,21 @@ export default function CbtStepper(props) {
                     </Box>
                 </StepContent>
             </Step>
-
       </Stepper>
+      {activeStep === 3 && (
+        <Paper square elevation={0} sx={{ p: 3 }}>
+          <Typography>모든 스텝 완료</Typography>
+          {props.innings.filter(x => x.isChecked).map(x => <div>{x.year + '년 - ' + x.inning + '회'}</div>)}
+          {props.subjects.filter(x => x.isChecked).map(x => <div>{x.subjectName}</div>)}
+          {props.testTypes.filter(x => x.isChecked).map(x => <div>{`(${x.count}) ${x.comment}`}</div>)}
+          <Button variant="contained" size="small" onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+            시작
+          </Button>
+          <Button onClick={handleReset} size="small" sx={{ mt: 1, mr: 1 }}>
+            Reset
+          </Button>
+        </Paper>
+      )}
     </Box>
   );
 }
