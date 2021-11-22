@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import NextButton from './NextButton';
 import Step from '@mui/material/Step';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
 import StepContent from '@mui/material/StepContent';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
@@ -50,6 +51,41 @@ export default function CbtStepper(props) {
     const handleReset = () => {
         setActiveStep(0);
     };
+
+    const getSelectedInning = () => {
+        var inning = props.innings.find(x => x.isChecked);
+        var count = props.innings.filter(x => x.isChecked).length; 
+        return (
+            <Stack direction="row" spacing={1}>
+                <Chip size="small" label="회차" color="success" variant="outlined"/>
+                <Typography variant="body1">{`${inning.year}년 ${inning.inning}회`}</Typography>
+                <Typography variant="caption" style={{ marginTop: '2px' }}>{count > 1 ? ` 포함 ${count}회차` : '단일 회차'}</Typography> 
+            </Stack>
+        );
+    }
+
+    const getSelectedSubject = () => {
+        var subject = props.subjects.find(x => x.isChecked);
+        var count = props.subjects.filter(x => x.isChecked).length; 
+        return (
+            <Stack direction="row" spacing={1} style={{marginTop: '15px'}}>
+                <Chip size="small" label="과목" color="success" variant="outlined"/>
+                <Typography variant="body1">{`${subject.subjectName}`}</Typography>
+                <Typography variant="caption" style={{ marginTop: '2px' }}>{count > 1 ? ` 포함 ${count}과목` : '단일 과목'}</Typography> 
+            </Stack>
+        );
+    }
+
+    const getTestCount = () => {
+        var testType = props.testTypes.find(x => x.isChecked);
+        return (
+            <Stack direction="row" spacing={1} style={{marginTop: '15px'}}>
+                <Chip size="small" label="출제" color="success" variant="outlined"/>
+                <Typography variant="body1">{`총 ${testType.count}문제`}</Typography>
+                <Typography variant="caption" style={{ marginTop: '2px' }}>{testType.comment}</Typography> 
+            </Stack>
+        );
+    }
 
   return (
     <Box sx={{ maxWidth: 538, }}>
@@ -114,18 +150,25 @@ export default function CbtStepper(props) {
             </Step>
       </Stepper>
       {activeStep === 3 && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>모든 스텝 완료</Typography>
-          {props.innings.filter(x => x.isChecked).map(x => <div>{x.year + '년 - ' + x.inning + '회'}</div>)}
-          {props.subjects.filter(x => x.isChecked).map(x => <div>{x.subjectName}</div>)}
-          {props.testTypes.filter(x => x.isChecked).map(x => <div>{`(${x.count}) ${x.comment}`}</div>)}
+        <div style={{ backgroundColor: '#ffffff', 
+                      borderTop: '1px solid #dddddd', 
+                      borderLeft: '1px solid #dddddd', 
+                      borderRight: '1px solid #dddddd', 
+                      borderRadius: 0, 
+                      marginTop: 20,
+                      marginBottom: 20,
+                      padding: '20px 20px 20px 20px',}}>
+          {getSelectedInning()}
+          {getSelectedSubject()}
+          {getTestCount()}
+          <br />
           <Button variant="contained" size="small" onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             시작
           </Button>
           <Button onClick={handleReset} size="small" sx={{ mt: 1, mr: 1 }}>
-            Reset
+            다시 설정
           </Button>
-        </Paper>
+        </div>
       )}
     </Box>
   );
