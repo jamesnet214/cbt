@@ -21,11 +21,12 @@
 
 .paper-question {
     padding: 0px;
-    margin: 0px 0px 20px 0px;
-    border: 1px solid #eeeeee;
-    border-radius: 15px;
+    margin: 5px 10px 20px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 0px;
     overflow: hidden;
     perspective: 1px;
+    background-color: #ffffff;
 }
 
 .papar-question-content {

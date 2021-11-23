@@ -69,11 +69,10 @@ export default function Cbt(props) {
             return (
                 <Box key={i}>
                     <Box className="papar-question-content">
-                    <Typography key={i.toString()}
-                        style={{ margin: '5px 0px 0px 0px' }}
+                    <Typography key={i.toString()} variant="body2"
+                        style={{ margin: '2px 0px 0px 0px' }}
                         children={`${i + 1}. ${answer.example}`}/>
                     </Box>
-                    <Divider className="paper-question-divider"/>
                 </Box>
             );
         })
@@ -124,24 +123,22 @@ export default function Cbt(props) {
             </Box>
 
             {stepCompleted ?
-                <Box margin={3}>
+                <Box margin={3, 0, 3, 0}>
                     {text == null ? null
                     :
                         text.map((item, i) => {
                             return (
                                 <Box key={item.seq}>
-                                    <Box style={{ margin: '0px 0px 5px 0px' }}>
+                                    <Box style={{ margin: '0px 15px 0px 0px', textAlign: 'right' }}>
                                         <Typography 
                                             children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
                                             variant="caption"/>
                                     </Box>
-                                    <Card className="paper-question"
-                                        style={{borderRadius: 10}}
+                                    <div className="paper-question"
                                         variant="outlined">
                                         <Box className="papar-question-content">
-                                            <Typography children={item.question}/>
+                                            <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
                                         </Box>
-                                        <Divider className="paper-question-divider"/>
                                         <Box>
                                             {item.infos != null ? 
                                                 item.infos.map((info, i) => {
@@ -165,7 +162,7 @@ export default function Cbt(props) {
                                                 정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
                                             </Typography>
                                         </Box>
-                                    </Card>
+                                    </div>
                                 </Box>
                             );
                         })
