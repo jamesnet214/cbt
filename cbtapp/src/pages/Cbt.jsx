@@ -1,12 +1,13 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
+import { load } from 'js-yaml';
 import Box from '@mui/material/Box';
 import Card  from '@mui/material/Card';
 import Divider  from '@mui/material/Divider';
 import Paper  from '@mui/material/Paper';
 import Typography  from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-import { load } from 'js-yaml';
 import CbtStepper from '../components/cbt/CbtStepper';
+import ResetIconButton from '../components/cbt/ResetIconButton';
 
 
 
@@ -23,6 +24,7 @@ export default function Cbt(props) {
     const [innings, setInnings] = React.useState([]);
     const [subjects, setSubjects] = React.useState([]);
     const [testTypes, setTestTypes] = React.useState([]);
+    const [stepCompleted, setStepCompleted] = React.useState(false);
     const cbtId = props.cbtId;
 
     React.useEffect(() => {
@@ -86,6 +88,14 @@ export default function Cbt(props) {
         return answer;
     }
 
+    function start() {
+        setStepCompleted(true);
+    }
+
+    function restart() {
+        setStepCompleted(false);
+    }
+
     return (
         <Box style={{ minWidth: '200px' }}>
 
@@ -94,60 +104,65 @@ export default function Cbt(props) {
             </Box>
 
             <Box margin={3}>
-                <CbtStepper 
-                    cbtId={cbtId}
-                    innings={innings}
-                    subjects={subjects}
-                    testTypes={testTypes}/>
+                {!stepCompleted ? 
+                    <CbtStepper 
+                        cbtId={cbtId}
+                        innings={innings}
+                        subjects={subjects}
+                        testTypes={testTypes}
+                        start={start}/>
+                    : <ResetIconButton onClick={restart}/>}
             </Box>
 
-            <Box margin={3} style={{maxWidth: '600px', display: 'none' }}>
-                {text == null ? null
-                :
-                    text.map((item, i) => {
-                        return (
-                            <Box key={item.seq}>
-                                <Box style={{ margin: '0px 0px 5px 0px' }}>
-                                    <Typography 
-                                        children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
-                                        variant="caption"/>
-                                </Box>
-                                <Card className="paper-question"
-                                    style={{borderRadius: 10}}
-                                    variant="outlined">
-                                    <Box className="papar-question-content">
-                                        <Typography children={item.question}/>
+            {stepCompleted ?
+                <Box margin={3} style={{maxWidth: '600px' }}>
+                    {text == null ? null
+                    :
+                        text.map((item, i) => {
+                            return (
+                                <Box key={item.seq}>
+                                    <Box style={{ margin: '0px 0px 5px 0px' }}>
+                                        <Typography 
+                                            children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
+                                            variant="caption"/>
                                     </Box>
-                                    <Divider className="paper-question-divider"/>
-                                    <Box>
-                                        {item.infos != null ? 
-                                            item.infos.map((info, i) => {
-                                                return (
-                                                    <Box key={i}>
-                                                        <Box className="papar-question-content">
-                                                            <img src={info.src}/>
+                                    <Card className="paper-question"
+                                        style={{borderRadius: 10}}
+                                        variant="outlined">
+                                        <Box className="papar-question-content">
+                                            <Typography children={item.question}/>
+                                        </Box>
+                                        <Divider className="paper-question-divider"/>
+                                        <Box>
+                                            {item.infos != null ? 
+                                                item.infos.map((info, i) => {
+                                                    return (
+                                                        <Box key={i}>
+                                                            <Box className="papar-question-content">
+                                                                <img src={info.src}/>
+                                                            </Box>
+                                                            <Divider className="paper-question-divider"/>
                                                         </Box>
-                                                        <Divider className="paper-question-divider"/>
-                                                    </Box>
-                                                );
-                                            })
-                                            : null
-                                        }
-                                    </Box>
-                                    <Box>
-                                        {initItemsTemplate(item.answers)}
-                                    </Box>
-                                    <Box className="papar-question-content">
-                                        <Typography>
-                                            정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
-                                        </Typography>
-                                    </Box>
-                                </Card>
-                            </Box>
-                        );
-                    })
-                }
-            </Box>
+                                                    );
+                                                })
+                                                : null
+                                            }
+                                        </Box>
+                                        <Box>
+                                            {initItemsTemplate(item.answers)}
+                                        </Box>
+                                        <Box className="papar-question-content">
+                                            <Typography>
+                                                정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
+                                            </Typography>
+                                        </Box>
+                                    </Card>
+                                </Box>
+                            );
+                        })
+                    }
+                </Box>
+            : null}
         </Box>
     );
 }

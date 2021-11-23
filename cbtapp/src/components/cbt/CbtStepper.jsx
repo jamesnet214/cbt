@@ -162,7 +162,7 @@ export default function CbtStepper(props) {
           {getSelectedSubject()}
           {getTestCount()}
           <br />
-          <Button variant="contained" size="small" onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+          <Button variant="contained" size="small" onClick={props.start} sx={{ mt: 1, mr: 1 }}>
             시작
           </Button>
           <Button onClick={handleReset} size="small" sx={{ mt: 1, mr: 1 }}>
