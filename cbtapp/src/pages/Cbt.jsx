@@ -68,7 +68,7 @@ export default function Cbt(props) {
         return items.map((answer, i) => {
             return (
                 <Box key={i}>
-                    <Box className="papar-question-content">
+                    <Box className="papar-answer-content">
                     <Typography key={i.toString()} variant="body2"
                         style={{ margin: '2px 0px 0px 0px' }}
                         children={`${i + 1}. ${answer.example}`}/>
@@ -111,25 +111,25 @@ export default function Cbt(props) {
                 </Grid>
             </div>
 
-            <Box margin={3}>
                 {!stepCompleted ? 
-                    <CbtStepper 
-                        cbtId={cbtId}
-                        innings={innings}
-                        subjects={subjects}
-                        testTypes={testTypes}
-                        start={start}/>
-                    : null}
-            </Box>
+                    <Box margin={3}>
+                        <CbtStepper 
+                            cbtId={cbtId}
+                            innings={innings}
+                            subjects={subjects}
+                            testTypes={testTypes}
+                            start={start}/>
+                    </Box>
+                : <div style={{display: 'none'}}/>}
 
             {stepCompleted ?
-                <Box margin={3, 0, 3, 0}>
+                <Box margin={0, 0, 0, 0}>
                     {text == null ? null
                     :
                         text.map((item, i) => {
                             return (
                                 <Box key={item.seq}>
-                                    <Box style={{ margin: '0px 15px 0px 0px', textAlign: 'right' }}>
+                                    <Box style={{ margin: '10px 15px 0px 0px', textAlign: 'right' }}>
                                         <Typography 
                                             children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
                                             variant="caption"/>
@@ -147,7 +147,6 @@ export default function Cbt(props) {
                                                             <Box className="papar-question-content">
                                                                 <img src={info.src}/>
                                                             </Box>
-                                                            <Divider className="paper-question-divider"/>
                                                         </Box>
                                                     );
                                                 })
@@ -157,7 +156,8 @@ export default function Cbt(props) {
                                         <Box>
                                             {initItemsTemplate(item.answers)}
                                         </Box>
-                                        <Box className="papar-question-content">
+                                        <Box style={{ height: '10px'}}/>
+                                        <Box className="papar-question-content" style={{display: 'none'}}>
                                             <Typography>
                                                 정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
                                             </Typography>
