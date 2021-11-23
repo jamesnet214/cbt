@@ -100,7 +100,7 @@ export default function Cbt(props) {
     return (
         <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
 
-            <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
+            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px', position: 'sticky', top: 0, zIndex: 9999 }}>
                 <Grid container>
                     <Grid xs>
                         <Typography variant="h6" children={props.title}/>
@@ -110,7 +110,7 @@ export default function Cbt(props) {
                     </Grid>
                     
                 </Grid>
-            </Box>
+            </div>
 
             <Box margin={3}>
                 {!stepCompleted ? 
