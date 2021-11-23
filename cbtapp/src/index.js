@@ -6,7 +6,7 @@ import Portal from './apps/Portal';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Portal/>
   </BrowserRouter>,
   document.getElementById('root')
