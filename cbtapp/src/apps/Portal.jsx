@@ -93,14 +93,14 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/test0' component={() => getCbt('0')}/>
-                            <Route path='/test1' component={() => getCbt('1')}/>
-                            <Route path='/test2' component={() => getCbt('2')}/>
-                            <Route path='/test3' component={() => getCbt('3')}/>
-                            <Route path='/test4' component={() => getCbt('4')}/>
-                            <Route path='/test5' component={() => getCbt('5')}/>
-                            <Route path='/test6' component={() => getCbt('6')}/>
-                            <Route path='/test7' component={() => getCbt('7')}/>
+                            <Route path='/cbt/id=0' component={() => getCbt('0')}/>
+                            <Route path='/cbt/id=1' component={() => getCbt('1')}/>
+                            <Route path='/cbt/id=2' component={() => getCbt('2')}/>
+                            <Route path='/cbt/id=3' component={() => getCbt('3')}/>
+                            <Route path='/cbt/id=4' component={() => getCbt('4')}/>
+                            <Route path='/cbt/id=5' component={() => getCbt('5')}/>
+                            <Route path='/cbt/id=6' component={() => getCbt('6')}/>
+                            <Route path='/cbt/id=7' component={() => getCbt('7')}/>
                             <Route path='/dashboard' component={Dashboard}/>
                         </Main>
                     </div>
