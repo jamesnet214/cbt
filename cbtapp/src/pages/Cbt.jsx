@@ -4,6 +4,7 @@ import { load } from 'js-yaml';
 import Box from '@mui/material/Box';
 import Card  from '@mui/material/Card';
 import Divider  from '@mui/material/Divider';
+import Grid  from '@mui/material/Grid';
 import Paper  from '@mui/material/Paper';
 import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
@@ -97,10 +98,18 @@ export default function Cbt(props) {
     }
 
     return (
-        <Box style={{ minWidth: '200px' }}>
+        <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
 
             <Box style={{backgroundColor: '#ffffff', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px' }}>
-                <Typography variant="h6" children={props.title}/>
+                <Grid container>
+                    <Grid xs>
+                        <Typography variant="h6" children={props.title}/>
+                    </Grid>
+                    <Grid>
+                        {stepCompleted ? <ResetIconButton onClick={restart}/> : null}
+                    </Grid>
+                    
+                </Grid>
             </Box>
 
             <Box margin={3}>
@@ -111,11 +120,11 @@ export default function Cbt(props) {
                         subjects={subjects}
                         testTypes={testTypes}
                         start={start}/>
-                    : <ResetIconButton onClick={restart}/>}
+                    : null}
             </Box>
 
             {stepCompleted ?
-                <Box margin={3} style={{maxWidth: '600px' }}>
+                <Box margin={3}>
                     {text == null ? null
                     :
                         text.map((item, i) => {
