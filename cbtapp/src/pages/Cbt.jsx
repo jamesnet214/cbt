@@ -23,6 +23,8 @@ export default function Cbt(props) {
     const [testTypes, setTestTypes] = React.useState([]);
     const [stepCompleted, setStepCompleted] = React.useState(false);
     const cbtId = props.cbtId;
+    
+    let currentSubject = '';
 
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
@@ -84,6 +86,11 @@ export default function Cbt(props) {
         return answer;
     }
 
+    function getSubject(subjectName) {
+        currentSubject = subjectName;
+        return subjectName;
+    }
+
     function start() {
         setStepCompleted(true);
     }
@@ -125,11 +132,14 @@ export default function Cbt(props) {
                         text.map((item, i) => {
                             return (
                                 <Box key={item.seq}>
-                                    <Box style={{ margin: '10px 15px 0px 0px', textAlign: 'right' }}>
-                                        <Typography 
-                                            children={`문제 ${i + 1}번, 과목: ${item.subjectName}`}
-                                            variant="caption"/>
-                                    </Box>
+                                    {currentSubject != item.subjectName ?
+                                        <Box style={{ margin: '10px 25px 0px 0px', textAlign: 'right' }}>
+                                            <Typography 
+                                                children={`과목: ${getSubject(item.subjectName)}`}
+                                                variant="caption"/>
+                                        </Box>
+                                        : null
+                                    }
                                     <div className="paper-question"
                                         variant="outlined">
                                         <Box className="papar-question-content">
@@ -141,7 +151,7 @@ export default function Cbt(props) {
                                                     return (
                                                         <Box key={i}>
                                                             <Box className="papar-question-content">
-                                                                <img src={info.src}/>
+                                                                <img src={info.src} style={{maxWidth: '400px'}}/>
                                                             </Box>
                                                         </Box>
                                                     );
