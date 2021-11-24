@@ -159,7 +159,7 @@ export default function Cbt(props) {
                                         <Box style={{ height: '10px'}}/>
                                         <Box className="papar-question-content" style={{display: 'none'}}>
                                             <Typography>
-                                                정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
+                                                정답  <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
                                             </Typography>
                                         </Box>
                                     </div>
