@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
-import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,9 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-export default function Cbt(props) {
-    const history = useHistory();
-
+export default function Test(props) {
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
     const [innings, setInnings] = React.useState([]);
@@ -28,7 +25,6 @@ export default function Cbt(props) {
     const [testTypes, setTestTypes] = React.useState([]);
     const [stepCompleted, setStepCompleted] = React.useState(false);
     const cbtId = props.cbtId;
-    
     let currentSubject = '';
 
     React.useEffect(() => {
@@ -108,13 +104,11 @@ export default function Cbt(props) {
     }
 
     function start() {
-        // setStepCompleted(true);
-        history.push(`/cbt/test/id=${cbtId}`);
+        setStepCompleted(true);
     }
 
     function restart() {
         setStepCompleted(false);
-        history.push(`cbt/test/id=${cbtId}`);
     }
 
     return (
@@ -126,73 +120,59 @@ export default function Cbt(props) {
                         <Typography variant="h6" children={props.title}/>
                     </Grid>
                     <Grid>
-                        {stepCompleted ? <ResetIconButton onClick={restart}/> : null}
+                        <ResetIconButton onClick={restart}/>
                     </Grid>
                     
                 </Grid>
             </div>
-
-                {!stepCompleted ? 
-                    <Box margin={3}>
-                        <CbtStepper 
-                            cbtId={cbtId}
-                            innings={innings}
-                            subjects={subjects}
-                            testTypes={testTypes}
-                            start={start}/>
-                    </Box>
-                : null}
-
-            {stepCompleted ?
-                <Box margin={0, 0, 0, 0}>
-                    {text == null ? null
-                    :
-                        text.map((item, i) => {
-                            return (
-                                <Box key={item.seq}>
-                                    {currentSubject != item.subjectName ?
-                                        <Box style={{ margin: '10px 25px 0px 0px', textAlign: 'right' }}>
-                                            <Typography 
-                                                children={`과목: ${getSubject(item.subjectName)}`}
-                                                variant="caption"/>
-                                        </Box>
-                                        : null
-                                    }
-                                    <div className="paper-question"
-                                        variant="outlined">
-                                        <Box className="papar-question-content">
-                                            <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
-                                        </Box>
-                                        <Box>
-                                            {item.infos != null ? 
-                                                item.infos.map((info, i) => {
-                                                    return (
-                                                        <Box key={i}>
-                                                            <Box className="papar-question-content">
-                                                                <img src={info.src} style={{maxWidth: '400px'}}/>
-                                                            </Box>
+            <Box margin={0, 0, 0, 0}>
+                {text == null ? null
+                :
+                    text.map((item, i) => {
+                        return (
+                            <Box key={item.seq}>
+                                {currentSubject != item.subjectName ?
+                                    <Box style={{ margin: '10px 25px 0px 0px', textAlign: 'right' }}>
+                                        <Typography 
+                                            children={`과목: ${getSubject(item.subjectName)}`}
+                                            variant="caption"/>
+                                    </Box>
+                                    : null
+                                }
+                                <div className="paper-question"
+                                    variant="outlined">
+                                    <Box className="papar-question-content">
+                                        <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
+                                    </Box>
+                                    <Box>
+                                        {item.infos != null ? 
+                                            item.infos.map((info, i) => {
+                                                return (
+                                                    <Box key={i}>
+                                                        <Box className="papar-question-content">
+                                                            <img src={info.src} style={{maxWidth: '400px'}}/>
                                                         </Box>
-                                                    );
-                                                })
-                                                : null
-                                            }
-                                        </Box>
-                                        <Box>
-                                            {initItemsTemplate(item.answers)}
-                                        </Box>
-                                        <Box style={{ height: '10px'}}/>
-                                        <Box className="papar-question-content" style={{display: 'none'}}>
-                                            <Typography>
-                                                정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
-                                            </Typography>
-                                        </Box>
-                                    </div>
-                                </Box>
-                            );
-                        })
-                    }
-                </Box>
-            : null}
+                                                    </Box>
+                                                );
+                                            })
+                                            : null
+                                        }
+                                    </Box>
+                                    <Box>
+                                        {initItemsTemplate(item.answers)}
+                                    </Box>
+                                    <Box style={{ height: '10px'}}/>
+                                    <Box className="papar-question-content" style={{display: 'none'}}>
+                                        <Typography>
+                                            정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
+                                        </Typography>
+                                    </Box>
+                                </div>
+                            </Box>
+                        );
+                    })
+                }
+            </Box>
         </Box>
     );
 }

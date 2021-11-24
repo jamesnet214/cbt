@@ -12,6 +12,7 @@ import LeftLayer from '../components/portal/LeftLayer';
 import '../design/default.css';
 
 import Cbt from '../pages/Cbt';
+import Test from '../pages/Test';
 import Dashboard from '../pages/Dashboard';
 
 const drawerWidth = 240;
@@ -83,6 +84,11 @@ export default function Portal(props) {
         return <Cbt cbtId={cbtId} title={getName(cbtId)}/>;
     }
 
+    const getCbtTest = (cbtId) => {
+        console.log('getCbtTest');
+        return <Test cbtId={cbtId} title={getName(cbtId)}/>;
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <div className={'root'}>
@@ -93,15 +99,16 @@ export default function Portal(props) {
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
                         <Main open={open}>
-                            <Route path='/cbt/id=0' component={() => getCbt('0')}/>
-                            <Route path='/cbt/id=1' component={() => getCbt('1')}/>
-                            <Route path='/cbt/id=2' component={() => getCbt('2')}/>
-                            <Route path='/cbt/id=3' component={() => getCbt('3')}/>
-                            <Route path='/cbt/id=4' component={() => getCbt('4')}/>
-                            <Route path='/cbt/id=5' component={() => getCbt('5')}/>
-                            <Route path='/cbt/id=6' component={() => getCbt('6')}/>
-                            <Route path='/cbt/id=7' component={() => getCbt('7')}/>
-                            <Route path='/dashboard' component={Dashboard}/>
+                            <Route path='/cbt/id=0' render={() => getCbt('0')}/>
+                            <Route path='/cbt/id=1' render={() => getCbt('1')}/>
+                            <Route path='/cbt/id=2' render={() => getCbt('2')}/>
+                            <Route path='/cbt/id=3' render={() => getCbt('3')}/>
+                            <Route path='/cbt/id=4' render={() => getCbt('4')}/>
+                            <Route path='/cbt/id=5' render={() => getCbt('5')}/>
+                            <Route path='/cbt/id=6' render={() => getCbt('6')}/>
+                            <Route path='/cbt/id=7' render={() => getCbt('7')}/>
+                            <Route path='/cbt/test/id=0' render={() => getCbtTest('0')}/>
+                            <Route path='/dashboard' component={Dashboard}/>                            
                         </Main>
                     </div>
                 </div>
