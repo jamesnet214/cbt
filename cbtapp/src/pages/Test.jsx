@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
+import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,6 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 export default function Test(props) {
+    const history = useHistory();
+    
     const [text, setText] = React.useState(null);
     const [answer, setAnswer] = React.useState(-1);
     const [innings, setInnings] = React.useState([]);
@@ -103,12 +106,9 @@ export default function Test(props) {
         return subjectName;
     }
 
-    function start() {
-        setStepCompleted(true);
-    }
-
     function restart() {
         setStepCompleted(false);
+        history.push(`/cbt/id=${cbtId}`);
     }
 
     return (
