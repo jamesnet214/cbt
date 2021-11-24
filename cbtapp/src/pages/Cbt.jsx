@@ -2,15 +2,11 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
 import Box from '@mui/material/Box';
-import Card  from '@mui/material/Card';
-import Divider  from '@mui/material/Divider';
 import Grid  from '@mui/material/Grid';
 import Paper  from '@mui/material/Paper';
 import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
-
-
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -159,7 +155,7 @@ export default function Cbt(props) {
                                         <Box style={{ height: '10px'}}/>
                                         <Box className="papar-question-content" style={{display: 'none'}}>
                                             <Typography>
-                                                정답  <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
+                                                정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
                                             </Typography>
                                         </Box>
                                     </div>
