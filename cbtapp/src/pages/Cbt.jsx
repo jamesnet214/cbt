@@ -2,6 +2,8 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
 import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid  from '@mui/material/Grid';
 import Paper  from '@mui/material/Paper';
 import Typography  from '@mui/material/Typography';
@@ -61,15 +63,26 @@ export default function Cbt(props) {
                 setTestTypes(_testTypes);
             });
     }, []);
+
+    function answerChecked(event, id) {
+
+    }
       
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
             return (
                 <Box key={i}>
-                    <Box className="papar-answer-content">
-                    <Typography key={i.toString()} variant="body2"
-                        style={{ margin: '2px 0px 0px 0px' }}
-                        children={`${i + 1}. ${answer.example}`}/>
+                    <Box className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}>
+                        <FormControlLabel
+                            label={
+                                <Typography key={i.toString()} variant="body2"
+                                    style={{ margin: '2px 0px 0px 0px' }}
+                                    children={`${answer.example}`}/>}
+                            control={<Checkbox 
+                                         defaultChecked={answer.isChecked}
+                                         style={{ marginLeft: '0px'}} 
+                                         onChange={(event) => answerChecked(event, answer.id)}/>}/>
+                        
                     </Box>
                 </Box>
             );
@@ -123,7 +136,7 @@ export default function Cbt(props) {
                             testTypes={testTypes}
                             start={start}/>
                     </Box>
-                : <div style={{display: 'none'}}/>}
+                : null}
 
             {stepCompleted ?
                 <Box margin={0, 0, 0, 0}>
