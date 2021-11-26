@@ -4,13 +4,12 @@ import { load } from 'js-yaml';
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid  from '@mui/material/Grid';
+import Stack  from '@mui/material/Stack';
 import Paper  from '@mui/material/Paper';
 import FormGroup from '@mui/material/FormGroup';
 import Typography  from '@mui/material/Typography';
-import RefreshIcon  from '@mui/icons-material/Refresh';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
 
@@ -85,16 +84,12 @@ export default function Test(props) {
     return (
         <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
 
-            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px', position: 'sticky', top: 0, zIndex: 9999 }}>
-                <Grid container>
-                    <Grid xs>
-                        <Typography variant="h6" children={props.title}/>
-                    </Grid>
-                    <Grid>
-                        <IconButton onClick={restart} children={<RefreshIcon/>}/>
-                    </Grid>
-                    
-                </Grid>
+            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
+                <Stack direction="row">
+                    <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
+                    <Box sx={{ flexGrow: 1 }} />
+                    <ResetIconButton onClick={restart}/>
+                </Stack>
             </div>
             <Box margin={0, 0, 0, 0}>
                 {text == null ? null
@@ -145,7 +140,7 @@ export default function Test(props) {
                 }
             </Box>
 
-            <div style={{height: '100px'}}/>
+            <div style={{height: '60px'}}/>
         </Box>
     );
 }

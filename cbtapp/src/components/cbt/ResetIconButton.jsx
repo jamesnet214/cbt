@@ -1,15 +1,14 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import { IconButton } from '@mui/material';
 
 export default function ResetIconButton(props) {
     const icon = <RefreshIcon/>
     return (
-        <Button 
+        <IconButton 
             {...props}
             size="small"
-            variant="contained"
-            children="다시 설정" 
-            startIcon={icon}/>
+            children={icon}/>
     );
 }

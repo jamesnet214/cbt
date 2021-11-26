@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Grid  from '@mui/material/Grid';
+import Stack  from '@mui/material/Stack';
 import Paper  from '@mui/material/Paper';
 import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
@@ -101,12 +101,11 @@ export default function Cbt(props) {
     return (
         <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
 
-            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '14px 24px 14px 24px', position: 'sticky', top: 0, zIndex: 9999 }}>
-                <Grid container>
-                    <Grid xs>
-                        <Typography variant="h6" children={props.title}/>
-                    </Grid>
-                </Grid>
+
+            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
+                <Stack direction="row">
+                    <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
+                </Stack>
             </div>
 
                 {!stepCompleted ? 

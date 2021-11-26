@@ -14,6 +14,7 @@ export default function CustomizedTabs() {
             
         <Button 
             variant="raised"
+            edge="start"
             size="small" 
             color="link" 
             children="프로그래밍"
