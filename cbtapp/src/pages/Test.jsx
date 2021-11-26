@@ -7,6 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid  from '@mui/material/Grid';
 import Paper  from '@mui/material/Paper';
+import FormGroup from '@mui/material/FormGroup';
 import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
@@ -22,11 +23,6 @@ export default function Test(props) {
     const history = useHistory();
     
     const [text, setText] = React.useState(null);
-    const [answer, setAnswer] = React.useState(-1);
-    const [innings, setInnings] = React.useState([]);
-    const [subjects, setSubjects] = React.useState([]);
-    const [testTypes, setTestTypes] = React.useState([]);
-    const [stepCompleted, setStepCompleted] = React.useState(false);
     const cbtId = props.cbtId;
     let currentSubject = '';
 
@@ -48,21 +44,16 @@ export default function Test(props) {
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
             return (
-                <Box key={i}>
-                    <Box className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}>
-                        <FormControlLabel 
-                            style={{width: '100%'}}
-                            label={
-                                <Typography key={i.toString()} variant="body2"
-                                    style={{ margin: '2px 0px 0px 0px' }}
-                                    children={`${answer.example}`}/>}
-                            control={<Checkbox 
-                                         defaultChecked={answer.isChecked}
-                                         style={{ marginLeft: '0px'}} 
-                                         onChange={(event) => answerChecked(event, answer.id)}/>}/>
+                <FormControlLabel key={i} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
+                    label={
+                        <Typography key={i.toString()} variant="body2"
+                            style={{ margin: '2px 0px 0px 0px' }}
+                            children={`${i + 1}. ${answer.example}`}/>}
+                    control={<Checkbox 
+                                defaultChecked={answer.isChecked}
+                                style={{ marginLeft: '0px'}} 
+                                onChange={(event) => answerChecked(event, answer.id)}/>}/>
                         
-                    </Box>
-                </Box>
             );
         })
     }
@@ -83,7 +74,6 @@ export default function Test(props) {
     }
 
     function restart() {
-        setStepCompleted(false);
         history.push(`/cbt/id=${cbtId}`);
     }
 
@@ -134,9 +124,9 @@ export default function Test(props) {
                                             : null
                                         }
                                     </Box>
-                                    <Box>
+                                    <FormGroup>
                                         {initItemsTemplate(item.answers)}
-                                    </Box>
+                                    </FormGroup>
                                     <Box style={{ height: '10px'}}/>
                                     <Box className="papar-question-content" style={{display: 'none'}}>
                                         <Typography>
