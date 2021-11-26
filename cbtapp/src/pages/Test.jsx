@@ -39,31 +39,6 @@ export default function Test(props) {
         .then(res => {
             setText(load(res));
         });
-
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/innings.yaml')
-            .then(res => res.blob())
-            .then(blob => blob.text())
-            .then(res => {
-                console.log('inning loaded', cbtId);
-                let _innings = load(res).filter(x => x.testId == cbtId);
-                setInnings(_innings);
-            });
-
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/subjects.yaml')
-            .then(res => res.blob())
-            .then(blob => blob.text())
-            .then(res => {
-                let _subjects = load(res).filter(x => x.testId == cbtId);
-                setSubjects(_subjects);
-            });
-
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/testTypes.yaml')
-            .then(res => res.blob())
-            .then(blob => blob.text())
-            .then(res => {
-                let _testTypes = load(res).filter(x => x.testId == cbtId);
-                setTestTypes(_testTypes);
-            });
     }, []);
 
     function answerChecked(event, id) {
