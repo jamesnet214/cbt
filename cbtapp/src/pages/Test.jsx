@@ -51,6 +51,7 @@ export default function Test(props) {
                 <Box key={i}>
                     <Box className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}>
                         <FormControlLabel 
+                            style={{width: '100%'}}
                             label={
                                 <Typography key={i.toString()} variant="body2"
                                     style={{ margin: '2px 0px 0px 0px' }}
