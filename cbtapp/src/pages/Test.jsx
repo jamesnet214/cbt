@@ -4,11 +4,13 @@ import { load } from 'js-yaml';
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
+import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid  from '@mui/material/Grid';
 import Paper  from '@mui/material/Paper';
 import FormGroup from '@mui/material/FormGroup';
 import Typography  from '@mui/material/Typography';
+import RefreshIcon  from '@mui/icons-material/Refresh';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
 
@@ -89,7 +91,7 @@ export default function Test(props) {
                         <Typography variant="h6" children={props.title}/>
                     </Grid>
                     <Grid>
-                        <ResetIconButton onClick={restart}/>
+                        <IconButton onClick={restart} children={<RefreshIcon/>}/>
                     </Grid>
                     
                 </Grid>
