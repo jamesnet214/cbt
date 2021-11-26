@@ -25,6 +25,9 @@ export default function Test(props) {
     const [text, setText] = React.useState(null);
     const cbtId = props.cbtId;
     let currentSubject = '';
+    
+    const testCount = sessionStorage.getItem('testTypes');
+    console.log('size: ',testCount);
 
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
@@ -94,7 +97,7 @@ export default function Test(props) {
             <Box margin={0, 0, 0, 0}>
                 {text == null ? null
                 :
-                    text.map((item, i) => {
+                    text.slice(0, testCount).map((item, i) => {
                         return (
                             <Box key={item.seq}>
                                 {currentSubject != item.subjectName ?
@@ -139,6 +142,8 @@ export default function Test(props) {
                     })
                 }
             </Box>
+
+            <div style={{height: '100px'}}/>
         </Box>
     );
 }

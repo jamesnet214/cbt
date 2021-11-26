@@ -93,6 +93,8 @@ export default function Cbt(props) {
     }
 
     function start() {
+        var testType = testTypes.find(x => x.isChecked);
+        sessionStorage.setItem('testTypes', testType.count);
         history.push(`/cbt/test/id=${cbtId}`);
     }
 
