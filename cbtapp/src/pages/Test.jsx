@@ -50,7 +50,7 @@ export default function Test(props) {
             return (
                 <Box key={i}>
                     <Box className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}>
-                        <FormControlLabel
+                        <FormControlLabel 
                             label={
                                 <Typography key={i.toString()} variant="body2"
                                     style={{ margin: '2px 0px 0px 0px' }}

@@ -92,29 +92,8 @@ export default function Cbt(props) {
         })
     }
 
-    function getAnswer(answers) {
-        let answer = -1;
-        answers.map((x, i) => {
-            if(x.isAnswer === 'y') {
-                answer = i + 1;
-            }
-        });
-        return answer;
-    }
-
-    function getSubject(subjectName) {
-        currentSubject = subjectName;
-        return subjectName;
-    }
-
     function start() {
-        // setStepCompleted(true);
         history.push(`/cbt/test/id=${cbtId}`);
-    }
-
-    function restart() {
-        setStepCompleted(false);
-        history.push(`cbt/test/id=${cbtId}`);
     }
 
     return (
@@ -125,10 +104,6 @@ export default function Cbt(props) {
                     <Grid xs>
                         <Typography variant="h6" children={props.title}/>
                     </Grid>
-                    <Grid>
-                        {stepCompleted ? <ResetIconButton onClick={restart}/> : null}
-                    </Grid>
-                    
                 </Grid>
             </div>
 
