@@ -5,5 +5,5 @@ tbd...
 - 
 
 ## website
-https://devncore.github.io/cbt/
+https://cbt.devncore.org
 
