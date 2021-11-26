@@ -28,6 +28,8 @@ export default function Test(props) {
     let currentSubject = '';
     
     const testCount = sessionStorage.getItem('testTypes');
+    const subjects = sessionStorage.getItem('subjects');
+    console.log('subjects: ',subjects);
     console.log('size: ',testCount);
 
     React.useEffect(() => {
@@ -54,9 +56,9 @@ export default function Test(props) {
                             style={{ margin: '2px 0px 0px 0px' }}
                             children={`${i + 1}. ${answer.example}`}/>}
                     control={<Checkbox 
-                                defaultChecked={answer.isChecked}
-                                style={{ marginLeft: '0px'}} 
-                                onChange={(event) => answerChecked(event, answer.id)}/>}/>
+                        defaultChecked={answer.isChecked}
+                        style={{ marginLeft: '0px'}} 
+                        onChange={(event) => answerChecked(event, answer.id)}/>}/>
                         
             );
         })
@@ -94,7 +96,7 @@ export default function Test(props) {
             <Box margin={0, 0, 0, 0}>
                 {text == null ? null
                 :
-                    text.slice(0, testCount).map((item, i) => {
+                    text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, i) => {
                         return (
                             <Box key={item.seq}>
                                 {currentSubject != item.subjectName ?

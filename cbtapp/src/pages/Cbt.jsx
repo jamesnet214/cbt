@@ -32,7 +32,6 @@ export default function Cbt(props) {
     let currentSubject = '';
 
     React.useEffect(() => {
-        console.log('cbt useEffect loaded');
 
         fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
@@ -94,7 +93,9 @@ export default function Cbt(props) {
 
     function start() {
         var testType = testTypes.find(x => x.isChecked);
+        var allowSubjects = subjects.filter(x=>x.isChecked).map((s) => { return s.sort } );
         sessionStorage.setItem('testTypes', testType.count);
+        sessionStorage.setItem('subjects', allowSubjects);
         history.push(`/cbt/test/id=${cbtId}`);
     }
 
