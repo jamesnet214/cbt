@@ -8,5 +8,6 @@ tbd...
 https://cbt.devncore.org
 
 ## Todo List
-- [x] TBD
-- [o] TBD
+- [ ] [부가] Site Url exam 변경
+- [ ] [필수] 채점기능
+- [ ] 로그인기능
