@@ -1,0 +1,1303 @@
+- seq: 1
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: XP(eXtreme Programming)의 기본원리로 볼 수 없는 것은?
+  answers:
+    - isAnswer: 'n'
+      example: Pair Programming
+    - isAnswer: 'n'
+      example: Collective Ownership
+    - isAnswer: 'n'
+      example: Continuous Integration
+    - isAnswer: 'y'
+      example: Linear Sequential Method
+- seq: 2
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 럼바우(Rumbaugh) 객체지향 분석 기법에서 동적 모델링에 활용되는 다이어그램은?
+  answers:
+    - isAnswer: 'n'
+      example: 객체 다이어그램(Object Diagram)
+    - isAnswer: 'y'
+      example: 상태 다이어그램(State Diagram)
+    - isAnswer: 'n'
+      example: 패키지 다이어그램(Package Diagram)
+    - isAnswer: 'n'
+      example: 자료 흐름도(Data Flow Diagram)
+- seq: 3
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: CASE(Computer Aided Software Engineering)의 주요 기능으로 옳지 않은 것은?
+  answers:
+    - isAnswer: 'n'
+      example: S/W 라이프 사이클 전 단계의 연결
+    - isAnswer: 'y'
+      example: 언어 번역
+    - isAnswer: 'n'
+      example: 그래픽 지원
+    - isAnswer: 'n'
+      example: 다양한 소프트웨어 개발 모형 지원
+- seq: 4
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 객체지향 기법의 캡슐화(Encapsulation)에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 인터페이스가 단순화 된다.
+    - isAnswer: 'n'
+      example: 소프트웨어 재사용성이 높아진다.
+    - isAnswer: 'y'
+      example: 상위 클래스의 모든 속성과 연산을 하위 클래스가 물려받는 것을 의미한다.
+    - isAnswer: 'n'
+      example: 변경 발생 시 오류의 파급효과가 적다.
+- seq: 5
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 다음 내용이 설명하는 객체지향 설계 원칙은?
+  answers:
+    - isAnswer: 'n'
+      example: 단일 책임 원칙
+    - isAnswer: 'n'
+      example: 개방 폐쇄의 원칙
+    - isAnswer: 'y'
+      example: 인터페이스 분리 원칙
+    - isAnswer: 'n'
+      example: 리스코프 교체의 원칙
+- seq: 6
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 노드와 간선으로 구성된다.
+    - isAnswer: 'n'
+      example: 계층 모델이라고도 한다.
+    - isAnswer: 'n'
+      example: 3개의 서브시스템(모델, 뷰, 제어)으로 구성되어 있다.
+    - isAnswer: 'y'
+      example: 서브시스템이 입력데이터를 받아 처리하고 결과를 다음 서브시스템으로 넘겨주는 과정을 반복한다.
+- seq: 7
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 객체지향 분석 방법론 중 Coad-Yourdon 방법에 해당하는 것은?
+  answers:
+    - isAnswer: 'y'
+      example: 표의 숫자 코드
+    - isAnswer: 'n'
+      example: 순차 코드
+    - isAnswer: 'n'
+      example: 10진 코드
+    - isAnswer: 'n'
+      example: 블록 코드
+- seq: 8
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 디자인 패턴 사용의 장٠단점에 대한 설명으로 거리가 먼 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 소프트웨어 구조 파악이 용이하다.
+    - isAnswer: 'y'
+      example: 절차형 언어와 함께 이용될 때 효율이 극대화된다.
+    - isAnswer: 'n'
+      example: 객체지향 설계 및 구현의 생산성을 높이는데 적합하다.
+    - isAnswer: 'n'
+      example: 재사용을 위한 개발 시간이 단축된다.
+- seq: 9
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: DFD(data flow diagram)에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 자료 흐름 그래프 또는 버블(bubble) 차트라고도 한다.
+    - isAnswer: 'n'
+      example: 구조적 분석 기법에 이용된다.
+    - isAnswer: 'n'
+      example: DFD의 요소는 화살표, 원, 사각형, 직선(단선/이중선)으로 표시한다.
+    - isAnswer: 'y'
+      example: 시간 흐름을 명확하게 표현할 수 있다.
+- seq: 10
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 그래픽 표기법을 이용하여 소프트웨어 구성 요소를 모델링하는 럼바우 분석 기법에 포함되지 않는 것은?
+  answers:
+    - isAnswer: 'y'
+      example: 블랙박스 분석 모델링
+    - isAnswer: 'n'
+      example: 객체 모델링
+    - isAnswer: 'n'
+      example: 기능 모델링
+    - isAnswer: 'n'
+      example: 동적 모델링
+- seq: 11
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: UML의 기본 구성요소가 아닌 것은?
+  answers:
+    - isAnswer: 'n'
+      example: Things
+    - isAnswer: 'n'
+      example: Relationship
+    - isAnswer: 'y'
+      example: Terminal
+    - isAnswer: 'n'
+      example: Diagram
+- seq: 12
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 소프트웨어의 상위설계에 속하지 않는 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 아키텍처 설계
+    - isAnswer: 'n'
+      example: 인터페이스 정의
+    - isAnswer: 'n'
+      example: 사용자 인터페이스 설계
+    - isAnswer: 'y'
+      example: 모듈 설계
+- seq: 13
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 다음 중 자료사전(Data Dictionary)에서 선택의 의미를 나타내는 것은?
+  answers:
+    - isAnswer: 'n'
+      example: { }
+    - isAnswer: 'y'
+      example: [ ]
+    - isAnswer: 'n'
+      example: ＋
+    - isAnswer: 'n'
+      example: =
+- seq: 14
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 소프트웨어의 사용자 인터페이스개발시스템(User Interface Development System)이 가져야 할 기능이 아닌 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 사용자 입력의 검증
+    - isAnswer: 'n'
+      example: 에러 처리와 에러 메시지 처리
+    - isAnswer: 'n'
+      example: 도움과 프롬프트(prompt) 제공
+    - isAnswer: 'y'
+      example: 소스 코드 분석 및 오류 복구
+- seq: 15
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 요구 사항 명세기법에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: 'n'
+      example: 비정형 명세기법은 사용자의 요구를 표현할 때 자연어를 기반으로 서술한다.
+    - isAnswer: 'y'
+      example: 비정형 명세기법은 사용자의 요구를 표현할 때 Z 비정형 명세기법을 사용한다.
+    - isAnswer: 'n'
+      example: 정형 명세기법은 사용자의 요구를 표현할 때 수학적인 원리와 표기법을 이용한다.
+    - isAnswer: 'n'
+      example: 정형 명세기법은 비정형 명세기법에 비해 표현이 간결하다.
+- seq: 16
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 소프트웨어 개발 단계에서 요구 분석 과정에 대한 설명으로 거리가 먼 것은?
+  answers:
+    - isAnswer: 'y'
+      example: 개발 비용이 가장 많이 소요되는 단계이다.
+    - isAnswer: 'n'
+      example: 분석 결과의 문서화를 통해 향후 유지보수에 유용하게 활용 활 수 있다.
+    - isAnswer: 'n'
+      example: 자료흐름도, 자료 사전 등이 효과적으로 이용될 수 있다.
+    - isAnswer: 'n'
+      example: 보다 구체적인 명세를 위해 소단위 명세서(Mini-Spec)가 활용될 수 있다.
+- seq: 17
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 애자일 방법론에 해당하지 않는 것은?
+  answers:
+    - isAnswer: 'y'
+      example: 모듈중심 개발
+    - isAnswer: 'n'
+      example: 기능중심 개발
+    - isAnswer: 'n'
+      example: 스크럼
+    - isAnswer: 'n'
+      example: 익스트림 프로그래밍
+- seq: 18
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 클라이언트와 서버 간의 통신을 담당하는 시스템 소프트웨어를 무엇이라고 하는가?
+  answers:
+    - isAnswer: 'n'
+      example: 웨어러블
+    - isAnswer: 'n'
+      example: 하이웨어
+    - isAnswer: 'y'
+      example: 미들웨어
+    - isAnswer: 'n'
+      example: 응용 소프트웨어
+- seq: 19
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: GoF(Gangs of Four) 디자인 패턴 분류에 해당하지 않는 것은?
+  answers:
+    - isAnswer: n
+      example: 생성 패턴
+    - isAnswer: n
+      example: 구조 패턴
+    - isAnswer: n
+      example: 행위 패턴
+    - isAnswer: y
+      example: 추상 패턴
+- seq: 20
+  subject: 1
+  subjectName: 소프트웨어 설계
+  question: 바람직한 소프트웨어 설계 지침이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 적당한 모듈의 크기를 유지한다.
+    - isAnswer: n
+      example: 모듈 간의 접속 관계를 분석하여 복잡도와 중복을 줄인다.
+    - isAnswer: n
+      example: 모듈 간의 효과적인 제어를 위해 설계에서 계층적 자료 조직이 제시되어야 한다.
+    - isAnswer: y
+      example: 모듈 간의 결합도는 강할수록 바람직하다.
+- seq: 21
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 패키징 도구 활용 시 고려 사항으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 반드시 내부 콘텐츠에 대한 암호화 및 보안을 고려한다.
+    - isAnswer: y
+      example: 보안을 위하여 이기종 연동을 고려하지 않아도 된다.
+    - isAnswer: n
+      example:  사용자 편의성을 위한 복잡성 및 비효율성 문제를 고려한다.
+    - isAnswer: n
+      example:  제품 소프트웨어 종류에 적합한 암호화 알고리즘을 적용한다.
+- seq: 22
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: EAI(Enterprise Application Integration) 구축유형 중 Hybrid에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example: 중간에 미들웨어를 두지 않고 각 애플리케이션을 point to point로 연결한다.
+    - isAnswer: n
+      example: Hub & Spoke와 Message Bus의 혼합방식이다.
+    - isAnswer: n
+      example:  필요한 경우 한 가지 방식으로 EAI구현이 가능하다.
+    - isAnswer: n
+      example:  데이터 병목현상을 최소화할 수 있다.
+- seq: 23
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소스코드 품질분석 도구 중 정적분석 도구가 아닌 것은?
+  answers:
+    - isAnswer: y
+      example: valance
+    - isAnswer: n
+      example: pmd
+    - isAnswer: n
+      example: checkstyle
+    - isAnswer: n
+      example: cppcheck
+- seq: 24
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 Postfix 연산식에 대한 연산결과로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: 35
+    - isAnswer: n
+      example: 77
+    - isAnswer: n
+      example:  360
+    - isAnswer: y
+      example:  42
+- seq: 25
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 인터페이스 보안을 위 해 네트워크 영역에 적용될 수 있는 것으로 거리가 먼 것은?
+  answers:
+    - isAnswer: y
+      example: SMTP
+    - isAnswer: n
+      example: IPSec
+    - isAnswer: n
+      example: SSL
+    - isAnswer: n
+      example: S-HTTP
+- seq: 26
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 검증(Validation) 검사 기법 중 개발자의 장소에서 사용자가 개발자 앞에서 행해지며, 오류와 사용상의 문제점을 사용자와 개발자가 함께 확인하면서 검사하는 기법은?
+  answers:
+    - isAnswer: n
+      example: 디버깅 검사
+    - isAnswer: y
+      example: 알파 검사
+    - isAnswer: n
+      example: 형상 검사
+    - isAnswer: n
+      example: 자료구조 검사
+- seq: 27
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 초기 자료에 대하여 삽입 정렬(Insertion Sort)을 이용하여 오름차순 정렬할 경우 1회전 후의 결과는?
+  answers:
+    - isAnswer: n
+      example: 3, 4, 8, 7, 9
+    - isAnswer: y
+      example: 3, 8, 4, 9, 7
+    - isAnswer: n
+      example: 3, 4, 9, 7, 8
+    - isAnswer: n
+      example: 7, 8, 3, 4, 9
+- seq: 28
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 설치 매뉴얼에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 설치과정에서 표시될 수 있는 예외상황에 관련 내용을 별도로 구분하여 설명한다.
+    - isAnswer: n
+      example: 설치 시작부터 완료할 때까지의 전 과정을 빠짐없이 순서 대 로 설 명 한다.
+    - isAnswer: y
+      example: 설치 매뉴얼은 개발자 기준으로 작성한다.
+    - isAnswer: n
+      example: 설치 매뉴얼에는 목차, 개요, 기본사항 등이 기본적으로 포함되어야 한다.
+- seq: 29
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 인터페이스 구현 검증 도구가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: xUnit
+    - isAnswer: n
+      example: STAF
+    - isAnswer: n
+      example: NTAF
+    - isAnswer: y
+      example: ESB
+- seq: 30
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 소프트웨어 형상 관리에서 관리 항목에 포함되지 않는 것은?
+  answers:
+    - isAnswer: y
+      example: 프로젝트 개발 비용
+    - isAnswer: n
+      example: 프로젝트 요구 분석서
+    - isAnswer: n
+      example: 소스 코드
+    - isAnswer: n
+      example: 운영 및 설치 지침서
+- seq: 31
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 설명에 해당하는 것은?
+  answers:
+    - isAnswer: y
+      example: 내부 스키마
+    - isAnswer: n
+      example: 외부 스키마
+    - isAnswer: n
+      example: 개념 스키마
+    - isAnswer: n
+      example: 슈퍼 스키마
+- seq: 32
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음 트리에 대한 INORDER 운행 결과는?
+  answers:
+    - isAnswer: n
+      example: A B D C E F
+    - isAnswer: n
+      example: D B E C F A
+    - isAnswer: y
+      example: D B A E C F
+    - isAnswer: n
+      example: A B C D E F
+- seq: 33
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: n 개의 노드로 구성된 무방향 그래프의 최대 간선수는?
+  answers:
+    - isAnswer: n
+      example: n－1
+    - isAnswer: n
+      example: n／2
+    - isAnswer: y
+      example: n(n－1)／2
+    - isAnswer: n
+      example: n(n＋1)
+- seq: 34
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음이 설명하는 테스트 용어는?
+  answers:
+    - isAnswer: n
+      example: 테스트 케이스
+    - isAnswer: n
+      example: 테스트 시나리오
+    - isAnswer: y
+      example: 테스트 오라클
+    - isAnswer: n
+      example: 테스트 데이터
+- seq: 35
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 빌드 자동화 도구에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: Gradle은 실행할 처리 명령들을 모아 태스크로 만든 후 태스크 단위로 실행한다.
+    - isAnswer: n
+      example: 빌드 자동화 도구는 지속적인 통합개발환경 에 서 유용하게 활용된다.
+    - isAnswer: n
+      example: 빌드 자동화 도구에는 Ant, Gradle, Jenkins등이 있다.
+    - isAnswer: y
+      example: Jenkins는 Groovy 기반으로 한 오픈소스로 안드로이드 앱 개발 환경에서 사용된다.
+- seq: 36
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 저작권 관리 구성 요소에 대한 설명이 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 콘텐츠 제공자(Contents Provider) : 콘텐츠를 제공하는 저작권자
+    - isAnswer: n
+      example: 클리어링 하우스(Clearing House) : 키 관리 및 라이선스 발급 관리
+    - isAnswer: y
+      example: 콘텐츠 분배자(Contents Distributor) : 콘텐츠를 메타 데이터와 함께 배포 가능한 단위로 묶는 기능
+    - isAnswer: n
+      example: DRM 컨트롤러 : 배포된 콘텐츠의 이용 권한을 통제
+- seq: 37
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 블랙박스 테스트 기법으로 거리가 먼 것은?
+  answers:
+    - isAnswer: n
+      example: 동치 클래스 분해
+    - isAnswer: n
+      example: 경계값 분석
+    - isAnswer: y
+      example: 기초 경로 검사
+    - isAnswer: n
+      example: 원인 결과 그래프
+- seq: 38
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 해싱함수 중 레코드 키를 여러 부분으로 나누고, 나눈 부분의 각 숫자를 더하거나 XOR한 값을 홈 주소로 사용하는 방식은?
+  answers:
+    - isAnswer: n
+      example: 제산법
+    - isAnswer: n
+      example: 기수변환법
+    - isAnswer: y
+      example: 폴딩법
+    - isAnswer: n
+      example: 숫자분석법
+- seq: 39
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 다음에서 설명하는 클린 코드 작성 원칙은?
+  answers:
+    - isAnswer: y
+      example: 단순성
+    - isAnswer: n
+      example: 다형성
+    - isAnswer: n
+      example: 추상화
+    - isAnswer: n
+      example: 의존성
+- seq: 40
+  subject: 2
+  subjectName: 소프트웨어 개발
+  question: 디지털 저작권 관리(DRM) 기술과 거리가 먼 것은?
+  answers:
+    - isAnswer: n
+      example: 콘텐츠 암호화 및 키 관리
+    - isAnswer: y
+      example: 콘텐츠 오류 감지 및 복구
+    - isAnswer: n
+      example: 콘텐츠 식별체계 표현
+    - isAnswer: n
+      example: 라이선스 발급 및 관리
+- seq: 41
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음 설명과 관련 있는 트랜잭션의 특징은?
+  answers:
+    - isAnswer: y
+      example: Atomicity
+    - isAnswer: n
+      example: Durability
+    - isAnswer: n
+      example: Isolation
+    - isAnswer: n
+      example: Consistency
+- seq: 42
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터베이스에 영향을 주는 생성, 읽기, 갱신, 삭제 연산으로 프로세스와 테이블 간에 매트릭스를 만들어서 트랜잭션을 분석하는 것은?
+  answers:
+    - isAnswer: y
+      example: CRUD 분석
+    - isAnswer: n
+      example: CASE 분석
+    - isAnswer: n
+      example: 일치 분석
+    - isAnswer: n
+      example: 연관성 분석
+- seq: 43
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 정규화된 엔티티, 속성, 관계를 시스템의 성능 향상과 개발 운영의 단순화를 위해 중복, 통합, 분리 등을 수행하는 데이터 모델링 기법은?
+  answers:
+    - isAnswer: n
+      example: 인덱스정규화
+    - isAnswer: n
+      example: 집단화
+    - isAnswer: n
+      example: 머징
+    - isAnswer: y
+      example: 반정규화
+- seq: 44
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 학생 테이블을 생성한 후, 성별 필드가 누락되어 이를 추가하려고 한다. 이에 적합한 SQL 명령어는?
+  answers:
+    - isAnswer: n
+      example: INSERT
+    - isAnswer: y
+      example: ALTER
+    - isAnswer: n
+      example: DROP
+    - isAnswer: n
+      example: MODIFY
+- seq: 45
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 정규화의 필요성으로 거리가 먼 것은?
+  answers:
+    - isAnswer: n
+      example: 데이터 구조의 안정성 최대화
+    - isAnswer: y
+      example: 중복 데이터의 활성화
+    - isAnswer: n
+      example: 수정, 삭제 시 이상현상의 최소화
+    - isAnswer: n
+      example: 테이블 불일치 위험의 최소화
+- seq: 46
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question:  개체-관계 모델의 E-R 다이어그램에서 사용되는 기호와 그 의미의 연결이 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 사각형 - 개체 타입
+    - isAnswer: n
+      example: 선 - 개체타입과 속성을 연결
+    - isAnswer: n
+      example: 마름모 - 관계 타입
+    - isAnswer: y
+      example: 삼각형 - 속성
+- seq: 47
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음 SQL문에서 빈칸에 들어갈 내용으로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: FROM
+    - isAnswer: n
+      example: INTO
+    - isAnswer: y
+      example: SET
+    - isAnswer: n
+      example: TO
+- seq: 48
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 릴레이션에 있는 모든 튜플에 대해 유일성은 만족시키지만 최소성은 만족시키지 못하는 키는?
+  answers:
+    - isAnswer: y
+      example: 슈퍼키
+    - isAnswer: n
+      example: 후보키
+    - isAnswer: n
+      example: 기본키
+    - isAnswer: n
+      example: 외래키
+- seq: 49
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: DBA가 사용자 PARK에게 테이블 [STUDENT]의 데이터를 갱신할 수 있는 시스템 권한을 부여하고자 하는 SQL문을 작성하고자 한다. 다음에 주어진 SQL문의 빈칸을 알맞게 채운 것은?
+  answers:
+    - isAnswer: n
+      example: ㉠ INSERT, ㉡ INTO
+    - isAnswer: n
+      example: ㉠ ALTER, ㉡ TO
+    - isAnswer: n
+      example: ㉠ REPLACE, ㉡ IN
+    - isAnswer: y
+      example: ㉠ UPDATE, ㉡ ON
+- seq: 50
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 관계대수에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: y
+      example: 원하는 정보와 그 정보를 어떻게 유도하는가를 기술하는 비절차적방법이다.
+    - isAnswer: n
+      example: 주어진 릴레이션 조작을 위한 연산의 집합이다.
+    - isAnswer: n
+      example: 질의에 대한 해를 구하기 위해 수행해야 할 연산의 순서를 명시한다.
+    - isAnswer: n
+      example: 카탈로그에 저장된 정보를 메타 데이터라고도 한다.
+- seq: 51
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 다음 SQL문의 실행 결과는?
+  answers:
+    - isAnswer: y
+      example: 이미지를 클릭하면 확대 가능합니다.(한번더 클릭하면 원본크기로 변경 됩니다).
+    - isAnswer: n
+      example: 이미지를 클릭하면 확대 가능합니다.(한번더 클릭하면 원본크기로 변경 됩니다).
+    - isAnswer: n
+      example: 이미지를 클릭하면 확대 가능합니다.(한번더 클릭하면 원본크기로 변경 됩니다).
+    - isAnswer: n
+      example: 이미지를 클릭하면 확대 가능합니다.(한번더 클릭하면 원본크기로 변경 됩니다).
+- seq: 52
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 로킹(Locking) 기법에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 로킹의 대상이 되는 객체의 크기를 로킹 단위라고 한다.
+    - isAnswer: y
+      example: 로킹 단위가 작아지면 병행성 수준이 낮아진다.
+    - isAnswer: n
+      example: 데이터베이스도 로킹 단위가 될 수 있다.
+    - isAnswer: n
+      example: 로킹 단위가 커지면 로크 수가 작아 로킹 오버헤드가 감소한다.
+- seq: 53
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 사용자 X1에게 department 테이블에 대한 검색 연산을 회수하는 명령은?
+  answers:
+    - isAnswer: n
+      example: delete select on department to X1;
+    - isAnswer: n
+      example: remove select on department from X1;
+    - isAnswer: n
+      example: grant select on department from X1;
+    - isAnswer: y
+      example: revoke select on department from X1;
+- seq: 54
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 뷰(VIEW)에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 뷰 위에 또 다른 뷰를 정의할 수 있다.
+    - isAnswer: n
+      example: 뷰에 대한 조작에서 삽입, 갱신, 삭제 연산은 제약이 따른다.
+    - isAnswer: y
+      example: 뷰의 정의는 기본 테이블과 같이 ALTER문을 이용하여 변경한다.
+    - isAnswer: n
+      example: 뷰가 정의된 기본 테이블이 제거되면 뷰도 자동적으로 제거된다.
+- seq: 55
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터 모델에 표시해야 할 요소로 거리가 먼 것은?
+  answers:
+    - isAnswer: n
+      example: 논리적 데이터 구조
+    - isAnswer: n
+      example: 연산
+    - isAnswer: n
+      example: 제약조건
+    - isAnswer: y
+      example: 출력 구조
+- seq: 56
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 제 3정규형에서 보이스코드 정규형(BCNF)으로 정규화하기 위한 작업은?
+  answers:
+    - isAnswer: y
+      example: 결정자가 후보키가 아닌 함수 종속 제거
+    - isAnswer: n
+      example: 원자 값이 아닌 도메인을 분해
+    - isAnswer: n
+      example: 부분 함수 종속 제거
+    - isAnswer: n
+      example: 이행 함수 종속 제거
+- seq: 57
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: A1, A2, A3 3개 속성을 갖는 한 릴레이션에서 A1의 도메인은 3개 값, A2의 도메인은 2개 값, A3의 도메인은 4개 값을 갖는다. 이 릴레이션에 존재할 수 있는 가능한 튜플(Tuple)의 최대 수는?
+  answers:
+    - isAnswer: n
+      example: 12
+    - isAnswer: y
+      example: 24
+    - isAnswer: n
+      example: 8
+    - isAnswer: n
+      example: 9
+- seq: 58
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터베이스 설계 시 물리적 설계 단계에서 수행하는 사항이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 저장 레코드 양식 설계
+    - isAnswer: n
+      example: 레코드 집중의 분석 및 설계
+    - isAnswer: y
+      example: 목표 DBMS에 맞는 스키마 설계
+    - isAnswer: n
+      example: 접근 경로 설계
+- seq: 59
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 한 릴레이션 스키마가 4개 속성, 2개 후보키 그리고 그 스키마의 대응 릴레이션 인스턴스가 7개 튜플을 갖는다면 그 릴레이션의 차수(degree)는?
+  answers:
+    - isAnswer: y
+      example: 4
+    - isAnswer: n
+      example: 1
+    - isAnswer: n
+      example: 2
+    - isAnswer: n
+      example: 7
+- seq: 60
+  subject: 3
+  subjectName: 데이터베이스 구축
+  question: 데이터웨어하우스의 기본적인 OLAP(on-line analytical processing) 연산이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: roll-up
+    - isAnswer: n
+      example: dicing
+    - isAnswer: y
+      example: translate
+    - isAnswer: n
+      example: drill-down
+- seq: 61
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: UNIX SHELL 환경 변수를 출력하는 명령어가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: printenv
+    - isAnswer: y
+      example: configenv
+    - isAnswer: n
+      example: env
+    - isAnswer: n
+      example: setenv
+- seq: 62
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: Java 프로그래밍 언어의 정수 데이터 타입 중 'long'의 크기는?
+  answers:
+    - isAnswer: y
+      example: 8byte
+    - isAnswer: n
+      example: 1byte
+    - isAnswer: n
+      example: 2byte
+    - isAnswer: n
+      example: 4byte
+- seq: 63
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: Java에서 사용되는 출력 함수가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: System.out.print( )
+    - isAnswer: y
+      example: System.out.printing( )
+    - isAnswer: n
+      example: System.out.printing( )
+    - isAnswer: n
+      example: System.out.printf( )
+- seq: 64
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 운영체제에서 커널의 기능이 아닌 것은?
+  answers:
+    - isAnswer: y
+      example: 사용자 인터페이스
+    - isAnswer: n
+      example: 프로세스 생성, 종료
+    - isAnswer: n
+      example: 기억 장치 할당, 회수
+    - isAnswer: n
+      example: 파일 시스템 관리
+- seq: 65
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: OSI 7계층에서 단말기 사이에 오류 수정과 흐름제어를 수행하여 신뢰성 있고 명확한 데이터를 전달하는 계층은?
+  answers:
+    - isAnswer: n
+      example: 응용 계층
+    - isAnswer: y
+      example: 전송 계층
+    - isAnswer: n
+      example: 세션 계층
+    - isAnswer: n
+      example: 표현 계층
+- seq: 66
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 쉘 스크립트의 의미로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: wow 사용자가 로그인한 경우에만 반복문을 수행한다.
+    - isAnswer: n
+      example: wow 문자열을 복사한다.
+    - isAnswer: n
+      example: wow 사용자에 대한 정보를 무한 반복하여 출력한다.
+    - isAnswer: y
+      example: wow 사용자가 로그인할 때까지 반복문을 수행한다.
+- seq: 67
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 자바 코드를 실행한 결과는?
+  answers:
+    - isAnswer: y
+      example: Unresolved compilation problem 오류 발생
+    - isAnswer: n
+      example: x＝7 y＝0
+    - isAnswer: n
+      example: x＝6 y＝-1
+    - isAnswer: n
+      example: x＝7 y＝-1
+- seq: 68
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 파이썬으로 구현된 프로그램의 실행 결과로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: [20, 60]
+    - isAnswer: n
+      example: [60, 20]
+    - isAnswer: y
+      example: [0, 20, 40, 60]
+    - isAnswer: n
+      example: [10, 30, 50, 70]
+- seq: 69
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 공통모듈의 재사용 범위에 따른 분류가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 컴포넌트 재사용
+    - isAnswer: n
+      example: 함수와 객체 재사용
+    - isAnswer: n
+      example: 애플리케이션 재사용
+    - isAnswer: y
+      example: 더미코드 재사용
+- seq: 70
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음과 같은 프로세스가 차례로 큐에 도착하였을 때, SJF(Shortest Job First) 정책을 사용할 경우 가장 먼저 처리되는 작업은?
+  answers:
+    - isAnswer: n
+      example: P1
+    - isAnswer: n
+      example: P2
+    - isAnswer: n
+      example: P3
+    - isAnswer: y
+      example: P4
+- seq: 71
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 4개의 페이지를 수용할 수 있는 주기억장치가 있으며, 초기에는 모두 비어 있다고 가정한다. 다음의 순서로 페이지 참조가 발생할 때, FIFO 페이지 교체 알고리즘을 사용할 경우 페이지 결함의 발생 횟수는?
+  answers:
+    - isAnswer: n
+      example: 7회
+    - isAnswer: n
+      example: 8회
+    - isAnswer: n
+      example: 9회
+    - isAnswer: y
+      example: 6회
+- seq: 72
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: TCP 흐름제어기법 중 프레임이 손실되었을 때, 손실된 프레임 1개를 전송하고 수신자의 응답을 기다리는 방식으로 한 번에 프레임 1개만 전송할 수 있는 기법은?
+  answers:
+    - isAnswer: n
+      example: Slow Start
+    - isAnswer: n
+      example: Sliding Window
+    - isAnswer: n
+      example: Congestion Avoidance
+    - isAnswer: y
+      example: Stop and Wait
+- seq: 73
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 결합도(Coupling)에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 내용 결합도(Content Coupling)는 하나의 모듈이 직접적으로 다른 모듈의 내용을 참조할 때 두 모듈은 내용적으로 결합되어 있다고 한다.
+    - isAnswer: n
+      example: 공통 결합도(Common Coupling)는 두 모듈이 동일한 전역 데이터를 접근한다면 공통결합 되어 있다고 한다.
+    - isAnswer: n
+      example: 결합도(Coupling)는 두 모듈간의 상호작용, 또는 의존도 정도를 나타내는 것이다.
+    - isAnswer: y
+      example: 데이터 결합도(Data Coupling)는 두 모듈이 매개변수로 자료를 전달할 때, 자료구조 형태로 전달되어 이용될 때 데이터가 결합되어 있다고 한다.
+- seq: 74
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 응집도의 종류 중 서로 간에 어떠한 의미 있는 연관관계도 지니지 않은 기능 요소로 구성되는 경우이며, 서로 다른 상위 모듈에 의해 호출되어 처리상의 연관성이 없는 서로 다른 기능을 수행하는 경우의 응집도는?
+  answers:
+    - isAnswer: n
+      example: Functional Cohesion
+    - isAnswer: n
+      example: Sequential Cohesion
+    - isAnswer: n
+      example: Logical Cohesion
+    - isAnswer: y
+      example: Coincidental Cohesion
+- seq: 75
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 자바에서 사용하는 접근제어자의 종류가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: private
+    - isAnswer: n
+      example: default
+    - isAnswer: n
+      example: public
+    - isAnswer: y
+      example: internal
+- seq: 76
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: UDP 특성에 해당되는 것은?
+  answers:
+    - isAnswer: n
+      example: 데이터 전송 후, ACK를 받는다.
+    - isAnswer: n
+      example: 송신 중에 링크를 유지 관리하므로 신뢰성이 높다.
+    - isAnswer: n
+      example: 흐름제어나 순서제어가 없어 전송속도가 빠르다.
+    - isAnswer: y
+      example: 흐름제어나 순서제어가 없어 전송속도가 빠르다.
+- seq: 77
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음과 같은 세그먼트 테이블을 가지는 시스템에서 논리 주소(2, 176)에 대한 물리 주소는?
+  answers:
+    - isAnswer: n
+      example: 400
+    - isAnswer: n
+      example: 1928
+    - isAnswer: n
+      example: 1930
+    - isAnswer: y
+      example: 398
+- seq: 78
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: TCP/IP에서 사용되는 논리주소를 물리주소로 변환시켜 주는 프로토콜은?
+  answers:
+    - isAnswer: n
+      example: TCP
+    - isAnswer: n
+      example: FTP
+    - isAnswer: n
+      example: IP
+    - isAnswer: y
+      example: ARP
+- seq: 79
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: C언어에서 구조체를 사용하여 데이터를 처리할 때 사용하는 것은?
+  answers:
+    - isAnswer: n
+      example: for
+    - isAnswer: n
+      example: scanf
+    - isAnswer: n
+      example: abstract
+    - isAnswer: y
+      example: struct
+- seq: 80
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: PHP에서 사용 가능한 연산자가 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: @
+    - isAnswer: n
+      example: ＜＞
+    - isAnswer: n
+      example: ===
+    - isAnswer: y
+      example: #
+- seq: 81
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 이용자가 인터넷과 같은 공중망에 사설망을 구축하여 마치 전용망을 사용하는 효과를 가지는 보안 솔루션은?
+  answers:
+    - isAnswer: n
+      example: ZIGBEE
+    - isAnswer: n
+      example: KDD
+    - isAnswer: n
+      example: IDS
+    - isAnswer: y
+      example: VPN
+- seq: 82
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: CMM(Capability Maturity Model) 모델의 레벨로 옳지 않은 것은?
+  answers:
+    - isAnswer: n
+      example: 최적단계
+    - isAnswer: n
+      example: 관리단계
+    - isAnswer: n
+      example: 정의단계
+    - isAnswer: y
+      example: 계획단계
+- seq: 83
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 설명에 해당하는 생명주기 모형으로 가장 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: 패키지 모형
+    - isAnswer: n
+      example: 코코모 모형
+    - isAnswer: n
+      example: 관계형 모델
+    - isAnswer: y
+      example: 폭포수 모형
+- seq: 84
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 서비스 지향 아키텍처 기반 애플리케이션을 구성하는 층이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: 표현층
+    - isAnswer: n
+      example: 프로세스층
+    - isAnswer: n
+      example: 비즈니스층
+    - isAnswer: y
+      example: 제어 클래스층
+- seq: 85
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 내용이 설명하는 스토리지 시스템은?
+  answers:
+    - isAnswer: n
+      example: NAS
+    - isAnswer: n
+      example: N-SCREEN
+    - isAnswer: n
+      example: NFC
+    - isAnswer: y
+      example: DAS
+- seq: 86
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 소프트웨어 개발 프레임워크의 적용 효과로 볼 수 없는 것은?
+  answers:
+    - isAnswer: n
+      example: 공통 컴포넌트 재사용으로 중복 예산 절감
+    - isAnswer: n
+      example: 표준화된 연계모듈 활용으로 상호 운용성 향상
+    - isAnswer: n
+      example: 개발표준에 의한 모듈화로 유지보수 용이
+    - isAnswer: y
+      example: 기술종속으로 인한 선행사업자 의존도 증대
+- seq: 87
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: SoftTech사에서 개발된 것으로 구조적 요구 분석을 하기 위해 블록 다이어그램을 채택한 자동화 도구는?
+  answers:
+    - isAnswer: n
+      example: SREM
+    - isAnswer: n
+      example: PSL/PSA
+    - isAnswer: n
+      example: HIPO
+    - isAnswer: y
+      example: SADT
+- seq: 88
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 익스트림 프로그래밍 (eXtreme Programming)의 5가지 가치에 속하지 않는 것은?
+  answers:
+    - isAnswer: n
+      example: 의사소통
+    - isAnswer: n
+      example: 단순성
+    - isAnswer: n
+      example: 피드백
+    - isAnswer: y
+      example: 고객 배제
+- seq: 89
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음은 정보의 접근통제 정책에 대한 설명이다. (ㄱ)에 들어갈 내용으로 옳은 것은?
+  answers:
+    - isAnswer: n
+      example: NAC
+    - isAnswer: n
+      example: SDAC
+    - isAnswer: n
+      example: AAC
+    - isAnswer: y
+      example: MAC
+- seq: 90
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 소프트웨어 개발 모델 중 나선형 모델의 4가지 주요 활동이 순서대로 나열된 것은?
+  answers:
+    - isAnswer: n
+      example: Ⓐ-Ⓑ-Ⓓ-Ⓒ순으로 반복
+    - isAnswer: n
+      example: Ⓐ-Ⓑ-Ⓒ-Ⓓ순으로 반복
+    - isAnswer: n
+      example: Ⓐ-Ⓒ-Ⓑ-Ⓓ순으로 반복
+    - isAnswer: y
+      example: Ⓐ-Ⓓ-Ⓒ-Ⓑ순으로 반복
+- seq: 91
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 소프트웨어 비용 추정모형(estimation models)이 아닌 것은?
+  answers:
+    - isAnswer: n
+      example: COCOMO
+    - isAnswer: n
+      example: Putnam
+    - isAnswer: n
+      example: Function-Point
+    - isAnswer: y
+      example: PERT
+- seq: 92
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 공개키 암호화 방식에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 비대칭 암호기법이라고도 한다.
+    - isAnswer: n
+      example: 대표적인 기법은 RSA 기법이 있다.
+    - isAnswer: n
+      example: 키 분배가 용이하고, 관리해야 할 키 개수가 적다.
+    - isAnswer: y
+      example: 공개키로 암호화된 메시지는 반드시 공개키로 복호화 해야 한다.
+- seq: 93
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음이 설명하는 다중화 기술은?
+  answers:
+    - isAnswer: n
+      example: Frequency Division Multiplexing
+    - isAnswer: n
+      example: Code Division Multiplexing
+    - isAnswer: n
+      example: Time Division Multiplexing
+    - isAnswer: y
+      example: Wavelength Division Multiplexing
+- seq: 94
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 웹페이지에 악의적인 스크립트를 포함시켜 사용자 측에서 실행되게 유도함으로써, 정보유출 등의 공격을 유발할 수 있는 취약점은?
+  answers:
+    - isAnswer: n
+      example: Ransomware
+    - isAnswer: n
+      example: Pharming
+    - isAnswer: n
+      example: Phishing
+    - isAnswer: y
+      example: XSS
+- seq: 95
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: CBD(Component Based Development) 에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 개발 기간 단축으로 인한 생산성 향상
+    - isAnswer: n
+      example: 새로운 기능 추가가 쉬운 확장성
+    - isAnswer: n
+      example: 소프트웨어 재사용이 가능
+    - isAnswer: y
+      example: 1960년대까지 가장 많이 적용되었던 소프트웨어 개발 방법
+- seq: 96
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 소프트웨어 정의 데이터센터(SDDC : Software Defined Data Center)에 대한 설명으로 틀린 것은?
+  answers:
+    - isAnswer: n
+      example: 컴퓨팅, 네트워킹, 스토리지, 관리 등을 모두 소프트웨어로 정의한다.
+    - isAnswer: n
+      example: 인력 개입 없이 소프트웨어 조작만으로 자동 제어 관리한다.
+    - isAnswer: n
+      example: 데이터센터 내 모든 자원을 가상화하여 서비스한다.
+    - isAnswer: y
+      example: 특정 하드웨어 에 종속되어 특화된 업무를 서비스하기에 적합하다.
+- seq: 97
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 컴퓨터 운영체제의 커널에 보안 기능을 추가한 것으로 운영체제의 보안상 결함으로 인하여 발생 가능한 각종 해킹으로부터 시스템을 보호하기 위하여 사용되는 것은?
+  answers:
+    - isAnswer: n
+      example: GPIB
+    - isAnswer: n
+      example: CentOS
+    - isAnswer: n
+      example: XSS
+    - isAnswer: y
+      example: Secure OS
+- seq: 98
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: NS(Nassi-Schneiderman) chart에 대한 설명으로 거리가 먼 것은?
+  answers:
+    - isAnswer: n
+      example: 논리의 기술에 중점을 둔 도형식 표현 방법이다.
+    - isAnswer: n
+      example: 연속, 선택 및 다중 선택, 반복 등의 제어논리 구조로 표현한다.
+    - isAnswer: n
+      example: 조건이 복합되어 있는 곳의 처리를 시각적으로 명확히 식별하는데 적합하다.
+    - isAnswer: y
+      example: 주로 화살표를 사용하여 논리적인 제어구조로 흐름을 표현한다.
+- seq: 99
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 다음 내용에 적합한 용어는?
+  answers:
+    - isAnswer: n
+      example: SQL
+    - isAnswer: n
+      example: Hijacking
+    - isAnswer: n
+      example: Logs
+    - isAnswer: y
+      example: MapReduce
+- seq: 100
+  subject: 4
+  subjectName: 프로그래밍언어 활용
+  question: 소프트웨어 프로세스에 대한 개선 및 능력 측정 기준에 대한 국제 표준은?
+  answers:
+    - isAnswer: n
+      example: ISO 14001
+    - isAnswer: n
+      example: IEEE 802.5
+    - isAnswer: n
+      example: IEEE 488
+    - isAnswer: y
+      example: SPICE
+      
+      
+      
