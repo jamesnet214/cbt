@@ -6,7 +6,7 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "**/package.json": true,
+        "**/package.json": false,
         "**/package-lock.json": true,
         "**/.gitignore": true,
         "**/logo.svg": true,
