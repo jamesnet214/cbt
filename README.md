@@ -2,7 +2,7 @@
 tbd...
 
 ## 내용
-- 
+- TBD
 
 ## website
 https://cbt.devncore.org
