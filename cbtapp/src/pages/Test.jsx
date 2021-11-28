@@ -63,7 +63,7 @@ export default function Test(props) {
             );
         })
     }
-
+ 
     function getAnswer(answers) {
         let answer = -1;
         answers.map((x, i) => {
@@ -107,8 +107,7 @@ export default function Test(props) {
                                     </Box>
                                     : null
                                 }
-                                <div className="paper-question"
-                                    variant="outlined">
+                                <div className="paper-question">
                                     <Box className="papar-question-content">
                                         <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
                                     </Box>
