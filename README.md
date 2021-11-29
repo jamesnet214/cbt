@@ -13,7 +13,7 @@ https://cbt.devncore.org
 - [ ] 답 선택(전체) 진행 UI 표시
 - [ ] 시험목록에 없는 데이터 등록
 - [ ] 선택된 과목별 문제가 골고루 나오도록 처리
-- [ ] 인증 로그인 API 서버 추가 (ASP.NET CORE API)
+- [ ] 인증 로그인 API 서버 추가 (ASP.NET CORE API 3.1)
 - [ ] API 서버 호스팅 (AWS)
 - [ ] 인증 로그인 연도 DB 설계 (MONGO DB WITH AWS)
 - [ ] 클라이언트 JWT 인증 구현
