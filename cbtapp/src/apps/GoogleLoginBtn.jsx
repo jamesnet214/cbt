@@ -6,9 +6,8 @@ const clientId = "130873093876-hm2hqut5ci7bh6p09l7npku4t4e1to3d.apps.googleuserc
 export default function GoogleLoginBtn({ onGoogleLogin }){
     const onSuccess = async(response) => {
         const { googleId, profileObj : { email, name } } = response;
-        
         console.log('successed!', response);
-        
+        console.log('ba: ', response["Ba"]);
     }
 
     const onFailure = (error) => {
