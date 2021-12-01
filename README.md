@@ -9,6 +9,8 @@ https://cbt.devncore.org
 
 ## SSL Autentication
 - Localhost
+  - Chocoletley
+  - mkcert
 - Deploy
 
 ## Todo List
