@@ -7,6 +7,10 @@ tbd...
 ## website
 https://cbt.devncore.org
 
+## SSL Autentication
+- Localhost
+- Deploy
+
 ## Todo List
 ### TBD...
 - [ ] 로컬호스트 Https SSL 적용
