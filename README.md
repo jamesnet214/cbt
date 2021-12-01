@@ -10,7 +10,7 @@ https://cbt.devncore.org
 ## SSL Autentication
 - Localhost
   - Chocoletley
-  - mkcert
+  - mkcert 로컬 가상 SSL(HTTPS)
 - Deploy
 
 ## Todo List
