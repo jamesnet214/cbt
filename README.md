@@ -13,6 +13,9 @@ https://cbt.devncore.org
   - mkcert 로컬 가상 SSL(HTTPS)
 - Deploy
 
+## Proxy
+- npm install http-proxy-middleware
+
 ## Todo List
 ### TBD...
 - [ ] 로컬호스트 Https SSL 적용
