@@ -107,7 +107,10 @@ export default function Test(props) {
                                     </Box>
                                     : null
                                 }
-                                <div className="paper-question">
+                                <div className="paper-question"
+                                    style={{
+                                        border: ''
+                                    }}>
                                     <Box className="papar-question-content">
                                         <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
                                     </Box>
