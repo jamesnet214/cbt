@@ -7,8 +7,18 @@ tbd...
 ## website
 https://cbt.devncore.org
 
+## SSL Autentication
+- Localhost
+  - Chocoletley
+  - mkcert 로컬 가상 SSL(HTTPS)
+- Deploy
+
+## Proxy
+- npm install http-proxy-middleware
+
 ## Todo List
 ### TBD...
+- [ ] 로컬호스트 Https SSL 적용
 - [ ] 답 선택했을 때 UI 표시
 - [ ] 답 선택(전체) 진행 UI 표시
 - [ ] 시험목록에 없는 데이터 등록
