@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { useHistory } from "react-router-dom";
 
-export default function CustomizedTabs() {
+export default function MenuTabs() {
     let history = useHistory();
 
     const menus = [
@@ -24,6 +24,7 @@ export default function CustomizedTabs() {
     function createButton(menu) {
         const button = 
             <Button 
+                key={menu.value}
                 variant="raised"
                 size="small" 
                 color="link" 

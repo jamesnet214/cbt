@@ -2,10 +2,11 @@ import React from "react";
 import Axios from "axios";
 export default function Users(props) {
 
-    React.useEffect(() => {
+    const [userInfo, setUserInfo] = React.useState({}); 
 
+    React.useEffect(() => {
         const data = {
-            "id": "5451",
+            "id": "0303",
             "userName": "string",
             "email": "string"
         };
@@ -17,36 +18,31 @@ export default function Users(props) {
         };
 
         Axios.post('/api/Account/getLoginInfo', data)
-          .then(function (response) {
-            console.log(response);
+            .then(function (response) {
+                const data = response.data;
+                setUserInfo({ 
+                    userName: data.userName,
+                    email: data.email,
+                    id: data.id
+                });
+            console.log('Users');
           })
           .catch(function (error) {
             console.log(error);
           });
-
-        // fetch('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data)
-        //     });
-
-        // fetch('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => console.log(data));
-
-        // Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data)
-        //     .then(response => console.log(response));
-    });
+    }, []);
 
     return (
         <div>
             USERS
-            이름
-            이메일
-            프로필이미지            
+            {userInfo != null ? 
+                <div>
+                    <div>{userInfo.userName}</div>
+                    <div>{userInfo.email}</div>
+                    <div>{userInfo.id}</div>
+                </div>
+            : null
+            }
         </div>
     );
 }
