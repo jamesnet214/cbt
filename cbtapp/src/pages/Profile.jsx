@@ -13,7 +13,8 @@ export default function Profile(props) {
         const data = {
             "Id": id,
             "userName": "string",
-            "email": "string"
+            "email": "string",
+            "phone": "string"
         };
 
         const requestOptions = {
@@ -32,7 +33,8 @@ export default function Profile(props) {
                 setUserInfo({ 
                     userName: data.userName,
                     email: data.email,
-                    id: data.id
+                    id: data.id,
+                    phone: data.phone
                 });
             console.log('Users');
           })
@@ -43,12 +45,12 @@ export default function Profile(props) {
 
     return (
         <div>
-            USERS
+            사용자 정보
             {userInfo != null ? 
                 <div>
-                    <div>{userInfo.userName}</div>
-                    <div>{userInfo.email}</div>
                     <div>{userInfo.id}</div>
+                    <div>{userInfo.userName}</div>
+                    <div>{userInfo.phone}</div>
                 </div>
             : null
             }

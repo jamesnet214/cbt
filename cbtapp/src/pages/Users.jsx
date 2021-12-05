@@ -33,7 +33,6 @@ export default function Users(props) {
                 let users = data.map(user => {
                     return { 
                         id: user.id,
-                        email: user.email,
                         userName: user.userName
                     }
                 });
@@ -50,7 +49,7 @@ export default function Users(props) {
 
     return (
         <div>
-            USERS
+            USER List
             {users.map(user => {
                 return (
                     <div key={user.id} onClick={(e) => userClick(e, user)}>{user.userName}</div>
