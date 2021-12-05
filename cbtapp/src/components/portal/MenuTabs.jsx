@@ -16,9 +16,9 @@ export default function MenuTabs() {
             "value": "dev"
         },
         { 
-            "name": "내 정보",
+            "name": "유저",
             "value": "users"
-        },
+        }
     ];
 
     function createButton(menu) {

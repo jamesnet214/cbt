@@ -1,12 +1,15 @@
 import React from "react";
 import Axios from "axios";
-export default function Users(props) {
+import { useHistory } from "react-router-dom";
 
-    const [userInfo, setUserInfo] = React.useState({}); 
+export default function Users(props) {
+    const [users, setUsers] = React.useState([]); 
+    let history = useHistory();
 
     React.useEffect(() => {
+
         const data = {
-            "id": "0303",
+            "id": "string",
             "userName": "string",
             "email": "string"
         };
@@ -17,32 +20,35 @@ export default function Users(props) {
             body: JSON.stringify(data)
         };
 
-        Axios.post('/api/Account/getLoginInfo', data)
+        Axios.post('/api/Account/getUsers', data)
             .then(function (response) {
                 const data = response.data;
-                setUserInfo({ 
-                    userName: data.userName,
-                    email: data.email,
-                    id: data.id
+                let users = data.map(user => {
+                    return { 
+                        id: user.id,
+                        email: user.email,
+                        userName: user.userName
+                    }
                 });
-            console.log('Users');
+                setUsers(users);
           })
           .catch(function (error) {
             console.log(error);
           });
     }, []);
 
+    const userClick = (e, user) => {
+        history.push(`/profile?id=${user.id}`);
+    }
+
     return (
         <div>
             USERS
-            {userInfo != null ? 
-                <div>
-                    <div>{userInfo.userName}</div>
-                    <div>{userInfo.email}</div>
-                    <div>{userInfo.id}</div>
-                </div>
-            : null
-            }
+            {users.map(user => {
+                return (
+                    <div onClick={(e) => userClick(e, user)}>{user.userName}</div>
+                );
+            })}
         </div>
     );
 }
