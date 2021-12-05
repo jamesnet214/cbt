@@ -26,7 +26,7 @@ export default function Profile(props) {
             }
         };
         console.log('data1: ', data);
-        Axios.post('https://ncoreapi.azurewebsites.net/Account/getLoginInfo', data, requestOptions)
+        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
