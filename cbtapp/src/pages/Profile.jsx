@@ -19,15 +19,15 @@ export default function Profile(props) {
         };
 
         const data2 = {
-            "Seq": "seq",
-            "UserId": id,
-            "Subject": "string",
-            "ining": "int",
+            "seq": 0,
+            "userId": id,
+            "subject": "string",
+            "ining": 0,
             "elective": "string",
-            "problemCount": "int",
-            "ResultCount": "int",
-            "Created": "datetime"
-        };
+            "problemCount": 0,
+            "resultCount": 0,
+            "created": "2021-12-05T13:43:14.151Z"
+          }
 
         const requestOptions = {
             method: 'POST',
@@ -42,16 +42,16 @@ export default function Profile(props) {
         
         Axios.post('https://ncoreapi.azurewebsites.net/api/ExamResult/getExamResult', data2, requestOptions)
             .then(function (response) {
-                const data2 = response.data2;
+                const eRes = response.data;
                 SetExamResult({ 
-                    Seq: data2.Seq,
-                    UserId: data2.UserId,
-                    Subject: data2.Subject,
-                    ining: data2.ining,
-                    elective: data2.elective,
-                    problemCount: data2.problemCount,
-                    ResultCount: data2.ResultCount,
-                    Created: data2.Created
+                    seq: eRes.seq,
+                    userId: eRes.userId,
+                    subject: eRes.subject,
+                    ining: eRes.ining,
+                    elective: eRes.elective,
+                    problemCount: eRes.problemCount,
+                    resultCount: eRes.resultCount,
+                    created: eRes.created
                 });
           })
           .catch(function (error) {
@@ -89,7 +89,7 @@ export default function Profile(props) {
             시험결과
             {examResult != null ?
                 <div>
-                    <div>{examResult.Seq} {examResult.UserId} {examResult.Subject}</div>
+                    <div>{examResult.seq} {examResult.userId} {examResult.subject}</div>
                 </div>
             : null
             }
