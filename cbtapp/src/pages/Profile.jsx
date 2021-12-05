@@ -11,18 +11,22 @@ export default function Profile(props) {
         console.log('ID', id);
 
         const data = {
-            "id": id,
+            "Id": id,
             "userName": "string",
             "email": "string"
         };
 
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': '*',
+                'Access-Control-Allow-Methods': '*',
+            }
         };
-
-        Axios.post('/api/Account/getLoginInfo', data)
+        console.log('data1: ', data);
+        Axios.post('https://ncoreapi.azurewebsites.net/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
