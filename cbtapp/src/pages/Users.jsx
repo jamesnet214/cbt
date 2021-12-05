@@ -53,7 +53,7 @@ export default function Users(props) {
             USERS
             {users.map(user => {
                 return (
-                    <div onClick={(e) => userClick(e, user)}>{user.userName}</div>
+                    <div key={user.id} onClick={(e) => userClick(e, user)}>{user.userName}</div>
                 );
             })}
         </div>
