@@ -12,7 +12,7 @@ export default function Profile(props) {
         console.log('ID', id);
 
         const data = {
-            "Id": id,
+            "id": id,
             "userName": "string",
             "email": "string",
             "phone": "string"
