@@ -48,9 +48,7 @@ export default function Profile(props) {
             사용자 정보
             {userInfo != null ? 
                 <div>
-                    <div>{userInfo.id}</div>
-                    <div>{userInfo.userName}</div>
-                    <div>{userInfo.phone}</div>
+                    <div>{userInfo.id} {userInfo.userName} {userInfo.phone}</div>
                 </div>
             : null
             }

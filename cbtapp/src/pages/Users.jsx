@@ -1,6 +1,11 @@
 import React from "react";
 import Axios from "axios";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
 import { useHistory } from "react-router-dom";
+
 
 export default function Users(props) {
     const [users, setUsers] = React.useState([]); 
@@ -48,13 +53,22 @@ export default function Users(props) {
     }
 
     return (
-        <div>
-            USER List
-            {users.map(user => {
+        <Grid container style={{width: 800}}>
+            {users.map((user, index) => {
                 return (
-                    <div key={user.id} onClick={(e) => userClick(e, user)}>{user.userName}</div>
+                    <Grid key={user.id} item xs={4}>
+                        <Paper elevation={3} style={{margin: 10, padding: 10}}>
+                            <Typography variant="h6">{user.userName}</Typography>
+                            <Button 
+                                style={{marginTop: 10}}
+                                size="small"
+                                variant="contained"
+                                children="보기" 
+                                onClick={(e) => userClick(e, user)}/>                 
+                        </Paper>
+                    </Grid>
                 );
             })}
-        </div>
+        </Grid>
     );
 }
