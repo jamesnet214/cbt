@@ -16,11 +16,18 @@ export default function Users(props) {
 
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': '*',
+                'Access-Control-Allow-Methods': '*',
+            },
             body: JSON.stringify(data)
         };
 
-        Axios.post('/api/Account/getUsers', data)
+        console.log(requestOptions);
+
+        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getUsers', data)
             .then(function (response) {
                 const data = response.data;
                 let users = data.map(user => {
