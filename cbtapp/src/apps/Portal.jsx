@@ -15,6 +15,7 @@ import Cbt from '../pages/Cbt';
 import Test from '../pages/Test';
 import Dashboard from '../pages/Dashboard';
 import Login from './Login.jsx';
+import Completed from "./Completed.jsx";
 import Profile from "../pages/Profile.jsx";
 import Users from "../pages/Users.jsx";
 
@@ -115,6 +116,7 @@ export default function Portal(props) {
                             <Route path='/dashboard' component={Dashboard}/>  
                             <Route path='/profile' component={Profile}/>
                             <Route path='/users' component={Users}/>
+                            <Route path='/completed' component={Completed}/>
                         </Main>
                     </div>
                 </div>

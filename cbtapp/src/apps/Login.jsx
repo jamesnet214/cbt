@@ -6,7 +6,7 @@ import GoogleLoginBtn from './GoogleLoginBtn.jsx';
 export default function Login(props) {
 
     const loginClick = (e) => {
-        window.location.href = "https://ncoreapi.azurewebsites.net/authentication/login";
+        window.location.href = "https://localhost:7073/Identity/Account/Login?ReturnUrl=~/cbt";
     }
 
     return (

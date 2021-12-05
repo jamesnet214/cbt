@@ -5,9 +5,13 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { useHistory } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 export default function Users(props) {
+    
+    const cookies = new Cookies();
+    const value = cookies.get('.cbt.devncore.org.authentication.session');
     const [users, setUsers] = React.useState([]); 
     let history = useHistory();
 
@@ -18,7 +22,6 @@ export default function Users(props) {
             "userName": "string",
             "email": "string"
         };
-
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -26,13 +29,13 @@ export default function Users(props) {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': '*',
                 'Access-Control-Allow-Methods': '*',
-            },
-            body: JSON.stringify(data)
+                ".cbt.devncore.org.authentication.session": value
+            }
         };
 
         console.log(requestOptions);
 
-        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getUsers', data)
+        Axios.post('https://localhost:7073/api/Account/getUsers', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 let users = data.map(user => {
