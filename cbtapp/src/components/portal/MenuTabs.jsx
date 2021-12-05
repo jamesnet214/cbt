@@ -18,6 +18,10 @@ export default function MenuTabs() {
         { 
             "name": "유저",
             "value": "users"
+        },
+        { 
+            "name": "로그인",
+            "value": "login"
         }
     ];
 
