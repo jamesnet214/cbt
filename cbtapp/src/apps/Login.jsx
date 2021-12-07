@@ -5,17 +5,19 @@ import GoogleLoginBtn from './GoogleLoginBtn.jsx';
 
 export default function Login(props) {
 
+    window.location.href = "https://ncoreapi.azurewebsites.net/cbt";
     const loginClick = (e) => {
-        window.location.href = "https://localhost:7073/Identity/Account/Login?ReturnUrl=~/cbt";
     }
 
     return (
-        <div>
-            <h1>로그인</h1>
-            <Button 
-                variant="contained"
-                onClick={loginClick}
-                children="로그인"/>
-        </div>
+        <>
+        </>
+        // <div>
+        //     <h1>로그인</h1>
+        //     <Button 
+        //         variant="contained"
+        //         onClick={loginClick}
+        //         children="로그인"/>
+        // </div>
     );
 }
