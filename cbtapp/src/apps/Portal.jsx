@@ -23,14 +23,14 @@ const drawerWidth = 240;
 
 const theme = createTheme({
     palette: {
-      primary: {
-        // Purple and green play nicely together.
-        main: '#56dbc5',
-      },
-      secondary: {
-        // This is green.A700 as hex.
-        main: '#f5d142',
-      },
+      // primary: {
+      //   // Purple and green play nicely together.
+      //   main: '#56dbc5',
+      // },
+      // secondary: {
+      //   // This is green.A700 as hex.
+      //   main: '#f5d142',
+      // },
     },
   });
 
