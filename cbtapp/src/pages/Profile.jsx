@@ -1,21 +1,24 @@
 import React from "react";
 import Axios from "axios";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 export default function Profile(props) {
     const [userInfo, setUserInfo] = React.useState({}); 
     const [examResult, SetExamResult] = React.useState({});
     const location = useLocation();
+    const history = useHistory();
+    
+    const id = new URLSearchParams(location.search).get('id');
+    console.log('ID: ', id);
 
     React.useEffect(() => {
-        let id = new URLSearchParams(location.search).get('id');
-        console.log('ID', id);
 
         const data = {
             "id": id,
-            "userName": "string",
-            "email": "string",
-            "phone": "string"
+            "userName": "123",
+            "email": "123",
+            "phone": "123"
         };
 
         const data2 = {
@@ -38,11 +41,11 @@ export default function Profile(props) {
                 'Access-Control-Allow-Methods': '*',
             }
         };
-        console.log('data1: ', data);
         
-        Axios.post('https://localhost:7073/api/ExamResult/getExamResult', data2, requestOptions)
+        Axios.post('https://ncoreapi.azurewebsites.net/api/ExamResult/getExamResult', data2, requestOptions)
             .then(function (response) {
                 const eRes = response.data;
+                console.log('exam: ', response.data);
                 SetExamResult({ 
                     seq: eRes.seq,
                     userId: eRes.userId,
@@ -58,8 +61,10 @@ export default function Profile(props) {
             console.log(error);
           });
 
+          
+        console.log('data1: ', data);
 
-        Axios.post('https://localhost:7073/api/Account/getLoginInfo', data, requestOptions)
+        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
@@ -73,9 +78,11 @@ export default function Profile(props) {
           .catch(function (error) {
             console.log(error);
           });
-
-
     }, []);
+
+    const editClick = (e) => {
+        history.push(`/profile/update?id=${id}`);
+    }
 
     return (
         <div>
@@ -93,6 +100,7 @@ export default function Profile(props) {
                 </div>
             : null
             }
+            <Button size="small" variant="outlined" onClick={editClick}>수정</Button>
         </div>
     );
 }

@@ -17,6 +17,7 @@ import Dashboard from '../pages/Dashboard';
 import Login from './Login.jsx';
 import Completed from "./Completed.jsx";
 import Profile from "../pages/Profile.jsx";
+import ProfileUpdate from "../pages/ProfileUpdate.jsx";
 import Users from "../pages/Users.jsx";
 
 const drawerWidth = 240;
@@ -114,9 +115,11 @@ export default function Portal(props) {
                             <Route path='/cbt/id=7' render={() => getCbt('7')}/>
                             <Route path='/cbt/test/id=0' render={() => getCbtTest('0')}/>
                             <Route path='/dashboard' component={Dashboard}/>  
-                            <Route path='/profile' component={Profile}/>
+                            <Route exact path='/profile' component={Profile}/>
+                            <Route path='/profile/update' component={ProfileUpdate}/>
                             <Route path='/users' component={Users}/>
                             <Route path='/completed' component={Completed}/>
+                            
                         </Main>
                     </div>
                 </div>
