@@ -18,7 +18,7 @@ export default function Completed(props) {
     console.log(value);
     return (
         <>
-            Authentication...
+            Authentication....
         </>
     );
 }
