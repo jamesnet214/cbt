@@ -16,9 +16,14 @@ export default function Profile(props) {
 
         const data = {
             "id": id,
-            "userName": "123",
-            "email": "123",
-            "phone": "123"
+            "userName": "string",
+            "email": "string",
+            "blog": "string",
+            "gitHubId": "string",
+            "school": "string",
+            "name": "string",
+            "userId": "string"
+            
         };
 
         const data2 = {
@@ -71,9 +76,11 @@ export default function Profile(props) {
                     userName: data.userName,
                     email: data.email,
                     id: data.id,
-                    phone: data.phone
+                    phone: data.phone,
+                    
+
                 });
-            console.log('Users');
+            console.log('datas');
           })
           .catch(function (error) {
             console.log(error);
@@ -90,6 +97,8 @@ export default function Profile(props) {
             {userInfo != null ? 
                 <div>
                     <div>{userInfo.id} {userInfo.userName} {userInfo.phone}</div>
+                    <div> {userInfo.blog} {userInfo.gitHubId} {userInfo.school}</div>
+                    <div> {userInfo.name} {userInfo.userId}</div>
                 </div>
             : null
             }

@@ -13,24 +13,28 @@ export default function ProfileUpdate(props) {
 
     const [name, setName] = React.useState('james');
 
+
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': '*',
+            'Access-Control-Allow-Methods': '*',
+        }
+    };
+
     React.useEffect(() => {
 
         const data = {
             "id": id,
-            "userName": "123",
-            "email": "123",
-            "phone": "123"
+            "userName": "string",
+            "email": "string",
+            "phone": "string",
+            "name": "string"
         };
-
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': '*',
-                'Access-Control-Allow-Methods': '*',
-            }
-        };
+        console.log(data);
 
         Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {
@@ -53,7 +57,21 @@ export default function ProfileUpdate(props) {
     }
 
     const saveClick = (e) => {
-        
+        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/updateUser', userInfo, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                setUserInfo({ 
+                    userName: userInfo.userName,
+                    email: userInfo.email,
+                    id: userInfo.id,
+                    phone: userInfo.phone,
+                    name: userInfo.name
+                });
+                console.log('Users:', userInfo);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     return (
@@ -61,7 +79,7 @@ export default function ProfileUpdate(props) {
             {userInfo != null ?
                 <>
                     <div>{userInfo["email"]}</div>
-                    <div>{userInfo["phone"]}</div>
+                    <div>{userInfo["phone"]}</div>                    
                     <TextField required 
                         size="small" 
                         id="outlined-basic" 

@@ -24,7 +24,12 @@ export default function Users(props) {
         const data = {
             "id": "string",
             "userName": "string",
-            "email": "string"
+            "email": "string",
+            "blog": "string",
+            "gitHubId": "string",
+            "school": "string",
+            "name": "string",
+            "userId": "string"
         };
         const requestOptions = {
             method: 'POST',
@@ -39,13 +44,20 @@ export default function Users(props) {
 
         console.log(requestOptions);
 
-        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getUsers', data, requestOptions)
+        Axios.post('https://localhost:7073/api/Account/getUsers', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 let users = data.map(user => {
                     return { 
                         id: user.id,
-                        userName: user.userName
+                        userName: user.userName,
+                        userId: data.UserId,
+                        email: data.email,
+                        phone: data.phone,
+                        name: data.name,
+                        school: data.school,
+                        gitHubId: data.gitHubId,
+                        blog: data.blog
                     }
                 });
                 setUsers(users);
@@ -61,9 +73,10 @@ export default function Users(props) {
 
     return (
         <Grid container style={{maxWidth: 1200}} style={{padding: '10px 10px 10px 0px'}}>
+             
             {users.map((user, index) => {
                 return (
-                    <Grid key={user.id} item lg={3} md={4} sm={6} xs={12}>
+                    <Grid key={user.id} item lg={3} md={4} sm={6} xs={12}>                        
                         <Paper
                             variant="outlined" 
                             style={{margin: '0px 0px 10px 10px', padding: '10px 10px 10px 10px', borderRadius: 8}}
@@ -77,6 +90,7 @@ export default function Users(props) {
                                             <Typography variant="caption">
                                                 {user.userName.split('@')[0]}
                                             </Typography>
+                                            
                                             <Typography variant="body2">
                                                 {`${Math.floor(Math.random() * (15 - 3) + 3)}개의 자격증 보유`}
                                             </Typography>
