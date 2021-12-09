@@ -60,13 +60,13 @@ export default function Users(props) {
     }
 
     return (
-        <Grid container style={{maxWidth: 1200}} margin={1}>
+        <Grid container style={{maxWidth: 1200}} style={{padding: '10px 10px 10px 0px'}}>
             {users.map((user, index) => {
                 return (
                     <Grid key={user.id} item lg={3} md={4} sm={6} xs={12}>
-                        <Paper 
+                        <Paper
                             variant="outlined" 
-                            style={{margin: 5, padding: '10px 10px 10px 10px', borderRadius: 8}}
+                            style={{margin: '0px 0px 10px 10px', padding: '10px 10px 10px 10px', borderRadius: 8}}
                             onClick={(e) => userClick(e, user)}>
                                 <Grid container>
                                     <Grid item>

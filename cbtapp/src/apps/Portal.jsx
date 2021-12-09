@@ -66,7 +66,7 @@ export default function Portal(props) {
 
     const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
-          overflowY: 'scroll',
+          overflowY: 'hidden',
           flexGrow: 1,
           padding: theme.spacing(0),
           transition: theme.transitions.create('margin', {
