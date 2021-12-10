@@ -13,8 +13,6 @@ export default function ProfileUpdate(props) {
 
     const [name, setName] = React.useState('james');
 
-
-
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -36,14 +34,15 @@ export default function ProfileUpdate(props) {
         };
         console.log(data);
 
-        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUser', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
                     userName: data.userName,
                     email: data.email,
                     id: data.id,
-                    phone: data.phone
+                    phone: data.phone,
+                    aboutMe: data.aboutMe
                 });
                 console.log('Users:', userInfo);
           })
@@ -52,12 +51,12 @@ export default function ProfileUpdate(props) {
           });
     }, []);
 
-    const textChanged = (e) => {
-        setUserInfo({...userInfo, phone: e.target.value});
-    }
+    const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
+    const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
+    const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
 
     const saveClick = (e) => {
-        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/updateUser', userInfo, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
@@ -65,7 +64,7 @@ export default function ProfileUpdate(props) {
                     email: userInfo.email,
                     id: userInfo.id,
                     phone: userInfo.phone,
-                    name: userInfo.name
+                    name: userInfo.name,
                 });
                 console.log('Users:', userInfo);
           })
@@ -79,14 +78,30 @@ export default function ProfileUpdate(props) {
             {userInfo != null ?
                 <>
                     <div>{userInfo["email"]}</div>
-                    <div>{userInfo["phone"]}</div>                    
-                    <TextField required 
-                        size="small" 
-                        id="outlined-basic" 
-                        label="phone" 
+                    <div>{userInfo["phone"]}</div>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="userName"
                         variant="outlined"
-                        defaultValue={userInfo["phone"]} 
-                        onChange={(textChanged)}/>
+                        defaultValue={userInfo["userName"]}
+                        onChange={userNameChanged}/>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="phone"
+                        variant="outlined"
+                        defaultValue={userInfo["phone"]}
+                        onChange={phoneChanged}/>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="aboutMe"
+                        variant="outlined"
+                        multiline
+                        rows="4"
+                        defaultValue={userInfo["aboutMe"]}
+                        onChange={aboutMeChanged}/>
                     <Button children="버튼" onClick={saveClick}/>
                 </>
                 : null

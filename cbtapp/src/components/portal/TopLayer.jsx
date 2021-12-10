@@ -9,9 +9,6 @@ import MenuTabs from './MenuTabs.jsx';
 
 export default function TopLayer(props) {
     const { open, openChanged } = props;
-    // const theme = useTheme();
-    // const useStyles = makeStyles((theme) => ({ }));
-    // const classes = useStyles();
 
     function menuClick() {
         openChanged(!open);

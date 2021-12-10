@@ -47,7 +47,7 @@ export default function Profile(props) {
             }
         };
         
-        Axios.post('https://ncoreapi.azurewebsites.net/api/ExamResult/getExamResult', data2, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/ExamResult/getExamResult', data2, requestOptions)
             .then(function (response) {
                 const eRes = response.data;
                 console.log('exam: ', response.data);
@@ -69,7 +69,7 @@ export default function Profile(props) {
           
         console.log('data1: ', data);
 
-        Axios.post('https://ncoreapi.azurewebsites.net/api/Account/getLoginInfo', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
