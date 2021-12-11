@@ -5,6 +5,7 @@ import { load } from 'js-yaml';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Typography } from '@mui/material';
+import { typography } from '@mui/system';
 
 export default function SubjectCheckboxs(props) {
     const cbtId = props.cbtId;

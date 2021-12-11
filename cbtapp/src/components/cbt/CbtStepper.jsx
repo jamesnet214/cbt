@@ -57,8 +57,8 @@ export default function CbtStepper(props) {
         var count = props.innings.filter(x => x.isChecked).length; 
         return (
             <Stack direction="row" spacing={1}>
-                <Chip size="small" label="회차" color="success" variant="outlined"/>
-                <Typography variant="body1">{`${inning.year}년 ${inning.inning}회`}</Typography>
+                <Chip size="small" label="회차" color="success" variant="outlined" />
+                <Typography variant="body1" style={{ padding: '0px 0px 0px 10px' }}>{`${inning.year}년 ${inning.inning}회`}</Typography>
                 <Typography variant="caption" style={{ marginTop: '2px' }}>{count > 1 ? ` 포함 ${count}회차` : '단일 회차'}</Typography> 
             </Stack>
         );
@@ -70,7 +70,7 @@ export default function CbtStepper(props) {
         return (
             <Stack direction="row" spacing={1} style={{marginTop: '15px'}}>
                 <Chip size="small" label="과목" color="success" variant="outlined"/>
-                <Typography variant="body1">{`${subject.subjectName}`}</Typography>
+                <Typography variant="body1" style={{ padding: '0px 0px 0px 10px' }}>{`${subject.subjectName}`}</Typography>
                 <Typography variant="caption" style={{ marginTop: '2px' }}>{count > 1 ? ` 포함 ${count}과목` : '단일 과목'}</Typography> 
             </Stack>
         );
@@ -80,9 +80,9 @@ export default function CbtStepper(props) {
         var testType = props.testTypes.find(x => x.isChecked);
         return (
             <Stack direction="row" spacing={1} style={{marginTop: '15px'}}>
-                <Chip size="small" label="출제" color="success" variant="outlined"/>
+                <Chip size="small" label="문항수" color="success" variant="outlined"/>
                 <Typography variant="body1">{`총 ${testType.count}문제`}</Typography>
-                <Typography variant="caption" style={{ marginTop: '2px' }}>{testType.comment}</Typography> 
+                {/* <Typography variant="caption" style={{ marginTop: '2px' }}>{testType.comment}</Typography>  */}
             </Stack>
         );
     }
@@ -131,11 +131,11 @@ export default function CbtStepper(props) {
                 </StepContent>
             </Step>
             <Step key="3">
-                <StepLabel children="문제 출제"/>
+                <StepLabel children="출제 문항수"/>
                 <StepContent>
                     <Box style={{marginTop: '4px', marginBottom: '14px'}}>
-                        <Typography children="출제 문제 유형을 선택해주세요." variant="h6"/>
-                        <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/>
+                        <Typography children="문제 개수를 선택해주세요." variant="h6"/>
+                        {/* <Typography children="몇 문제를 만들어 테스트 하시겠습니까?" variant="caption"/> */}
                     </Box>
                     <TestTypeSelector 
                         cbtId={cbtId}
@@ -165,8 +165,8 @@ export default function CbtStepper(props) {
           <Button variant="contained" size="small" onClick={props.start} sx={{ mt: 1, mr: 1 }}>
             시작
           </Button>
-          <Button onClick={handleReset} size="small" sx={{ mt: 1, mr: 1 }}>
-            다시 설정
+          <Button onClick={handleReset} size="small" sx={{ mt: 1, mr: 1 }} style={{color: '#ff5233'}}>
+            초기화
           </Button>
         </div>
       )}

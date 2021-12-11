@@ -32,7 +32,10 @@ export default function TestCountSelector(props) {
                 return (
                     <div key={x.id} style={{ borderBottom: '1px solid #eeeeee'}}>
                         <FormControlLabel
-                            label={<Typography children={`(${x.count}) ${x.comment}`} variant="subtitle2"/>}
+                            label={<Typography 
+                                // children={`(${x.count}) ${x.comment}`} 
+                                children={`${x.count} 문제`}
+                                variant="subtitle2"/>}
                             control={<Radio 
                                         id={x.id}
                                         value={x.count}
