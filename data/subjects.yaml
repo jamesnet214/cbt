@@ -1,26 +1,26 @@
 - id: "0"
   testId: "0"
-  subjectName: "소프트웨어 설계"
+  subjectName: "1과목) 소프트웨어 설계"
   isChecked: true
   sort: 1
 - id: "1"
   testId: "0"
-  subjectName: "소프트웨어 개발"
+  subjectName: "2과목) 소프트웨어 개발"
   isChecked: true
   sort: 2
 - id: "2"
   testId: "0"
-  subjectName: "데이터베이스 구축"
+  subjectName: "3과목) 데이터베이스 구축"
   isChecked: true
   sort: 3
 - id: "4"
   testId: "0"
-  subjectName: "프로그래밍 언어활용"
+  subjectName: "4과목) 프로그래밍 언어활용"
   isChecked: true
   sort: 4
 - id: "5"
   testId: "0"
-  subjectName: "정보시스템 구축관리"
+  subjectName: "5과목) 정보시스템 구축관리"
   isChecked: true
   sort: 5
 - id: "6"
@@ -43,4 +43,3 @@
   subjectName: "정보통신개론"
   isChecked: true
   sort: 4
-
