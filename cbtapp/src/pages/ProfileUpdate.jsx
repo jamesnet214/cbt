@@ -83,6 +83,7 @@ export default function ProfileUpdate(props) {
                         size="small"
                         id="outlined-basic"
                         label="userName"
+                        inputProps={{ maxLength: 12 }}
                         variant="outlined"
                         defaultValue={userInfo["userName"]}
                         onChange={userNameChanged}/>
