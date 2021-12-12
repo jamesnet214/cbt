@@ -100,7 +100,7 @@ export default function Profile(props) {
             {userInfo != null ? 
                 <div>
                     <div>{"아이디: " + userInfo.id}</div>
-                    <div>{"이름: " + userInfo.name}</div>
+                    <div>{"이름: " + userInfo.userName}</div>
                     <div>{"핸드폰: " + userInfo.phone}</div>
                     <div>{"이메일: " + userInfo.email}</div>
                     <div>{"학교: " + userInfo.school}</div>

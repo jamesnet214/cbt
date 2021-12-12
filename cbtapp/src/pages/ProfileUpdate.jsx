@@ -62,6 +62,9 @@ export default function ProfileUpdate(props) {
     const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
     const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
     const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
+    const schoolChanged = (e) => setUserInfo({...userInfo, school: e.target.value});
+    const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
+    const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
 
     const saveClick = (e) => {
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
@@ -106,28 +109,28 @@ export default function ProfileUpdate(props) {
                         inputProps={{ maxLength: 12 }}
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
-                        onChange={userNameChanged}/>
+                        onChange={phoneChanged}/>
                     <TextField required
                         size="small"
                         id="outlined-basic"
                         label="GithubId"
                         variant="outlined"
                         defaultValue={userInfo["gitHubId"]}
-                        onChange={phoneChanged}/>
+                        onChange={gitHubIdChanged}/>
                     <TextField required
                         size="small"
                         id="outlined-basic"
                         label="Blog"
                         variant="outlined"
                         defaultValue={userInfo["blog"]}
-                        onChange={phoneChanged}/>
+                        onChange={blogChanged}/>
                     <TextField required
                         size="small"
                         id="outlined-basic"
                         label="School"
                         variant="outlined"
                         defaultValue={userInfo["school"]}
-                        onChange={phoneChanged}/>
+                        onChange={schoolChanged}/>
                     <TextField required
                         size="small"
                         id="outlined-basic"
