@@ -74,6 +74,7 @@ export default function UserProfileBox(props) {
                                     <Typography variant="caption" children={'학교: ' + user.school}/><br/>
                                     <Typography variant="caption" children={'깃허브ID: ' + user.gitHubId}/><br/>
                                     <Typography variant="caption" children={'블로그: ' + user.blog}/><br/>
+                                    <Typography variant="caption" children={'AboutMe: ' + user.aboutMe}/><br/>
                                     
                                     <IconButton size="small" children={<ArrowRight fontSize="small"/>}
                                         onClick={(e) => detailClick(e, user)}/>

@@ -59,7 +59,8 @@ export default function Profile(props) {
                         name: data.name,
                         school: data.school,
                         gitHubId: data.gitHubId,
-                        blog: data.blog
+                        blog: data.blog,
+                        aboutMe: data.aboutMe
                 });
             console.log('datas');
           })

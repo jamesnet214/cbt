@@ -51,7 +51,8 @@ export default function Users(props) {
                         name: user.name,
                         school: user.school,
                         gitHubId: user.gitHubId,
-                        blog: user.blog
+                        blog: user.blog,
+                        aboutMe: user.aboutMe
                     }
                 });
                 setUsers(source);

@@ -78,13 +78,13 @@ export default function ProfileUpdate(props) {
                     name: userInfo.name,
                 });
                 console.log('Users:', userInfo);
+                history.push(`/profile?id=${userInfo.id}`);
           })
           .catch(function (error) {
             console.log(error);
           });
 
         
-        history.push(`/profile?id=${userInfo.id}`);
     }
 
     return (
