@@ -62,7 +62,7 @@ export default function Profile(props) {
         //             created: eRes.created
         //         });
         //   })
-        //   .catch(function (error) {
+        //   .catch(function (error) { 
         //     console.log(error);
         //   });
 
