@@ -8,11 +8,11 @@ export default function Profile(props) {
     const [examResult, SetExamResult] = React.useState({});
     const location = useLocation();
     const history = useHistory();
-    
-    const id = new URLSearchParams(location.search).get('id');
-    console.log('ID: ', id);
+    let id = new URLSearchParams(location.search).get('id');
 
     React.useEffect(() => {
+        id = new URLSearchParams(location.search).get('id');
+        console.log('^^^^^^^^^profileId:', id);
 
         const data = {
             "id": id,
@@ -46,28 +46,6 @@ export default function Profile(props) {
                 'Access-Control-Allow-Methods': '*',
             }
         };
-        
-        // Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/ExamResult/getExamResult', data2, requestOptions)
-        //     .then(function (response) {
-        //         const eRes = response.data;
-        //         console.log('exam: ', response.data);
-        //         SetExamResult({ 
-        //             seq: eRes.seq,
-        //             userId: eRes.userId,
-        //             subject: eRes.subject,
-        //             ining: eRes.ining,
-        //             elective: eRes.elective,
-        //             problemCount: eRes.problemCount,
-        //             resultCount: eRes.resultCount,
-        //             created: eRes.created
-        //         });
-        //   })
-        //   .catch(function (error) { 
-        //     console.log(error);
-        //   });
-
-          
-        // console.log('data1: ', data);
 
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GetUser', data, requestOptions)
             .then(function (response) {
@@ -97,7 +75,6 @@ export default function Profile(props) {
     return (
         <div>
             사용자 정보
-            {userInfo != null ? 
                 <div>
                     <div>{"아이디: " + userInfo.id}</div>
                     <div>{"이름: " + userInfo.userName}</div>
@@ -107,8 +84,6 @@ export default function Profile(props) {
                     <div>{"깃허브: " + userInfo.gitHubId}</div>
                     <div>{"블로그: " + userInfo.blog}</div>
                 </div>
-            : null
-            }
             {/* 시험결과
             {examResult != null ?
                 <div>

@@ -45,11 +45,12 @@ export default function Portal(props) {
                 .then(res => res.blob())
                 .then(blob => blob.text())
                 .then(res => {
-                    setTitles(load(res));
+                    var data = load(res);
+                    setTitles(data);
                     console.log('load titles');
                     });
         }
-    });
+    }, []);
 
     const openChanged = (changedValue) => {
         setOpen(changedValue);

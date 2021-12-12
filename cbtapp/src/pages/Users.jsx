@@ -15,6 +15,7 @@ export default function Users(props) {
     let history = useHistory();
 
     React.useEffect(() => {
+        console.log('users :');
 
         const data = {
             "id": "string",
@@ -37,13 +38,10 @@ export default function Users(props) {
             }
         };
 
-        console.log(requestOptions);
-        console.log(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUsers')
-
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUsers', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
-                let users = data.map(user => {
+                let source = data.map(user => {
                     return { 
                         id: user.id,
                         userName: user.userName,
@@ -56,7 +54,8 @@ export default function Users(props) {
                         blog: user.blog
                     }
                 });
-                setUsers(users);
+                setUsers(source);
+                console.log('f :');
           })
           .catch(function (error) {
             console.log(error);
@@ -72,7 +71,7 @@ export default function Users(props) {
              
             {users.map((user, index) => {
                 return (
-                    <UserProfileBox user={user} index={index} userClick={userClick}/>
+                    <UserProfileBox key={index} user={user} index={index} userClick={userClick}/>
                 );
             })}
         </Grid>

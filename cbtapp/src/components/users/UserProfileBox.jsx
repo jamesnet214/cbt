@@ -13,7 +13,6 @@ export default function UserProfileBox(props) {
     const [detailVisibility, setDetailVisibility] = React.useState('none');
     const [count, setCount] = React.useState(0);
 
-    console.log(user);
     const useStyles = makeStyles({
         root: {
             margin: '0px 0px 10px 10px', 

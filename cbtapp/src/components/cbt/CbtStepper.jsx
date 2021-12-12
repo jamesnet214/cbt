@@ -24,7 +24,7 @@ export default function CbtStepper(props) {
 
     React.useEffect(() => {
         console.log('cbtstepper useEffect loaded');
-    });
+    }, []);
 
     const firstRequired = (required) => {
         setFirstChecked(required)
