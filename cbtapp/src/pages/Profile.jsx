@@ -69,16 +69,19 @@ export default function Profile(props) {
           
         // console.log('data1: ', data);
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getLoginInfo', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GetUser', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
-                setUserInfo({ 
-                    userName: data.userName,
-                    email: data.email,
-                    id: data.id,
-                    phone: data.phone,
-                    
-
+                setUserInfo({
+                        id: data.id,
+                        userName: data.userName,
+                        userId: data.UserId,
+                        email: data.email,
+                        phone: data.phone,
+                        name: data.name,
+                        school: data.school,
+                        gitHubId: data.gitHubId,
+                        blog: data.blog
                 });
             console.log('datas');
           })
