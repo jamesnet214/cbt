@@ -100,7 +100,7 @@ export default function ProfileUpdate(props) {
                         label="Name"
                         inputProps={{ maxLength: 12 }}
                         variant="outlined"
-                        defaultValue={userInfo["name"]}
+                        defaultValue={userInfo["userName"]}
                         onChange={userNameChanged}/>
                     <TextField required
                         size="small"
