@@ -69,11 +69,13 @@ export default function UserProfileBox(props) {
                                     {`${count}개의 자격증 보유`}
                                 </Typography>
                                 <Stack className={classes.detail}>
-                                    <Typography variant="caption" children={user.gitHubId}/><br/>
-                                    <Typography variant="caption" children={user.school}/><br/>
-                                    <Typography variant="caption" children={user.phone}/><br/>
-                                    <Typography variant="caption" children={user.blog}/><br/>
-                                    <Typography variant="caption" children={user.email}/><br/>
+                                    <Typography variant="caption" children={'이름: ' + user.name}/><br/>
+                                    <Typography variant="caption" children={'핸드폰: ' + user.phone}/><br/>
+                                    <Typography variant="caption" children={'이메일: ' + user.email}/><br/>
+                                    <Typography variant="caption" children={'학교: ' + user.school}/><br/>
+                                    <Typography variant="caption" children={'깃허브ID: ' + user.gitHubId}/><br/>
+                                    <Typography variant="caption" children={'블로그: ' + user.blog}/><br/>
+                                    
                                     <IconButton size="small" children={<ArrowRight fontSize="small"/>}
                                         onClick={(e) => detailClick(e, user)}/>
                                 </Stack>

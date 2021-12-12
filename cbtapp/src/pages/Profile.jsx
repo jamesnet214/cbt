@@ -47,27 +47,27 @@ export default function Profile(props) {
             }
         };
         
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/ExamResult/getExamResult', data2, requestOptions)
-            .then(function (response) {
-                const eRes = response.data;
-                console.log('exam: ', response.data);
-                SetExamResult({ 
-                    seq: eRes.seq,
-                    userId: eRes.userId,
-                    subject: eRes.subject,
-                    ining: eRes.ining,
-                    elective: eRes.elective,
-                    problemCount: eRes.problemCount,
-                    resultCount: eRes.resultCount,
-                    created: eRes.created
-                });
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        // Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/ExamResult/getExamResult', data2, requestOptions)
+        //     .then(function (response) {
+        //         const eRes = response.data;
+        //         console.log('exam: ', response.data);
+        //         SetExamResult({ 
+        //             seq: eRes.seq,
+        //             userId: eRes.userId,
+        //             subject: eRes.subject,
+        //             ining: eRes.ining,
+        //             elective: eRes.elective,
+        //             problemCount: eRes.problemCount,
+        //             resultCount: eRes.resultCount,
+        //             created: eRes.created
+        //         });
+        //   })
+        //   .catch(function (error) {
+        //     console.log(error);
+        //   });
 
           
-        console.log('data1: ', data);
+        // console.log('data1: ', data);
 
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getLoginInfo', data, requestOptions)
             .then(function (response) {

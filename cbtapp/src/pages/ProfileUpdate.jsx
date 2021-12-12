@@ -109,7 +109,7 @@ export default function ProfileUpdate(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <Button children="버튼" onClick={saveClick}/>
+                    <Button children="저장" onClick={saveClick}/>
                 </>
                 : null
             }
