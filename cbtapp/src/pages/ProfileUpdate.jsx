@@ -4,12 +4,15 @@ import { useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import { useHistory } from "react-router-dom";
 
 export default function ProfileUpdate(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
     console.log('ID: ', id);
+
+    let history = useHistory();
 
     const [name, setName] = React.useState('james');
 
@@ -71,6 +74,9 @@ export default function ProfileUpdate(props) {
           .catch(function (error) {
             console.log(error);
           });
+
+        
+        history.push(`/profile?id=${userInfo.id}`);
     }
 
     return (
