@@ -41,11 +41,16 @@ export default function ProfileUpdate(props) {
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
-                    userName: data.userName,
-                    email: data.email,
-                    id: data.id,
-                    phone: data.phone,
-                    aboutMe: data.aboutMe
+                        id: data.id,
+                        userName: data.userName,
+                        userId: data.UserId,
+                        email: data.email,
+                        phone: data.phone,
+                        name: data.name,
+                        school: data.school,
+                        gitHubId: data.gitHubId,
+                        blog: data.blog,
+                        aboutMe: data.aboutMe
                 });
                 console.log('Users:', userInfo);
           })
