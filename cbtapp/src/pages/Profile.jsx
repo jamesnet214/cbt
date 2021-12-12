@@ -96,20 +96,24 @@ export default function Profile(props) {
             사용자 정보
             {userInfo != null ? 
                 <div>
-                    <div>{userInfo.id} {userInfo.userName} {userInfo.phone}</div>
-                    <div> {userInfo.blog} {userInfo.gitHubId} {userInfo.school}</div>
-                    <div> {userInfo.name} {userInfo.userId}</div>
+                    <div>{"아이디: " + userInfo.id}</div>
+                    <div>{"이름: " + userInfo.name}</div>
+                    <div>{"핸드폰: " + userInfo.phone}</div>
+                    <div>{"이메일: " + userInfo.email}</div>
+                    <div>{"학교: " + userInfo.school}</div>
+                    <div>{"깃허브: " + userInfo.gitHubId}</div>
+                    <div>{"블로그: " + userInfo.blog}</div>
                 </div>
             : null
             }
-            시험결과
+            {/* 시험결과
             {examResult != null ?
                 <div>
                     <div>{examResult.seq} {examResult.userId} {examResult.subject}</div>
                 </div>
             : null
-            }
-            <Button size="small" variant="outlined" onClick={editClick}>수정</Button>
+            } */}
+            <Button size="small" variant="outlined" onClick={editClick}>정보수정</Button>
         </div>
     );
 }

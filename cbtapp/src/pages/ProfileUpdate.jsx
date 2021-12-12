@@ -83,22 +83,45 @@ export default function ProfileUpdate(props) {
         <Stack style={{padding: 20, maxWidth: 600}} spacing={1}>
             {userInfo != null ?
                 <>
-                    <div>{userInfo["email"]}</div>
-                    <div>{userInfo["phone"]}</div>
+                    변경정보
+                    <div>{"아이디: " + userInfo["id"]}</div>
+                    <div>{"이메일: " + userInfo["email"]}</div>
                     <TextField required
                         size="small"
                         id="outlined-basic"
-                        label="userName"
+                        label="Name"
                         inputProps={{ maxLength: 12 }}
                         variant="outlined"
-                        defaultValue={userInfo["userName"]}
+                        defaultValue={userInfo["name"]}
                         onChange={userNameChanged}/>
                     <TextField required
                         size="small"
                         id="outlined-basic"
-                        label="phone"
+                        label="Phone"
+                        inputProps={{ maxLength: 12 }}
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
+                        onChange={userNameChanged}/>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="GithubId"
+                        variant="outlined"
+                        defaultValue={userInfo["gitHubId"]}
+                        onChange={phoneChanged}/>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="Blog"
+                        variant="outlined"
+                        defaultValue={userInfo["blog"]}
+                        onChange={phoneChanged}/>
+                    <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="School"
+                        variant="outlined"
+                        defaultValue={userInfo["school"]}
                         onChange={phoneChanged}/>
                     <TextField required
                         size="small"
