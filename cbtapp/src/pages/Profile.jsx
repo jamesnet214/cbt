@@ -83,6 +83,7 @@ export default function Profile(props) {
                     <div>{"학교: " + userInfo.school}</div>
                     <div>{"깃허브: " + userInfo.gitHubId}</div>
                     <div>{"블로그: " + userInfo.blog}</div>
+                    <div>{"AboutMe: " + userInfo.aboutMe}</div>
                 </div>
             {/* 시험결과
             {examResult != null ?
