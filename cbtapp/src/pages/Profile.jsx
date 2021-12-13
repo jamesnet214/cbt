@@ -2,7 +2,7 @@ import React from "react";
 import Axios from "axios";
 import { useLocation, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { margin, textAlign } from "@mui/system";
+import { margin, padding, textAlign } from "@mui/system";
 import { Container } from "@mui/material";
 
 export default function Profile(props) {
@@ -17,7 +17,7 @@ export default function Profile(props) {
         backgroundColor: "white",
         fontFamily: "Arial",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "left",
         padding: "50px"
     };
 
@@ -31,18 +31,25 @@ export default function Profile(props) {
 
     const stylestxt2 = {
         margin: 10,
-        fontSize: 18,
-        color: "gray" 
+        fontSize: 20,
+        color: "darkgray",
+        fontFamily: "bold"
     }
 
     const stylestxt3 = {
-        margin: 10,
-        fontSize: 15
+        marginLeft: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        fontSize: 15,
+        backgroundColor: "#F8F9FA",
+        padding: 10
         
     }
 
     const stylesbtn = {
         lineHeight: 2,
+        marginTop: 15,
+        marginLeft: 100
         
     }
 
@@ -119,7 +126,7 @@ export default function Profile(props) {
                     <div style={stylestxt1}>사용자 정보</div>
                     <div style={stylestxt2}>아이디</div>
                     <div style={stylestxt3}>{userInfo.id}</div>
-                    <div style={stylestxt2}>{"이름: "}</div>
+                    <div style={stylestxt2}>{"이름"}</div>
                     <div style={stylestxt3}>{userInfo.userName}</div>
                     <div style={stylestxt2}>{"핸드폰"}</div>
                     <div style={stylestxt3}>{userInfo.phone}</div>

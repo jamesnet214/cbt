@@ -88,7 +88,7 @@ export default function ProfileUpdate(props) {
     }
 
     return (
-        <Stack style={{padding: 20, maxWidth: 600}} spacing={1}>
+        <Stack style={{padding: 20, maxWidth: 600, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
                     변경정보
