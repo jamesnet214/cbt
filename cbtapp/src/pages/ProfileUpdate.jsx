@@ -95,6 +95,7 @@ export default function ProfileUpdate(props) {
                     <div>{"아이디: " + userInfo["id"]}</div>
                     <div>{"이메일: " + userInfo["email"]}</div>
                     <TextField required
+                        helperText="당신의 이름을 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="Name"
@@ -103,6 +104,7 @@ export default function ProfileUpdate(props) {
                         defaultValue={userInfo["userName"]}
                         onChange={userNameChanged}/>
                     <TextField required
+                        helperText="핸드폰 번호를 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="Phone"
@@ -111,6 +113,7 @@ export default function ProfileUpdate(props) {
                         defaultValue={userInfo["phone"]}
                         onChange={phoneChanged}/>
                     <TextField required
+                        helperText="Github ID를 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="GithubId"
@@ -118,6 +121,7 @@ export default function ProfileUpdate(props) {
                         defaultValue={userInfo["gitHubId"]}
                         onChange={gitHubIdChanged}/>
                     <TextField required
+                        helperText="블로그 주소를 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="Blog"
@@ -125,6 +129,7 @@ export default function ProfileUpdate(props) {
                         defaultValue={userInfo["blog"]}
                         onChange={blogChanged}/>
                     <TextField required
+                        helperText="당신의 학교를 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="School"
@@ -132,6 +137,7 @@ export default function ProfileUpdate(props) {
                         defaultValue={userInfo["school"]}
                         onChange={schoolChanged}/>
                     <TextField required
+                        helperText=" "
                         size="small"
                         id="outlined-basic"
                         label="aboutMe"
