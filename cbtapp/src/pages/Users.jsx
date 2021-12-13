@@ -25,7 +25,8 @@ export default function Users(props) {
             "gitHubId": "string",
             "school": "string",
             "name": "string",
-            "userId": "string"
+            "userId": "string",
+            "aboutMe": "string"
         };
         const requestOptions = {
             method: 'POST',

@@ -86,13 +86,6 @@ export default function Profile(props) {
                     <div>{"블로그: " + userInfo.blog}</div>
                     <div>{"AboutMe: " + userInfo.aboutMe}</div>
                 </div>
-            {/* 시험결과
-            {examResult != null ?
-                <div>
-                    <div>{examResult.seq} {examResult.userId} {examResult.subject}</div>
-                </div>
-            : null
-            } */}
             <Button size="small" variant="outlined" onClick={editClick}>정보수정</Button>
         </div>
     );
