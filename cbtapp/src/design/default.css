@@ -54,3 +54,38 @@
     margin: 15px 0px 15px 0px;
     padding: 10px 20px 10px 20px;
 }
+
+.hstyle {
+    color: black;
+    background-color: white;
+    font-family: Arial;
+    display: flex;
+    justify-content: left;
+    padding: 50px;
+}
+.stylestxt1 {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.stylestxt2 {
+    margin: 10px;
+    font-size: 20px;
+    color: darkgray;
+    font-family: bold;
+}
+.stylestxt3 {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    background-color: #F8F9FA;
+    padding: 10px;
+}
+.stylesbtn {
+    line-height: 2;
+    margin-top: 15;
+    margin-left: 100;
+}

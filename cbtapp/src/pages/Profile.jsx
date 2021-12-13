@@ -12,47 +12,6 @@ export default function Profile(props) {
     const history = useHistory();
     let id = new URLSearchParams(location.search).get('id');
 
-    const hstyle = {
-        color: "black",
-        backgroundColor: "white",
-        fontFamily: "Arial",
-        display: "flex",
-        justifyContent: "left",
-        padding: "50px"
-    };
-
-    const stylestxt1 = {
-        fontFamily: "Arial",
-        fontWeight: "bold",
-        fontSize: 25,
-        marginBottom: 30,
-        textAlign: "center"
-    }
-
-    const stylestxt2 = {
-        margin: 10,
-        fontSize: 20,
-        color: "darkgray",
-        fontFamily: "bold"
-    }
-
-    const stylestxt3 = {
-        marginLeft: 10,
-        marginTop: 10,
-        marginBottom: 10,
-        fontSize: 15,
-        backgroundColor: "#F8F9FA",
-        padding: 10
-        
-    }
-
-    const stylesbtn = {
-        lineHeight: 2,
-        marginTop: 15,
-        marginLeft: 100
-        
-    }
-
     React.useEffect(() => {
         id = new URLSearchParams(location.search).get('id');
         console.log('^^^^^^^^^profileId:', id);
@@ -120,28 +79,28 @@ export default function Profile(props) {
 
     return (
         <Container>
-        <div style={hstyle}>
+        <div className={"hstyle"}>
             <div >
                 <div>
-                    <div style={stylestxt1}>사용자 정보</div>
-                    <div style={stylestxt2}>아이디</div>
-                    <div style={stylestxt3}>{userInfo.id}</div>
-                    <div style={stylestxt2}>{"이름"}</div>
-                    <div style={stylestxt3}>{userInfo.userName}</div>
-                    <div style={stylestxt2}>{"핸드폰"}</div>
-                    <div style={stylestxt3}>{userInfo.phone}</div>
-                    <div style={stylestxt2}>{"이메일"}</div>
-                    <div style={stylestxt3}>{userInfo.email}</div>
-                    <div style={stylestxt2}>{"학교"}</div>
-                    <div style={stylestxt3}>{userInfo.school}</div>
-                    <div style={stylestxt2}>{"깃허브"}</div>
-                    <div style={stylestxt3}>{userInfo.gitHubId}</div>
-                    <div style={stylestxt2}>{"블로그"}</div>
-                    <div style={stylestxt3}>{userInfo.blog}</div>
-                    <div style={stylestxt2}>{"AboutMe"}</div>
-                    <div style={stylestxt3}>{userInfo.aboutMe}</div>
+                    <div className={"stylestxt1"}>사용자 정보</div>
+                    <div className={"stylestxt2"}>아이디</div>
+                    <div className={"stylestxt3"}>{userInfo.id}</div>
+                    <div className={"stylestxt2"}>{"이름"}</div>
+                    <div className={"stylestxt3"}>{userInfo.userName}</div>
+                    <div className={"stylestxt2"}>{"핸드폰"}</div>
+                    <div className={"stylestxt3"}>{userInfo.phone}</div>
+                    <div className={"stylestxt2"}>{"이메일"}</div>
+                    <div className={"stylestxt3"}>{userInfo.email}</div>
+                    <div className={"stylestxt2"}>{"학교"}</div>
+                    <div className={"stylestxt3"}>{userInfo.school}</div>
+                    <div className={"stylestxt2"}>{"깃허브"}</div>
+                    <div className={"stylestxt3"}>{userInfo.gitHubId}</div>
+                    <div className={"stylestxt2"}>{"블로그"}</div>
+                    <div className={"stylestxt3"}>{userInfo.blog}</div>
+                    <div className={"stylestxt2"}>{"AboutMe"}</div>
+                    <div className={"stylestxt3"}>{userInfo.aboutMe}</div>
                 </div>
-            <Button style={stylesbtn} size="small"  variant="outlined"  onClick={editClick}>정보수정</Button>
+            <Button className={"stylesbtn"} size="small"  variant="outlined"  onClick={editClick}>정보수정</Button>
             </div>
         </div>
      </Container>
