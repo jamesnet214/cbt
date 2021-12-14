@@ -19,6 +19,7 @@ import Completed from "./Completed.jsx";
 import Profile from "../pages/Profile.jsx";
 import ProfileUpdate from "../pages/ProfileUpdate.jsx";
 import Users from "../pages/Users.jsx";
+import Settings from "../pages/Settings.jsx";
 
 const drawerWidth = 240;
 
@@ -120,6 +121,7 @@ export default function Portal(props) {
                             <Route path='/profile/update' component={ProfileUpdate}/>
                             <Route path='/users' component={Users}/>
                             <Route path='/completed' component={Completed}/>
+                            <Route path='/settings' component={Settings}/>
                             
                         </Main>
                     </div>

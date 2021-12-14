@@ -15,11 +15,15 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Cookies from 'universal-cookie';
 
+import { useHistory } from "react-router-dom";
+
 export default function TopLayer(props) {
     const [userInfo, setUserInfo] = React.useState({}); 
     const { open, openChanged } = props;
     const cookies = new Cookies();
     const token = cookies.get('.cbt.devncore.org.authentication.session');
+
+    let history = useHistory();
 
     function menuClick() {
         openChanged(!open);
@@ -33,6 +37,13 @@ export default function TopLayer(props) {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const settingClick = (event) => {
+        // history.push(`/settings?id=${userInfo.id}`);
+        history.push(`/settings`);
+        
+        console.log(userInfo.id);
     };
 
     React.useEffect(() => {
@@ -99,13 +110,18 @@ export default function TopLayer(props) {
                     open={open1}
                     anchorEl={anchorEl}
                     onClose={handleClose}
+                    
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'left',
                     }}
                     >
                     <Typography sx={{ p: 2 }}>{userInfo.userName}</Typography>
+                    
+                    {/* // id 가 있을때만 세팅보이도록 */}
+                    <Button onClick={settingClick}>Settings</Button>
                 </Popover>
+                
             </Toolbar>
         </AppBar>
     );
