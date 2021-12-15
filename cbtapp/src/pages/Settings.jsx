@@ -3,12 +3,20 @@ import Axios from "axios";
 import Cookies from 'universal-cookie';
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useLocation, useHistory } from "react-router-dom";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState({});
     const [externals, setExternals] = React.useState([]);
+    const location = useLocation();
+    const history = useHistory();
     const cookies = new Cookies();
     const token = cookies.get('.cbt.devncore.org.authentication.session');
+    let id = new URLSearchParams(location.search).get('id');
+
+    const editClick = (e) => {
+        history.push(`/profile/update?id=${userInfo.id}`);
+    }
     
     React.useEffect(() => {
         const requestOptions = {
@@ -35,9 +43,6 @@ export default function Settings(props) {
                     gitHubId: userData.gitHubId,
                     blog: userData.blog,
                     aboutMe: userData.aboutMe,
-
-                        // loginProvider: responseData.loginProvider,
-                        // providerKey: responseData.providerKey
                 });
 
                 let _externals = userData.externals.map( ext => {
@@ -48,7 +53,6 @@ export default function Settings(props) {
                 })
 
                 setExternals(_externals);
-
                 console.log("여기", _externals);
           })
           .catch(function (error) {
@@ -135,7 +139,7 @@ export default function Settings(props) {
                             </div>
                         </div>
                     </div>
-         
+                    <Button className={"stylesbtn"} size="small"  variant="outlined"  onClick={editClick}>정보수정</Button>
                     {/* <div className={"stylestxt1"}>My Profile</div>
                     <div className={"stylestxt2"}>ID</div>
                     <div className={"stylestxt3"}>{userInfo.id}</div>
@@ -164,6 +168,8 @@ export default function Settings(props) {
                     </div>
                     
                     <Button children="저장"/> */}
+
+                    
                 </div>
             : null}          
             

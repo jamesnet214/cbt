@@ -16,6 +16,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Cookies from 'universal-cookie';
 
 import { useHistory } from "react-router-dom";
+import { textAlign } from '@mui/system';
 
 export default function TopLayer(props) {
     const [userInfo, setUserInfo] = React.useState({}); 
@@ -38,11 +39,15 @@ export default function TopLayer(props) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    
+    const signOutClick = (event) => {
+
+        console.log(userInfo.id);
+    };
 
     const settingClick = (event) => {
         // history.push(`/settings?id=${userInfo.id}`);
-        history.push(`/settings`);
-        
+        history.push(`/profile/update?id=${userInfo.id}`);
         console.log(userInfo.id);
     };
 
@@ -116,10 +121,13 @@ export default function TopLayer(props) {
                         horizontal: 'left',
                     }}
                     >
-                    <Typography sx={{ p: 2 }}>{userInfo.userName}</Typography>
+                    <Typography sx={{ p: 3 }}>Signed in as <br/> {userInfo.userName}</Typography>
                     
-                    {/* // id 가 있을때만 세팅보이도록 */}
+                    
                     <Button onClick={settingClick}>Settings</Button>
+                    <br/>
+                    <Button style={{ textAlign: 'right'}} onClick={signOutClick}>Sign out</Button>
+                    
                 </Popover>
                 
             </Toolbar>

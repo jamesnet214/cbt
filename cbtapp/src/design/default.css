@@ -76,7 +76,7 @@
     font-family: Arial;
     font-weight: bold;
     font-size: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 .stylestxt2 {
@@ -84,7 +84,6 @@
     color: #444444;
     font-weight: bold;
     padding: 6px 4px 6px 4px;
-
 }
 .stylestxt3 {
     margin: 0px 4px 4px 4px;
@@ -96,6 +95,7 @@
 }
 .stylestxt4 {
     font-size: 12px;
+    height: 20px;
     color: #888888;
     padding: 4px 4px 12px 4px;
 }

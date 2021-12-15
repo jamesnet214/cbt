@@ -65,6 +65,7 @@ export default function ProfileUpdate(props) {
     const schoolChanged = (e) => setUserInfo({...userInfo, school: e.target.value});
     const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
     const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
+    const emailChanged = (e) => setUserInfo({...userInfo, email: e.target.value});
 
     const saveClick = (e) => {
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
@@ -86,21 +87,21 @@ export default function ProfileUpdate(props) {
     }
 
     return (
-        <Stack style={{padding: 20, maxWidth: 600, background: "white"}} spacing={1}>
+        <Stack style={{padding: 20, maxWidth: 500, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
-                    변경정보
-                    <div>{"아이디: " + userInfo["id"]}</div>
-                    <div>{"이메일: " + userInfo["email"]}</div>
+                    <div style={{ fontSize: 30, marginBottom: 0}}>{"Public profile"}</div>
+                    <div style={{ fontSize: 12, marginBottom: 20 }}>{"ID: " + userInfo["id"]}</div>
                     <TextField required
                         helperText="당신의 이름을 입력하세요."
                         size="small"
                         id="outlined-basic"
                         label="Name"
-                        inputProps={{ maxLength: 12 }}
+                        inputProps={{ maxLength: 12}}
                         variant="outlined"
                         defaultValue={userInfo["userName"]}
                         onChange={userNameChanged}/>
+                        <br/>
                     <TextField required
                         helperText="핸드폰 번호를 입력하세요."
                         size="small"
@@ -110,6 +111,16 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
                         onChange={phoneChanged}/>
+                        <br/>
+                     <TextField required
+                        helperText="이메일 정보를 입력하세요."
+                        size="small"
+                        id="outlined-basic"
+                        label="Email"
+                        variant="outlined"
+                        defaultValue={userInfo["email"]}
+                        onChange={emailChanged}/>
+                        <br/>
                     <TextField required
                         helperText="Github ID를 입력하세요."
                         size="small"
@@ -118,6 +129,7 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["gitHubId"]}
                         onChange={gitHubIdChanged}/>
+                        <br/>
                     <TextField required
                         helperText="블로그 주소를 입력하세요."
                         size="small"
@@ -126,6 +138,7 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["blog"]}
                         onChange={blogChanged}/>
+                        <br/>
                     <TextField required
                         helperText="당신의 학교를 입력하세요."
                         size="small"
@@ -134,6 +147,7 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["school"]}
                         onChange={schoolChanged}/>
+                        <br/>
                     <TextField required
                         helperText=" "
                         size="small"
@@ -144,7 +158,11 @@ export default function ProfileUpdate(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <Button children="저장" onClick={saveClick}/>
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" color="success" onClick={saveClick}>
+                            Update Profile
+                        </Button>
+                    </Stack>
                 </>
                 : null
             }
