@@ -2,6 +2,7 @@ import React from "react";
 import Axios from "axios";
 import Cookies from 'universal-cookie';
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState({});
@@ -74,6 +75,18 @@ export default function Settings(props) {
                         <div className={"info-content"}>{userInfo.email}</div>
                     </div>
                     <div className={"info-group"}>
+                        <div style={{color:'#525252', marginBottom:'10px'}}>Email</div>
+                        <TextField required
+                        size="small"
+                        id="outlined-basic"
+                        label="Name"
+                        className={"w-p-100"}
+                        inputProps={{ maxLength: 12 }}
+                        variant="outlined"
+                        defaultValue={userInfo.email}
+                        />
+                    </div>
+                    {/* <div className={"info-group"}>
                         <div className={"info-header"}>Phone</div>
                         <div className={"info-content"}>{userInfo.phone}</div>
                     </div>
@@ -92,6 +105,35 @@ export default function Settings(props) {
                     <div className={"info-group"}>
                         <div className={"info-header"}>AboutMe</div>
                         <div className={"info-content"}>{userInfo.aboutMe}</div>
+                    </div> */}
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>인증 계정</div>
+                        <div style={{borderTop: '3px solid #eeeeee'}}>
+                            <div className={"flex-parent bd-bottom-default"}>
+                                <div className={"flex-header"}>
+                                    구글
+                                </div>
+                                <div className={"flex-content"}>
+                                    <Button children="연결" className={"btn-submit"}/>
+                                </div>
+                            </div>
+                            <div className={"flex-parent bd-bottom-default"}>
+                                <div className={"flex-header"}>
+                                    깃허브
+                                </div>
+                                <div className={"flex-content"}>
+                                    <Button children="연결" className={"btn-submit"}/>
+                                </div>
+                            </div>
+                            <div className={"flex-parent bd-bottom-default"}>
+                                <div className={"flex-header"}>
+                                    페이스북
+                                </div>
+                                <div className={"flex-content"}>
+                                    <Button children="연결" className={"btn-submit"}/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
          
                     {/* <div className={"stylestxt1"}>My Profile</div>
