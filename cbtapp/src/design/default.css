@@ -89,3 +89,18 @@
     margin-top: 15;
     margin-left: 100;
 }
+
+.info-group {
+    margin-bottom: 18px;
+}
+
+.info-header {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.info-content {
+    font-size: 16.5px;
+    margin-bottom: 20px;
+}

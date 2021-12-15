@@ -34,9 +34,6 @@ export default function Settings(props) {
                     gitHubId: userData.gitHubId,
                     blog: userData.blog,
                     aboutMe: userData.aboutMe,
-                    externals: []
-
-
 
                         // loginProvider: responseData.loginProvider,
                         // providerKey: responseData.providerKey
@@ -62,9 +59,42 @@ export default function Settings(props) {
     return (
         <div className={"hstyle"}>
             {userInfo != null ?
-
                 <div>
                     <div className={"stylestxt1"}>My Profile</div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>ID</div>
+                        <div className={"info-content"}>{userInfo.id}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>Name</div>
+                        <div className={"info-content"}>{userInfo.userName}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>Email</div>
+                        <div className={"info-content"}>{userInfo.email}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>Phone</div>
+                        <div className={"info-content"}>{userInfo.phone}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>School</div>
+                        <div className={"info-content"}>{userInfo.school}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>Github ID</div>
+                        <div className={"info-content"}>{userInfo.gitHubId}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>Blog</div>
+                        <div className={"info-content"}>{userInfo.blog}</div>
+                    </div>
+                    <div className={"info-group"}>
+                        <div className={"info-header"}>AboutMe</div>
+                        <div className={"info-content"}>{userInfo.aboutMe}</div>
+                    </div>
+         
+                    {/* <div className={"stylestxt1"}>My Profile</div>
                     <div className={"stylestxt2"}>ID</div>
                     <div className={"stylestxt3"}>{userInfo.id}</div>
                     <div className={"stylestxt2"}>Name</div>
@@ -91,7 +121,7 @@ export default function Settings(props) {
                     })} 
                     </div>
                     
-                    <Button children="저장"/>
+                    <Button children="저장"/> */}
                 </div>
             : null}          
             
