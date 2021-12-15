@@ -122,7 +122,6 @@ export default function Portal(props) {
                             <Route path='/users' component={Users}/>
                             <Route path='/completed' component={Completed}/>
                             <Route path='/settings' component={Settings}/>
-                            
                         </Main>
                     </div>
                 </div>

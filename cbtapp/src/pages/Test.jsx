@@ -84,67 +84,68 @@ export default function Test(props) {
     }
 
     return (
-        <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
-
-            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
-                <Stack direction="row">
-                    <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
-                    <Box sx={{ flexGrow: 1 }} />
-                    <ResetIconButton onClick={restart}/>
-                </Stack>
-            </div>
-            <Box margin={0, 0, 0, 0}>
-                {text == null ? null
-                :
-                    text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, i) => {
-                        return (
-                            <Box key={item.seq}>
-                                {currentSubject != item.subjectName ?
-                                    <Box style={{ margin: '10px 25px 0px 0px', textAlign: 'right' }}>
-                                        <Typography 
-                                            children={`과목: ${getSubject(item.subjectName)}`}
-                                            variant="caption"/>
-                                    </Box>
-                                    : null
-                                }
-                                <div className="paper-question"
-                                    style={{
-                                        border: ''
-                                    }}>
-                                    <Box className="papar-question-content">
-                                        <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
-                                    </Box>
-                                    <Box>
-                                        {item.infos != null ? 
-                                            item.infos.map((info, i) => {
-                                                return (
-                                                    <Box key={i}>
-                                                        <Box className="papar-question-content">
-                                                            <img src={info.src} style={{maxWidth: '400px'}}/>
+        <div className="frame-content">
+            <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
+                <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
+                    <Stack direction="row">
+                        <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <ResetIconButton onClick={restart}/>
+                    </Stack>
+                </div>
+                <Box margin={0, 0, 0, 0}>
+                    {text == null ? null
+                    :
+                        text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, i) => {
+                            return (
+                                <Box key={item.seq}>
+                                    {currentSubject != item.subjectName ?
+                                        <Box style={{ margin: '10px 25px 0px 0px', textAlign: 'right' }}>
+                                            <Typography 
+                                                children={`과목: ${getSubject(item.subjectName)}`}
+                                                variant="caption"/>
+                                        </Box>
+                                        : null
+                                    }
+                                    <div className="paper-question"
+                                        style={{
+                                            border: ''
+                                        }}>
+                                        <Box className="papar-question-content">
+                                            <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
+                                        </Box>
+                                        <Box>
+                                            {item.infos != null ? 
+                                                item.infos.map((info, i) => {
+                                                    return (
+                                                        <Box key={i}>
+                                                            <Box className="papar-question-content">
+                                                                <img src={info.src} style={{maxWidth: '400px'}}/>
+                                                            </Box>
                                                         </Box>
-                                                    </Box>
-                                                );
-                                            })
-                                            : null
-                                        }
-                                    </Box>
-                                    <FormGroup>
-                                        {initItemsTemplate(item.answers)}
-                                    </FormGroup>
-                                    <Box style={{ height: '10px'}}/>
-                                    <Box className="papar-question-content" style={{display: 'none'}}>
-                                        <Typography>
-                                            정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
-                                        </Typography>
-                                    </Box>
-                                </div>
-                            </Box>
-                        );
-                    })
-                }
-            </Box>
+                                                    );
+                                                })
+                                                : null
+                                            }
+                                        </Box>
+                                        <FormGroup>
+                                            {initItemsTemplate(item.answers)}
+                                        </FormGroup>
+                                        <Box style={{ height: '10px'}}/>
+                                        <Box className="papar-question-content" style={{display: 'none'}}>
+                                            <Typography>
+                                                정답 <span style={{color: '#ffffff'}}>{getAnswer(item.answers)}</span>
+                                            </Typography>
+                                        </Box>
+                                    </div>
+                                </Box>
+                            );
+                        })
+                    }
+                </Box>
 
-            <div style={{height: '60px'}}/>
-        </Box>
+                <div style={{height: '60px'}}/>
+            </Box>
+        </div>
     );
 }

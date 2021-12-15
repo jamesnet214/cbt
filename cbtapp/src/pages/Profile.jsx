@@ -78,13 +78,13 @@ export default function Profile(props) {
     }
 
     return (
-        <Container>
         <div className={"hstyle"}>
             <div >
                 <div>
                     <div className={"stylestxt1"}>사용자 정보</div>
                     <div className={"stylestxt2"}>아이디</div>
                     <div className={"stylestxt3"}>{userInfo.id}</div>
+                    <div className={"stylestxt4"}>Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time.</div>
                     <div className={"stylestxt2"}>{"이름"}</div>
                     <div className={"stylestxt3"}>{userInfo.userName}</div>
                     <div className={"stylestxt2"}>{"핸드폰"}</div>
@@ -103,6 +103,5 @@ export default function Profile(props) {
             <Button className={"stylesbtn"} size="small"  variant="outlined"  onClick={editClick}>정보수정</Button>
             </div>
         </div>
-     </Container>
     );
 }

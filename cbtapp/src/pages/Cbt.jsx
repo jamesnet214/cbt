@@ -100,25 +100,24 @@ export default function Cbt(props) {
     }
 
     return (
-        <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
-
-
-            <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
-                <Stack direction="row">
-                    <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
-                </Stack>
-            </div>
-
-                {!stepCompleted ? 
-                    <Box margin={3}>
-                        <CbtStepper 
-                            cbtId={cbtId}
-                            innings={innings}
-                            subjects={subjects}
-                            testTypes={testTypes}
-                            start={start}/>
-                    </Box>
-                : null}
-        </Box>
+        <div className="frame-content">
+            <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
+                <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
+                    <Stack direction="row">
+                        <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
+                    </Stack>
+                </div>
+                    {!stepCompleted ? 
+                        <Box margin={3}>
+                            <CbtStepper 
+                                cbtId={cbtId}
+                                innings={innings}
+                                subjects={subjects}
+                                testTypes={testTypes}
+                                start={start}/>
+                        </Box>
+                    : null}
+            </Box>
+        </div>
     );
 }
