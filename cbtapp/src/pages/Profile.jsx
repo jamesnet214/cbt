@@ -3,7 +3,7 @@ import Axios from "axios";
 import { useLocation, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { margin, padding, textAlign } from "@mui/system";
-import { Container } from "@mui/material";
+import { Container, Divider, Stack, Typography } from "@mui/material";
 
 export default function Profile(props) {
     const [userInfo, setUserInfo] = React.useState({}); 
@@ -82,7 +82,7 @@ export default function Profile(props) {
     return (
         <div className={"hstyle"}>
             <div >
-                <div>
+                <Stack spacing={1}>
                     <div className={"stylestxt1"}>User Profile</div>
                     <div className={"stylestxt2"}>아이디</div>
                     <div className={"stylestxt3"}>{userInfo.id}</div>
@@ -94,13 +94,17 @@ export default function Profile(props) {
                     <div className={"stylestxt3"}>{userInfo.email}</div>
                     <div className={"stylestxt2"}>{"학교"}</div>
                     <div className={"stylestxt3"}>{userInfo.school}</div>
+                    <Typography variant="caption">
+                        학교는 중복으로 추가할 수 있습니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"깃허브"}</div>
                     <div className={"stylestxt3"}>{userInfo.gitHubId}</div>
                     <div className={"stylestxt2"}>{"블로그"}</div>
                     <div className={"stylestxt3"}>{userInfo.blog}</div>
                     <div className={"stylestxt2"}>{"AboutMe"}</div>
                     <div className={"stylestxt3"}>{userInfo.aboutMe}</div>
-                </div>
+                </Stack>
             </div>
         </div>
     );

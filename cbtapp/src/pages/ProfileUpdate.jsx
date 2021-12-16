@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 
 export default function ProfileUpdate(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -129,7 +130,6 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["gitHubId"]}
                         onChange={gitHubIdChanged}/>
-                        <br/>
                     <TextField required
                         size="small"
                         id="outlined-size-small"

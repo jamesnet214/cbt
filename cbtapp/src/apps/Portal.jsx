@@ -39,7 +39,7 @@ const theme = createTheme({
 export default function Portal(props) {
     const [open, setOpen] = React.useState(false);
     const [titles, setTitles] = React.useState(null);
-    
+
     React.useEffect(() => {
         if (titles == null) {
             fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/titles.yaml')
