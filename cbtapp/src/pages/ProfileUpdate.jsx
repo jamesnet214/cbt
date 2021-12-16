@@ -87,11 +87,11 @@ export default function ProfileUpdate(props) {
     }
 
     return (
-        <Stack style={{padding: 20, maxWidth: 500, background: "white"}} spacing={1}>
+        <Stack style={{padding: 10, maxWidth: 500, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
-                    <div style={{ fontSize: 30, marginBottom: 0}}>{"Public profile"}</div>
-                    <div style={{ fontSize: 12, marginBottom: 20 }}>{"ID: " + userInfo["id"]}</div>
+                    <div style={{ fontSize: 20, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}</div>
+                    <div style={{ fontSize: 10, marginBottom: 10 }}>{"ID: " + userInfo["id"]}</div>
                     <TextField required
                         helperText="당신의 이름을 입력하세요."
                         size="small"
@@ -107,7 +107,7 @@ export default function ProfileUpdate(props) {
                         size="small"
                         id="outlined-basic"
                         label="Phone"
-                        inputProps={{ maxLength: 12 }}
+                        inputProps={{ maxLength: 11 }}
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
                         onChange={phoneChanged}/>
@@ -149,16 +149,16 @@ export default function ProfileUpdate(props) {
                         onChange={schoolChanged}/>
                         <br/>
                     <TextField required
-                        helperText=" "
+                        helperText=" "                        
                         size="small"
                         id="outlined-basic"
                         label="aboutMe"
-                        variant="outlined"
+                        variant="outlined"                        
                         multiline
-                        rows="4"
+                        rows="3"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={1}>
                         <Button variant="contained" color="success" onClick={saveClick}>
                             Update Profile
                         </Button>
