@@ -39,6 +39,10 @@ export default function TopLayer(props) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const signInClick = (event) => {
+        history.push('/login');
+    };
     
     const signOutClick = (event) => {
 
@@ -126,7 +130,9 @@ export default function TopLayer(props) {
                     
                     <Button onClick={settingClick}>Settings</Button>
                     <br/>
-                    <Button style={{ textAlign: 'right'}} onClick={signOutClick}>Sign out</Button>
+                    <Button style={{ textAlign: 'right'}} onClick={signInClick}>Sign In</Button>
+                    <br/>
+                    <Button style={{ textAlign: 'right'}} onClick={signOutClick}>Sign Out</Button>
                     
                 </Popover>
                 

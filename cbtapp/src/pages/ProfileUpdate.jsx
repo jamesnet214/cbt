@@ -141,7 +141,7 @@ export default function ProfileUpdate(props) {
                     <TextField required
                         size="small"
                         id="outlined-size-small"
-                        label="School"
+                        label="Education"
                         variant="outlined"
                         defaultValue={userInfo["school"]}
                         onChange={schoolChanged}/>
