@@ -87,15 +87,18 @@ export default function ProfileUpdate(props) {
     }
 
     return (
-        <Stack style={{padding: 10, maxWidth: 500, background: "white"}} spacing={1}>
+        <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
-                    <div style={{ fontSize: 20, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}</div>
-                    <div style={{ fontSize: 10, marginBottom: 10 }}>{"ID: " + userInfo["id"]}</div>
+                    <div style={{ display: "flex", justifyContent: 'flex-end', fontSize: 25, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}
+                        <Button style={{ marginLeft: "auto" }} variant="contained" size="small" color="success" onClick={saveClick}>
+                            Update
+                        </Button>
+                    </div>
+                    <div style={{ fontSize: 12, marginBottom: 10 }}>{"ID: " + userInfo["id"]} </div>
                     <TextField required
-                        helperText="당신의 이름을 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="Name"
                         inputProps={{ maxLength: 12}}
                         variant="outlined"
@@ -103,9 +106,8 @@ export default function ProfileUpdate(props) {
                         onChange={userNameChanged}/>
                         <br/>
                     <TextField required
-                        helperText="핸드폰 번호를 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="Phone"
                         inputProps={{ maxLength: 11 }}
                         variant="outlined"
@@ -113,55 +115,48 @@ export default function ProfileUpdate(props) {
                         onChange={phoneChanged}/>
                         <br/>
                      <TextField required
-                        helperText="이메일 정보를 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="Email"
                         variant="outlined"
                         defaultValue={userInfo["email"]}
                         onChange={emailChanged}/>
                         <br/>
                     <TextField required
-                        helperText="Github ID를 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="GithubId"
                         variant="outlined"
                         defaultValue={userInfo["gitHubId"]}
                         onChange={gitHubIdChanged}/>
                         <br/>
                     <TextField required
-                        helperText="블로그 주소를 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="Blog"
                         variant="outlined"
                         defaultValue={userInfo["blog"]}
                         onChange={blogChanged}/>
                         <br/>
                     <TextField required
-                        helperText="당신의 학교를 입력하세요."
                         size="small"
-                        id="outlined-basic"
+                        id="outlined-size-small"
                         label="School"
                         variant="outlined"
                         defaultValue={userInfo["school"]}
                         onChange={schoolChanged}/>
                         <br/>
                     <TextField required
-                        helperText=" "                        
                         size="small"
-                        id="outlined-basic"
-                        label="aboutMe"
+                        id="outlined-size-small"
+                        label="aboutMe" 
                         variant="outlined"                        
                         multiline
-                        rows="3"
+                        rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
                     <Stack direction="row" spacing={1}>
-                        <Button variant="contained" color="success" onClick={saveClick}>
-                            Update Profile
-                        </Button>
+                        
                     </Stack>
                 </>
                 : null
