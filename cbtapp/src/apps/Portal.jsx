@@ -22,6 +22,7 @@ import Users from "../pages/Users.jsx";
 import Settings from "../pages/Settings.jsx";
 import Duplicate from "../pages/Duplicate.jsx";
 
+
 const drawerWidth = 240;
 
 const theme = createTheme({
@@ -124,6 +125,7 @@ export default function Portal(props) {
                             <Route path='/duplicate' component={Duplicate}/>
                             <Route path='/completed' component={Completed}/>
                             <Route path='/settings' component={Settings}/>
+                            <Route path='/duplicate' component={Duplicate}/>
                         </Main>
                     </div>
                 </div>
