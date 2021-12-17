@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Cbt(props) {
     const history = useHistory();
 
-    const [text, setText] = React.useState(null);
+    const [text, setText] = React.useState(null); 
     const [answer, setAnswer] = React.useState(-1);
     const [innings, setInnings] = React.useState([]);
     const [subjects, setSubjects] = React.useState([]);

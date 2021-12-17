@@ -13,7 +13,7 @@ export default function MenuTabs() {
         },
         { 
             "name": "프로그래밍",
-            "value": "dev"
+            "value": "duplicate"
         },
         { 
             "name": "유저",

@@ -95,7 +95,7 @@ export default function Profile(props) {
                     <div className={"stylestxt2"}>{"학교"}</div>
                     <div className={"stylestxt3"}>{userInfo.school}</div>
                     <Typography variant="caption">
-                        학교는 중복으로 추가할 수 있습니다.
+                        학교는 중복으로 추가할 수 있습니다.dddd
                     </Typography>
                     <Divider/>
                     <div className={"stylestxt2"}>{"깃허브"}</div>
