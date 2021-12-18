@@ -30,11 +30,7 @@ export default function ProfileUpdate(props) {
     React.useEffect(() => {
 
         const data = {
-            "id": id,
-            "userName": "string",
-            "email": "string",
-            "phone": "string",
-            "name": "string"
+            "token": id
         };
         console.log(data);
 
