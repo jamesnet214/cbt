@@ -106,11 +106,7 @@ export default function Settings(props) {
         <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
-                    <div style={{ display: "flex", justifyContent: 'flex-end', fontSize: 25, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}
-                        <Button style={{ marginLeft: "auto" }} variant="contained" size="small" color="success" onClick={saveClick}>
-                            Update
-                        </Button>
-                    </div>
+                    <div style={{ display: "flex", justifyContent: 'flex-start', fontSize: 25, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}</div>                    
                     <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]} </div>
                     <div style={{ fontSize: 12, marginBottom: 10 }}>{"Email: " + userInfo["email"] }</div>
                     <TextField required
@@ -121,7 +117,6 @@ export default function Settings(props) {
                         variant="outlined"
                         defaultValue={userInfo["userName"]}
                         onChange={userNameChanged}/>
-                        <br/>
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -130,7 +125,6 @@ export default function Settings(props) {
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
                         onChange={phoneChanged}/>
-                        <br/>
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -145,8 +139,22 @@ export default function Settings(props) {
                         variant="outlined"
                         defaultValue={userInfo["blog"]}
                         onChange={blogChanged}/>
-                        <br/>
                     <TextField required
+                        size="small"
+                        id="outlined-size-small"
+                        label="aboutMe" 
+                        variant="outlined"                        
+                        multiline
+                        rows="4"
+                        defaultValue={userInfo["aboutMe"]}
+                        onChange={aboutMeChanged}/>
+                        <div>
+                            <Button style={{ marginLeft: "auto" }} variant="contained" size="small" color="success" onClick={saveClick}>
+                                Update
+                            </Button>
+                        </div>
+                        <br/>
+                        <TextField required
                         size="small"
                         id="outlined-size-small"
                         label="Education"
@@ -162,15 +170,6 @@ export default function Settings(props) {
                         defaultValue={userInfo["certificate"]}
                         onChange={certificateChanged}/>
                         <br/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="aboutMe" 
-                        variant="outlined"                        
-                        multiline
-                        rows="4"
-                        defaultValue={userInfo["aboutMe"]}
-                        onChange={aboutMeChanged}/>
                        
                         <div>{constExternals.map( ext=>{
                                 return (
