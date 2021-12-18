@@ -281,6 +281,47 @@ export default function Settings(props) {
                         onChange={certificateChanged}/>
                         <br/>
 
+                        <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
+                            <div style={{fontWeight: 'bold',fontSize: '18px',}}>
+                                연결된 계정
+                            </div>
+                            <Button sx={{ ml: 5}} variant="contained" color="success" onClick={handleExternal}>다른 계정 추가</Button>
+                        </div>
+                        <div>{constExternals.map( ext=>{
+                            if (externals.some(v => v.loginProvider == ext))
+                            {
+                                return (
+                                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
+                                        <div style={{display: 'flex'}}>
+                                            <div style={{width: '100px'}}>{ext}</div>
+                                            <div>{userInfo["email"]}</div>
+                                        </div>
+                                        <Button sx={{ ml: 5}} variant="contained" color="error">삭제</Button>
+                                    </div>
+                                );
+                            }
+                            // else
+                            // {
+                            //     return (
+                            //         <div style={{display: 'flex', alignItems: 'center',margin: '0 0 10px 0px'}}>
+                            //             <div style={{width: '100px'}}>{ext}</div>
+                            //             <Button sx={{ mt: 1, mr: 1 }} variant="contained" color="success" onClick={() => handleExternal(ext)}>연결</Button>
+                            //         </div>
+                            //     );
+                            // }
+                        })}</div>
+                        
+                    {/* <div>{externals.map( ext => {
+                        return (
+                            <div>
+                                <div>{ext.loginProvider}</div>
+                                <div>{ext.providerKey}</div>
+                            </div>
+                        );
+                        
+                    })}</div>  */}
+                    
+
                     <Stack direction="row" spacing={1}>
                     
                     </Stack>
