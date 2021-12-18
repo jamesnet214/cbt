@@ -17,7 +17,6 @@ import Dashboard from '../pages/Dashboard';
 import Login from './Login.jsx';
 import Completed from "./Completed.jsx";
 import Profile from "../pages/Profile.jsx";
-import ProfileUpdate from "../pages/ProfileUpdate.jsx";
 import Users from "../pages/Users.jsx";
 import Settings from "../pages/Settings.jsx";
 import Duplicate from "../pages/Duplicate.jsx";
@@ -120,7 +119,6 @@ export default function Portal(props) {
                             <Route path='/cbt/test/id=0' render={() => getCbtTest('0')}/>
                             <Route path='/dashboard' component={Dashboard}/>  
                             <Route exact path='/profile' component={Profile}/>
-                            <Route path='/profile/update' component={ProfileUpdate}/>
                             <Route path='/users' component={Users}/>
                             <Route path='/duplicate' component={Duplicate}/>
                             <Route path='/completed' component={Completed}/>

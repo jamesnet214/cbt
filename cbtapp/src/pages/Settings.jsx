@@ -73,7 +73,6 @@ export default function Settings(props) {
     const schoolChanged = (e) => setUserInfo({...userInfo, school: e.target.value});
     const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
     const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
-    const emailChanged = (e) => setUserInfo({...userInfo, email: e.target.value});
     const certificateChanged = (e) => setUserInfo({...userInfo,  certificate: e.target.value});
 
     const saveClick = (e) => {
