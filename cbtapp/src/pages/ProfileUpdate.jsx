@@ -9,6 +9,8 @@ import Divider from "@mui/material/Divider";
 
 export default function ProfileUpdate(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
+    const [externals, setExternals] = React.useState([]);
+
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
     console.log('ID: ', id);
@@ -49,6 +51,15 @@ export default function ProfileUpdate(props) {
                         school: data.school,
                         certificate: data.certificate
                 });
+
+                let _externals = data.externals.map( ext => {
+                    return {
+                        loginProvider: ext.loginProvider,
+                        providerKey: ext.providerKey
+                    }
+                })
+
+                setExternals(_externals);
                 console.log('Users:', userInfo);
           })
           .catch(function (error) {
@@ -96,8 +107,8 @@ export default function ProfileUpdate(props) {
                             Update
                         </Button>
                     </div>
-                    <div style={{ fontSize: 12, marginBottom: 10 }}>{"ID: " + userInfo["id"]} </div>
-                    <div>  </div>
+                    <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]} </div>
+                    <div style={{ fontSize: 12, marginBottom: 10 }}>{"Email: " + userInfo["email"] }</div>
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -115,14 +126,6 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["phone"]}
                         onChange={phoneChanged}/>
-                        <br/>
-                     <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Email"
-                        variant="outlined"
-                        defaultValue={userInfo["email"]}
-                        onChange={emailChanged}/>
                         <br/>
                     <TextField required
                         size="small"
@@ -164,8 +167,18 @@ export default function ProfileUpdate(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <Stack direction="row" spacing={1}>
+                    <div>{externals.map( ext => {
+                        return (
+                            <div>
+                                <div>{ext.loginProvider}</div>
+                                <div>{ext.providerKey}</div>
+                            </div>
+                        );
                         
+                    })}</div> 
+                    
+                    <Stack direction="row" spacing={1}>
+                    
                     </Stack>
                 </>
                 : null
