@@ -43,7 +43,8 @@ export default function Profile(props) {
                         school: data.school,
                         gitHubId: data.gitHubId,
                         blog: data.blog,
-                        aboutMe: data.aboutMe
+                        aboutMe: data.aboutMe,
+                        certificate: data.certificate 
                 });
             console.log('datas');
           })
@@ -60,24 +61,58 @@ export default function Profile(props) {
                     <div className={"stylestxt1"}>User Profile</div>
                     <div className={"stylestxt2"}>아이디</div>
                     <div className={"stylestxt3"}>{userInfo.id}</div>
+                    <Typography variant="caption">
+                        ID 정보입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"이름"}</div>
                     <div className={"stylestxt3"}>{userInfo.userName}</div>
+                    <Typography variant="caption">
+                        당신의 이름 입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"핸드폰"}</div>
                     <div className={"stylestxt3"}>{userInfo.phone}</div>
+                    <Typography variant="caption">
+                        핸드폰 번호입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"이메일"}</div>
                     <div className={"stylestxt3"}>{userInfo.email}</div>
+                    <Typography variant="caption">
+                        이메일 주소입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"학교"}</div>
                     <div className={"stylestxt3"}>{userInfo.school}</div>
                     <Typography variant="caption">
                         학교는 중복으로 추가할 수 있습니다.
                     </Typography>
                     <Divider/>
+                    <div className={"stylestxt2"}>{"자격증"}</div>
+                    <div className={"stylestxt3"}>{userInfo.certificate}</div>
+                    <Typography variant="caption">
+                        자격증 정보 입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"깃허브"}</div>
                     <div className={"stylestxt3"}>{userInfo.gitHubId}</div>
+                    <Typography variant="caption">
+                        Github 아이디 정보 입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"블로그"}</div>
                     <div className={"stylestxt3"}>{userInfo.blog}</div>
+                    <Typography variant="caption">
+                        블로그 주소입니다.
+                    </Typography>
+                    <Divider/>
                     <div className={"stylestxt2"}>{"AboutMe"}</div>
                     <div className={"stylestxt3"}>{userInfo.aboutMe}</div>
+                    <Typography variant="caption">
+                        자기소개 정보입니다.
+                    </Typography>
+                    <Divider/>
                 </Stack>
             </div>
         </div>
