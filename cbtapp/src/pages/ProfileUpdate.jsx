@@ -38,20 +38,20 @@ export default function ProfileUpdate(props) {
         };
         console.log(data);
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUser', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUserExternals', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
                         id: data.id,
                         userName: data.userName,
-                        userId: data.UserId,
                         email: data.email,
                         phone: data.phone,
-                        name: data.name,
-                        school: data.school,
-                        gitHubId: data.gitHubId,
+                        userId: data.UserId,
+                        aboutMe: data.aboutMe,
                         blog: data.blog,
-                        aboutMe: data.aboutMe
+                        gitHubId: data.gitHubId,
+                        school: data.school,
+                        certificate: data.certificate
                 });
                 console.log('Users:', userInfo);
           })
@@ -67,17 +67,21 @@ export default function ProfileUpdate(props) {
     const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
     const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
     const emailChanged = (e) => setUserInfo({...userInfo, email: e.target.value});
+    const certificateChanged = (e) => setUserInfo({...userInfo,  certificate: e.target.value});
 
     const saveClick = (e) => {
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
-                    userName: userInfo.userName,
-                    email: userInfo.email,
                     id: userInfo.id,
+                    userName: userInfo.userName,
                     phone: userInfo.phone,
-                    name: userInfo.name,
+                    aboutMe: userInfo.aboutMe,
+                    blog: userInfo.blog,
+                    gitHubId: userInfo.gitHubId,
+                    school: userInfo.school,
+                    certificate: userInfo.certificate
                 });
                 console.log('Users:', userInfo);
                 history.push(`/profile?id=${userInfo.id}`);   
@@ -97,6 +101,7 @@ export default function ProfileUpdate(props) {
                         </Button>
                     </div>
                     <div style={{ fontSize: 12, marginBottom: 10 }}>{"ID: " + userInfo["id"]} </div>
+                    <div>  </div>
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -145,6 +150,14 @@ export default function ProfileUpdate(props) {
                         variant="outlined"
                         defaultValue={userInfo["school"]}
                         onChange={schoolChanged}/>
+                        <br/>
+                    <TextField required
+                        size="small"
+                        id="outlined-size-small"
+                        label="Certificate"
+                        variant="outlined"
+                        defaultValue={userInfo["certificate"]}
+                        onChange={certificateChanged}/>
                         <br/>
                     <TextField required
                         size="small"

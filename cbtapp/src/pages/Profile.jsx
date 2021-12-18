@@ -14,7 +14,7 @@ export default function Profile(props) {
 
     React.useEffect(() => {
         id = new URLSearchParams(location.search).get('id');
-        console.log('^^^^^^^^^profileId:', id);
+        console.log('profileId:', id);
 
         const data = {
             "id": id,
@@ -25,7 +25,6 @@ export default function Profile(props) {
             "school": "string",
             "name": "string",
             "userId": "string"
-            
         };
 
         const data2 = {
@@ -49,8 +48,6 @@ export default function Profile(props) {
             }
         };
 
-        
-
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GetUser', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
@@ -71,13 +68,8 @@ export default function Profile(props) {
           .catch(function (error) {
             console.log(error);
         });
-
           
     }, []);
-
-    const editClick = (e) => {
-        history.push(`/profile/update?id=${id}`);
-    }
 
     return (
         <div className={"hstyle"}>
