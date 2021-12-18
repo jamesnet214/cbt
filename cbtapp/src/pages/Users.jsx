@@ -44,7 +44,7 @@ export default function Users(props) {
                         email: user.email,
                         phone: user.phone,
                         name: user.name,
-                        school: user.school,
+                        // school: user.school,
                         gitHubId: user.gitHubId,
                         blog: user.blog,
                         aboutMe: user.aboutMe
