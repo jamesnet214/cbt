@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
 import Axios from "axios";
+import { makeStyles } from "@mui/styles";
+import Button from "@mui/material/Button";
 
 export default function Duplicate(props) {
     const location = useLocation();
@@ -8,6 +10,10 @@ export default function Duplicate(props) {
     const [externals, setExternals] = React.useState([]);
     const [stepCompleted, setStepCompleted] = React.useState(false);
     let id = new URLSearchParams(location.search).get('id');
+
+    const handleLogin = () => {
+        location.push("/login");
+    };
 
     const requestOptions = {
         method: 'POST',
@@ -18,6 +24,14 @@ export default function Duplicate(props) {
             'Access-Control-Allow-Methods': '*',
         }
     };
+
+    const useStyles = makeStyles({
+        google: {
+            backgroundImage: '/public/images/login_google.png',
+        }
+    });
+
+    const classes = useStyles();
 
     React.useEffect(() => {
 
@@ -63,38 +77,11 @@ export default function Duplicate(props) {
     }, []);
 
     return (
-        <div>   
+        <div style={{margin: '10px'}}>   
               {!stepCompleted ? 
               <div >
-                    <div>{userInfo.email} 해당 이메일로 이미 가입이 되었습니다.</div>
-                    <div>인증소셜</div>
-                    <div>{externals.map( ext => {
-                          if (ext.loginProvider == 'Google')
-                          {
-                            return (
-                                <div>
-                                    <div>{ext.loginProvider}</div>
-                                </div>
-                            );
-                          }
-                          else if (ext.loginProvider == 'FaceBook')
-                          {
-                            return (
-                                <div>
-                                    <div>페북</div>
-                                </div>
-                            );
-                          }
-                          else if (ext.loginProvider == 'GitHub')
-                          {
-                            return (
-                                <div>
-                                    <div>깃허브</div>
-                                </div>
-                            );
-                          }
-                    })} 
-                    </div>
+                    <div ><span style={{color: '#BF412E'}}>{userInfo.email}</span> 해당 이메일로 이미 가입이 되었습니다.</div>
+                    <Button sx={{ mt: 1, mr: 1 }} variant="contained" onClick={handleLogin}>로그인 하기</Button>
                </div>
                 
             : null}
