@@ -12,7 +12,7 @@ import UserProfileBox from "../components/users/UserProfileBox.jsx";
 export default function Users(props) {
     
     const cookies = new Cookies();
-    const value = cookies.get('.cbt.devncore.org.authentication.session');
+    const token = cookies.get('.cbt.devncore.org.authentication.session');
     const [users, setUsers] = React.useState([]); 
     let history = useHistory();
 
@@ -20,15 +20,7 @@ export default function Users(props) {
         console.log('users :');
 
         const data = {
-            "id": "string",
-            "userName": "string",
-            "email": "string",
-            "blog": "string",
-            "gitHubId": "string",
-            "school": "string",
-            "name": "string",
-            "userId": "string",
-            "aboutMe": "string"
+            "id": token,
         };
         const requestOptions = {
             method: 'POST',
@@ -37,7 +29,7 @@ export default function Users(props) {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': '*',
                 'Access-Control-Allow-Methods': '*',
-                ".cbt.devncore.org.authentication.session": value
+                ".cbt.devncore.org.authentication.session": token
             }
         };
 
