@@ -125,7 +125,6 @@ export default function Portal(props) {
                             <Route path='/duplicate' component={Duplicate}/>
                             <Route path='/completed' component={Completed}/>
                             <Route path='/settings' component={Settings}/>
-                            <Route path='/duplicate' component={Duplicate}/>
                         </Main>
                     </div>
                 </div>

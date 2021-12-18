@@ -69,11 +69,30 @@ export default function Duplicate(props) {
                     <div>{userInfo.email} 해당 이메일로 이미 가입이 되었습니다.</div>
                     <div>인증소셜</div>
                     <div>{externals.map( ext => {
-                        return (
-                            <div>
-                                <div>{ext.loginProvider}</div>
-                            </div>
-                        );
+                          if (ext.loginProvider == 'Google')
+                          {
+                            return (
+                                <div>
+                                    <div>{ext.loginProvider}</div>
+                                </div>
+                            );
+                          }
+                          else if (ext.loginProvider == 'FaceBook')
+                          {
+                            return (
+                                <div>
+                                    <div>페북</div>
+                                </div>
+                            );
+                          }
+                          else if (ext.loginProvider == 'GitHub')
+                          {
+                            return (
+                                <div>
+                                    <div>깃허브</div>
+                                </div>
+                            );
+                          }
                     })} 
                     </div>
                </div>
