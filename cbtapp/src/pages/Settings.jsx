@@ -18,6 +18,11 @@ export default function Settings(props) {
     let history = useHistory();
 
     const [name, setName] = React.useState('james');
+    const constExternals = [
+        'Google',
+        'FaceBook',
+        'GitHub'
+    ]
 
     const requestOptions = {
         method: 'POST',
@@ -166,7 +171,16 @@ export default function Settings(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <div>{externals.map( ext => {
+                       
+                        <div>{constExternals.map( ext=>{
+                                return (
+                                    <div>
+                                        <div>{ext}</div>
+                                    </div>
+                                );
+                        })}</div>
+                        
+                    {/* <div>{externals.map( ext => {
                         return (
                             <div>
                                 <div>{ext.loginProvider}</div>
@@ -174,7 +188,7 @@ export default function Settings(props) {
                             </div>
                         );
                         
-                    })}</div> 
+                    })}</div>  */}
                     
                     <Stack direction="row" spacing={1}>
                     

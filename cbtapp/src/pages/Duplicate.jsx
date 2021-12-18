@@ -82,7 +82,7 @@ export default function Duplicate(props) {
         <div style={{margin: '10px'}}>   
               {!stepCompleted ? 
               <div >
-                    <div ><span style={{color: '#BF412E'}}>{userInfo.email}</span> 해당 이메일로 이미 가입이 되었습니다.</div>
+                    <div style={{fontSize: '14px'}}><span style={{color: '#BF412E'}}>{userInfo.email}</span> 해당 이메일로 이미 가입이 되었습니다.</div>
                     <Button sx={{ mt: 1, mr: 1 }} variant="contained" onClick={handleLogin}>로그인 하기</Button>
                </div>
                 
