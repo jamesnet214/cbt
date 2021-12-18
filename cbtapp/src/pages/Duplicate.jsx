@@ -1,18 +1,20 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 
 export default function Duplicate(props) {
     const location = useLocation();
+    const history = useHistory();
     const [userInfo, setUserInfo] = React.useState({});
     const [externals, setExternals] = React.useState([]);
     const [stepCompleted, setStepCompleted] = React.useState(false);
     let id = new URLSearchParams(location.search).get('id');
 
     const handleLogin = () => {
-        location.push("/login");
+        history.push("/login");
     };
 
     const requestOptions = {
