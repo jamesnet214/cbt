@@ -6,10 +6,14 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
+import { Chip } from "@mui/material";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
     const [externals, setExternals] = React.useState([]);
+    const [educations, setEducations] = React.useState([]);
+    
+    const [education, setEducation] = React.useState("");
 
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
@@ -33,6 +37,16 @@ export default function Settings(props) {
             'Access-Control-Allow-Methods': '*',
         }
     };
+
+    // const handleExternal = (ext) => {
+    //     alert(ext);
+    // }
+
+    const handleExternal = () => {
+        // alert('테스트')
+        // history.push("https://localhost:7073//Manage/ExternalLogins");
+        window.location.href = "https://localhost:7073/Identity/Account/Manage/ExternalLogins";
+    }
 
     React.useEffect(() => {
 
@@ -66,16 +80,40 @@ export default function Settings(props) {
 
                 setExternals(_externals);
                 console.log('Users:', userInfo);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            })
+            .catch(function (error) {
+                console.log(error);
+        });
+
+        getEducations();
+
     }, []);
+
+    const getEducations = () => {
+        const data = {
+            "id": id
+        };
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/getEducations', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                setEducations(data.map(edu => {
+                    return ({ 
+                        seq: edu.seq,
+                        userId: edu.userId,
+                        name: edu.name,
+                    });
+                }));
+            })
+            .catch(function (error) {
+                console.log(error);
+        });
+    }
+
 
     const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
     const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
     const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
-    const schoolChanged = (e) => setUserInfo({...userInfo, school: e.target.value});
+    const educationChanged = (e) => setEducation(e.target.value);
     const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
     const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
     const certificateChanged = (e) => setUserInfo({...userInfo,  certificate: e.target.value});
@@ -101,6 +139,51 @@ export default function Settings(props) {
             console.log(error);
           });    
     }
+    
+    const deleteEducation = (seq) => {
+        const data = {
+            seq: seq,
+            userId: id,
+            
+        }
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/deleteEducation', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                console.log('completed:', data);
+                if (data == "1") {
+                    getEducations();
+                }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });    
+    }  
+    
+    const addEducationClick = (e) => {
+        const data = {
+            userId: id,
+            name: education
+        }
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/addEducation', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                console.log('completed:', data);
+                if (data == "1") {
+                    getEducations();
+                }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });    
+    }  
+    
+    const eduChipClick = () => {
+        // 암것도안함
+    };
+    
+    const eduChipDelete = (e, seq) => {
+        deleteEducation(seq);
+    };
 
     return (
         <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
@@ -148,20 +231,47 @@ export default function Settings(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                        <div>
-                            <Button style={{ marginLeft: "auto" }} variant="contained" size="small" color="success" onClick={saveClick}>
-                                Update
-                            </Button>
-                        </div>
-                        <br/>
-                        <TextField required
+                    <div>
+                        <Button style={{ marginLeft: "auto" }} 
+                            variant="contained"
+                            size="small"
+                            color="success"
+                            onClick={saveClick}
+                            children="Update"/>
+                    </div>
+                    
+                    <br/>
+                    <Stack direction="row" spacing={1}>
+                        
+                        {educations.map(edu => {
+                            return (
+                                <Chip
+                                    label={edu.name}
+                                    onClick={eduChipClick}
+                                    onDelete={(e) => eduChipDelete(e, edu.seq)}/>
+                            );
+                        })}
+                    </Stack>
+
+                    <br/>
+
+                    <TextField required
                         size="small"
                         id="outlined-size-small"
                         label="Education"
                         variant="outlined"
-                        defaultValue={userInfo["school"]}
-                        onChange={schoolChanged}/>
-                        <br/>
+                        defaultValue={education}
+                        onChange={educationChanged}/>
+                    
+                    <Button style={{ marginLeft: "auto" }} 
+                        variant="contained"
+                        size="small"
+                        color="success"
+                        onClick={addEducationClick}
+                        children="학교 추가"/>
+
+                    <br/>
+
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -170,13 +280,35 @@ export default function Settings(props) {
                         defaultValue={userInfo["certificate"]}
                         onChange={certificateChanged}/>
                         <br/>
-                       
+
+                        <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
+                            <div style={{fontWeight: 'bold',fontSize: '18px',}}>
+                                연결된 계정
+                            </div>
+                            <Button sx={{ ml: 5}} variant="contained" color="success" onClick={handleExternal}>다른 계정 추가</Button>
+                        </div>
                         <div>{constExternals.map( ext=>{
+                            if (externals.some(v => v.loginProvider == ext))
+                            {
                                 return (
-                                    <div>
-                                        <div>{ext}</div>
+                                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
+                                        <div style={{display: 'flex'}}>
+                                            <div style={{width: '100px'}}>{ext}</div>
+                                            <div>{userInfo["email"]}</div>
+                                        </div>
+                                        <Button sx={{ ml: 5}} variant="contained" color="error">삭제</Button>
                                     </div>
                                 );
+                            }
+                            // else
+                            // {
+                            //     return (
+                            //         <div style={{display: 'flex', alignItems: 'center',margin: '0 0 10px 0px'}}>
+                            //             <div style={{width: '100px'}}>{ext}</div>
+                            //             <Button sx={{ mt: 1, mr: 1 }} variant="contained" color="success" onClick={() => handleExternal(ext)}>연결</Button>
+                            //         </div>
+                            //     );
+                            // }
                         })}</div>
                         
                     {/* <div>{externals.map( ext => {
@@ -188,7 +320,7 @@ export default function Settings(props) {
                         );
                         
                     })}</div>  */}
-                     
+
                     <Stack direction="row" spacing={1}>
                     
                     </Stack>
