@@ -7,7 +7,6 @@ import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { Chip } from "@mui/material";
-import { response } from "express";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -46,14 +45,6 @@ export default function Settings(props) {
     }
 
     React.useEffect(() => {
-        getUserExternals();
-        getEducations();
-        getCertificates();
-
-    }, []);
-
-
-    const getUserExternals = () => {
         const data = {
             "id": id
         };
@@ -88,6 +79,14 @@ export default function Settings(props) {
             .catch(function (error) {
                 console.log(error);
         });
+        getEducations();
+        getCertificates();
+
+    }, []);
+
+
+    const getUserExternals = () => {
+        
     };
 
     const getCertificates = () => {
