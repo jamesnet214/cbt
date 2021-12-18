@@ -12,8 +12,10 @@ export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
     const [externals, setExternals] = React.useState([]);
     const [educations, setEducations] = React.useState([]);
-    
     const [education, setEducation] = React.useState("");
+    const [certificates, setCertificates] = React.useState([]);
+
+    
 
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
@@ -86,8 +88,29 @@ export default function Settings(props) {
         });
 
         getEducations();
+        getCertificates();
 
     }, []);
+
+    const getCertificates = () => {
+        const data = {
+            "id": id
+        };
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/getCertificates', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                setCertificates(data.map(cer => {
+                    return ({
+                        seq: cer.seq,
+                        userId: cer.userId,
+                        name: cer.name,
+                    });
+                }));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     const getEducations = () => {
         const data = {
@@ -176,6 +199,14 @@ export default function Settings(props) {
             console.log(error);
           });    
     }  
+
+    const cerChipClick = () => {
+
+    };
+
+    const cerChipDelete = (e, seq) => {
+        // deleteCertificate(seq);
+    }
     
     const eduChipClick = () => {
         // 암것도안함
@@ -272,6 +303,20 @@ export default function Settings(props) {
 
                     <br/>
 
+                    <Stack direction="row" spacing={1}>
+                        
+                        {certificates.map(cer => {
+                            return (
+                                <Chip
+                                    label={cer.name}
+                                    onClick={cerChipClick}
+                                    onDelete={(e) => cerChipDelete(e, cer.seq)}/>
+                            );
+                        })}
+                    </Stack>
+
+                    <br/>
+                    
                     <TextField required
                         size="small"
                         id="outlined-size-small"
