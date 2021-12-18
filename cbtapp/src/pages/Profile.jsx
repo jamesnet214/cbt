@@ -18,25 +18,7 @@ export default function Profile(props) {
 
         const data = {
             "id": id,
-            "userName": "string",
-            "email": "string",
-            "blog": "string",
-            "gitHubId": "string",
-            "school": "string",
-            "name": "string",
-            "userId": "string"
         };
-
-        const data2 = {
-            "seq": 0,
-            "userId": id,
-            "subject": "string",
-            "ining": 0,
-            "elective": "string",
-            "problemCount": 0,
-            "resultCount": 0,
-            "created": "2021-12-05T13:43:14.151Z"
-        }
 
         const requestOptions = {
             method: 'POST',
