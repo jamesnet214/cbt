@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { Chip } from "@mui/material";
+import { response } from "express";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -14,15 +15,13 @@ export default function Settings(props) {
     const [educations, setEducations] = React.useState([]);
     const [education, setEducation] = React.useState("");
     const [certificates, setCertificates] = React.useState([]);
-
-    
-
+    const [certificate, setCertificate] = React.useState("");
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
     console.log('ID: ', id);
 
     let history = useHistory();
-
+    
     const [name, setName] = React.useState('james');
     const constExternals = [
         'Google',
@@ -40,10 +39,6 @@ export default function Settings(props) {
         }
     };
 
-    // const handleExternal = (ext) => {
-    //     alert(ext);
-    // }
-
     const handleExternal = () => {
         // alert('테스트')
         // history.push("https://localhost:7073//Manage/ExternalLogins");
@@ -51,7 +46,14 @@ export default function Settings(props) {
     }
 
     React.useEffect(() => {
+        getUserExternals();
+        getEducations();
+        getCertificates();
 
+    }, []);
+
+
+    const getUserExternals = () => {
         const data = {
             "id": id
         };
@@ -86,11 +88,7 @@ export default function Settings(props) {
             .catch(function (error) {
                 console.log(error);
         });
-
-        getEducations();
-        getCertificates();
-
-    }, []);
+    };
 
     const getCertificates = () => {
         const data = {
@@ -132,14 +130,13 @@ export default function Settings(props) {
         });
     }
 
-
     const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
     const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
     const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
     const educationChanged = (e) => setEducation(e.target.value);
     const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
-    const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});
-    const certificateChanged = (e) => setUserInfo({...userInfo,  certificate: e.target.value});
+    const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});    
+    const certificateChanged = (e) => setCertificate(e.target.value);
 
     const saveClick = (e) => {
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
@@ -162,7 +159,7 @@ export default function Settings(props) {
             console.log(error);
           });    
     }
-    
+
     const deleteEducation = (seq) => {
         const data = {
             seq: seq,
@@ -181,6 +178,23 @@ export default function Settings(props) {
             console.log(error);
           });    
     }  
+
+    const addCertificateClick = (e) => {
+        const data = {
+            userId: id,
+            name: certificate
+        }
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/addCertificate', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                if (data == "1"){
+                    getCertificates();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
     
     const addEducationClick = (e) => {
         const data = {
@@ -316,14 +330,24 @@ export default function Settings(props) {
                     </Stack>
 
                     <br/>
-                    
+
                     <TextField required
                         size="small"
                         id="outlined-size-small"
                         label="Certificate"
                         variant="outlined"
-                        defaultValue={userInfo["certificate"]}
+                        defaultValue={certificate}
                         onChange={certificateChanged}/>
+
+                    <Button style={{ marginLeft: "auto" }} 
+                        variant="contained"
+                        size="small"
+                        color="success"
+                        onClick={addCertificateClick}
+                        children="자격증 추가"/>
+
+                    <br/>
+
                         <br/>
 
                         <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
