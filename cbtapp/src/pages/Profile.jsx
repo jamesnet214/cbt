@@ -4,8 +4,11 @@ import { useLocation, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { margin, padding, textAlign } from "@mui/system";
 import { Container, Divider, Stack, Typography } from "@mui/material";
+import Cookies from 'universal-cookie';
 
 export default function Profile(props) {
+    const cookies = new Cookies();
+    const token = cookies.get('.cbt.devncore.org.authentication.session');
     const [userInfo, setUserInfo] = React.useState({}); 
     const [examResult, SetExamResult] = React.useState({});
     const location = useLocation();
@@ -17,7 +20,8 @@ export default function Profile(props) {
         console.log('profileId:', id);
 
         const data = {
-            "id": id,
+            "userId": id,
+            "token": token
         };
 
         const requestOptions = {

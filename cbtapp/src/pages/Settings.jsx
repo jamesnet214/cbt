@@ -88,7 +88,7 @@ export default function Settings(props) {
 
     const getUserExternals = () => {
         const data = {
-            "id": token
+            "token": token
         };
         console.log(data);
 
@@ -125,7 +125,7 @@ export default function Settings(props) {
 
     const getCertificates = () => {
         const data = {
-            "id": token
+            "token": token
         };
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/getCertificates', data, requestOptions)
             .then(function (response) {
@@ -145,7 +145,7 @@ export default function Settings(props) {
 
     const getEducations = () => {
         const data = {
-            "id": token
+            "token": token
         };
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/getEducations', data, requestOptions)
             .then(function (response) {
@@ -204,6 +204,7 @@ export default function Settings(props) {
                 const data = response.data;
                 setUserInfo({ 
                     id: userInfo.id,
+                    email: userInfo.email,
                     userName: userInfo.userName,
                     phone: userInfo.phone,
                     aboutMe: userInfo.aboutMe,
@@ -213,7 +214,7 @@ export default function Settings(props) {
                     certificate: userInfo.certificate
                 });
                 console.log('Users:', userInfo);
-                history.push(`/profile?id=${userInfo.id}`);   
+                history.push(`/settings`);   
           })
           .catch(function (error) {
             console.log(error);
