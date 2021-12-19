@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { Chip } from "@mui/material";
+import Cookies from 'universal-cookie';
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -15,14 +16,16 @@ export default function Settings(props) {
     const [education, setEducation] = React.useState("");
     const [certificates, setCertificates] = React.useState([]);
     const [certificate, setCertificate] = React.useState("");
-    const location = useLocation();
-    const id = new URLSearchParams(location.search).get('id');
-    console.log('ID: ', id);
+
+    const cookies = new Cookies();
+    const token = cookies.get('.cbt.devncore.org.authentication.session');
+
+    console.log('ID: ', token);
     let history = useHistory();
     
     const constExternals = [
         'Google',
-        'FaceBook',
+        'Facebook',
         'GitHub'
     ]
 
@@ -39,7 +42,8 @@ export default function Settings(props) {
     const handleExternal = () => {
         // alert('테스트')
         // history.push("https://localhost:7073//Manage/ExternalLogins");
-        window.location.href = "https://localhost:7073/Identity/Account/Manage/ExternalLogins";
+        // window.location.href = "https://localhost:7073/Identity/Account/Manage/ExternalLogins";
+        window.location.href = "https://localhost:7073/Identity/Account/OAuthLogin?Provider=GitHub&ReturnUrl=~%2Fcbt#_=_";
     }
 
     React.useEffect(() => {
@@ -59,7 +63,7 @@ export default function Settings(props) {
 
     const getUserExternals = () => {
         const data = {
-            "id": id
+            "id": token
         };
         console.log(data);
 
@@ -96,7 +100,7 @@ export default function Settings(props) {
 
     const getCertificates = () => {
         const data = {
-            "id": id
+            "id": token
         };
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/getCertificates', data, requestOptions)
             .then(function (response) {
@@ -116,7 +120,7 @@ export default function Settings(props) {
 
     const getEducations = () => {
         const data = {
-            "id": id
+            "id": token
         };
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/getEducations', data, requestOptions)
             .then(function (response) {
@@ -136,7 +140,7 @@ export default function Settings(props) {
 
     const addCertificateClick = (e) => {
         const data = {
-            userId: id,
+            token: token,
             name: certificate
         }
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/addCertificate', data, requestOptions)
@@ -153,7 +157,7 @@ export default function Settings(props) {
     
     const addEducationClick = (e) => {
         const data = {
-            userId: id,
+            token: token,
             name: education
         }
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/addEducation', data, requestOptions)
@@ -194,7 +198,7 @@ export default function Settings(props) {
     const deleteCertificate = (seq) => {
         const data = {
             seq: seq,
-            userId: id,
+            token: token,
         }
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/deleteCertificate', data, requestOptions)
             .then(function (response) {
@@ -212,7 +216,7 @@ export default function Settings(props) {
     const deleteEducation = (seq) => {
         const data = {
             seq: seq,
-            userId: id,
+            token: token,
         }
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/deleteEducation', data, requestOptions)
             .then(function (response) {

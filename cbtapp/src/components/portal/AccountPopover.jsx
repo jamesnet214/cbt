@@ -42,7 +42,7 @@ export default function AccountPopover(props) {
 
     const settingClick = (event) => {
         setAnchorEl(null);
-        history.push(`/settings?id=${userInfo.id}`);
+        history.push(`/settings`);
         console.log(userInfo.id);
     };
 
