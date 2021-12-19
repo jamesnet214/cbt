@@ -5,7 +5,7 @@ import { fontSize } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
     margin: {
-        marginRight: "auto"
+        fontSize: 15
     }
 })); 
 
@@ -16,6 +16,9 @@ export default function NcoreButton(props) {
         <div>
             <Button 
                 className={classes.margin}
+                size="small"
+                color="success"
+                variant="contained"
                 {...props}>
             </Button>
         </div>

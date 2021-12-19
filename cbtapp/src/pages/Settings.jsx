@@ -201,6 +201,7 @@ export default function Settings(props) {
                 console.log('completed:', data);
                 if (data == "1") {
                     getEducations();
+                    education = ''
                 }
           })
           .catch(function (error) {
@@ -323,25 +324,10 @@ export default function Settings(props) {
                         defaultValue={userInfo["aboutMe"]} 
                         onChange={aboutMeChanged}/>
                     
-                    <div>
-                        <NcoreButton style={{ marginLeft: "auto" }} 
-                            variant="contained"
-                            size="small"
-                            color="success"
-                            children="Update" 
-                            onClick={saveClick}
-                        />  
-                    </div>
+                    <NcoreButton 
+                        children="Update" 
+                        onClick={saveClick}/>  
                     <br/>
-                    {/* <div>
-                        <Button style={{ marginLeft: "auto" }} 
-                            variant="contained"
-                            size="small"
-                            color="success"
-                            onClick={saveClick}
-                            children="Update"/>
-                    </div> */}
-                    
                     <Stack direction="row" spacing={1}>
                         {educations.map(edu => {
                             return (
@@ -358,12 +344,9 @@ export default function Settings(props) {
                         defaultValue={education} 
                         onChange={educationChanged}/>
                   
-                    <Button style={{ marginRight: "auto" }} 
-                        variant="contained"
-                        size="small"
-                        color="success"
-                        onClick={addEducationClick}
-                        children="학교 추가"/>
+                    <NcoreButton 
+                        children="학교 추가" 
+                        onClick={addEducationClick}/>
                     <br/>
                     <Stack direction="row" spacing={1}>
                         
@@ -381,13 +364,10 @@ export default function Settings(props) {
                         title="Certificate"
                         defaultValue={certificate} 
                         onChange={certificateChanged}/>
-                   
-                    <Button style={{ marginRight: "auto" }} 
-                        variant="contained"
-                        size="small"
-                        color="success"
-                        onClick={addCertificateClick}
-                        children="자격증 추가"/>
+                    
+                    <NcoreButton 
+                        children="자격증 추가" 
+                        onClick={addCertificateClick}/>
                     <br/>
                     <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
                         <div style={{fontWeight: 'bold',fontSize: '18px',}}>
