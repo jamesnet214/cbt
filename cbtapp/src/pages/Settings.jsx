@@ -8,6 +8,10 @@ import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { Chip } from "@mui/material";
 import Cookies from 'universal-cookie';
+import { alpha, styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -271,6 +275,43 @@ export default function Settings(props) {
         deleteEducation(seq);
     };
 
+    const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    'label + &': {
+        marginTop: theme.spacing(3),
+    },
+    '& .MuiInputBase-input': {
+        borderRadius: 4,
+        position: 'relative',
+        backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
+        border: '1px solid #ced4da',
+        fontSize: 16,
+        width: '500px',
+        padding: '10px 12px',
+        transition: theme.transitions.create([
+        'border-color',
+        'background-color',
+        'box-shadow',
+        ]),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        ].join(','),
+        '&:focus': {
+        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+        borderColor: theme.palette.primary.main,
+        },
+    },
+    }));
+
     return (
         <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
             {userInfo != null ?
@@ -278,45 +319,42 @@ export default function Settings(props) {
                     <div style={{ display: "flex", justifyContent: 'flex-start', fontSize: 25, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}</div>                    
                     <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]} </div>
                     <div style={{ fontSize: 12, marginBottom: 10 }}>{"Email: " + userInfo["email"] }</div>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Name"
-                        inputProps={{ maxLength: 12}}
-                        variant="outlined"
-                        defaultValue={userInfo["userName"]}
-                        onChange={userNameChanged}/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Phone"
-                        inputProps={{ maxLength: 11 }}
-                        variant="outlined"
-                        defaultValue={userInfo["phone"]}
-                        onChange={phoneChanged}/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="GithubId"
-                        variant="outlined"
-                        defaultValue={userInfo["gitHubId"]}
-                        onChange={gitHubIdChanged}/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Blog"
-                        variant="outlined"
-                        defaultValue={userInfo["blog"]}
-                        onChange={blogChanged}/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="aboutMe" 
-                        variant="outlined"                        
-                        multiline
-                        rows="4"
-                        defaultValue={userInfo["aboutMe"]}
-                        onChange={aboutMeChanged}/>
+
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            Name
+                        </InputLabel>
+                        <BootstrapInput defaultValue={userInfo["userName"]} id="bootstrap-input" inputProps={{ maxLength: 12}} onChange={userNameChanged}/>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            Phone
+                        </InputLabel>
+                        <BootstrapInput defaultValue={userInfo["phone"]} id="bootstrap-input" inputProps={{ maxLength: 11}} onChange={phoneChanged}/>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            GithubId
+                        </InputLabel>
+                        <BootstrapInput defaultValue={userInfo["gitHubId"]} id="bootstrap-input" onChange={gitHubIdChanged}/>
+                    </FormControl>
+                 
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            Blog
+                        </InputLabel>
+                        <BootstrapInput defaultValue={userInfo["blog"]} id="bootstrap-input" onChange={blogChanged}/>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            aboutMe
+                        </InputLabel>
+                        <BootstrapInput defaultValue={userInfo["aboutMe"]} id="bootstrap-input" rows="4" multiline onChange={aboutMeChanged}/>
+                    </FormControl>
+                  
                     <div>
                         <Button style={{ marginLeft: "auto" }} 
                             variant="contained"
