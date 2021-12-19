@@ -74,16 +74,21 @@ export default function AccountPopover(props) {
                         children="Sign In"/>
                 : 
                     <div>
-                        <Stack margin={2}>
-                            <Typography variant="body2"><strong>{userInfo.userName}</strong></Typography>
-                            <Typography variant="caption">{userInfo.email}</Typography>
+                        <Stack direction="row" margin={2} spacing={1.5}>
+                            <AvatarIcon name={userInfo.userName}/>
+                            <Stack>
+                                <Typography variant="body2"><strong>{userInfo.userName}</strong></Typography>
+                                <Typography variant="caption">{userInfo.aboutMe}</Typography>
+                            </Stack>
                         </Stack>
-                        <Divider/>
+                        <Divider style={{margin: "6px 0px 6px 0px"}}/>
+
                         <MenuItem 
+                            style={{ padding: "6px 20px 6px 20px", margin: 0, fontSize: "14px"}} 
                             onClick={settingClick}
-                            children="Settings"/>
+                            children="Account Settings"/>
                         <MenuItem 
-                            style={{ textAlign: "right"}} 
+                            style={{ padding: "6px 20px 6px 20px", margin: 0, fontSize: "14px"}} 
                             onClick={signOutClick}
                             children="Sign Out"/>
                     </div>

@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-import { Chip } from "@mui/material";
+import { Chip, MenuItem, Select, Typography } from "@mui/material";
 import Cookies from 'universal-cookie';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -14,6 +14,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import NcoreTextField from "../components/input/NcoreTextField";
 import NcoreButton from "../components/input/NcoreButton";
+import NcoreSelect from "../components/input/NcoreSelect";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -292,12 +293,20 @@ export default function Settings(props) {
                          justifyContent: 'flex-start',
                          fontSize: 25,
                          marginBottom: 0,
-                         fontWeight: 'bold'}}>
-                         {"사용자 정보변경"}
-                    </div>                    
-                    <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]}</div>
-                    <div style={{ fontSize: 12, marginBottom: 10 }}>{"Email: " + userInfo["email"] }</div>
-
+                         fontWeight: 'normal'}}>
+                         User Profile
+                    </div>               
+                    <Divider/>     
+                    <NcoreSelect 
+                        disabled
+                        title="Public email" 
+                        defaultValue={userInfo["email"]}>
+                        <MenuItem value={userInfo["email"]}>{userInfo["email"]}</MenuItem>
+                    </NcoreSelect>
+                    <Typography variant="caption" color="#666666">
+                        You can manage verified email addresses in your <a href="#">email settings.</a>
+                    </Typography>
+                    <Divider/>     
                     <NcoreTextField 
                         title="Name"
                         value={userInfo["userName"]} 
@@ -309,7 +318,7 @@ export default function Settings(props) {
                         onChange={phoneChanged}/>
 
                     <NcoreTextField 
-                        title="GitHubId"
+                        title="GitHub"
                         value={userInfo["gitHubId"]} 
                         onChange={gitHubIdChanged}/>
 
@@ -319,14 +328,12 @@ export default function Settings(props) {
                         onChange={blogChanged}/>
 
                     <NcoreTextField 
-                        multiline
-                        title="AboutMe"
-                        rows="4" 
+                        title="Introduce myself"
                         value={userInfo["aboutMe"]} 
                         onChange={aboutMeChanged}/>
-                    
+                    <Divider/>   
                     <NcoreButton 
-                        children="Update" 
+                        children="Update Profile" 
                         onClick={saveClick}/>  
                     <br/>
                     <Stack direction="row" spacing={1}>
@@ -345,9 +352,9 @@ export default function Settings(props) {
                         title="Education"
                         value={education}
                         onChange={educationChanged}/>
-                  
+                        <Divider/>   
                     <NcoreButton 
-                        children="학교 추가" 
+                        children="Add Education" 
                         onClick={addEducationClick}/>
                     <br/>
                     <Stack direction="row" spacing={1}>
@@ -367,9 +374,9 @@ export default function Settings(props) {
                         title="Certificate"
                         value={certificate} 
                         onChange={certificateChanged}/>
-                    
+                    <Divider/>   
                     <NcoreButton 
-                        children="자격증 추가" 
+                        children="Add Certification" 
                         onClick={addCertificateClick}/>
                     <br/>
                     <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>

@@ -21,9 +21,10 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
         position: 'relative',
         backgroundColor: theme.palette.mode === 'light' ? '#F6F8FA' : '#F6F8FA',
         border: '1px solid #ced4da',
-        fontSize: 16,
-        width: '500px',
-        padding: '10px 12px',
+        fontSize: 14,
+        lineHeight: "28px",
+        height: "28px",
+        padding: '0px 12px 0px 12px',
         transition: theme.transitions.create([
             'border-color',
             'background-color',
@@ -55,7 +56,8 @@ export default function NcoreTextField(props) {
     return (
         <Stack>
             <Typography
-                variant="caption"
+                style={{fontWeight: "normal", marginTop: 8, marginBottom: 6}}
+                variant="body2"
                 className={classes.title}
                 children={props.title}/>
             <BootstrapInput {...props}/>

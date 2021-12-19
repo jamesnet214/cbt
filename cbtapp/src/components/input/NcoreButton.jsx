@@ -4,8 +4,13 @@ import { makeStyles, useTheme } from "@mui/styles";
 import { fontSize } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
-    margin: {
-        fontSize: 15
+    button: {
+        lineHeight: "28px",
+        height: "28px",
+        padding: '0px 12px 0px 12px',
+        fontSize: 14,
+        minWidth: 80,
+        textTransform: "none"
     }
 })); 
 
@@ -15,7 +20,7 @@ export default function NcoreButton(props) {
     return (
         <div>
             <Button 
-                className={classes.margin}
+                className={classes.button}
                 size="small"
                 color="success"
                 variant="contained"
