@@ -355,7 +355,7 @@ export default function Settings(props) {
                         {certificates.map((cer, index) => {
                             return (
                                 <Chip
-                                    key={index}
+                                key={index}
                                     label={cer.name}
                                     onClick={cerChipClick}
                                     onDelete={(e) => cerChipDelete(e, cer.seq)}/>
@@ -378,7 +378,7 @@ export default function Settings(props) {
                         </div>
                         {/* <Button sx={{ ml: 5}} variant="contained" color="success" onClick={handleExternal}>다른 계정 추가</Button> */}
                     </div>
-                    <div>{constExternals.map((ext, index) => {
+                    <div>{constExternals.map((ext, index)=>{
                         if (externals.some(v => v.loginProvider == ext))
                         {
                             return (
@@ -397,7 +397,7 @@ export default function Settings(props) {
                         else
                         {
                             return (
-                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',margin: '0 0 10px 0px'}}>
+                                <div key={index} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',margin: '0 0 10px 0px'}}>
                                     <div style={{width: '100px'}}>{ext}</div>
                                     <NcoreButton 
                                         children="연결" 
@@ -406,20 +406,6 @@ export default function Settings(props) {
                             );
                         }
                     })}</div>
-                        
-                    {/* <div>{externals.map( ext => {
-                        return (
-                            <div>
-                                <div>{ext.loginProvider}</div>
-                                <div>{ext.providerKey}</div>
-                            </div>
-                        );
-                        
-                    })}</div>  */}
-
-                    <Stack direction="row" spacing={1}>
-                    
-                    </Stack>
                 </>
                 : null
             }
