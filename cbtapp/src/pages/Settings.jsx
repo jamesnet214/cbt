@@ -286,7 +286,7 @@ export default function Settings(props) {
     };
 
     return (
-        <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
+        <Stack style={{padding: 25, maxWidth: 480, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
                     <div style={{ display: "flex",
