@@ -70,7 +70,7 @@ export default function Portal(props) {
 
     const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
-          overflowY: 'hidden',
+          overflowY: 'auto',
           flexGrow: 1,
           padding: theme.spacing(0),
           transition: theme.transitions.create('margin', {
@@ -106,7 +106,7 @@ export default function Portal(props) {
                               style={{ zIndex: 9999 }}/>    
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
-                        <Main open={open} style={{overflowY: "auto"}}>
+                        <Main open={open}>
                             <Route path='/login' component={Login}/>       
                             <Route path='/cbt/id=0' render={() => getCbt('0')}/>
                             <Route path='/cbt/id=1' render={() => getCbt('1')}/>

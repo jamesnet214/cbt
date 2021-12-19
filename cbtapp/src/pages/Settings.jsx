@@ -13,6 +13,7 @@ import InputBase from '@mui/material/InputBase';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import NcoreTextField from "../components/input/NcoreTextField";
+import NcoreButton from "../components/input/NcoreButton";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -321,16 +322,26 @@ export default function Settings(props) {
                         rows="4" 
                         defaultValue={userInfo["aboutMe"]} 
                         onChange={aboutMeChanged}/>
-                  
+                    
                     <div>
+                        <NcoreButton style={{ marginLeft: "auto" }} 
+                            variant="contained"
+                            size="small"
+                            color="success"
+                            children="Update" 
+                            onClick={saveClick}
+                        />  
+                    </div>
+                    <br/>
+                    {/* <div>
                         <Button style={{ marginLeft: "auto" }} 
                             variant="contained"
                             size="small"
                             color="success"
                             onClick={saveClick}
                             children="Update"/>
-                    </div>
-                    <br/>
+                    </div> */}
+                    
                     <Stack direction="row" spacing={1}>
                         {educations.map(edu => {
                             return (
