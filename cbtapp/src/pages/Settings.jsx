@@ -281,71 +281,34 @@ export default function Settings(props) {
         deleteEducation(seq);
     };
 
-    const BootstrapInput = styled(InputBase)(({ theme }) => ({
-        'label + &': {
-        marginTop: theme.spacing(3),
-        },
-        '& .MuiInputBase-input': {
-        borderRadius: 4,
-        position: 'relative',
-        backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
-        border: '1px solid #ced4da',
-        fontSize: 16,
-        width: '500px',
-        padding: '10px 12px',
-        transition: theme.transitions.create([
-        'border-color',
-        'background-color',
-        'box-shadow',
-        ]),
-        // Use the system font instead of the default Roboto font.
-        fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        ].join(','),
-        '&:focus': {
-        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-        borderColor: theme.palette.primary.main,
-        },
-    },
-    }));
-
     return (
         <Stack style={{padding: 50, maxWidth: 480, background: "white"}} spacing={1}>
             {userInfo != null ?
                 <>
-                    <div style={{ display: "flex", justifyContent: 'flex-start', fontSize: 25, marginBottom: 0, fontWeight: 'bold'}}>{"사용자 정보변경"}</div>                    
-                    <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]} </div>
+                    <div style={{ display: "flex",
+                         justifyContent: 'flex-start',
+                         fontSize: 25,
+                         marginBottom: 0,
+                         fontWeight: 'bold'}}>
+                         {"사용자 정보변경"}
+                    </div>                    
+                    <div style={{ fontSize: 12 }}>{"ID: " + userInfo["id"]}</div>
                     <div style={{ fontSize: 12, marginBottom: 10 }}>{"Email: " + userInfo["email"] }</div>
 
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            Name
-                        </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["userName"]} inputProps={{ maxLength: 12}} onChange={userNameChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="Name"
+                        defaultValue={userInfo["userName"]} 
+                        onChange={userNameChanged}/>
 
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            Phone
-                        </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["phone"]} inputProps={{ maxLength: 11}} onChange={phoneChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="Phone"
+                        defaultValue={userInfo["phone"]} 
+                        onChange={phoneChanged}/>
 
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-githubId" style={{ fontSize: 20}}>
-                            GithubId
-                        </InputLabel>
-                        <BootstrapInput id="bootstrap-githubId" defaultValue={userInfo["gitHubId"]} onChange={gitHubIdChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="GitHubId"
+                        defaultValue={userInfo["gitHubId"]} 
+                        onChange={gitHubIdChanged}/>
 
                     <NcoreTextField 
                         title="Blog"
@@ -379,12 +342,11 @@ export default function Settings(props) {
                         })}
                     </Stack>
                     <br/>
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            Education
-                        </InputLabel>
-                        <BootstrapInput defaultValue={education} onChange={educationChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="Education"
+                        defaultValue={education} 
+                        onChange={educationChanged}/>
+                  
                     <Button style={{ marginRight: "auto" }} 
                         variant="contained"
                         size="small"
@@ -404,12 +366,11 @@ export default function Settings(props) {
                         })}
                     </Stack>
                     <br/>
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            Certificate
-                        </InputLabel>
-                        <BootstrapInput defaultValue={certificate} onChange={certificateChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="Certificate"
+                        defaultValue={certificate} 
+                        onChange={certificateChanged}/>
+                   
                     <Button style={{ marginRight: "auto" }} 
                         variant="contained"
                         size="small"
