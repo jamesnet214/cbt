@@ -336,6 +336,7 @@ export default function Settings(props) {
                         children="Update Profile" 
                         onClick={saveClick}/>  
                     <br/>
+                    <br/>
                     <Stack direction="row" spacing={1}>
                         {educations.map((edu, index) => {
                             return (
@@ -347,7 +348,6 @@ export default function Settings(props) {
                             );
                         })}
                     </Stack>
-                    <br/>
                     <NcoreTextField 
                         title="Education"
                         value={education}
@@ -356,6 +356,7 @@ export default function Settings(props) {
                     <NcoreButton 
                         children="Add Education" 
                         onClick={addEducationClick}/>
+                    <br/>
                     <br/>
                     <Stack direction="row" spacing={1}>
                         
@@ -369,7 +370,6 @@ export default function Settings(props) {
                             );
                         })}
                     </Stack>
-                    <br/>
                     <NcoreTextField 
                         title="Certificate"
                         value={certificate} 
@@ -378,6 +378,7 @@ export default function Settings(props) {
                     <NcoreButton 
                         children="Add Certification" 
                         onClick={addCertificateClick}/>
+                    <br/>
                     <br/>
                     <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
                         <div style={{fontWeight: 'bold',fontSize: '18px',}}>
@@ -416,6 +417,11 @@ export default function Settings(props) {
                 </>
                 : null
             }
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </Stack>
     );
 }
