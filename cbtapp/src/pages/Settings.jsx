@@ -47,6 +47,11 @@ export default function Settings(props) {
     }
 
     const handleDeleteExternal = (ext) => {
+        if (externals.length < 2)
+        {
+            window.alert("하나의 계정은 연결되어 있어야 합니다");
+            return;
+        }
         if (window.confirm("삭제하시겠습니까?"))
         {
             const data = {
@@ -57,7 +62,7 @@ export default function Settings(props) {
                 .then(function (response) {
                     const data = response.data;
                     if (data == "1"){
-                        alert(' 성공');
+                        getUserExternals();
                     }
                     else
                     {
@@ -317,7 +322,7 @@ export default function Settings(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <div style={{ display: 'flex', justifyContent: 'start'}} >
+                    <div style={{ display: 'flex'}} >
                         <Button style={{ marginLeft: "auto" }} 
                             variant="contained"
                             size="small"
