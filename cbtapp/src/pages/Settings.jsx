@@ -316,7 +316,7 @@ export default function Settings(props) {
                         rows="4"
                         defaultValue={userInfo["aboutMe"]}
                         onChange={aboutMeChanged}/>
-                    <div>
+                    <div style={{ display: 'flex', justifyContent: 'start'}} >
                         <Button style={{ marginLeft: "auto" }} 
                             variant="contained"
                             size="small"
