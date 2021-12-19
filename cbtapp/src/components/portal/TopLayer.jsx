@@ -42,19 +42,25 @@ export default function TopLayer(props) {
             Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getLoginUser', data, requestOptions)
                 .then(function (response) {
                     const data = response.data;
-                    setUserInfo({
-                            id: data.id,
-                            userName: data.userName,
-                            userId: data.UserId,
-                            email: data.email,
-                            phone: data.phone,
-                            name: data.name,
-                            school: data.school,
-                            gitHubId: data.gitHubId,
-                            blog: data.blog,
-                            aboutMe: data.aboutMe
-                    });
-                    console.log('loginUserInfo: ', userInfo);
+
+                    if (data.isError == false) {
+                        const result = data.result;
+                        setUserInfo({
+                                id: result.id,
+                                userName: result.userName,
+                                userId: result.UserId,
+                                email: result.email,
+                                phone: result.phone,
+                                name: result.name,
+                                school: result.school,
+                                gitHubId: result.gitHubId,
+                                blog: result.blog,
+                                aboutMe: result.aboutMe
+                        });
+                        console.log('loginUserInfo: ', userInfo);
+                    }
+                    else {
+                    }
                 })
                 .catch(function (error) {
                 console.log(error);
