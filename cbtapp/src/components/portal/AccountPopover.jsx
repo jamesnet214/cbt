@@ -73,7 +73,7 @@ export default function AccountPopover(props) {
                         onClick={signInClick}
                         children="Sign In"/>
                 : 
-                    <>
+                    <div>
                         <Stack margin={2}>
                             <Typography variant="body2"><strong>{userInfo.userName}</strong></Typography>
                             <Typography variant="caption">{userInfo.email}</Typography>
@@ -86,7 +86,7 @@ export default function AccountPopover(props) {
                             style={{ textAlign: "right"}} 
                             onClick={signOutClick}
                             children="Sign Out"/>
-                    </>
+                    </div>
                 }
               </Menu>
         </>
