@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         height: "28px",
         padding: '0px 12px 0px 12px',
         fontSize: 14,
-        minWidth: 80,
+        minWidth: 50,
         textTransform: "none"
     }
 })); 

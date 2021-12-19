@@ -341,6 +341,7 @@ export default function Settings(props) {
                         {educations.map((edu, index) => {
                             return (
                                 <Chip
+                                    size="small"
                                     key={index}
                                     label={edu.name}
                                     onClick={eduChipClick}
@@ -363,7 +364,8 @@ export default function Settings(props) {
                         {certificates.map((cer, index) => {
                             return (
                                 <Chip
-                                key={index}
+                                    size="small"
+                                    key={index}
                                     label={cer.name}
                                     onClick={cerChipClick}
                                     onDelete={(e) => cerChipDelete(e, cer.seq)}/>
@@ -390,9 +392,9 @@ export default function Settings(props) {
                         if (externals.some(v => v.loginProvider == ext))
                         {
                             return (
-                                <div key={index} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
+                                <div key={index} style={{display: 'flex', fontSize: "12px", justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
                                     <div style={{display: 'flex'}}>
-                                        <div style={{width: '100px'}}>{ext}</div>
+                                        <div style={{width: '60px', fontSize: "12px"}}>{ext}</div>
                                         <div>{userInfo["email"]}</div>
                                     </div>
                                     <NcoreButton 
@@ -405,8 +407,8 @@ export default function Settings(props) {
                         else
                         {
                             return (
-                                <div key={index} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',margin: '0 0 10px 0px'}}>
-                                    <div style={{width: '100px'}}>{ext}</div>
+                                <div key={index} style={{display: 'flex', fontSize: "12px", justifyContent: 'space-between', alignItems: 'center',margin: '0 0 10px 0px'}}>
+                                    <div style={{width: '60px', fontSize: "12px"}}>{ext}</div>
                                     <NcoreButton 
                                         children="연결" 
                                         onClick={() => handleExternal(ext)}/>
