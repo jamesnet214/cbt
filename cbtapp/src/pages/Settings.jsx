@@ -94,7 +94,6 @@ export default function Settings(props) {
     const educationChanged = (e) => setEducation(e.target.value);
     const certificateChanged = (e) => setCertificate(e.target.value);
 
-
     const getUserExternals = () => {
         const data = {
             "token": token
@@ -282,10 +281,10 @@ export default function Settings(props) {
     };
 
     const BootstrapInput = styled(InputBase)(({ theme }) => ({
-    'label + &': {
+        'label + &': {
         marginTop: theme.spacing(3),
-    },
-    '& .MuiInputBase-input': {
+        },
+        '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',
         backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
@@ -381,14 +380,13 @@ export default function Settings(props) {
                         })}
                     </Stack>
                     <br/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Education"
-                        variant="outlined"
-                        defaultValue={education}
-                        onChange={educationChanged}/>
-                    <Button style={{ marginLeft: "auto" }} 
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            Education
+                        </InputLabel>
+                        <BootstrapInput defaultValue={education} id="bootstrap-input" onChange={educationChanged}/>
+                    </FormControl>
+                    <Button style={{ marginRight: "auto" }} 
                         variant="contained"
                         size="small"
                         color="success"
@@ -407,14 +405,13 @@ export default function Settings(props) {
                         })}
                     </Stack>
                     <br/>
-                    <TextField required
-                        size="small"
-                        id="outlined-size-small"
-                        label="Certificate"
-                        variant="outlined"
-                        defaultValue={certificate}
-                        onChange={certificateChanged}/>
-                    <Button style={{ marginLeft: "auto" }} 
+                    <FormControl variant="standard">
+                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                            Certificate
+                        </InputLabel>
+                        <BootstrapInput defaultValue={certificate} id="bootstrap-input" onChange={certificateChanged}/>
+                    </FormControl>
+                    <Button style={{ marginRight: "auto" }} 
                         variant="contained"
                         size="small"
                         color="success"
