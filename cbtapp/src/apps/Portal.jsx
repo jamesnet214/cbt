@@ -106,7 +106,7 @@ export default function Portal(props) {
                               style={{ zIndex: 9999 }}/>    
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
-                        <Main open={open}>
+                        <Main open={open} style={{overflowY: "auto"}}>
                             <Route path='/login' component={Login}/>       
                             <Route path='/cbt/id=0' render={() => getCbt('0')}/>
                             <Route path='/cbt/id=1' render={() => getCbt('1')}/>
