@@ -225,9 +225,8 @@ export default function Settings(props) {
                     school: userInfo.school,
                     certificate: userInfo.certificate
                 });
-                //getUserExternals();
                 console.log('Users:', userInfo);
-                window.location.href = 'https://localhost:3000/settings';
+                window.location.href = "/";
 
           })
           .catch(function (error) {
