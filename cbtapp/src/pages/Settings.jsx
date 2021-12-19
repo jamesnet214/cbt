@@ -201,7 +201,7 @@ export default function Settings(props) {
                 console.log('completed:', data);
                 if (data == "1") {
                     getEducations();
-                    education = ''
+                    setEducation('');
                 }
           })
           .catch(function (error) {
