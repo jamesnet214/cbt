@@ -183,6 +183,7 @@ export default function Settings(props) {
                 const data = response.data;
                 if (data == "1"){
                     getCertificates();
+                    setCertificate('');
                 }
             })
             .catch(function (error) {
@@ -202,7 +203,6 @@ export default function Settings(props) {
                 if (data == "1") {
                     getEducations();
                     setEducation('');
-                    console.log("default value:", education);
                 }
           })
           .catch(function (error) {
@@ -225,9 +225,10 @@ export default function Settings(props) {
                     school: userInfo.school,
                     certificate: userInfo.certificate
                 });
-                getUserExternals();
+                //getUserExternals();
                 console.log('Users:', userInfo);
-                // history.push(`/settings`);   
+                window.location.href = 'https://localhost:3000/settings';
+
           })
           .catch(function (error) {
             console.log(error);
@@ -300,29 +301,29 @@ export default function Settings(props) {
 
                     <NcoreTextField 
                         title="Name"
-                        defaultValue={userInfo["userName"]} 
+                        value={userInfo["userName"]} 
                         onChange={userNameChanged}/>
 
                     <NcoreTextField 
                         title="Phone"
-                        defaultValue={userInfo["phone"]} 
+                        value={userInfo["phone"]} 
                         onChange={phoneChanged}/>
 
                     <NcoreTextField 
                         title="GitHubId"
-                        defaultValue={userInfo["gitHubId"]} 
+                        value={userInfo["gitHubId"]} 
                         onChange={gitHubIdChanged}/>
 
                     <NcoreTextField 
                         title="Blog"
-                        defaultValue={userInfo["blog"]} 
+                        value={userInfo["blog"]} 
                         onChange={blogChanged}/>
 
                     <NcoreTextField 
                         multiline
                         title="AboutMe"
                         rows="4" 
-                        defaultValue={userInfo["aboutMe"]} 
+                        value={userInfo["aboutMe"]} 
                         onChange={aboutMeChanged}/>
                     
                     <NcoreButton 
@@ -342,7 +343,6 @@ export default function Settings(props) {
                     <br/>
                     <NcoreTextField 
                         title="Education"
-                        defaultValue={education} 
                         value={education}
                         onChange={educationChanged}/>
                   
@@ -364,7 +364,7 @@ export default function Settings(props) {
                     <br/>
                     <NcoreTextField 
                         title="Certificate"
-                        defaultValue={certificate} 
+                        value={certificate} 
                         onChange={certificateChanged}/>
                     
                     <NcoreButton 
@@ -398,7 +398,9 @@ export default function Settings(props) {
                             return (
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',margin: '0 0 10px 0px'}}>
                                     <div style={{width: '100px'}}>{ext}</div>
-                                    <Button variant="contained" color="success" onClick={() => handleExternal(ext)}>연결</Button>
+                                    <NcoreButton 
+                                        children="연결" 
+                                        onClick={() => handleExternal(ext)}/>
                                 </div>
                             );
                         }
