@@ -202,6 +202,7 @@ export default function Settings(props) {
                 if (data == "1") {
                     getEducations();
                     setEducation('');
+                    console.log("default value:", education);
                 }
           })
           .catch(function (error) {
@@ -342,6 +343,7 @@ export default function Settings(props) {
                     <NcoreTextField 
                         title="Education"
                         defaultValue={education} 
+                        value={education}
                         onChange={educationChanged}/>
                   
                     <NcoreButton 
