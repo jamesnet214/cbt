@@ -46,6 +46,31 @@ export default function Settings(props) {
         window.location.href = `https://localhost:7073/Identity/Account/OAuthLogin?Provider=${ext}&ReturnUrl=~%2Fcbt#_=_`;
     }
 
+    const handleDeleteExternal = (ext) => {
+        if (window.confirm("삭제하시겠습니까?"))
+        {
+            const data = {
+                token: token,
+                provider: ext
+            }
+            Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/account/deleteProvider', data, requestOptions)
+                .then(function (response) {
+                    const data = response.data;
+                    if (data == "1"){
+                        alert(' 성공');
+                    }
+                    else
+                    {
+                        alert('실패');
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+       
+    }
+
     React.useEffect(() => {
         getUserExternals();
         getEducations();
@@ -366,7 +391,7 @@ export default function Settings(props) {
                                         <div style={{width: '100px'}}>{ext}</div>
                                         <div>{userInfo["email"]}</div>
                                     </div>
-                                    <Button  variant="contained" color="error">삭제</Button>
+                                    <Button  variant="contained" color="error" onClick={() => handleDeleteExternal(ext)}>삭제</Button>
                                 </div>
                             );
                         }
