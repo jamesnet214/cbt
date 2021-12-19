@@ -384,7 +384,10 @@ export default function Settings(props) {
                                         <div style={{width: '100px'}}>{ext}</div>
                                         <div>{userInfo["email"]}</div>
                                     </div>
-                                    <Button  variant="contained" color="error" onClick={() => handleDeleteExternal(ext)}>삭제</Button>
+                                    <NcoreButton 
+                                        children="삭제" 
+                                        color="error"
+                                        onClick={() => handleDeleteExternal(ext)}/>
                                 </div>
                             );
                         }
