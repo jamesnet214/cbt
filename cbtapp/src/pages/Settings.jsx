@@ -18,10 +18,8 @@ export default function Settings(props) {
     const location = useLocation();
     const id = new URLSearchParams(location.search).get('id');
     console.log('ID: ', id);
-
     let history = useHistory();
     
-    const [name, setName] = React.useState('james');
     const constExternals = [
         'Google',
         'FaceBook',
@@ -45,6 +43,21 @@ export default function Settings(props) {
     }
 
     React.useEffect(() => {
+        getUserExternals();
+        getEducations();
+        getCertificates();
+    }, []);
+
+    const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
+    const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
+    const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
+    const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
+    const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});    
+    const educationChanged = (e) => setEducation(e.target.value);
+    const certificateChanged = (e) => setCertificate(e.target.value);
+
+
+    const getUserExternals = () => {
         const data = {
             "id": id
         };
@@ -79,14 +92,6 @@ export default function Settings(props) {
             .catch(function (error) {
                 console.log(error);
         });
-        getEducations();
-        getCertificates();
-
-    }, []);
-
-
-    const getUserExternals = () => {
-        
     };
 
     const getCertificates = () => {
@@ -129,74 +134,6 @@ export default function Settings(props) {
         });
     }
 
-    const userNameChanged = (e) => setUserInfo({...userInfo, userName: e.target.value});
-    const phoneChanged = (e) => setUserInfo({...userInfo, phone: e.target.value});
-    const aboutMeChanged = (e) => setUserInfo({...userInfo, aboutMe: e.target.value});
-    const educationChanged = (e) => setEducation(e.target.value);
-    const gitHubIdChanged = (e) => setUserInfo({...userInfo, gitHubId: e.target.value});
-    const blogChanged = (e) => setUserInfo({...userInfo, blog: e.target.value});    
-    const certificateChanged = (e) => setCertificate(e.target.value);
-
-    const saveClick = (e) => {
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
-            .then(function (response) {
-                const data = response.data;
-                setUserInfo({ 
-                    id: userInfo.id,
-                    userName: userInfo.userName,
-                    phone: userInfo.phone,
-                    aboutMe: userInfo.aboutMe,
-                    blog: userInfo.blog,
-                    gitHubId: userInfo.gitHubId,
-                    school: userInfo.school,
-                    certificate: userInfo.certificate
-                });
-                console.log('Users:', userInfo);
-                history.push(`/profile?id=${userInfo.id}`);   
-          })
-          .catch(function (error) {
-            console.log(error);
-          });    
-    }
-
-    const deleteCertificate = (seq) => {
-        const data = {
-            seq: seq,
-            userId: id,
-            
-        }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/deleteCertificate', data, requestOptions)
-            .then(function (response) {
-                const data = response.data;
-                console.log('completed:', data);
-                if (data == "1") {
-                    getCertificates();
-                }
-          })
-          .catch(function (error) {
-            console.log(error);
-          });    
-    }  
-
-    const deleteEducation = (seq) => {
-        const data = {
-            seq: seq,
-            userId: id,
-            
-        }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/deleteEducation', data, requestOptions)
-            .then(function (response) {
-                const data = response.data;
-                console.log('completed:', data);
-                if (data == "1") {
-                    getEducations();
-                }
-          })
-          .catch(function (error) {
-            console.log(error);
-          });    
-    }  
-
     const addCertificateClick = (e) => {
         const data = {
             userId: id,
@@ -232,17 +169,73 @@ export default function Settings(props) {
           });    
     }  
 
-    const cerChipClick = () => {
+    const saveClick = (e) => {
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                setUserInfo({ 
+                    id: userInfo.id,
+                    userName: userInfo.userName,
+                    phone: userInfo.phone,
+                    aboutMe: userInfo.aboutMe,
+                    blog: userInfo.blog,
+                    gitHubId: userInfo.gitHubId,
+                    school: userInfo.school,
+                    certificate: userInfo.certificate
+                });
+                console.log('Users:', userInfo);
+                history.push(`/profile?id=${userInfo.id}`);   
+          })
+          .catch(function (error) {
+            console.log(error);
+          });    
+    }
 
+    const deleteCertificate = (seq) => {
+        const data = {
+            seq: seq,
+            userId: id,
+        }
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/deleteCertificate', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                console.log('completed:', data);
+                if (data == "1") {
+                    getCertificates();
+                }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });    
+    }  
+
+    const deleteEducation = (seq) => {
+        const data = {
+            seq: seq,
+            userId: id,
+        }
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/deleteEducation', data, requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                console.log('completed:', data);
+                if (data == "1") {
+                    getEducations();
+                }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });    
+    }  
+
+    const cerChipClick = () => {
+    };
+
+    const eduChipClick = () => {
     };
 
     const cerChipDelete = (e, seq) => {
         deleteCertificate(seq);
     }
-    
-    const eduChipClick = () => {
-        // 암것도안함
-    };
     
     const eduChipDelete = (e, seq) => {
         deleteEducation(seq);
@@ -302,10 +295,8 @@ export default function Settings(props) {
                             onClick={saveClick}
                             children="Update"/>
                     </div>
-                    
                     <br/>
                     <Stack direction="row" spacing={1}>
-                        
                         {educations.map(edu => {
                             return (
                                 <Chip
@@ -315,9 +306,7 @@ export default function Settings(props) {
                             );
                         })}
                     </Stack>
-
                     <br/>
-
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -325,16 +314,13 @@ export default function Settings(props) {
                         variant="outlined"
                         defaultValue={education}
                         onChange={educationChanged}/>
-                    
                     <Button style={{ marginLeft: "auto" }} 
                         variant="contained"
                         size="small"
                         color="success"
                         onClick={addEducationClick}
                         children="학교 추가"/>
-
                     <br/>
-
                     <Stack direction="row" spacing={1}>
                         
                         {certificates.map(cer => {
@@ -346,9 +332,7 @@ export default function Settings(props) {
                             );
                         })}
                     </Stack>
-
                     <br/>
-
                     <TextField required
                         size="small"
                         id="outlined-size-small"
@@ -356,16 +340,13 @@ export default function Settings(props) {
                         variant="outlined"
                         defaultValue={certificate}
                         onChange={certificateChanged}/>
-
                     <Button style={{ marginLeft: "auto" }} 
                         variant="contained"
                         size="small"
                         color="success"
                         onClick={addCertificateClick}
                         children="자격증 추가"/>
-
                     <br/>
-
                     <div style={{padding: '0 0 10px 0', borderBottom: '1px solid #eeeeee', display: 'flex', alignItems: 'center'}}>
                         <div style={{fontWeight: 'bold',fontSize: '18px',}}>
                             연결된 계정
