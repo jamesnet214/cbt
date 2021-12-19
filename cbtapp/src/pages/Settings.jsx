@@ -12,6 +12,7 @@ import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import NcoreTextField from "../components/input/NcoreTextField";
 
 export default function Settings(props) {
     const [userInfo, setUserInfo] = React.useState(null); 
@@ -329,36 +330,34 @@ export default function Settings(props) {
                         <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
                             Name
                         </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["userName"]} id="bootstrap-input" inputProps={{ maxLength: 12}} onChange={userNameChanged}/>
+                        <BootstrapInput defaultValue={userInfo["userName"]} inputProps={{ maxLength: 12}} onChange={userNameChanged}/>
                     </FormControl>
 
                     <FormControl variant="standard">
                         <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
                             Phone
                         </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["phone"]} id="bootstrap-input" inputProps={{ maxLength: 11}} onChange={phoneChanged}/>
+                        <BootstrapInput defaultValue={userInfo["phone"]} inputProps={{ maxLength: 11}} onChange={phoneChanged}/>
                     </FormControl>
 
                     <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
+                        <InputLabel shrink htmlFor="bootstrap-githubId" style={{ fontSize: 20}}>
                             GithubId
                         </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["gitHubId"]} id="bootstrap-input" onChange={gitHubIdChanged}/>
-                    </FormControl>
-                 
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            Blog
-                        </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["blog"]} id="bootstrap-input" onChange={blogChanged}/>
+                        <BootstrapInput id="bootstrap-githubId" defaultValue={userInfo["gitHubId"]} onChange={gitHubIdChanged}/>
                     </FormControl>
 
-                    <FormControl variant="standard">
-                        <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
-                            aboutMe
-                        </InputLabel>
-                        <BootstrapInput defaultValue={userInfo["aboutMe"]} id="bootstrap-input" rows="4" multiline onChange={aboutMeChanged}/>
-                    </FormControl>
+                    <NcoreTextField 
+                        title="Blog"
+                        defaultValue={userInfo["blog"]} 
+                        onChange={blogChanged}/>
+
+                    <NcoreTextField 
+                        multiline
+                        title="AboutMe"
+                        rows="4" 
+                        defaultValue={userInfo["aboutMe"]} 
+                        onChange={aboutMeChanged}/>
                   
                     <div>
                         <Button style={{ marginLeft: "auto" }} 
@@ -384,7 +383,7 @@ export default function Settings(props) {
                         <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
                             Education
                         </InputLabel>
-                        <BootstrapInput defaultValue={education} id="bootstrap-input" onChange={educationChanged}/>
+                        <BootstrapInput defaultValue={education} onChange={educationChanged}/>
                     </FormControl>
                     <Button style={{ marginRight: "auto" }} 
                         variant="contained"
@@ -409,7 +408,7 @@ export default function Settings(props) {
                         <InputLabel shrink htmlFor="bootstrap-input" style={{ fontSize: 20}}>
                             Certificate
                         </InputLabel>
-                        <BootstrapInput defaultValue={certificate} id="bootstrap-input" onChange={certificateChanged}/>
+                        <BootstrapInput defaultValue={certificate} onChange={certificateChanged}/>
                     </FormControl>
                     <Button style={{ marginRight: "auto" }} 
                         variant="contained"
