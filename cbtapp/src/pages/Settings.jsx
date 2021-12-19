@@ -218,8 +218,9 @@ export default function Settings(props) {
                     school: userInfo.school,
                     certificate: userInfo.certificate
                 });
+                getUserExternals();
                 console.log('Users:', userInfo);
-                history.push(`/settings`);   
+                // history.push(`/settings`);   
           })
           .catch(function (error) {
             console.log(error);
