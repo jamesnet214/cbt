@@ -3,24 +3,17 @@ import Axios from "axios";
 import Grid from "@mui/material/Grid";
 import { useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
-
 import UserProfileBox from "../components/users/UserProfileBox.jsx";
 
-
-
-
 export default function Users(props) {
-    
     const cookies = new Cookies();
     const token = cookies.get('.cbt.devncore.org.authentication.session');
     const [users, setUsers] = React.useState([]); 
     let history = useHistory();
 
     React.useEffect(() => {
-        console.log('users :');
-
         const data = {
-            "id": token,
+            "token": token,
         };
         const requestOptions = {
             method: 'POST',
@@ -44,7 +37,6 @@ export default function Users(props) {
                         email: user.email,
                         phone: user.phone,
                         name: user.name,
-                        // school: user.school,
                         gitHubId: user.gitHubId,
                         blog: user.blog,
                         aboutMe: user.aboutMe

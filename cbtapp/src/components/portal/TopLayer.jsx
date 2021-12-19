@@ -26,7 +26,7 @@ export default function TopLayer(props) {
         {
             console.log('exists login token: ', token);
             const data = {
-                "id": token
+                "token": token
             };
 
             const requestOptions = {
