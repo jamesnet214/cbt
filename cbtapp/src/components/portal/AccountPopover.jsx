@@ -10,6 +10,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Stack from "@mui/material/Stack";
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import AvatarIcon from "../users/AvatarIcon";
 
 export default function AccountPopover(props) {
     const { userInfo } = props;
@@ -49,7 +50,7 @@ export default function AccountPopover(props) {
     return (
         <>
             <IconButton onClick={handleClick}>
-                <AccountCircleIcon/>
+                {userInfo == null ? <AccountCircleIcon/> : <AvatarIcon name={userInfo.userName}/>}
             </IconButton>
             <Menu
                 id="menu-appbar"

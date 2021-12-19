@@ -330,9 +330,10 @@ export default function Settings(props) {
                         onClick={saveClick}/>  
                     <br/>
                     <Stack direction="row" spacing={1}>
-                        {educations.map(edu => {
+                        {educations.map((edu, index) => {
                             return (
                                 <Chip
+                                    key={index}
                                     label={edu.name}
                                     onClick={eduChipClick}
                                     onDelete={(e) => eduChipDelete(e, edu.seq)}/>
@@ -352,9 +353,10 @@ export default function Settings(props) {
                     <br/>
                     <Stack direction="row" spacing={1}>
                         
-                        {certificates.map(cer => {
+                        {certificates.map((cer, index) => {
                             return (
                                 <Chip
+                                    key={index}
                                     label={cer.name}
                                     onClick={cerChipClick}
                                     onDelete={(e) => cerChipDelete(e, cer.seq)}/>
@@ -377,11 +379,11 @@ export default function Settings(props) {
                         </div>
                         {/* <Button sx={{ ml: 5}} variant="contained" color="success" onClick={handleExternal}>다른 계정 추가</Button> */}
                     </div>
-                    <div>{constExternals.map( ext=>{
+                    <div>{constExternals.map((ext, index) => {
                         if (externals.some(v => v.loginProvider == ext))
                         {
                             return (
-                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
+                                <div key={index} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 10px 0'}}>
                                     <div style={{display: 'flex'}}>
                                         <div style={{width: '100px'}}>{ext}</div>
                                         <div>{userInfo["email"]}</div>
