@@ -46,10 +46,9 @@ export default function Test(props) {
         });
     }, []);
 
-    function answerChecked(event, seq, id) {
-        console.log("정답체크중: ", seq, id, event.target.checked);
-        dictResult[seq, id] = event.target.checked;
-        console.log("정답체크완료: ", dictResult[seq, id]);
+    function answerChecked(event, answer) {
+        console.log("정답체크중: ", answer.id, event.target.checked);
+        answer.isChecked = event.target.checked;
     }
       
     function initItemsTemplate(item) {
@@ -65,7 +64,7 @@ export default function Test(props) {
                     control={<Checkbox 
                         defaultChecked={answer.isChecked}
                         style={{ marginLeft: '0px'}} 
-                        onChange={(event) => answerChecked(event, item.seq, answer.id)}/>}/>
+                        onChange={(event) => answerChecked(event, answer)}/>}/>
                         
             );
         })
@@ -95,11 +94,7 @@ export default function Test(props) {
         console.log("결과보기 시작.");
 
         text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, index) => {
-            console.log(`${index}: ${item.question}`, item);
-            console.log(`${index} 정답1: `, dictResult[index, 0]);
-            console.log("정답2: ", dictResult[index, 1]);
-            console.log("정답3: ", dictResult[index, 2]);
-            console.log("정답4: ", dictResult[index, 3]);
+            console.log(`${item.seq}: ${item.question}`, item);
         });
     }
 
