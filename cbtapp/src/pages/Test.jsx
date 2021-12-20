@@ -12,6 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
+import Button from '@mui/material/Button';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -83,6 +84,10 @@ export default function Test(props) {
         history.push(`/cbt/id=${cbtId}`);
     }
 
+    function submit() {
+        
+    }
+
     return (
         <div className="frame-content">
             <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
@@ -90,6 +95,13 @@ export default function Test(props) {
                     <Stack direction="row">
                         <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
                         <Box sx={{ flexGrow: 1 }} />
+                        <Button 
+                            variant="contained"
+                            size="small" 
+                            color="success" 
+                            children={"제출"}
+                            onClick={submit}
+                            />
                         <ResetIconButton onClick={restart}/>
                     </Stack>
                 </div>
