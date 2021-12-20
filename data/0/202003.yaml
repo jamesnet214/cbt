@@ -459,11 +459,11 @@
   question: 저작권 관리 구성 요소에 대한 설명이 틀린 것은?
   answers:
     - isAnswer: n
-      example: 콘텐츠 제공자(Contents Provider) : 콘텐츠를 제공하는 저작권자
+      example: 콘텐츠 제공자(Contents Provider) \: 콘텐츠를 제공하는 저작권자
     - isAnswer: n
-      example: 클리어링 하우스(Clearing House) : 키 관리 및 라이선스 발급 관리
+      example: 클리어링 하우스(Clearing House) \: 키 관리 및 라이선스 발급 관리
     - isAnswer: y
-      example: 콘텐츠 분배자(Contents Distributor) : 콘텐츠를 메타 데이터와 함께 배포 가능한 단위로 묶는 기능
+      example: 콘텐츠 분배자(Contents Distributor) \: 콘텐츠를 메타 데이터와 함께 배포 가능한 단위로 묶는 기능
     - isAnswer: n
       example: DRM 컨트롤러 : 배포된 콘텐츠의 이용 권한을 통제
 - seq: 37
