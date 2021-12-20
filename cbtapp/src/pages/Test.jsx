@@ -50,6 +50,7 @@ export default function Test(props) {
       
     function initItemsTemplate(items) {
         return items.map((answer, i) => {
+            answer.isChecked = false;
             return (
                 <FormControlLabel key={i} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
                     label={
