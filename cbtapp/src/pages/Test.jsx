@@ -85,7 +85,12 @@ export default function Test(props) {
     }
 
     function submit() {
-        
+
+        console.log("결과보기 시작.");
+
+        text.map((item, index) => {
+            return console.log(`${index}: ${item}`);
+        });
     }
 
     return (
