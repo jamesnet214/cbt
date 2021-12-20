@@ -89,7 +89,7 @@ export default function Test(props) {
         console.log("결과보기 시작.");
 
         text.map((item, index) => {
-            return console.log(`${index}: ${item}`);
+            return console.log(`${index}: ${item.question}`, item);
         });
     }
 
