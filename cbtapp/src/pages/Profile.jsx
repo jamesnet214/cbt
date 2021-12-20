@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import { margin, padding, textAlign } from "@mui/system";
 import { Container, Divider, Stack, Typography } from "@mui/material";
 import Cookies from 'universal-cookie';
+import NcoreSelect from "../components/input/NcoreSelect";
+import { MenuItem } from "@mui/material";
 
 export default function Profile(props) {
     const cookies = new Cookies();
@@ -87,16 +89,24 @@ export default function Profile(props) {
                         이메일 주소입니다.
                     </Typography>
                     <Divider/>
-                    <div className={"stylestxt2"}>{"학교"}</div>
-                    <div className={"stylestxt3"}>{userInfo.school}</div>
+                    <NcoreSelect 
+                        enabled
+                        title="학교 List" 
+                        defaultValue={userInfo.school}>
+                        <MenuItem value={userInfo.school}>{userInfo.school}</MenuItem>
+                    </NcoreSelect>
                     <Typography variant="caption">
                         학교는 중복으로 추가할 수 있습니다.
                     </Typography>
                     <Divider/>
-                    <div className={"stylestxt2"}>{"자격증"}</div>
-                    <div className={"stylestxt3"}>{userInfo.certificate}</div>
+                    <NcoreSelect 
+                        enabled
+                        title="자격증 List" 
+                        defaultValue={userInfo.certificate}>
+                        <MenuItem value={userInfo.certificate}>{userInfo.certificate}</MenuItem>
+                    </NcoreSelect>
                     <Typography variant="caption">
-                        자격증 정보 입니다.
+                        자격증은 중복으로 추가할 수 있습니다.
                     </Typography>
                     <Divider/>
                     <div className={"stylestxt2"}>{"깃허브"}</div>
