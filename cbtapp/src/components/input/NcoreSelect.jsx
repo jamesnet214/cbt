@@ -55,7 +55,7 @@ export default function NcoreSelect(props) {
     return (
         <Stack>
             <Typography
-                variant="body2"
+                variant="body1"
                 style={{fontWeight: "normal", marginTop: 8, marginBottom: 6}}
                 className={classes.title}
                 children={props.title}/>
