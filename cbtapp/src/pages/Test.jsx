@@ -32,6 +32,8 @@ export default function Test(props) {
     const subjects = sessionStorage.getItem('subjects');
     console.log('subjects: ',subjects);
     console.log('size: ',testCount);
+    
+    var dictResult = {};
 
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
@@ -44,23 +46,26 @@ export default function Test(props) {
         });
     }, []);
 
-    function answerChecked(event, id) {
-
+    function answerChecked(event, seq, id) {
+        console.log("정답체크중: ", seq, id, event.target.checked);
+        dictResult[seq, id] = event.target.checked;
+        console.log("정답체크완료: ", dictResult[seq, id]);
     }
       
-    function initItemsTemplate(items) {
-        return items.map((answer, i) => {
+    function initItemsTemplate(item) {
+        return item.answers.map((answer, index) => {
             answer.isChecked = false;
+            answer.id = index;
             return (
-                <FormControlLabel key={i} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
+                <FormControlLabel key={index} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
                     label={
-                        <Typography key={i.toString()} variant="body2"
+                        <Typography key={index.toString()} variant="body2"
                             style={{ margin: '2px 0px 0px 0px' }}
-                            children={`${i + 1}. ${answer.example}`}/>}
+                            children={`${index + 1}. ${answer.example}`}/>}
                     control={<Checkbox 
                         defaultChecked={answer.isChecked}
                         style={{ marginLeft: '0px'}} 
-                        onChange={(event) => answerChecked(event, answer.id)}/>}/>
+                        onChange={(event) => answerChecked(event, item.seq, answer.id)}/>}/>
                         
             );
         })
@@ -90,7 +95,11 @@ export default function Test(props) {
         console.log("결과보기 시작.");
 
         text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, index) => {
-            return console.log(`${index}: ${item.question}`, item);
+            console.log(`${index}: ${item.question}`, item);
+            console.log(`${index} 정답1: `, dictResult[index, 0]);
+            console.log("정답2: ", dictResult[index, 1]);
+            console.log("정답3: ", dictResult[index, 2]);
+            console.log("정답4: ", dictResult[index, 3]);
         });
     }
 
@@ -147,7 +156,7 @@ export default function Test(props) {
                                             }
                                         </Box>
                                         <FormGroup>
-                                            {initItemsTemplate(item.answers)}
+                                            {initItemsTemplate(item)}
                                         </FormGroup>
                                         <Box style={{ height: '10px'}}/>
                                         <Box className="papar-question-content" style={{display: 'none'}}>
