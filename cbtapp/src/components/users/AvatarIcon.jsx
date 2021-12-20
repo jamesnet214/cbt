@@ -24,11 +24,18 @@ export default function AvataIcon(props) {
 
         name = name.replace(".", " ");
 
+        if(name.split(' ').length == 1) {
+            name = `${name.split(' ')[0][0]}${name.split(' ')[0][1]}`;
+        }
+        else {
+            name = `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`;
+        }
+        
         return {
             sx: {
                 bgcolor: stringToColor(name),
             },
-            children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+            children: name.toUpperCase()
         };
     }
 
