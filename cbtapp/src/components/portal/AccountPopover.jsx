@@ -11,9 +11,13 @@ import Stack from "@mui/material/Stack";
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AvatarIcon from "../users/AvatarIcon";
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
 
 export default function AccountPopover(props) {
     const { userInfo } = props;
+    const { onClose } = props;
+    const [dialogOpen, setOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     let history = useHistory();
     const cookies = new Cookies();
@@ -32,6 +36,7 @@ export default function AccountPopover(props) {
     const signInClick = (event) => {
         // history.push("/login");
         window.location.href = process.env.REACT_APP_SERVICE_URL + "/Identity/Account/Login?ReturnUrl=~/cbt";
+        // setOpen(true);
     };
     
     const signOutClick = (event) => {
@@ -46,6 +51,13 @@ export default function AccountPopover(props) {
         setAnchorEl(null);
         history.push(`/settings`);
         console.log(userInfo.id);
+    };
+
+    const handleDialogClose = () => {
+        setOpen(false);
+    };
+    const handleClickOpen = () => {
+        setOpen(true);
     };
 
     return (
@@ -95,6 +107,13 @@ export default function AccountPopover(props) {
                     </div>
                 }
               </Menu>
+            <Dialog onClose={handleDialogClose} open={dialogOpen}>
+                <DialogTitle>로그인</DialogTitle>
+                <div style={{padding: "20px;"}}>
+                    <Button className={"btn-social"} style={{backgroundImage: "/public/images/login_google.png"}}></Button>
+                </div>
+            </Dialog>
+              
         </>
     );
 }
