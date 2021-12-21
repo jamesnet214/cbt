@@ -159,6 +159,7 @@
     margin: 0 auto;
     display: flex;
     margin-bottom: 14px;
+    cursor: pointer;
 }
 
 /* .google-image {
