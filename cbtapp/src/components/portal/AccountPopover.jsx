@@ -30,7 +30,8 @@ export default function AccountPopover(props) {
     };
 
     const signInClick = (event) => {
-        history.push("/login");
+        // history.push("/login");
+        window.location.href = process.env.REACT_APP_SERVICE_URL + "/Identity/Account/Login?ReturnUrl=~/cbt";
     };
     
     const signOutClick = (event) => {

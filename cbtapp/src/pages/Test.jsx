@@ -38,7 +38,7 @@ export default function Test(props) {
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
 
-        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
+        fetch('https://raw.githubusercontent.com/devncore/docs/main/articles/csharp-jwt-token.md')
         .then(res => res.blob())
         .then(blob => blob.text())
         .then(res => {
