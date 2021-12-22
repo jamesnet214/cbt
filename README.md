@@ -9,8 +9,8 @@ https://cbt.devncore.org
 
 ## SSL Autentication
 - Localhost
-  - Chocoletley
-  - mkcert 로컬 가상 SSL(HTTPS)
+- Chocoletley
+- mkcert 로컬 가상 SSL(HTTPS)
 - Deploy
 
 ## Proxy
@@ -28,8 +28,7 @@ https://cbt.devncore.org
 - [ ] 인증 로그인 연도 DB 설계 (MONGO DB WITH AWS)
 - [ ] 클라이언트 JWT 인증 구현
 - [ ] 채점결과 처리
-
-
+<br/>
 
 ### 필수기능
 - [ ]  소셜로그인 기능 ( 카카오톡, 깃허브, 구글 )
