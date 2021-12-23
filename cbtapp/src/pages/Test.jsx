@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from "axios";
 import { styled } from '@mui/material/styles';
 import { load } from 'js-yaml';
 import { useHistory } from 'react-router-dom';
@@ -38,7 +39,7 @@ export default function Test(props) {
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
 
-        fetch('https://raw.githubusercontent.com/devncore/docs/main/articles/csharp-jwt-token.md')
+        fetch('https://raw.githubusercontent.com/devncore/cbt/main/data/0/202101.yaml')
         .then(res => res.blob())
         .then(blob => blob.text())
         .then(res => {
@@ -92,6 +93,51 @@ export default function Test(props) {
     function submit() {
 
         console.log("결과보기 시작.");
+
+        // DB 보내기 1주일째 안나가
+
+        // 사용자한테 리포틀 보여줘.
+        // 2021 1회차 정보처리기사
+        // 과목 (ㅁㄴㅁ,ㅁㄴㅇ,ㄹ,ㄴㅇ)
+        // 총 문제 5제
+        // 정답 2문제 틀린무제 3
+        // 몇점 
+        // 1번문제 
+        // 정답 4 2
+        // 2번문제
+        // 정답 3 1
+        // 기술이랑 상관이없어 진짜.. 개발 하나도 못해도
+
+        // 1 DB에 데이터 보내고
+
+        const data = {
+            Token: "123123213"
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': '*',
+                'Access-Control-Allow-Methods': '*',
+            }
+        };
+
+        Axios.post(
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/saveTest', 
+            data, 
+            requestOptions)
+            .then(function (response) {
+                const data = response.data;
+                console.log('saveTest completed:', data);
+                if (data == "1") {
+                    history.push("/cbt/result");
+                }
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
 
         text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, index) => {
             console.log(`${item.seq}: ${item.question}`, item);

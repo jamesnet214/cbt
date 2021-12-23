@@ -20,6 +20,7 @@ import Profile from "../pages/Profile.jsx";
 import Users from "../pages/Users.jsx";
 import Settings from "../pages/Settings.jsx";
 import Duplicate from "../pages/Duplicate.jsx";
+import Result from "../pages/Result.jsx";
 
 
 const drawerWidth = 240;
@@ -117,6 +118,7 @@ export default function Portal(props) {
                             <Route path='/cbt/id=6' render={() => getCbt('6')}/>
                             <Route path='/cbt/id=7' render={() => getCbt('7')}/>
                             <Route path='/cbt/test/id=0' render={() => getCbtTest('0')}/>
+                            <Route path='/cbt/result' component={Result}/>
                             <Route path='/dashboard' component={Dashboard}/>  
                             <Route exact path='/profile' component={Profile}/>
                             <Route path='/users' component={Users}/>
