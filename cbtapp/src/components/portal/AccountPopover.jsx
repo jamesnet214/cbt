@@ -13,6 +13,8 @@ import Menu from '@mui/material/Menu';
 import AvatarIcon from "../users/AvatarIcon";
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
+import { Badge } from "@mui/material";
+import NotificationsBadge from "./NotificationsBadge";
 
 export default function AccountPopover(props) {
     const { userInfo } = props;
@@ -63,8 +65,12 @@ export default function AccountPopover(props) {
     return (
         <>
             <IconButton onClick={handleClick}>
-                {userInfo == null ? <AccountCircleIcon/> : <AvatarIcon name={userInfo.userName}/>}
+                    {userInfo == null ? <AccountCircleIcon/> : <AvatarIcon name={userInfo.userName}/>}
             </IconButton>
+
+            <NotificationsBadge/>
+            
+
             <Menu
                 id="menu-appbar"
                 style={{zIndex: 99999}}
