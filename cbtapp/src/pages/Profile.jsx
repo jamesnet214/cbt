@@ -36,7 +36,7 @@ export default function Profile(props) {
             }
         };
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GetUser', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GET/User', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({

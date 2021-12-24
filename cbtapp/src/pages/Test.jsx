@@ -125,7 +125,7 @@ export default function Test(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/saveTest', 
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/POST/Test', 
             data, 
             requestOptions)
             .then(function (response) {

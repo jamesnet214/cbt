@@ -47,7 +47,7 @@ export default function Duplicate(props) {
             }
         };
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GetTempUser', id, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GET/User/Temp', id, requestOptions)
             .then(function (response) {
                 const userData = response.data;
                 setUserInfo({

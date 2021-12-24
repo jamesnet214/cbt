@@ -20,7 +20,7 @@ export default function Result(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/getResult', 
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/GET/Result', 
             data, 
             requestOptions)
             .then(function (response) {

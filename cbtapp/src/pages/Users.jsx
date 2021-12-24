@@ -26,7 +26,7 @@ export default function Users(props) {
             }
         };
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUsers', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/GET/Users', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 let source = data.map(user => {

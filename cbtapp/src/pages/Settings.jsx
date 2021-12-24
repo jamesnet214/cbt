@@ -65,7 +65,7 @@ export default function Settings(props) {
                 token: token,
                 provider: ext
             }
-            Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/account/deleteProvider', data, requestOptions)
+            Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/account/Delete/User/Provider', data, requestOptions)
                 .then(function (response) {
                     const data = response.data;
                     if (data == "1"){
@@ -103,7 +103,7 @@ export default function Settings(props) {
         };
         console.log(data);
 
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getUserExternals', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/Get/User/Externals', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
@@ -138,7 +138,7 @@ export default function Settings(props) {
         const data = {
             "token": token
         };
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/getCertificates', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/GET/Certificates', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setCertificates(data.map(cer => {
@@ -158,7 +158,7 @@ export default function Settings(props) {
         const data = {
             "token": token
         };
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/getEducations', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/GET/Educations', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setEducations(data.map(edu => {
@@ -179,7 +179,7 @@ export default function Settings(props) {
             token: token,
             name: certificate
         }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/addCertificate', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/POST/Certificate', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 if (data == "1"){
@@ -197,7 +197,7 @@ export default function Settings(props) {
             token: token,
             name: education
         }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/addEducation', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/POST/Education', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);
@@ -212,7 +212,7 @@ export default function Settings(props) {
     }  
 
     const saveClick = (e) => {
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/updateUser', userInfo, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/PUT/User', userInfo, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 setUserInfo({ 
@@ -240,7 +240,7 @@ export default function Settings(props) {
             seq: seq,
             token: token,
         }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/deleteCertificate', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/DELETE/Certificate', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);
@@ -258,7 +258,7 @@ export default function Settings(props) {
             seq: seq,
             token: token,
         }
-        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/deleteEducation', data, requestOptions)
+        Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/education/DELETE/Education', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);

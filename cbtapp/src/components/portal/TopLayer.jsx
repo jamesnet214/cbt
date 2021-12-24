@@ -39,7 +39,7 @@ export default function TopLayer(props) {
                 }
             };
 
-            Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/getLoginUser', data, requestOptions)
+            Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/Account/Get/User/Login', data, requestOptions)
                 .then(function (response) {
                     const data = response.data;
 
