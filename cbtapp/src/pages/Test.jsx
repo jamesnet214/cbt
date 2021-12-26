@@ -95,9 +95,10 @@ export default function Test(props) {
     function submit() {
         console.log("결과보기 시작.");
         console.log(text);
+
         const data = {
             token: token,
-            JsonData: text
+            jsonData: JSON.stringify(text)
         }
 
         const requestOptions = {
@@ -110,10 +111,7 @@ export default function Test(props) {
             }
         };
 
-        Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/Cbt/Post/User/Test', 
-            data, 
-            requestOptions)
+        Axios.post( process.env.REACT_APP_SERVICE_URL + '/api/cbt/addResult', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('saveTest completed:', data);

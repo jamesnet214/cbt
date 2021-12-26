@@ -23,9 +23,7 @@ export default function Result(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/Get/User/Test', 
-            data, 
-            requestOptions)
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/Get/User/Test', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('getResult completed:', data);
