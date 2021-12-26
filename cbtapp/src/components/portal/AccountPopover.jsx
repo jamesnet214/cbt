@@ -59,11 +59,12 @@ export default function AccountPopover(props) {
     };
 
     const handleClickOpen = () => {
+        setAnchorEl(null);
         setOpen(true);
     };
 
     const socialClick = (social) => {
-        alert(social);
+        
         window.location.href = `${process.env.REACT_APP_SERVICE_URL}/Identity/Account/OAuthLogin?Provider=${social}&ReturnUrl=~%2Fcbt#_=_`;
     }
 
