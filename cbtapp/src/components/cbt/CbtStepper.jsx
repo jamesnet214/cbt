@@ -18,6 +18,7 @@ import TestTypeSelector from './TestTypeSelector';
 export default function CbtStepper(props) {
     const search = useLocation().search;
     const cbtId = props.cbtId;
+    const inning = props.innings;
     const [activeStep, setActiveStep] = React.useState(0);
     const [firstChecked, setFirstChecked] = React.useState(false);
     const [secondChecked, setSecondChecked] = React.useState(false);
@@ -29,6 +30,8 @@ export default function CbtStepper(props) {
     const firstRequired = (required) => {
         setFirstChecked(required)
         console.log('firstRequired', required);
+        console.log('lucas cbtid', cbtId);
+        console.log('lucas inning', cbtId);
     }
 
     const secondRequired = (required) => {
