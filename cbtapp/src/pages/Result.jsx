@@ -1,12 +1,15 @@
 import React from "react";
 import Axios from "axios";
+import Cookies from 'universal-cookie';
 
 export default function Result(props) {
     const [result, setResult] = React.useState(null);
+    const cookies = new Cookies();
+    const token = cookies.get('.cbt.devncore.org.authentication.session');
 
     React.useEffect(() => {
         const data = {
-            Token: "123123213"
+            Token: token
         }
 
         const requestOptions = {
@@ -20,7 +23,7 @@ export default function Result(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/GET/Result', 
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/Get/User/Test', 
             data, 
             requestOptions)
             .then(function (response) {

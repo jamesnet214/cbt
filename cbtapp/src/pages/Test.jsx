@@ -14,6 +14,7 @@ import Typography  from '@mui/material/Typography';
 import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
 import Button from '@mui/material/Button';
+import Cookies from 'universal-cookie';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -24,7 +25,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Test(props) {
     const history = useHistory();
-    
+    const cookies = new Cookies();
+    const token = cookies.get('.cbt.devncore.org.authentication.session');
     const [text, setText] = React.useState(null);
     const cbtId = props.cbtId;
     let currentSubject = '';
@@ -91,27 +93,11 @@ export default function Test(props) {
     }
 
     function submit() {
-
         console.log("결과보기 시작.");
-
-        // DB 보내기 1주일째 안나가
-
-        // 사용자한테 리포틀 보여줘.
-        // 2021 1회차 정보처리기사
-        // 과목 (ㅁㄴㅁ,ㅁㄴㅇ,ㄹ,ㄴㅇ)
-        // 총 문제 5제
-        // 정답 2문제 틀린무제 3
-        // 몇점 
-        // 1번문제 
-        // 정답 4 2
-        // 2번문제
-        // 정답 3 1
-        // 기술이랑 상관이없어 진짜.. 개발 하나도 못해도
-
-        // 1 DB에 데이터 보내고
-
+        console.log(text);
         const data = {
-            Token: "123123213"
+            token: token,
+            JsonData: text
         }
 
         const requestOptions = {
@@ -125,7 +111,7 @@ export default function Test(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/POST/Test', 
+            process.env.REACT_APP_SERVICE_URL + '/api/Cbt/Post/User/Test', 
             data, 
             requestOptions)
             .then(function (response) {
