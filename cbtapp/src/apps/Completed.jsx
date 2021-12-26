@@ -9,7 +9,7 @@ export default function Completed(props) {
     const location = useLocation();
     let id = new URLSearchParams(location.search).get('id');
     console.log('ID', id);
-    
+
     cookies.set('.cbt.devncore.org.authentication.session', id);
     const value = cookies.get('.cbt.devncore.org.authentication.session');
 
