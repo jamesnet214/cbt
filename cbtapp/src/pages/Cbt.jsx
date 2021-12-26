@@ -92,10 +92,15 @@ export default function Cbt(props) {
     }
 
     function start() {
+
+        var selectedInnings = innings.filter(x=>x.isChecked).map((x) => { return { year: x.year, inning: x.inning } } );
+        console.log("selectedInning: ", selectedInnings);
         var testType = testTypes.find(x => x.isChecked);
         var allowSubjects = subjects.filter(x=>x.isChecked).map((s) => { return s.sort } );
+        sessionStorage.setItem("innings", selectedInnings);
         sessionStorage.setItem('testTypes', testType.count);
         sessionStorage.setItem('subjects', allowSubjects);
+    
         history.push(`/cbt/test/id=${cbtId}`);
     }
 

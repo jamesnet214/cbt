@@ -31,6 +31,7 @@ export default function Test(props) {
     const cbtId = props.cbtId;
     let currentSubject = '';
     
+    const innings = sessionStorage.getItem("innings");
     const testCount = sessionStorage.getItem('testTypes');
     const subjects = sessionStorage.getItem('subjects');
     console.log('subjects: ',subjects);
