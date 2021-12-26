@@ -50,7 +50,7 @@ export default function Settings(props) {
         // alert('테스트')
         // history.push("https://localhost:7073//Manage/ExternalLogins");
         // window.location.href = "https://localhost:7073/Identity/Account/Manage/ExternalLogins";
-        window.location.href = `${process.env.REACT_APP_SERVICE_URL}/Identity/Account/OAuthLogin?Provider=${ext}&Id=${userInfo.id}&ReturnUrl=~%2Fcbt#_=_`;
+        window.location.href = `${process.env.REACT_APP_SERVICE_URL}/Identity/Account/OAuthLogin?Provider=${ext}&Mode=Direct&Id=${userInfo.id}&ReturnUrl=~%2Fcbt#_=_`;
     }
 
     const handleDeleteExternal = (ext) => {

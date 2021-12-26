@@ -36,9 +36,8 @@ export default function AccountPopover(props) {
     };
 
     const signInClick = (event) => {
-        // history.push("/login");
-        window.location.href = process.env.REACT_APP_SERVICE_URL + "/Identity/Account/Login?ReturnUrl=~/cbt";
-        // handleClickOpen();
+        // window.location.href = process.env.REACT_APP_SERVICE_URL + "/Identity/Account/Login?ReturnUrl=~/cbt";
+        handleClickOpen();
     };
     
     const signOutClick = (event) => {
@@ -58,9 +57,15 @@ export default function AccountPopover(props) {
     const handleDialogClose = () => {
         setOpen(false);
     };
+
     const handleClickOpen = () => {
         setOpen(true);
     };
+
+    const socialClick = (social) => {
+        alert(social);
+        window.location.href = `${process.env.REACT_APP_SERVICE_URL}/Identity/Account/OAuthLogin?Provider=${social}&ReturnUrl=~%2Fcbt#_=_`;
+    }
 
     return (
         <>
@@ -116,15 +121,15 @@ export default function AccountPopover(props) {
             <Dialog onClose={handleDialogClose} open={dialogOpen}>
                 <DialogTitle>로그인</DialogTitle>
                 <div style={{padding: "20px;"}}>
-                    <button className={"btn-social"} >
+                        <button className={"btn-social"} onClick={() => socialClick('Google')}>
                         <img src="./images/login_google.png" style={{width: "100%"}}></img>
                     </button>
-                    <button className={"btn-social"} >
+                    <button className={"btn-social"} onClick={() => socialClick('Facebook')}>
                         <img src="./images/login_facebook.png" style={{width: "100%"}}></img>
                     </button>
-                    <button className={"btn-social"} >
+                    <button className={"btn-social"} onClick={() => socialClick('GitHub')}>
                         <img src="./images/login_kakao.png" style={{width: "100%"}}></img>
-                    </button>
+                    </button> 
                 </div>
             </Dialog>
               
