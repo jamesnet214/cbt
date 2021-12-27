@@ -160,6 +160,8 @@
     display: flex;
     margin-bottom: 14px;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 /* .google-image {

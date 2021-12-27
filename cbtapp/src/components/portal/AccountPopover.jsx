@@ -127,8 +127,8 @@ export default function AccountPopover(props) {
                     <button className={"btn-social"} onClick={() => socialClick('Facebook')}>
                         <img src="./images/login_facebook.png" style={{width: "100%"}}></img>
                     </button>
-                    <button className={"btn-social"} onClick={() => socialClick('GitHub')}>
-                        <img src="./images/login_kakao.png" style={{width: "100%"}}></img>
+                    <button className={"btn-social"} style={{textAlign:"cetner", width:"288px", backgroundColor:"#24292f", borderRadius:"4px", color:"white"}} onClick={() => socialClick('GitHub')}>
+                        <div style={{fontWeight: "bold"}}>깃허브로 시작하기 </div>
                     </button> 
                 </div>
             </Dialog>
