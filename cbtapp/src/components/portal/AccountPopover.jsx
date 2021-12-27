@@ -19,7 +19,6 @@ import NotificationsBadge from "./NotificationsBadge";
 export default function AccountPopover(props) {
     const { userInfo } = props;
     const { onClose } = props;
-    const [dialogOpen, setOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     let history = useHistory();
     const cookies = new Cookies();
@@ -55,12 +54,12 @@ export default function AccountPopover(props) {
     };
 
     const handleDialogClose = () => {
-        setOpen(false);
+        props.loginSwitch(false);
     };
 
     const handleClickOpen = () => {
         setAnchorEl(null);
-        setOpen(true);
+        props.loginSwitch(true);
     };
 
     const socialClick = (social) => {
@@ -119,7 +118,7 @@ export default function AccountPopover(props) {
                     </div>
                 }
               </Menu>
-            <Dialog onClose={handleDialogClose} open={dialogOpen}>
+            <Dialog onClose={handleDialogClose} open={props.dialogOpen}>
                 <DialogTitle>로그인</DialogTitle>
                 <div style={{padding: "20px;"}}>
                         <button className={"btn-social"} onClick={() => socialClick('Google')}>

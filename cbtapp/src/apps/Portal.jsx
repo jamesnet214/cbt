@@ -41,6 +41,7 @@ const theme = createTheme({
 export default function Portal(props) {
     const [open, setOpen] = React.useState(false);
     const [titles, setTitles] = React.useState(null);
+    const [dialogOpen, setDialogOpen] = React.useState(false);
 
     React.useEffect(() => {
         if (titles == null) {
@@ -57,6 +58,10 @@ export default function Portal(props) {
 
     const openChanged = (changedValue) => {
         setOpen(changedValue);
+    }
+
+    const loginSwitch = (value) => {
+        setDialogOpen(value);
     }
 
         
@@ -104,6 +109,8 @@ export default function Portal(props) {
                 <div className={'drawerDiv'}>
                     <TopLayer open={open} 
                               openChanged={openChanged} 
+                              loginSwitch={(value) => loginSwitch(value)}
+                              dialogOpen={dialogOpen}
                               style={{ zIndex: 9999 }}/>    
                     <div className={'frame'}>
                         <LeftLayer open={open}/>
@@ -122,7 +129,7 @@ export default function Portal(props) {
                             <Route path='/dashboard' component={Dashboard}/>  
                             <Route exact path='/profile' component={Profile}/>
                             <Route path='/users' component={Users}/>
-                            <Route path='/duplicate' component={Duplicate}/>
+                            <Route path='/duplicate' render={() => <Duplicate loginSwitch={(value) => loginSwitch(value)}/>}/>
                             <Route path='/completed' component={Completed}/>
                             <Route path='/settings' component={Settings}/>
                         </Main>

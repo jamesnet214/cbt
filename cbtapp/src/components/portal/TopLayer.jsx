@@ -76,7 +76,10 @@ export default function TopLayer(props) {
                 <MenuTabs/>
                 <Box sx={{ flexGrow: 1 }} />
                 <Box sx={{ display: { xs: 'flex', md: 'none' } }}/>
-                <AccountPopover userInfo={userInfo}/>
+                <AccountPopover userInfo={userInfo}
+                loginSwitch={props.loginSwitch}
+                    dialogOpen={props.dialogOpen}
+                />
             </Toolbar>
         </AppBar>
     );
