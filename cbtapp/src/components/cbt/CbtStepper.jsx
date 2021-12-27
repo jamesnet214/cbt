@@ -31,7 +31,7 @@ export default function CbtStepper(props) {
         setFirstChecked(required)
         console.log('firstRequired', required);
         console.log('lucas cbtid', cbtId);
-        console.log('lucas inning', cbtId);
+        console.log('lucas inning', inning);
     }
 
     const secondRequired = (required) => {

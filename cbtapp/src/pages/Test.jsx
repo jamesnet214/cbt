@@ -31,14 +31,16 @@ export default function Test(props) {
     const cbtId = props.cbtId;
     let currentSubject = '';
     
-    const innings = sessionStorage.getItem("innings");
+
+    const inningYear = sessionStorage.getItem('inningYear');
+    const innings = sessionStorage.getItem('innings');
     const testCount = sessionStorage.getItem('testTypes');
     const subjects = sessionStorage.getItem('subjects');
     console.log('subjects: ',subjects);
     console.log('size: ',testCount);
+    console.log("innings", innings);
+    console.log('inningYear', inningYear);
     
-    var dictResult = {};
-
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
 
@@ -99,7 +101,8 @@ export default function Test(props) {
 
         const data = {
             token: token,
-            jsonData: JSON.stringify(text)
+            jsonData: JSON.stringify(text),
+            cbtId: cbtId
         }
 
         const requestOptions = {

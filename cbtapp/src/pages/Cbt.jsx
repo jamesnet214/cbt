@@ -97,7 +97,8 @@ export default function Cbt(props) {
         console.log("selectedInning: ", selectedInnings);
         var testType = testTypes.find(x => x.isChecked);
         var allowSubjects = subjects.filter(x=>x.isChecked).map((s) => { return s.sort } );
-        sessionStorage.setItem("innings", selectedInnings);
+        sessionStorage.setItem("inningYear", selectedInnings.year);
+        sessionStorage.setItem("innings", selectedInnings.inning);
         sessionStorage.setItem('testTypes', testType.count);
         sessionStorage.setItem('subjects', allowSubjects);
     
