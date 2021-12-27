@@ -119,7 +119,7 @@ export default function Test(props) {
             .then(function (response) {
                 const data = response.data;
                 console.log('saveTest completed:', data);
-                if (data == "1") {
+                if (data != "-1") {
                     history.push("/cbt/result");
                 }
         })
