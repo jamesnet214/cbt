@@ -23,15 +23,17 @@ export default function Result(props) {
         };
 
         Axios.post(
-            process.env.REACT_APP_SERVICE_URL + '/api/cbt/Get/User/Test', data, requestOptions)
+            process.env.REACT_APP_SERVICE_URL + '/api/cbt/test/result', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
                 console.log('getResult completed:', data);
                 setResult({ 
-                    title: data.title,
+                    seq: data.seq,
+                    testSubject: data.testSubject,
                     inning: data.inning,
-                    questions: data.questions,
+                    created: data.created
                 });
+                console.log("어디까지왔을까",result);
         })
         .catch(function (error) {
             console.log(error);
@@ -41,22 +43,20 @@ export default function Result(props) {
 
     return (
         <div>
-            결과 확인화면
+            <h1>결과 확인화면</h1>
             {result == null ? "잠시만 기다려주세요." : 
             <div>
-                <h1>{result.title}</h1>
-                <h6>{result.inning}</h6>
-                {result.questions.map((q, index) => {
+                <h1>시험과목: {result.testSubject}</h1>
+                <h1>회차정보: {result.inning}</h1>
+                {/* {result.map((q, index) => {
                     return (
                         <div>{q}</div>
                     );
-                })}
+                })} */}
             </div>
             }
             <h3>지난 시험결과 목록</h3>
-            <h6>2021 1회차 정보처리기사</h6>
-            <h6>2021 1회차 정보처리기사</h6>
-            <h6>2021 1회차 정보처리기사</h6>
+            <h6>2021 3회차 정보처리기사</h6>
         </div>
     );
 }
