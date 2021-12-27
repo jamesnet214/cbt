@@ -32,14 +32,14 @@ export default function Test(props) {
     let currentSubject = '';
     
 
-    const inningYear = sessionStorage.getItem('inningYear');
+    const inningYear = JSON.parse(sessionStorage.getItem('inningYear'));
     const innings = sessionStorage.getItem('innings');
     const testCount = sessionStorage.getItem('testTypes');
     const subjects = sessionStorage.getItem('subjects');
     console.log('subjects: ',subjects);
     console.log('size: ',testCount);
-    console.log("innings", innings);
-    console.log('inningYear', inningYear);
+    console.log("innings1", innings);
+    console.log('inningYear1', inningYear);
     
     React.useEffect(() => {
         console.log('cbt useEffect loaded');
