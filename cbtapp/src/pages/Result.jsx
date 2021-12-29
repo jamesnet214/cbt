@@ -2,6 +2,10 @@ import React from "react";
 import Axios from "axios";
 import Cookies from 'universal-cookie';
 import CircularProgress from '@mui/material/CircularProgress';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import Typography  from '@mui/material/Typography';
 
 export default function Result(props) {
     const [result, setResult] = React.useState(null);
@@ -34,21 +38,39 @@ export default function Result(props) {
                 setResult({ 
                     seq: data.seq,
                     testSubject: data.testSubject,
-                    inning: data.inning
+                    inning: data.inning,
+                    rightCount: data.rightCount,
+                    wrongCount: data.wrongCount
                 });
                 
                 setQuestions(data.resultQuestions);
                 
-                console.log('questions', questions);
-
-                setAnswers(data.resultAnswers);
-
-                console.log('Answers', answers);
+                
         })
         .catch(function (error) {
             console.log(error);
         }); 
     }, []);
+
+    console.log('questions', questions);
+
+    function initItemsTemplate() {
+        return questions.map((question, index) => {
+            question.isChecked = false;
+            question.id = index;
+            return (
+                <FormControlLabel key={index} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
+                    label={
+                        <Typography key={index.toString()} variant="body2"
+                            style={{ margin: '2px 0px 0px 0px' }}
+                            children={`${index + 1}. ${question.question}`}/>}
+                    control={<Checkbox 
+                        style={{ marginLeft: '0px'}} />}/>
+                        
+                        
+            );
+        })
+    }
 
 
     return (
@@ -58,19 +80,11 @@ export default function Result(props) {
                 <h1>시험결과정보</h1>
                 <h3>시험과목: {result.testSubject === "0" ? "정보처리기사" : ""}</h3>
                 <h3>회차정보: {result.inning}</h3>
-                {/* {result.map((ans, index) => {
-                    return (
-                        <div> */}
-                            {/* <div>{ans.seq}</div>
-                            <div>{ans.QuestionSeq}</div>
-                            <div>{ans.Id}</div>
-                            <div>{ans.Example}</div>
-                            <div>{ans.IsAnswer}</div>
-                            <div>{ans.IsChecked}</div>
-                            <div>{ans.RightAnswer}</div> */}
-                        {/* </div>
-                    );
-                })} */}
+                <h3>맞은갯수: {result.rightCount}</h3>
+                <h3>틀린갯수: {result.wrongCount}</h3>
+                <FormGroup>
+                    {initItemsTemplate()}
+                </FormGroup>
 
                 <h3>지난 시험결과</h3>
             </div>
