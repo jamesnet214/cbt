@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import Cookies from 'universal-cookie';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Result(props) {
     const [result, setResult] = React.useState(null);
@@ -42,19 +43,20 @@ export default function Result(props) {
 
     return (
         <div>
-            <h1>결과 확인화면</h1>
-            {result == null ? "잠시만 기다려주세요." : 
+            {result == null ? <CircularProgress /> :             
             <div>
-                <h1>시험과목: {result.testSubject}</h1>
-                <h1>회차정보: {result.inning}</h1>
+                <h1>시험결과정보</h1>
+                <h3>시험과목: {result.testSubject === "0" ? "정보처리기사" : ""}</h3>
+                <h3>회차정보: {result.inning}</h3>
                 {/* {result.map((q, index) => {
                     return (
                         <div>{q}</div>
                     );
                 })} */}
+
+                <h3>지난 시험결과</h3>
             </div>
             }
-            <h3>지난 시험결과</h3>
         </div>
     );
 }

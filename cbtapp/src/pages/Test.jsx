@@ -15,6 +15,7 @@ import CbtStepper from '../components/cbt/CbtStepper';
 import ResetIconButton from '../components/cbt/ResetIconButton';
 import Button from '@mui/material/Button';
 import Cookies from 'universal-cookie';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -30,6 +31,7 @@ export default function Test(props) {
     const [text, setText] = React.useState(null);
     const cbtId = props.cbtId;
     let currentSubject = '';
+    const [isCompleted, UseIsCompleted] = React.useState(false);
     
 
     const selectedInnings = JSON.parse(sessionStorage.getItem('selectedInnings'));
@@ -127,6 +129,8 @@ export default function Test(props) {
             console.log(error);
         }); 
 
+        UseIsCompleted(true);
+
         text.filter(x=>subjects.includes(x.subject)).slice(0, testCount).map((item, index) => {
             console.log(`${item.seq}: ${item.question}`, item);
         });
@@ -134,10 +138,12 @@ export default function Test(props) {
 
     return (
         <div className="frame-content">
+            {isCompleted == false ? 
             <Box style={{ minWidth: '200px', maxWidth: '600px', borderRight: '1px solid #dddddd', backgroundColor: '#f7f7f7' }}>
                 <div style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderBottom: '1px solid #dddddd', padding: '4px 24px 4px 24px', height: '36px', position: 'sticky', top: 0, zIndex: 9999 }}>
                     <Stack direction="row">
                         <Typography variant="h7" children={props.title} style={{marginTop: '8px'}}/>
+
                         <Box sx={{ flexGrow: 1 }} />
                         <Button 
                             variant="contained"
@@ -202,6 +208,8 @@ export default function Test(props) {
 
                 <div style={{height: '60px'}}/>
             </Box>
+            : <CircularProgress />
+            }
         </div>
     );
 }
