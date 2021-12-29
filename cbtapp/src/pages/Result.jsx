@@ -58,16 +58,33 @@ export default function Result(props) {
         return questions.map((question, index) => {
             question.isChecked = false;
             question.id = index;
-            return (
+
+            
+            return (                
                 <FormControlLabel key={index} className="papar-answer-content" style={{margin: '0px 15px 0px 15px'}}
                     label={
                         <Typography key={index.toString()} variant="body2"
                             style={{ margin: '2px 0px 0px 0px' }}
-                            children={`${index + 1}. ${question.question}`}/>}
+                            children={`${index + 1}. ${question.question} 
+                            ${JSON.stringify(question.resultAnswers[0].rightAnswer)}
+                            ${JSON.stringify(question.resultAnswers[0].id)}
+                            ${JSON.stringify(question.resultAnswers[0].example)}
+                            ${JSON.stringify(question.resultAnswers[1].rightAnswer)}
+                            ${JSON.stringify(question.resultAnswers[1].id)}
+                            ${JSON.stringify(question.resultAnswers[1].example)}
+                            ${JSON.stringify(question.resultAnswers[2].rightAnswer)}
+                            ${JSON.stringify(question.resultAnswers[2].id)}
+                            ${JSON.stringify(question.resultAnswers[2].example)}
+                            ${JSON.stringify(question.resultAnswers[3].rightAnswer)}
+                            ${JSON.stringify(question.resultAnswers[3].id)}
+                            ${JSON.stringify(question.resultAnswers[3].example)}
+                            `}
+                        />}
+                        
                     control={<Checkbox 
-                        style={{ marginLeft: '0px'}} />}/>
-                        
-                        
+                        style={{ marginLeft: '0px'}} 
+                    />}
+                />
             );
         })
     }
