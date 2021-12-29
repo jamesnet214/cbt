@@ -5,6 +5,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Result(props) {
     const [result, setResult] = React.useState(null);
+    const [answers, setAnswers] = React.useState([]);
+    const [questions, setQuestions] = React.useState([]);
     const cookies = new Cookies();
     const token = cookies.get('.cbt.devncore.org.authentication.session');
 
@@ -28,12 +30,20 @@ export default function Result(props) {
             .then(function (response) {
                 const data = response.data;
                 console.log('getResult completed:', data);
+                
                 setResult({ 
                     seq: data.seq,
                     testSubject: data.testSubject,
-                    inning: data.inning,
-                    created: data.created
+                    inning: data.inning
                 });
+                
+                setQuestions(data.resultQuestions);
+                
+                console.log('questions', questions);
+
+                setAnswers(data.resultAnswers);
+
+                console.log('Answers', answers);
         })
         .catch(function (error) {
             console.log(error);
@@ -48,9 +58,17 @@ export default function Result(props) {
                 <h1>시험결과정보</h1>
                 <h3>시험과목: {result.testSubject === "0" ? "정보처리기사" : ""}</h3>
                 <h3>회차정보: {result.inning}</h3>
-                {/* {result.map((q, index) => {
+                {/* {result.map((ans, index) => {
                     return (
-                        <div>{q}</div>
+                        <div> */}
+                            {/* <div>{ans.seq}</div>
+                            <div>{ans.QuestionSeq}</div>
+                            <div>{ans.Id}</div>
+                            <div>{ans.Example}</div>
+                            <div>{ans.IsAnswer}</div>
+                            <div>{ans.IsChecked}</div>
+                            <div>{ans.RightAnswer}</div> */}
+                        {/* </div>
                     );
                 })} */}
 

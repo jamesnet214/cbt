@@ -127,6 +127,7 @@ export default function Test(props) {
         })
         .catch(function (error) {
             console.log(error);
+            UseIsCompleted(false);
         }); 
 
         UseIsCompleted(true);
