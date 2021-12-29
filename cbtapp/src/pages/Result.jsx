@@ -33,7 +33,6 @@ export default function Result(props) {
                     inning: data.inning,
                     created: data.created
                 });
-                console.log("어디까지왔을까",result);
         })
         .catch(function (error) {
             console.log(error);
@@ -55,8 +54,7 @@ export default function Result(props) {
                 })} */}
             </div>
             }
-            <h3>지난 시험결과 목록</h3>
-            <h6>2021 3회차 정보처리기사</h6>
+            <h3>지난 시험결과</h3>
         </div>
     );
 }
