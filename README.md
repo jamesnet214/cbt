@@ -1,8 +1,4 @@
 # CBT 
-tbd...
-
-## 내용
-- TBD
 
 ## website
 https://cbt.devncore.org
@@ -17,7 +13,7 @@ https://cbt.devncore.org
 - npm install http-proxy-middleware
 
 ## Todo List
-### TBD...
+
 - [ ] 로컬호스트 Https SSL 적용
 - [ ] 답 선택했을 때 UI 표시
 - [ ] 답 선택(전체) 진행 UI 표시
@@ -28,6 +24,7 @@ https://cbt.devncore.org
 - [ ] 인증 로그인 연도 DB 설계 (MONGO DB WITH AWS)
 - [ ] 클라이언트 JWT 인증 구현
 - [ ] 채점결과 처리
+
 <br/>
 
 ### 필수기능
@@ -37,7 +34,8 @@ https://cbt.devncore.org
 - [ ]  각 시험에 데이터가 없는 회차는 안보이도록
 - [ ]  채점기능 (채점 완료버튼)
 
-------
+<br>
+
 ### 부가기능
 - [ ]  Site Url cbt -> exam 변경
 - [ ]  문제출제 탭에서 출제문제유형의 테스트 문제수는 선택한 과목당 문제수로 변경 (5,10,20)
