@@ -1,17 +1,9 @@
 import React from "react";
 import Axios from "axios";
-import { useLocation } from "react-router-dom";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { useHistory } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-import { Chip, MenuItem, Select, Typography } from "@mui/material";
+import { Chip, MenuItem, Typography } from "@mui/material";
 import Cookies from 'universal-cookie';
-import { alpha, styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import NcoreTextField from "../components/input/NcoreTextField";
 import NcoreButton from "../components/input/NcoreButton";
 import NcoreSelect from "../components/input/NcoreSelect";
@@ -28,7 +20,6 @@ export default function Settings(props) {
     const token = cookies.get('.cbt.devncore.org.authentication.session');
 
     console.log('ID: ', token);
-    let history = useHistory();
     
     const constExternals = [
         'Google',
@@ -47,9 +38,6 @@ export default function Settings(props) {
     };
 
     const handleExternal = (ext) => {
-        // alert('테스트')
-        // history.push("https://localhost:7073//Manage/ExternalLogins");
-        // window.location.href = "https://localhost:7073/Identity/Account/Manage/ExternalLogins";
         window.location.href = `${process.env.REACT_APP_SERVICE_URL}/Identity/Account/OAuthLogin?Provider=${ext}&Mode=Direct&Id=${userInfo.id}&ReturnUrl=~%2Fcbt#_=_`;
     }
 
@@ -68,7 +56,7 @@ export default function Settings(props) {
             Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/account/Delete/User/Provider', data, requestOptions)
                 .then(function (response) {
                     const data = response.data;
-                    if (data == "1"){
+                    if (data === 1){
                         getUserExternals();
                     }
                     else
@@ -80,7 +68,6 @@ export default function Settings(props) {
                     console.log(error);
                 });
         }
-       
     }
 
     React.useEffect(() => {
@@ -182,7 +169,7 @@ export default function Settings(props) {
         Axios.post(process.env.REACT_APP_SERVICE_URL + '/api/certificate/POST/Certificate', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
-                if (data == "1"){
+                if (data === 1){
                     getCertificates();
                     setCertificate('');
                 }
@@ -201,7 +188,7 @@ export default function Settings(props) {
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);
-                if (data == "1") {
+                if (data === 1) {
                     getEducations();
                     setEducation('');
                 }
@@ -244,7 +231,7 @@ export default function Settings(props) {
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);
-                if (data == "1") {
+                if (data === 1) {
                     getCertificates();
                 }
           })
@@ -262,7 +249,7 @@ export default function Settings(props) {
             .then(function (response) {
                 const data = response.data;
                 console.log('completed:', data);
-                if (data == "1") {
+                if (data === 1) {
                     getEducations();
                 }
           })
@@ -295,7 +282,7 @@ export default function Settings(props) {
                          marginBottom: 0,
                          fontWeight: 'normal'}}>
                          User Profile
-                    </div>               
+                    </div>
                     <Divider/>     
                     <NcoreSelect 
                         disabled
@@ -386,7 +373,6 @@ export default function Settings(props) {
                         <div style={{fontWeight: 'bold',fontSize: '18px',}}>
                             연결된 계정
                         </div>
-                        {/* <Button sx={{ ml: 5}} variant="contained" color="success" onClick={handleExternal}>다른 계정 추가</Button> */}
                     </div>
                     <div>{constExternals.map((ext, index)=>{
                         if (externals.some(v => v.loginProvider == ext))
@@ -419,11 +405,6 @@ export default function Settings(props) {
                 </>
                 : null
             }
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
         </Stack>
     );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { makeStyles, useTheme } from "@mui/styles";
-import { fontSize } from "@mui/system";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -13,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "none"
     }
 })); 
-
 
 export default function NcoreButton(props) {
     const classes = useStyles();
@@ -27,7 +25,5 @@ export default function NcoreButton(props) {
                 {...props}>
             </Button>
         </div>
-
     );
-
 }
