@@ -404,7 +404,11 @@ export default function Settings(props) {
                     })}</div>
                 </>
                 : null
+                
             }
+            <br />
+            <br />
+            <br />
         </Stack>
     );
 }
