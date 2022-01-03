@@ -102,7 +102,8 @@ export default function Test(props) {
 
         const data = {
             token: token,
-            jsonData: JSON.stringify(text),
+            // text > text.filter(x=>subjects.includes(x.subject)).slice(0, testCount) 변경 
+            jsonData: JSON.stringify(text.filter(x=>subjects.includes(x.subject)).slice(0, testCount)),
             cbtId: cbtId,
             Innings: selectedInnings,
         }
