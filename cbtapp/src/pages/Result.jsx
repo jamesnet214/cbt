@@ -69,6 +69,7 @@ export default function Result(props) {
                             children={`${index + 1}. ${answer.example}`} />}
 
                     control={<Checkbox
+                        defaultChecked 
                         style={{ marginLeft: '0px' }}
                     />}
                 />
@@ -81,11 +82,11 @@ export default function Result(props) {
         <div>
             {result == null ? <CircularProgress /> :             
             <div>
-                <h1>시험결과정보</h1>
-                <h3>시험과목: {result.testSubject === "0" ? "정보처리기사" : ""}</h3>
-                <h3>회차정보: {result.inning}</h3>
-                <h3>맞은갯수: {result.rightCount}</h3>
-                <h3>틀린갯수: {result.wrongCount}</h3>
+                <h1 style={{marginLeft: '20px'}}>시험결과정보</h1>
+                <h3 style={{marginLeft: '20px'}}>시험과목: {result.testSubject === "0" ? "정보처리기사" : ""}</h3>
+                <h3 style={{marginLeft: '20px'}}>회차정보: {result.inning}</h3>
+                <h3 style={{marginLeft: '20px'}}>맞은갯수: {result.rightCount}</h3>
+                <h3 style={{marginLeft: '20px'}}>틀린갯수: {result.wrongCount}</h3>
                 {
                     questions.map((item, i) => 
                     {
