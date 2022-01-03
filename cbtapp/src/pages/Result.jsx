@@ -6,6 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Typography  from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 export default function Result(props) {
     const [result, setResult] = React.useState(null);
@@ -33,7 +34,7 @@ export default function Result(props) {
             process.env.REACT_APP_SERVICE_URL + '/api/cbt/test/result', data, requestOptions)
             .then(function (response) {
                 const data = response.data;
-                console.log('getResult completed:', data);
+                console.log('푼 문제 확인:', response.data);
                 
                 setResult({ 
                     seq: data.seq,
@@ -54,10 +55,10 @@ export default function Result(props) {
 
     console.log('questions', questions);
 
-    function initItemsTemplate() {
-        return questions.map((question, index) => {
-            question.isChecked = false;
-            question.id = index;
+    function initItemsTemplate(item) {
+        return item.resultAnswers.map((answer, index) => {
+            answer.isChecked = false;
+            answer.id = index;
 
             
             return (                
@@ -65,24 +66,10 @@ export default function Result(props) {
                     label={
                         <Typography key={index.toString()} variant="body2"
                             style={{ margin: '2px 0px 0px 0px' }}
-                            children={`${index + 1}. ${question.question} 
-                            ${JSON.stringify(question.resultAnswers[0].rightAnswer)}
-                            ${JSON.stringify(question.resultAnswers[0].id)}
-                            ${JSON.stringify(question.resultAnswers[0].example)}
-                            ${JSON.stringify(question.resultAnswers[1].rightAnswer)}
-                            ${JSON.stringify(question.resultAnswers[1].id)}
-                            ${JSON.stringify(question.resultAnswers[1].example)}
-                            ${JSON.stringify(question.resultAnswers[2].rightAnswer)}
-                            ${JSON.stringify(question.resultAnswers[2].id)}
-                            ${JSON.stringify(question.resultAnswers[2].example)}
-                            ${JSON.stringify(question.resultAnswers[3].rightAnswer)}
-                            ${JSON.stringify(question.resultAnswers[3].id)}
-                            ${JSON.stringify(question.resultAnswers[3].example)}
-                            `}
-                        />}
-                        
-                    control={<Checkbox 
-                        style={{ marginLeft: '0px'}} 
+                            children={`${index + 1}. ${answer.example}`} />}
+
+                    control={<Checkbox
+                        style={{ marginLeft: '0px' }}
                     />}
                 />
             );
@@ -99,13 +86,42 @@ export default function Result(props) {
                 <h3>회차정보: {result.inning}</h3>
                 <h3>맞은갯수: {result.rightCount}</h3>
                 <h3>틀린갯수: {result.wrongCount}</h3>
-                <FormGroup>
-                    {initItemsTemplate()}
-                </FormGroup>
+                {
+                    questions.map((item, i) => 
+                    {
+                        return(
+                            <div className="paper-question"
+                            style={{
+                                border: ''
+                            }}>
+                            <Box className="papar-question-content">
+                                <Typography variant="body1" children={`${i + 1}. ${item.question}`}/>
+                            </Box>
+                            <Box>
+                                {item.infos != null ? 
+                                    item.infos.map((info, i) => {
+                                        return (
+                                            <Box key={i}>
+                                                <Box className="papar-question-content">
+                                                    <img src={info.src} style={{maxWidth: '400px'}}/>
+                                                </Box>
+                                            </Box>
+                                        );
+                                    })
+                                    : null
+                                }
+                            </Box>
+                            <FormGroup>
+                                {initItemsTemplate(item)}
+                                </FormGroup>
+                            </div>
+                        );
+                    }
 
+                )};
                 <h3>지난 시험결과</h3>
             </div>
-            }
+        }
         </div>
     );
 }
